@@ -1,0 +1,24 @@
+{
+  "title": "SAA-C03 Practice Question 1: Design Resilient Architectures",
+  "kind": "question",
+  "status": "not-started",
+  "skills": [
+    "aws-architecture",
+    "aws-availability"
+  ],
+  "source": {
+    "provider": "cloud-cert-practice-questions",
+    "item_id": "saa-c03-question-1",
+    "url": "https://github.com/fabricio852/cloud-certification-practice-questions/blob/main/aws/saa-c03/README.md"
+  },
+  "dates": {
+    "created": "2026-10-04",
+    "started": null,
+    "updated": "2026-10-04",
+    "completed": null
+  },
+  "tracking": {
+    "content_sha256": "04e805ce2a3ebd7ae9ab932e8a2e3c9387ee36e910612db7805c821bad10dd10"
+  },
+  "difficulty": "intermediate"
+}

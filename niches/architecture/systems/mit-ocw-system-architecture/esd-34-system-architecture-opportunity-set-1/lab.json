@@ -1,0 +1,22 @@
+{
+  "title": "ESD.34 System Architecture: Opportunity Set 1",
+  "kind": "problem",
+  "status": "not-started",
+  "skills": [
+    "systems-architecture"
+  ],
+  "source": {
+    "provider": "mit-ocw",
+    "item_id": "esd34-opportunity-set-1",
+    "url": "https://ocw.mit.edu/courses/esd-34-system-architecture-january-iap-2007/pages/assignments/"
+  },
+  "dates": {
+    "created": "2026-10-04",
+    "started": null,
+    "updated": "2026-10-04",
+    "completed": null
+  },
+  "tracking": {
+    "content_sha256": "627242ed50d1fa4c4626f41f3cf184285a598efaa9d5d5f7e6e689d5c6645c1f"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "title": "CKS: Restrict Backend Traffic with a NetworkPolicy",
+  "kind": "challenge",
+  "status": "not-started",
+  "skills": [
+    "kubernetes-network-policy"
+  ],
+  "source": {
+    "provider": "ck-x",
+    "item_id": "cks-exam001-question1",
+    "url": "https://github.com/sailor-sh/CK-X/blob/master/facilitator/assets/exams/cks/001/assessment.json"
+  },
+  "dates": {
+    "created": "2026-10-04",
+    "started": null,
+    "updated": "2026-10-04",
+    "completed": null
+  },
+  "tracking": {
+    "content_sha256": "1cc06a53f865821d1d7a7e4eb8ac22461791845001a6f613160c2690cf101087"
+  }
+}

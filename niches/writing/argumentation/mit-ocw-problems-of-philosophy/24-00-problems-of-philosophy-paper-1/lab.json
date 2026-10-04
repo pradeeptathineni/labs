@@ -1,0 +1,23 @@
+{
+  "title": "24.00 Problems of Philosophy: Paper 1",
+  "kind": "prompt",
+  "status": "not-started",
+  "skills": [
+    "argument-analysis",
+    "epistemology"
+  ],
+  "source": {
+    "provider": "mit-ocw",
+    "item_id": "24-00-fall-2019-paper-1",
+    "url": "https://ocw.mit.edu/courses/24-00-problems-of-philosophy-fall-2019/pages/assignments/"
+  },
+  "dates": {
+    "created": "2026-10-04",
+    "started": null,
+    "updated": "2026-10-04",
+    "completed": null
+  },
+  "tracking": {
+    "content_sha256": "f721c47dd7d153814210a582f9d9f70022a6eb57e635dc127d2deb2b1b60ba2c"
+  }
+}

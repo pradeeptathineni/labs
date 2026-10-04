@@ -1,0 +1,24 @@
+{
+  "title": "Project Gutenberg (TidyTuesday 2025-06-03)",
+  "kind": "challenge",
+  "status": "not-started",
+  "skills": [
+    "data-exploration",
+    "data-visualization",
+    "r"
+  ],
+  "source": {
+    "provider": "tidytuesday",
+    "item_id": "2025-06-03",
+    "url": "https://github.com/rfordatascience/tidytuesday/tree/main/data/2025/2025-06-03"
+  },
+  "dates": {
+    "created": "2026-10-04",
+    "started": null,
+    "updated": "2026-10-04",
+    "completed": null
+  },
+  "tracking": {
+    "content_sha256": "e5b4ff42791a65a81f6136408f1ba36b440d010ad3140ff18ca565bac4cf1055"
+  }
+}

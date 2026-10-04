@@ -1,0 +1,20 @@
+{
+  "title": "SAA-C03 Architecture Trade-off Notes",
+  "kind": "prompt",
+  "status": "not-started",
+  "skills": [
+    "aws-architecture"
+  ],
+  "source": {
+    "provider": "created"
+  },
+  "dates": {
+    "created": "2026-10-04",
+    "started": null,
+    "updated": "2026-10-04",
+    "completed": null
+  },
+  "tracking": {
+    "content_sha256": "58d4438bc611f4ddf569f7a0fdbc257bfa8b1f3f78da78c2a9fdeb34f2aa1890"
+  }
+}

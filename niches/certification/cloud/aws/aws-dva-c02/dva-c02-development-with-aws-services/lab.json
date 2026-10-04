@@ -1,0 +1,22 @@
+{
+  "title": "DVA-C02: Development with AWS Services",
+  "kind": "exercise",
+  "status": "not-started",
+  "skills": [
+    "aws-development"
+  ],
+  "source": {
+    "provider": "ihatesea69-dva-study-plan",
+    "item_id": "domain-1-development-with-aws-services",
+    "url": "https://github.com/ihatesea69/aws-dva-c02-study-plan"
+  },
+  "dates": {
+    "created": "2026-10-04",
+    "started": null,
+    "updated": "2026-10-04",
+    "completed": null
+  },
+  "tracking": {
+    "content_sha256": "6a9042d44b06f9debeb4e9afd7ee1afcbdb17f1779aae06a81d118da28987153"
+  }
+}

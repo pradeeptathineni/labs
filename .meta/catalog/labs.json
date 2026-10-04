@@ -1,5 +1,270 @@
 [
   {
+    "title": "ESD.34 System Architecture: Opportunity Set 1",
+    "kind": "problem",
+    "status": "not-started",
+    "skills": [
+      "systems-architecture"
+    ],
+    "source": {
+      "provider": "mit-ocw",
+      "item_id": "esd34-opportunity-set-1",
+      "url": "https://ocw.mit.edu/courses/esd-34-system-architecture-january-iap-2007/pages/assignments/"
+    },
+    "dates": {
+      "created": "2026-10-04",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "tracking": {
+      "content_sha256": "627242ed50d1fa4c4626f41f3cf184285a598efaa9d5d5f7e6e689d5c6645c1f"
+    },
+    "niche": "architecture",
+    "domain": "systems",
+    "subdomain": null,
+    "collection": "mit-ocw-system-architecture",
+    "slug": "esd-34-system-architecture-opportunity-set-1",
+    "order": null,
+    "path": "niches/architecture/systems/mit-ocw-system-architecture/esd-34-system-architecture-opportunity-set-1"
+  },
+  {
+    "title": "AWS CLF-C02 Question q003: EC2 Termination Actor",
+    "kind": "question",
+    "status": "not-started",
+    "skills": [
+      "aws-cloudtrail",
+      "aws-ec2"
+    ],
+    "source": {
+      "provider": "cloudcertprep",
+      "item_id": "clf-c02-domain2-q003",
+      "url": "https://github.com/nastaso/cloudcertprep/blob/main/src/data/clf-c02/domain2.json"
+    },
+    "dates": {
+      "created": "2026-10-04",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "tracking": {
+      "content_sha256": "8832205792edf52229753e3587fa3a9a44b2fe62ed4292bc5be6b1d8f91be221"
+    },
+    "niche": "certification",
+    "domain": "cloud",
+    "subdomain": "aws",
+    "collection": "aws-clf-c02",
+    "slug": "aws-clf-c02-question-q003-ec2-termination-actor",
+    "order": null,
+    "path": "niches/certification/cloud/aws/aws-clf-c02/aws-clf-c02-question-q003-ec2-termination-actor",
+    "difficulty": "beginner"
+  },
+  {
+    "title": "DVA-C02: Development with AWS Services",
+    "kind": "exercise",
+    "status": "not-started",
+    "skills": [
+      "aws-development"
+    ],
+    "source": {
+      "provider": "ihatesea69-dva-study-plan",
+      "item_id": "domain-1-development-with-aws-services",
+      "url": "https://github.com/ihatesea69/aws-dva-c02-study-plan"
+    },
+    "dates": {
+      "created": "2026-10-04",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "tracking": {
+      "content_sha256": "6a9042d44b06f9debeb4e9afd7ee1afcbdb17f1779aae06a81d118da28987153"
+    },
+    "niche": "certification",
+    "domain": "cloud",
+    "subdomain": "aws",
+    "collection": "aws-dva-c02",
+    "slug": "dva-c02-development-with-aws-services",
+    "order": null,
+    "path": "niches/certification/cloud/aws/aws-dva-c02/dva-c02-development-with-aws-services"
+  },
+  {
+    "title": "SAA-C03 Architecture Trade-off Notes",
+    "kind": "prompt",
+    "status": "not-started",
+    "skills": [
+      "aws-architecture"
+    ],
+    "source": {
+      "provider": "created"
+    },
+    "dates": {
+      "created": "2026-10-04",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "tracking": {
+      "content_sha256": "58d4438bc611f4ddf569f7a0fdbc257bfa8b1f3f78da78c2a9fdeb34f2aa1890"
+    },
+    "niche": "certification",
+    "domain": "cloud",
+    "subdomain": "aws",
+    "collection": "aws-saa-c03",
+    "slug": "saa-c03-architecture-trade-off-notes",
+    "order": null,
+    "path": "niches/certification/cloud/aws/aws-saa-c03/saa-c03-architecture-trade-off-notes"
+  },
+  {
+    "title": "SAA-C03 Practice Question 1: Design Resilient Architectures",
+    "kind": "question",
+    "status": "not-started",
+    "skills": [
+      "aws-architecture",
+      "aws-availability"
+    ],
+    "source": {
+      "provider": "cloud-cert-practice-questions",
+      "item_id": "saa-c03-question-1",
+      "url": "https://github.com/fabricio852/cloud-certification-practice-questions/blob/main/aws/saa-c03/README.md"
+    },
+    "dates": {
+      "created": "2026-10-04",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "tracking": {
+      "content_sha256": "04e805ce2a3ebd7ae9ab932e8a2e3c9387ee36e910612db7805c821bad10dd10"
+    },
+    "niche": "certification",
+    "domain": "cloud",
+    "subdomain": "aws",
+    "collection": "aws-saa-c03",
+    "slug": "saa-c03-practice-question-1-design-resilient-architectures",
+    "order": null,
+    "path": "niches/certification/cloud/aws/aws-saa-c03/saa-c03-practice-question-1-design-resilient-architectures",
+    "difficulty": "intermediate"
+  },
+  {
+    "title": "Exercise 01: Pod Basics",
+    "kind": "exercise",
+    "status": "not-started",
+    "skills": [
+      "kubernetes-pods"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercise-01-pod-basics",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/main/exercises/01-pod-basics/README.md"
+    },
+    "dates": {
+      "created": "2026-10-04",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "tracking": {
+      "content_sha256": "3146b5ef4ad6470c7f1c65f2f63199a10e08a81e84bd387ff6b2ee577ca009d1"
+    },
+    "niche": "certification",
+    "domain": "devops",
+    "subdomain": "kubernetes",
+    "collection": "cka",
+    "slug": "exercise-01-pod-basics",
+    "order": null,
+    "path": "niches/certification/devops/kubernetes/cka/exercise-01-pod-basics"
+  },
+  {
+    "title": "CKAD: Deploy Three Nginx Replicas",
+    "kind": "challenge",
+    "status": "not-started",
+    "skills": [
+      "kubernetes-deployments"
+    ],
+    "source": {
+      "provider": "ck-x",
+      "item_id": "ckad-exam001-question1",
+      "url": "https://github.com/sailor-sh/CK-X/blob/master/facilitator/assets/exams/ckad/001/assessment.json"
+    },
+    "dates": {
+      "created": "2026-10-04",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "tracking": {
+      "content_sha256": "4c5ee499ff77c014687d711713d9f29db18512b26c9baabd8bd1fca1258d1335"
+    },
+    "niche": "certification",
+    "domain": "devops",
+    "subdomain": "kubernetes",
+    "collection": "ckad",
+    "slug": "ckad-deploy-three-nginx-replicas",
+    "order": null,
+    "path": "niches/certification/devops/kubernetes/ckad/ckad-deploy-three-nginx-replicas"
+  },
+  {
+    "title": "CKS: Restrict Backend Traffic with a NetworkPolicy",
+    "kind": "challenge",
+    "status": "not-started",
+    "skills": [
+      "kubernetes-network-policy"
+    ],
+    "source": {
+      "provider": "ck-x",
+      "item_id": "cks-exam001-question1",
+      "url": "https://github.com/sailor-sh/CK-X/blob/master/facilitator/assets/exams/cks/001/assessment.json"
+    },
+    "dates": {
+      "created": "2026-10-04",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "tracking": {
+      "content_sha256": "1cc06a53f865821d1d7a7e4eb8ac22461791845001a6f613160c2690cf101087"
+    },
+    "niche": "certification",
+    "domain": "devops",
+    "subdomain": "kubernetes",
+    "collection": "cks",
+    "slug": "cks-restrict-backend-traffic-with-a-networkpolicy",
+    "order": null,
+    "path": "niches/certification/devops/kubernetes/cks/cks-restrict-backend-traffic-with-a-networkpolicy"
+  },
+  {
+    "title": "Project Gutenberg (TidyTuesday 2025-06-03)",
+    "kind": "challenge",
+    "status": "not-started",
+    "skills": [
+      "data-exploration",
+      "data-visualization",
+      "r"
+    ],
+    "source": {
+      "provider": "tidytuesday",
+      "item_id": "2025-06-03",
+      "url": "https://github.com/rfordatascience/tidytuesday/tree/main/data/2025/2025-06-03"
+    },
+    "dates": {
+      "created": "2026-10-04",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "tracking": {
+      "content_sha256": "e5b4ff42791a65a81f6136408f1ba36b440d010ad3140ff18ca565bac4cf1055"
+    },
+    "niche": "code",
+    "domain": "data",
+    "subdomain": null,
+    "collection": "tidytuesday",
+    "slug": "project-gutenberg-tidytuesday-2025-06-03",
+    "order": null,
+    "path": "niches/code/data/tidytuesday/project-gutenberg-tidytuesday-2025-06-03"
+  },
+  {
     "title": "Server Performance Stats",
     "kind": "project",
     "status": "not-started",
@@ -886,5 +1151,126 @@
     "order": 26,
     "path": "niches/code/devops/roadmap-sh/26-service-discovery",
     "difficulty": "advanced"
+  },
+  {
+    "title": "SQL injection vulnerability allowing login bypass",
+    "kind": "exercise",
+    "status": "not-started",
+    "skills": [
+      "authentication",
+      "sql-injection",
+      "web-security"
+    ],
+    "source": {
+      "provider": "portswigger-web-security-academy",
+      "item_id": "sql-injection-login-bypass",
+      "url": "https://portswigger.net/web-security/sql-injection/lab-login-bypass"
+    },
+    "dates": {
+      "created": "2026-10-04",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "tracking": {
+      "content_sha256": "549d02b5a3a5f16506874a6efc2de3207594889eb747d086fb637bbae3fe8549"
+    },
+    "niche": "code",
+    "domain": "security",
+    "subdomain": "web",
+    "collection": "portswigger",
+    "slug": "sql-injection-vulnerability-allowing-login-bypass",
+    "order": null,
+    "path": "niches/code/security/web/portswigger/sql-injection-vulnerability-allowing-login-bypass"
+  },
+  {
+    "title": "REST API with Auth",
+    "kind": "project",
+    "status": "not-started",
+    "skills": [
+      "api-design",
+      "backend-development"
+    ],
+    "source": {
+      "provider": "devroadmaps",
+      "item_id": "backend-rest-api-with-auth",
+      "url": "https://github.com/rudra496/devroadmaps/blob/master/js/project-ideas.js"
+    },
+    "dates": {
+      "created": "2026-10-04",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "tracking": {
+      "content_sha256": "2cd862d21d337ad118d01d1e6c0cc91e96309bc2750ccf85c6add0af5dde725e"
+    },
+    "niche": "code",
+    "domain": "software",
+    "subdomain": "backend",
+    "collection": "devroadmaps",
+    "slug": "rest-api-with-auth",
+    "order": null,
+    "path": "niches/code/software/backend/devroadmaps/rest-api-with-auth",
+    "difficulty": "beginner"
+  },
+  {
+    "title": "Multiples of 3 or 5",
+    "kind": "problem",
+    "status": "not-started",
+    "skills": [
+      "number-theory"
+    ],
+    "source": {
+      "provider": "project-euler",
+      "item_id": "problem-1",
+      "url": "https://projecteuler.net/problem=1"
+    },
+    "dates": {
+      "created": "2026-10-04",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "tracking": {
+      "content_sha256": "9a34f26b95ead6c678d4637663df5467dd4ea52dbf410b38ed39342283226ef4"
+    },
+    "niche": "mathematics",
+    "domain": "problem-solving",
+    "subdomain": null,
+    "collection": "project-euler",
+    "slug": "multiples-of-3-or-5",
+    "order": null,
+    "path": "niches/mathematics/problem-solving/project-euler/multiples-of-3-or-5"
+  },
+  {
+    "title": "24.00 Problems of Philosophy: Paper 1",
+    "kind": "prompt",
+    "status": "not-started",
+    "skills": [
+      "argument-analysis",
+      "epistemology"
+    ],
+    "source": {
+      "provider": "mit-ocw",
+      "item_id": "24-00-fall-2019-paper-1",
+      "url": "https://ocw.mit.edu/courses/24-00-problems-of-philosophy-fall-2019/pages/assignments/"
+    },
+    "dates": {
+      "created": "2026-10-04",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "tracking": {
+      "content_sha256": "f721c47dd7d153814210a582f9d9f70022a6eb57e635dc127d2deb2b1b60ba2c"
+    },
+    "niche": "writing",
+    "domain": "argumentation",
+    "subdomain": null,
+    "collection": "mit-ocw-problems-of-philosophy",
+    "slug": "00-problems-of-philosophy-paper-1",
+    "order": 24,
+    "path": "niches/writing/argumentation/mit-ocw-problems-of-philosophy/24-00-problems-of-philosophy-paper-1"
   }
 ]

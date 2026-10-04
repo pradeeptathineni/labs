@@ -2,13 +2,13 @@
 
 `labs` is a working collection and showcase of problems/challenges I solve, practices/principles I employ, and ideas/curiosities I explore across different niches and domains.
 
-A lab is synonymous to a problem, exercise, or challenge that aims to test my critical thinking, problem-solving, and decision-making.
+A lab is synonymous with a problem, exercise, challenge, prompt, investigation, experiment, project, or case that tests my critical thinking, problem-solving, and decision-making.
 
 ## Structure
 
-The actual work lives under [`niches/`](niches/), nearby a generated labs [catalog](CATALOG.md). Repository/metadata/catalog logic lives tucked away under [`.meta/`](.meta/).
+The actual work lives under [`niches/`](niches/), beside the generated [lab catalog](CATALOG.md). Repository, metadata, and catalog logic lives tucked away under [`.meta/`](.meta/).
 
-The repository is intentionally broad at the top level. Code is one way to practice critical thinking; research, design, teaching, writing, and numerous other niches that interest me have differing styles and requirements.
+The repository is intentionally broad at the top level. Code is one way to practice critical thinking; research, design, teaching, writing, and plenty of other areas that interest me have their own styles and requirements.
 
 Consider a seemingly simple problem: report generation.
 
@@ -24,55 +24,49 @@ All of those concerns fit together, but each asks for a different kind of proble
 
 ## Lab organization
 
-A lab can live at either level defined below, depending on whether a domain helps organize it:
+A lab has one home. Every path follows one of these two shapes:
 
 ```text
-niches/<niche>/<source>/<lab>/
-niches/<niche>/<domain>/<source>/<lab>/
+niches/<niche>/<domain>/<collection>/<lab>/
+niches/<niche>/<domain>/<subdomain>/<collection>/<lab>/
 ```
 
-- `<niche>` — a broad problem-solving area, such as `code`.
-- `<domain>` — an optional discipline within the niche, such as `devops`.
-- `<source>` — the original source provider of the exercise, such as `roadmap-sh`.
-  - `<registered-id>` when an external provider.
-  - `created` when personally synthesized.
-  - `organization` when received organizationally (company, interview, event, hackathon, etc).
-  - `generated` when AI-generated.
-  - All sources of all types are strictly registered under `.meta/catalog/sources.json`.
-- `<lab>` — the individual exercise, optionally numbered when its collection has an order.
+- `<niche>` — a broad style/area of problem-solving, such as `code`, `research`, `writing`, `certification`, or `architecture`.
+- `<domain>` — a recognizable discipline, such as `devops`, `cloud`, `software`, `argumentation`, or `systems`.
+- `<subdomain>` — one optional specialization level, such as `aws`, `kubernetes`, `backend`, `web`, or `observability`.
+- `<collection>` — a coherent body of work somebody would browse together: a curriculum, challenge series, certification, topic set, course, or annual challenge.
+- `<lab>` — one bounded problem, exercise, prompt, investigation, experiment, project, or case. A numeric folder prefix is used only when that collection is ordered.
 
 For example:
 
 ```text
 niches/code/devops/roadmap-sh/01-server-performance-stats/
-niches/code/devops/organization/eng-challenge-aws-terraform/  *A lab can solicit its own repo.*
-niches/code/devops/generated/01-claude-devops-challenge/
-niches/research/software/created/finding-prior-art/
-niches/research/ai/created/grounding-gen-ai/
-niches/research/created/conducting-research/  *A lab can be niche-level.*
+niches/code/software/backend/devroadmaps/rest-api-with-auth/
+niches/certification/cloud/aws/aws-saa-c03/saa-c03-practice-question-1-design-resilient-architectures/
+niches/writing/argumentation/mit-ocw-problems-of-philosophy/24-00-problems-of-philosophy-paper-1/
 ```
 
-Each lab starts with a `README.md` and `lab.json`. The README links to external material when there is any; the metadata stores the details worth cataloging. Solution work gets whatever structure it actually needs, such as `src/` or `solution/`.
+**Hierarchy = primary human browsing identity. Metadata = provenance and cross-cutting facts.** A source can contribute work to several collections, and a collection can contain work from several sources. Source/provider is never a path level.
+
+Each lab starts with a `README.md` and `lab.json`. The README links to external material when there is any; `lab.json` stores the details worth cataloging. Solution work gets whatever structure it actually needs, such as `src/` or `solution/`.
 
 > [!IMPORTANT]
-> Everything here is for my own education and practice, and to showcase my critical thinking, problem-solving, and decision-making. When I use someone else's work, I cite the original source and give its creators credit.
+> Everything here is for my own education and practice, and to showcase my critical thinking, problem-solving, and decision-making. When I use someone else's work, I cite the original source and give its creators credit. I keep copied material with its license notices and attribution; some sources are link-only or need a specific review first.
+
+## Metadata and scripts
+
+The source registry, schemas, generated catalogs, and small maintenance tools live under [`.meta/`](.meta/README.md). The scripts work from the filesystem hierarchy and metadata; adding a niche, collection, or source does not require generic Python changes.
+
+```bash
+python3 .meta/scripts/lab_init.py --interactive
+python3 .meta/scripts/lab_meta.py --interactive
+python3 .meta/scripts/source_meta.py create --interactive
+python3 .meta/scripts/lab_sync.py
+python3 .meta/scripts/catalog.py
+```
 
 ---
 
-### Setting up for the future:
+### Looking ahead
 
-As I consistently furnish this repo and evolve with my interests over the years, I could imagine critical thinking nuances like:
-
-```text
-niches/communication/unity/created/effective-teamwork/
-niches/communication/discourse/created/effective-debate/
-niches/writing/essay/created/critical-thinking-prompts/
-niches/writing/essay/created/critical-thinking-prompts/
-niches/writing/essay/generated/critical-thinking-prompts/
-niches/life/finances/...
-niches/life/investing/...
-niches/leadership/...
-niches/business/...
-```
-
-Hierarchy structuring and automation will also evolve as the repo grows. Might have to reconsider the labs/ name with the idea having become an aggregation of personal critical thinking, problem solving, decision making, patterns, and practices.
+As I keep furnishing this repo and evolve with my interests, I can imagine more niches and disciplines: communication, argumentation, mathematics, finance, leadership, architecture, and plenty more. The hierarchy can grow without inventing another universal path level. Might eventually have to reconsider the `labs/` name with the idea having become a larger aggregation of personal critical thinking, problem-solving, decisions, patterns, and practices.
