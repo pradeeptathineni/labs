@@ -4,7 +4,7 @@
 
 A source record has a name and one of `external`, `organization`, or `local`. External sources have a canonical URL and reuse policy. An organizational source can omit its public URL; local sources need neither. `copy`, `link-only`, and `review` are operational policies for these tools, with evidence scoped to the source material reviewed. A registered provider name does not make every linked asset safe to copy.
 
-A collection may have `collection.json` with a display title, `ordered: true`, or shared goals. Without `ordered: true`, numeric-looking lab names are ordinary slugs. Ordered collections require unique positive prefixes and append after the highest number.
+A collection may have `collection.json` with a display title, a collection-level `source_url`, `ordered: true`, or shared goals. The catalog links a collection heading to `source_url` and each lab's `ref` to its own source URL. Without `ordered: true`, numeric-looking lab names are ordinary slugs. Ordered collections require unique positive prefixes and append after the highest number.
 
 As a die-hard automater, I wanted the aggregate catalog generated from the get-go. Keeping metadata beside the work makes each lab portable and prevents the central index from becoming another hand-maintained database. Sure, I maintain a metadata file for each lab. That's the particular absurdity I've chosen.
 

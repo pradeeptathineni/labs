@@ -210,6 +210,8 @@ def lab_record(path: Path, metadata: Any, sources: dict[str, Any], schema: dict[
     })
     descriptor = collection_info(path.parent.parent)
     record["collection_title"] = descriptor.get("title") or _readme_title(path.parent.parent) or collection.replace("-", " ")
+    if "source_url" in descriptor:
+        record["collection_source_url"] = descriptor["source_url"]
     record["goals_effective"] = sorted(set(metadata.get("goals", [])) | set(descriptor.get("goals", [])))
     question_file = path.parent / "questions.json"
     if metadata["type"] == "question-bank" and question_file.is_file():
@@ -282,10 +284,26 @@ def _label(value: str) -> str:
     return value.replace("-", " ").capitalize()
 
 
-def render_catalog(records: list[dict[str, Any]], sources: dict[str, Any]) -> str:
+def render_catalog(records: list[dict[str, Any]]) -> str:
     statuses = Counter(item["tracking"]["status"] for item in records)
     types = Counter(item["type"] for item in records)
-    lines = ["# Lab Catalog", "", f"{len(records)} labs: {statuses['in-progress']} in progress, {statuses['complete']} complete, {statuses['paused']} paused, {statuses['abandoned']} abandoned, {statuses['not-started']} planned.", "", "Types: " + ", ".join(f"{_label(key)} {value}" for key, value in sorted(types.items())) + ".", "", "Imported material is planned practice until I record work. Skills are targets, and the update date records a content snapshot.", ""]
+    lines = [
+        "<style>",
+        "small {",
+        "  display: inline-block;",
+        "  margin: 0 0 6px 15px;",
+        "}",
+        "</style>",
+        "",
+        "# Lab Catalog",
+        "",
+        f"{len(records)} labs: {statuses['in-progress']} in progress, {statuses['complete']} complete, {statuses['paused']} paused, {statuses['abandoned']} abandoned, {statuses['not-started']} planned.",
+        "",
+        "Types: " + ", ".join(f"{_label(key)} {value}" for key, value in sorted(types.items())) + ".",
+        "",
+        "Imported material is planned practice until I record work. Skills are targets, and the update date records a content snapshot.",
+        "",
+    ]
     skills = Counter(skill for item in records for skill in item["skills"])
     if skills:
         lines += ["<details>", "<summary>Find work by skill</summary>", ""]
@@ -308,30 +326,35 @@ def render_catalog(records: list[dict[str, Any]], sources: dict[str, Any]) -> st
     ranked = sorted(groups.items(), key=lambda pair: (not any(item["tracking"]["status"] != "not-started" for item in pair[1]), pair[0][0], pair[0][1], pair[0][2] or "", pair[0][3]))
     for (niche, domain, group, collection), items in ranked:
         title = items[0]["collection_title"]
-        breadcrumb = " / ".join(filter(None, (niche, domain, group)))
+        breadcrumb = " / ".join(filter(None, (niche, domain, group, collection)))
         collection_path = (ROOT / items[0]["path"]).parent
         readme = collection_path / "README.md"
-        heading = f"[{_escape(title)}]({display_path(readme)})" if readme.is_file() else _escape(title)
-        lines += [f"## {heading}", "", f"{breadcrumb} · {len(items)} lab{'s' if len(items) != 1 else ''}", ""]
+        source_url = items[0].get("collection_source_url")
+        show_source_name = not source_url or len({item["source"]["provider"] for item in items}) > 1
+        heading = f"[{_escape(title)}]({source_url})" if source_url else _escape(title)
+        notes = f" · [notes]({display_path(readme)})" if readme.is_file() else ""
+        lines += [f"## {heading}", "", f"{breadcrumb} · {len(items)} lab{'s' if len(items) != 1 else ''}{notes}", ""]
         active = [item for item in items if item["tracking"]["status"] != "not-started"]
         planned = [item for item in items if item["tracking"]["status"] == "not-started"]
         for item in active:
-            lines += _catalog_entry(item, sources)
+            lines += _catalog_entry(item, show_source_name)
+        if active:
+            lines.append("")
         if planned and len(planned) > 6:
             lines += ["<details>", f"<summary>{len(planned)} planned labs</summary>", ""]
         for item in planned:
-            lines += _catalog_entry(item, sources)
+            lines += _catalog_entry(item, show_source_name)
+        if planned:
+            lines.append("")
         if planned and len(planned) > 6:
             lines += ["</details>", ""]
     return "\n".join(lines).rstrip() + "\n"
 
 
-def _catalog_entry(item: dict[str, Any], sources: dict[str, Any]) -> list[str]:
+def _catalog_entry(item: dict[str, Any], show_source_name: bool) -> list[str]:
     base = item["path"]
     source = item["source"]
-    source_name = _escape(sources[source["provider"]]["name"])
-    attribution = f"[{source_name}]({source['url']})" if source.get("url") else source_name
-    number = f"{item['order']}. " if item["order"] is not None else ""
+    marker = f"{item['order']}." if item["order"] is not None else "-"
     summary = item.get("summary", "Open the source brief and work through the exercise.")
     readme = ROOT / base / "README.md"
     exercise = f"[{_escape(item['title'])}]({base}/README.md#exercise-definition)" if readme.is_file() else _escape(item["title"])
@@ -343,11 +366,23 @@ def _catalog_entry(item: dict[str, Any], sources: dict[str, Any]) -> list[str]:
         solution_link = f" · [Solution]({base}/README.md#solution)"
     else:
         solution_link = ""
-    count = f" · {item['question_count']} materialized questions" if "question_count" in item else ""
-    details = f"{_label(item['type'])} · {_label(item['tracking']['status'])}{count} · {attribution} · updated {item['tracking']['dates']['updated']}"
-    goals = f" · goals: {', '.join(item['goals_effective'])}" if item["goals_effective"] else ""
-    skills = f" · skills: {', '.join(item['skills'])}" if item["skills"] else ""
-    return [f"<a id=\"{_anchor(item)}\"></a>", f"- {number}{exercise}{solution_link} — {_escape(summary)}", f"  <small>{details}{skills}{goals}</small>", ""]
+    details = [f"`{_label(item['type'])}`", f"`{_label(item['tracking']['status'])}`"]
+    if "question_count" in item:
+        details.append(f"`{item['question_count']} materialized questions`")
+    details.append(f"`updated {item['tracking']['dates']['updated']}`")
+    if item["skills"]:
+        details.append(" ".join(f"`{skill}`" for skill in item["skills"]))
+    if item["goals_effective"]:
+        details.append(" ".join(f"`goal: {goal}`" for goal in item["goals_effective"]))
+    if show_source_name:
+        details.append(f"`{item['source_display']['name']}`")
+    if source.get("url"):
+        details.append(f"[`ref`]({source['url']})")
+    indent = " " * (len(marker) + 1)
+    return [
+        f"{marker} <a id=\"{_anchor(item)}\"></a>{exercise}{solution_link} — {_escape(summary)}",
+        f"{indent}<br/><small>{' · '.join(details)}</small>",
+    ]
 
 
 def _anchor(item: dict[str, Any]) -> str:
@@ -395,7 +430,7 @@ def write_text_atomic(path: Path, content: str) -> None:
 
 
 def expected_catalogs(records: list[dict[str, Any]], sources: dict[str, Any]) -> dict[Path, str]:
-    return {LABS_PATH: render_labs(records), CATALOG_PATH: render_catalog(records, sources)}
+    return {LABS_PATH: render_labs(records), CATALOG_PATH: render_catalog(records)}
 
 
 def write_catalog(records: list[dict[str, Any]], sources: dict[str, Any]) -> None:

@@ -105,6 +105,30 @@ class CoreTests(RepositoryCase):
         result = self.command("scripts", "catalog.py", "--check")
         self.assertIn("both collection and group", result.stderr)
 
+    def test_catalog_collection_links_and_multiline_entries(self) -> None:
+        collection = self.root / "niches/code/cloud/aws/projects"
+        collection.mkdir(parents=True)
+        (collection / "collection.json").write_text(json.dumps({
+            "title": "Example projects",
+            "source_url": "https://example.com/projects",
+            "ordered": True,
+        }))
+        self.init("code", "cloud", "projects", "First task", "--group", "aws", "--summary", "First summary", "--source", "roadmap-sh", "--source-url", "https://example.com/first", "--skill", "aws", "--skill", "route53")
+        self.init("code", "cloud", "projects", "Second task", "--group", "aws", "--source", "roadmap-sh", "--source-url", "https://example.com/second")
+        self.init("code", "cloud", "other", "Unordered task")
+        catalog = (self.root / "CATALOG.md").read_text().splitlines()
+        self.assertEqual(catalog[:8], ["<style>", "small {", "  display: inline-block;", "  margin: 0 0 6px 15px;", "}", "</style>", "", "# Lab Catalog"])
+        self.assertIn("## [Example projects](https://example.com/projects)", catalog)
+        self.assertIn("code / cloud / aws / projects · 2 labs", catalog)
+        first = next(index for index, line in enumerate(catalog) if "First summary" in line)
+        self.assertTrue(catalog[first].startswith('1. <a id="lab-niches-code-cloud-aws-projects-01-first-task"></a>'))
+        self.assertIn("<br/><small>`Exercise` · `Not started` · `updated ", catalog[first + 1])
+        self.assertIn("`aws` `route53`", catalog[first + 1])
+        self.assertTrue(catalog[first + 1].endswith("[`ref`](https://example.com/first)</small>"))
+        self.assertTrue(catalog[first + 2].startswith('2. <a id="lab-niches-code-cloud-aws-projects-02-second-task"></a>'))
+        self.assertTrue(next(line for line in catalog if "Unordered task" in line).startswith("- <a id="))
+        self.assertEqual(self.command("scripts", "catalog.py", "--check").returncode, 0)
+
     def test_collision_cancellation_clearing_and_lifecycle(self) -> None:
         one = self.init("code", "devops", "tasks", "One", "--summary", "Original summary")
         two = self.init("code", "devops", "tasks", "Two")

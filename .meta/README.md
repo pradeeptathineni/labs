@@ -21,7 +21,7 @@ python3 .meta/scripts/source_meta.py update my-source --interactive
 
 The six lab types are `exercise`, `challenge`, `problem-set`, `question-bank`, `project`, and `experiment`. `exercise` is the default. Status and dates live under `tracking`; entering progress or completion records the first date if unknown, while reopening keeps that history. Dates can be corrected explicitly. Content edits never change status.
 
-An optional `collection.json` can name a collection and set `"ordered": true`. Only an explicitly ordered collection interprets a numeric folder prefix as order. The initializer appends after the highest existing number and leaves gaps alone; creating a descriptor never overwrites a collection README.
+An optional `collection.json` can name a collection, link its source with `source_url`, and set `"ordered": true`. Only an explicitly ordered collection interprets a numeric folder prefix as order. The initializer appends after the highest existing number and leaves gaps alone; creating a descriptor never overwrites a collection README.
 
 ## Record staged content
 

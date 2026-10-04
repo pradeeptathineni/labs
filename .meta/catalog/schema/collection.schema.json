@@ -5,6 +5,7 @@
   "additionalProperties": false,
   "properties": {
     "title": {"type": "string", "minLength": 1, "pattern": "\\S"},
+    "source_url": {"type": "string", "format": "uri", "pattern": "^https?://"},
     "ordered": {"type": "boolean"},
     "goals": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"}}
   }
