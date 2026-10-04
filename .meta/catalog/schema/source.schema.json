@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Lab source registry",
+  "type": "object",
+  "propertyNames": {"pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+  "additionalProperties": {"$ref": "#/$defs/source"},
+  "$defs": {
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "name"],
+      "properties": {
+        "type": {"enum": ["external", "local"]},
+        "name": {"type": "string", "minLength": 1, "pattern": "\\S"},
+        "url": {"type": "string", "format": "uri", "pattern": "^https?://"},
+        "collections": {
+          "type": "object",
+          "propertyNames": {
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*(?:/[a-z0-9]+(?:-[a-z0-9]+)*)?$"
+          },
+          "additionalProperties": {"$ref": "#/$defs/collection"}
+        },
+        "difficulty_map": {"$ref": "#/$defs/difficultyMap"},
+        "content_policy": {"$ref": "#/$defs/contentPolicy"}
+      },
+      "allOf": [
+        {
+          "if": {"required": ["type"], "properties": {"type": {"const": "external"}}},
+          "then": {"required": ["url"]}
+        },
+        {
+          "if": {"required": ["type"], "properties": {"type": {"const": "local"}}},
+          "then": {
+            "not": {
+              "anyOf": [
+                {"required": ["url"]},
+                {"required": ["content_policy"]},
+                {"required": ["collections"]},
+                {"required": ["difficulty_map"]}
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "collection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "url"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1, "pattern": "\\S"},
+        "url": {"type": "string", "format": "uri", "pattern": "^https?://"},
+        "ordered": {"type": "boolean"},
+        "difficulty_map": {"$ref": "#/$defs/difficultyMap"}
+      }
+    },
+    "difficultyMap": {
+      "type": "object",
+      "propertyNames": {"pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+      "additionalProperties": {
+        "enum": ["beginner", "intermediate", "advanced"]
+      }
+    },
+    "contentPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["url", "verified", "redistribution", "personal_use", "linking"],
+      "properties": {
+        "url": {"type": "string", "format": "uri", "pattern": "^https?://"},
+        "verified": {"type": "string", "format": "date"},
+        "redistribution": {"enum": ["prohibited", "permitted", "unspecified"]},
+        "personal_use": {"enum": ["allowed", "unspecified"]},
+        "linking": {"enum": ["allowed", "unspecified"]}
+      }
+    }
+  }
+}

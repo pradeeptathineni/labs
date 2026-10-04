@@ -1,0 +1,21 @@
+{
+  "title": "Basic Dockerfile",
+  "kind": "project",
+  "status": "not-started",
+  "skills": [
+    "containers",
+    "docker",
+    "dockerfile",
+    "image-building"
+  ],
+  "dates": {
+    "created": "2026-10-03",
+    "started": null,
+    "completed": null
+  },
+  "difficulty": "beginner",
+  "source": {
+    "id": "basic-dockerfile",
+    "url": "https://roadmap.sh/projects/basic-dockerfile"
+  }
+}

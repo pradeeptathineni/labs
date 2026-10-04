@@ -1,0 +1,22 @@
+{
+  "title": "Dummy Systemd Service",
+  "kind": "project",
+  "status": "not-started",
+  "skills": [
+    "journald",
+    "linux",
+    "process-management",
+    "services",
+    "systemd"
+  ],
+  "dates": {
+    "created": "2026-10-03",
+    "started": null,
+    "completed": null
+  },
+  "difficulty": "beginner",
+  "source": {
+    "id": "dummy-systemd-service",
+    "url": "https://roadmap.sh/projects/dummy-systemd-service"
+  }
+}

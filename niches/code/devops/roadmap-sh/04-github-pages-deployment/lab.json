@@ -1,0 +1,22 @@
+{
+  "title": "GitHub Pages Deployment",
+  "kind": "project",
+  "status": "not-started",
+  "skills": [
+    "ci-cd",
+    "deployment",
+    "git",
+    "github-actions",
+    "github-pages"
+  ],
+  "dates": {
+    "created": "2026-10-03",
+    "started": null,
+    "completed": null
+  },
+  "difficulty": "beginner",
+  "source": {
+    "id": "github-actions-deployment-workflow",
+    "url": "https://roadmap.sh/projects/github-actions-deployment-workflow"
+  }
+}

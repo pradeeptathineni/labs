@@ -1,0 +1,25 @@
+{
+  "title": "Simple Monitoring",
+  "kind": "project",
+  "status": "not-started",
+  "skills": [
+    "alerting",
+    "dashboarding",
+    "linux",
+    "metrics",
+    "monitoring",
+    "netdata",
+    "observability",
+    "shell-scripting"
+  ],
+  "dates": {
+    "created": "2026-10-03",
+    "started": null,
+    "completed": null
+  },
+  "difficulty": "beginner",
+  "source": {
+    "id": "simple-monitoring-dashboard",
+    "url": "https://roadmap.sh/projects/simple-monitoring-dashboard"
+  }
+}

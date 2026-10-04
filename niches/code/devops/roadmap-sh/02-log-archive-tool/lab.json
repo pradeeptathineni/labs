@@ -1,0 +1,22 @@
+{
+  "title": "Log Archive Tool",
+  "kind": "project",
+  "status": "not-started",
+  "skills": [
+    "archiving",
+    "command-line",
+    "compression",
+    "log-management",
+    "timestamps"
+  ],
+  "dates": {
+    "created": "2026-10-03",
+    "started": null,
+    "completed": null
+  },
+  "difficulty": "beginner",
+  "source": {
+    "id": "log-archive-tool",
+    "url": "https://roadmap.sh/projects/log-archive-tool"
+  }
+}

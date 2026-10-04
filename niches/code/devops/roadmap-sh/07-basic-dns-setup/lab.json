@@ -1,0 +1,21 @@
+{
+  "title": "Basic DNS Setup",
+  "kind": "project",
+  "status": "not-started",
+  "skills": [
+    "cloud-hosting",
+    "dns",
+    "domain-names",
+    "networking"
+  ],
+  "dates": {
+    "created": "2026-10-03",
+    "started": null,
+    "completed": null
+  },
+  "difficulty": "beginner",
+  "source": {
+    "id": "basic-dns",
+    "url": "https://roadmap.sh/projects/basic-dns"
+  }
+}

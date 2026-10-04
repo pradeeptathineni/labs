@@ -1,0 +1,23 @@
+{
+  "title": "Static Site Server",
+  "kind": "project",
+  "status": "not-started",
+  "skills": [
+    "deployment",
+    "linux",
+    "nginx",
+    "rsync",
+    "ssh",
+    "static-sites"
+  ],
+  "dates": {
+    "created": "2026-10-03",
+    "started": null,
+    "completed": null
+  },
+  "difficulty": "beginner",
+  "source": {
+    "id": "static-site-server",
+    "url": "https://roadmap.sh/projects/static-site-server"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "title": "Nginx Log Analyser",
+  "kind": "project",
+  "status": "not-started",
+  "skills": [
+    "awk",
+    "bash",
+    "command-line",
+    "log-analysis",
+    "shell-scripting",
+    "text-processing"
+  ],
+  "dates": {
+    "created": "2026-10-03",
+    "started": null,
+    "completed": null
+  },
+  "difficulty": "beginner",
+  "source": {
+    "id": "nginx-log-analyser",
+    "url": "https://roadmap.sh/projects/nginx-log-analyser"
+  }
+}

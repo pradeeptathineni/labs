@@ -1,0 +1,22 @@
+{
+  "title": "Node.js Service Deployment",
+  "kind": "project",
+  "status": "not-started",
+  "skills": [
+    "ci-cd",
+    "deployment",
+    "github-actions",
+    "nodejs",
+    "ssh"
+  ],
+  "dates": {
+    "created": "2026-10-03",
+    "started": null,
+    "completed": null
+  },
+  "difficulty": "intermediate",
+  "source": {
+    "id": "nodejs-service-deployment",
+    "url": "https://roadmap.sh/projects/nodejs-service-deployment"
+  }
+}

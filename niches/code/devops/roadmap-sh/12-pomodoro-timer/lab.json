@@ -1,0 +1,24 @@
+{
+  "title": "Pomodoro Timer",
+  "kind": "project",
+  "status": "not-started",
+  "skills": [
+    "accessibility",
+    "css",
+    "frontend-development",
+    "html",
+    "javascript",
+    "state-management",
+    "timer-logic"
+  ],
+  "dates": {
+    "created": "2026-10-03",
+    "started": null,
+    "completed": null
+  },
+  "difficulty": "intermediate",
+  "source": {
+    "id": "pomodoro-timer",
+    "url": "https://roadmap.sh/projects/pomodoro-timer"
+  }
+}

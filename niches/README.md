@@ -2,24 +2,20 @@
 
 ### Welcome to my problem-solving corpus.
 
-The corpus is intentionally subdivided into different problem-solving niches, because code-based problem-solving is only but one aspect of the much broader practice of critical thinking, aka using your noggin.
+The corpus is split into different problem-solving niches because code is only one part of the much broader practice of critical thinking—also known as using your noggin.
 
-A lab is organized as:
+A lab can be organized with or without a domain:
 
 ```text
-labs/niches/<niche>/<domain>/<lab-source>/<lab-name>/<lab-content>
+niches/<niche>/<source>/<lab>/
+niches/<niche>/<domain>/<source>/<lab>/
 ```
 
-- `<niche>` — a problem-solving niche; i.e. `code`
-- `<domain>` — a discipline; i.e. `devops`
-- `<lab-source>` — an online source; i.e. `roadmap-sh`
-  - or `created` for personally synthesized problems
-  - or `generated` for AI-generated problems
-  - or `other` for anything else
-- `<lab-name>` — name of the lab, often numbered; i.e. `01-server-performance-stats`
-- `<lab-content>`— content of the lab
-  - Problem definition file; `README.md`
-  - Lab metadata file; `lab.json`
-  - Solution work when in progress or completed; i.e. `src/` or `solution/`
+- `<niche>` — a problem-solving niche, such as `code`.
+- `<domain>` — an optional discipline within the niche, such as `devops`.
+- `<source>` — a registered online provider or a local-work category such as `created` or `generated`.
+- `<lab>` — the individual lab, optionally with a numeric prefix when its collection is ordered.
 
-Code-based problem-solving is the obvious first domain. Anticipated domains include architecture, decisions, design, mathematics, research, teaching, etc.
+Every lab begins with a problem README and a `lab.json` file. Solution work gets the structure it needs; there is no need to pre-fill `src/` or `solution/` before anything exists.
+
+Code is the obvious first niche. Architecture, decisions, design, mathematics, research, and teaching are among the others I want to practice.

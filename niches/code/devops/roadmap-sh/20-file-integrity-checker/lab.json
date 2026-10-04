@@ -1,0 +1,22 @@
+{
+  "title": "File Integrity Checker",
+  "kind": "project",
+  "status": "not-started",
+  "skills": [
+    "cryptographic-hashing",
+    "file-integrity",
+    "filesystems",
+    "monitoring",
+    "security"
+  ],
+  "dates": {
+    "created": "2026-10-03",
+    "started": null,
+    "completed": null
+  },
+  "difficulty": "intermediate",
+  "source": {
+    "id": "file-integrity-checker",
+    "url": "https://roadmap.sh/projects/file-integrity-checker"
+  }
+}

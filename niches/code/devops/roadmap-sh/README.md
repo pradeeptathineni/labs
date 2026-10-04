@@ -1,12 +1,13 @@
 # roadmap.sh — DevOps Projects
 
-A local execution track for the current roadmap.sh DevOps project curriculum.
+A local execution track for the roadmap.sh DevOps project curriculum.
 
-Canonical challenge definitions were pulled from roadmap.sh. Each lab here stores only source metadata, a short original objective, and my own implementation, validation, and notes.
+I did not create these projects or their content, and I was not involved in their creation. Credit belongs to roadmap.sh and the original contributors. I use these labs for my own education and practice, and to showcase my critical thinking, problem-solving, and decision-making.
 
-> [!IMPORTANT] I do not own any of roadmap.sh projects or their content, nor was I ever involved with, related in, or responsible for the creation of the projects or their content. This repository cites original sources when used for which all original labs/problems credit is markedly given. All contents of this repository are strictly for personal education, personal practice, and showcasing my personal abilities of critical thinking, problem-solving, and decision-making.
+> [!IMPORTANT]
+> roadmap.sh allows personal use and linking, but does not allow redistribution of its website content. I link to each canonical challenge instead of copying its text here.
 
-Source: https://roadmap.sh/devops/projects
+Source: [roadmap.sh DevOps Projects](https://roadmap.sh/devops/projects)
 
 ## Curriculum
 

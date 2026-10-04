@@ -1,0 +1,22 @@
+{
+  "title": "Prometheus and Grafana",
+  "kind": "project",
+  "status": "not-started",
+  "skills": [
+    "grafana",
+    "metrics",
+    "monitoring",
+    "observability",
+    "prometheus"
+  ],
+  "dates": {
+    "created": "2026-10-03",
+    "started": null,
+    "completed": null
+  },
+  "difficulty": "advanced",
+  "source": {
+    "id": "monitoring",
+    "url": "https://roadmap.sh/projects/monitoring"
+  }
+}

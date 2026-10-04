@@ -1,0 +1,23 @@
+{
+  "title": "Server Performance Stats",
+  "kind": "project",
+  "status": "not-started",
+  "skills": [
+    "bash",
+    "filesystems",
+    "linux",
+    "performance-monitoring",
+    "process-inspection",
+    "resource-metrics"
+  ],
+  "dates": {
+    "created": "2026-10-03",
+    "started": null,
+    "completed": null
+  },
+  "difficulty": "beginner",
+  "source": {
+    "id": "server-stats",
+    "url": "https://roadmap.sh/projects/server-stats"
+  }
+}

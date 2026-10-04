@@ -1,0 +1,22 @@
+{
+  "title": "Bastion Host",
+  "kind": "project",
+  "status": "not-started",
+  "skills": [
+    "access-control",
+    "bastion-hosts",
+    "networking",
+    "security",
+    "ssh"
+  ],
+  "dates": {
+    "created": "2026-10-03",
+    "started": null,
+    "completed": null
+  },
+  "difficulty": "intermediate",
+  "source": {
+    "id": "bastion-host",
+    "url": "https://roadmap.sh/projects/bastion-host"
+  }
+}

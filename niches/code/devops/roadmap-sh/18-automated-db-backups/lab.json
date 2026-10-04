@@ -1,0 +1,24 @@
+{
+  "title": "Automated DB Backups",
+  "kind": "project",
+  "status": "not-started",
+  "skills": [
+    "automation",
+    "backup-and-recovery",
+    "database-backups",
+    "mongodb",
+    "object-storage",
+    "scheduling",
+    "workflow-automation"
+  ],
+  "dates": {
+    "created": "2026-10-03",
+    "started": null,
+    "completed": null
+  },
+  "difficulty": "intermediate",
+  "source": {
+    "id": "automated-backups",
+    "url": "https://roadmap.sh/projects/automated-backups"
+  }
+}

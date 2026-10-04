@@ -1,0 +1,19 @@
+name: Catalog
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+      - run: python3 -m pip install -r .meta/requirements.txt
+      - run: python3 .meta/scripts/catalog.py --check

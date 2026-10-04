@@ -4,4 +4,4 @@ Coding labs centered on software delivery, systems operations, automation, infra
 
 Lab sources:
 
-- [`roadmap.sh DevOps Projects`]("https://roadmap.sh/devops/projects")
+- [roadmap.sh DevOps Projects](roadmap-sh/)

@@ -1,0 +1,22 @@
+{
+  "title": "Dockerized Service",
+  "kind": "project",
+  "status": "not-started",
+  "skills": [
+    "ci-cd",
+    "deployment",
+    "docker",
+    "github-actions",
+    "nodejs"
+  ],
+  "dates": {
+    "created": "2026-10-03",
+    "started": null,
+    "completed": null
+  },
+  "difficulty": "intermediate",
+  "source": {
+    "id": "dockerized-service-deployment",
+    "url": "https://roadmap.sh/projects/dockerized-service-deployment"
+  }
+}

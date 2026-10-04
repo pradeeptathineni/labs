@@ -1,0 +1,22 @@
+{
+  "title": "Multi-Service Application",
+  "kind": "project",
+  "status": "not-started",
+  "skills": [
+    "docker",
+    "docker-compose",
+    "multi-service-architecture",
+    "optimization",
+    "service-networking"
+  ],
+  "dates": {
+    "created": "2026-10-03",
+    "started": null,
+    "completed": null
+  },
+  "difficulty": "advanced",
+  "source": {
+    "id": "multiservice-docker",
+    "url": "https://roadmap.sh/projects/multiservice-docker"
+  }
+}

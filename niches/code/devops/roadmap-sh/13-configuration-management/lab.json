@@ -1,0 +1,22 @@
+{
+  "title": "Configuration Management",
+  "kind": "project",
+  "status": "not-started",
+  "skills": [
+    "ansible",
+    "automation",
+    "configuration-management",
+    "idempotency",
+    "linux"
+  ],
+  "dates": {
+    "created": "2026-10-03",
+    "started": null,
+    "completed": null
+  },
+  "difficulty": "intermediate",
+  "source": {
+    "id": "configuration-management",
+    "url": "https://roadmap.sh/projects/configuration-management"
+  }
+}

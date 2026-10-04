@@ -1,0 +1,23 @@
+{
+  "title": "VPN Server Setup",
+  "kind": "project",
+  "status": "not-started",
+  "skills": [
+    "cryptography",
+    "linux",
+    "networking",
+    "openvpn",
+    "vpn",
+    "wireguard"
+  ],
+  "dates": {
+    "created": "2026-10-03",
+    "started": null,
+    "completed": null
+  },
+  "difficulty": "intermediate",
+  "source": {
+    "id": "vpn-server-setup",
+    "url": "https://roadmap.sh/projects/vpn-server-setup"
+  }
+}

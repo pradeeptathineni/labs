@@ -1,0 +1,21 @@
+{
+  "title": "Multi-Container Application",
+  "kind": "project",
+  "status": "not-started",
+  "skills": [
+    "containers",
+    "docker",
+    "docker-compose",
+    "service-networking"
+  ],
+  "dates": {
+    "created": "2026-10-03",
+    "started": null,
+    "completed": null
+  },
+  "difficulty": "intermediate",
+  "source": {
+    "id": "multi-container-service",
+    "url": "https://roadmap.sh/projects/multi-container-service"
+  }
+}

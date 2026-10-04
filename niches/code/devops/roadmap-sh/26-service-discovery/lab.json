@@ -1,0 +1,21 @@
+{
+  "title": "Service Discovery",
+  "kind": "project",
+  "status": "not-started",
+  "skills": [
+    "consul",
+    "dns",
+    "networking",
+    "service-discovery"
+  ],
+  "dates": {
+    "created": "2026-10-03",
+    "started": null,
+    "completed": null
+  },
+  "difficulty": "advanced",
+  "source": {
+    "id": "service-discovery",
+    "url": "https://roadmap.sh/projects/service-discovery"
+  }
+}

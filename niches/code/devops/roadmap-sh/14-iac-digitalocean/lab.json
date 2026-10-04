@@ -1,0 +1,21 @@
+{
+  "title": "IaC on DigitalOcean",
+  "kind": "project",
+  "status": "not-started",
+  "skills": [
+    "cloud-computing",
+    "digitalocean",
+    "infrastructure-as-code",
+    "terraform"
+  ],
+  "dates": {
+    "created": "2026-10-03",
+    "started": null,
+    "completed": null
+  },
+  "difficulty": "intermediate",
+  "source": {
+    "id": "iac-digitalocean",
+    "url": "https://roadmap.sh/projects/iac-digitalocean"
+  }
+}

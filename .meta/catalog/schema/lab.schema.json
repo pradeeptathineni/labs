@@ -1,1 +1,60 @@
-{ "TODO": "Simplified schema" }
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Lab metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["title", "kind", "status", "skills", "dates"],
+  "properties": {
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "kind": {
+      "type": "string",
+      "enum": ["project", "challenge", "exercise", "experiment", "incident", "kata"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["not-started", "in-progress", "complete", "paused", "abandoned"]
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": ["beginner", "intermediate", "advanced"]
+    },
+    "skills": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "url"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https?://"
+        }
+      }
+    },
+    "dates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["created", "started", "completed"],
+      "properties": {
+        "created": {"type": "string", "format": "date"},
+        "started": {"type": ["string", "null"], "format": "date"},
+        "completed": {"type": ["string", "null"], "format": "date"}
+      }
+    }
+  }
+}

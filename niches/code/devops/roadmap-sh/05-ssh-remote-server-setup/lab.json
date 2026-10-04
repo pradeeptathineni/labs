@@ -1,0 +1,21 @@
+{
+  "title": "SSH Remote Server Setup",
+  "kind": "project",
+  "status": "not-started",
+  "skills": [
+    "linux",
+    "remote-access",
+    "ssh",
+    "ssh-keys"
+  ],
+  "dates": {
+    "created": "2026-10-03",
+    "started": null,
+    "completed": null
+  },
+  "difficulty": "beginner",
+  "source": {
+    "id": "ssh-remote-server-setup",
+    "url": "https://roadmap.sh/projects/ssh-remote-server-setup"
+  }
+}

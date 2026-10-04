@@ -1,0 +1,22 @@
+{
+  "title": "EC2 Instance",
+  "kind": "project",
+  "status": "not-started",
+  "skills": [
+    "aws",
+    "cloud-computing",
+    "ec2",
+    "networking",
+    "ssh"
+  ],
+  "dates": {
+    "created": "2026-10-03",
+    "started": null,
+    "completed": null
+  },
+  "difficulty": "beginner",
+  "source": {
+    "id": "ec2-instance",
+    "url": "https://roadmap.sh/projects/ec2-instance"
+  }
+}

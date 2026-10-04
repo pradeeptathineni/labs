@@ -1,0 +1,22 @@
+{
+  "title": "Linux Server Setup",
+  "kind": "project",
+  "status": "not-started",
+  "skills": [
+    "firewalls",
+    "hardening",
+    "linux",
+    "system-administration",
+    "user-management"
+  ],
+  "dates": {
+    "created": "2026-10-03",
+    "started": null,
+    "completed": null
+  },
+  "difficulty": "intermediate",
+  "source": {
+    "id": "linux-server-setup",
+    "url": "https://roadmap.sh/projects/linux-server-setup"
+  }
+}
