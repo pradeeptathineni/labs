@@ -1,0 +1,27 @@
+{
+  "title": "Infrastructure as Code",
+  "summary": "Provision a complete AWS environment (VPC, EC2, RDS) using Terraform modules.",
+  "type": "project",
+  "difficulty": "intermediate",
+  "skills": [
+    "aws",
+    "git",
+    "terraform"
+  ],
+  "source": {
+    "provider": "devroadmaps",
+    "item_id": "project-ideas/devops/infrastructure-as-code",
+    "url": "https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L30",
+    "revision": "104d7bc31f3ade603c13ba7efa79968aca42cd15"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-04",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "content_sha256": "6cef2db5b285759401b6e2a1d6f225eed9601f389183bae356e2a9938428cc7a"
+  }
+}

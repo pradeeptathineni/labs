@@ -1,0 +1,12 @@
+{
+  "key": "project-ideas/devops/kubernetes-cluster",
+  "track": "devops",
+  "title": "Kubernetes Cluster",
+  "desc": "Set up a production-ready K8s cluster with ingress, autoscaling, secrets management, and backup.",
+  "difficulty": "Advanced",
+  "tech": [
+    "Kubernetes",
+    "Helm",
+    "cert-manager"
+  ]
+}

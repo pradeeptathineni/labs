@@ -1,0 +1,12 @@
+{
+  "key": "project-ideas/cloud-architect/serverless-api",
+  "track": "cloud-architect",
+  "title": "Serverless API",
+  "desc": "Build a serverless REST API using AWS Lambda, API Gateway, DynamoDB, and Cognito.",
+  "difficulty": "Intermediate",
+  "tech": [
+    "AWS Lambda",
+    "API Gateway",
+    "DynamoDB"
+  ]
+}

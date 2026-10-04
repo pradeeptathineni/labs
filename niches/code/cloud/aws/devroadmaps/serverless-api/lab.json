@@ -1,0 +1,27 @@
+{
+  "title": "Serverless API",
+  "summary": "Build a serverless REST API using AWS Lambda, API Gateway, DynamoDB, and Cognito.",
+  "type": "project",
+  "difficulty": "intermediate",
+  "skills": [
+    "api-gateway",
+    "aws-lambda",
+    "dynamodb"
+  ],
+  "source": {
+    "provider": "devroadmaps",
+    "item_id": "project-ideas/cloud-architect/serverless-api",
+    "url": "https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L63",
+    "revision": "104d7bc31f3ade603c13ba7efa79968aca42cd15"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-04",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "content_sha256": "2312b634e0c7a4c1d575ba7326658db24933dfcc419491f7b7e60627e2c4fbab"
+  }
+}

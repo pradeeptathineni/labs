@@ -1,0 +1,12 @@
+{
+  "key": "project-ideas/devops/ci-cd-pipeline",
+  "track": "devops",
+  "title": "CI/CD Pipeline",
+  "desc": "Set up a GitHub Actions pipeline that tests, builds, and deploys a Node.js app to a cloud server.",
+  "difficulty": "Beginner",
+  "tech": [
+    "GitHub Actions",
+    "Docker",
+    "Linux"
+  ]
+}

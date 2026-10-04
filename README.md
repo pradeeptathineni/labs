@@ -17,7 +17,7 @@ niches/<niche>/<domain>/<group>/<collection>/<lab>/
 
 The niche describes the primary form of work (`code`, `study`, `writing`, and so on). The domain names the subject. The optional group gives me one useful navigation step, such as `aws` or `mit`. The collection groups a curriculum, course, certification, or project series. The lab is one work unit, which may contain several questions.
 
-For example, [`roadmap.sh DevOps Projects`](niches/code/devops/roadmap-sh/) is an ordered collection of 26 unstarted projects.
+For example, [`roadmap.sh DevOps Projects`](niches/code/devops/roadmap-sh/) is an ordered collection of 26 starters. [`DevRoadmaps DevOps Projects`](niches/code/devops/devroadmaps/) is an unordered set of five project ideas. Both collections are unstarted.
 
 The path gives each lab one physical home. `lab.json` records type, target skills, provenance, and status. Its `source.provider` points to the registry; a folder named `aws` or `mit` never implies a provider. The [maintenance guide](.meta/README.md) has the commands for creating, editing, syncing, and importing labs.
 

@@ -1,0 +1,12 @@
+{
+  "key": "project-ideas/devops/infrastructure-as-code",
+  "track": "devops",
+  "title": "Infrastructure as Code",
+  "desc": "Provision a complete AWS environment (VPC, EC2, RDS) using Terraform modules.",
+  "difficulty": "Intermediate",
+  "tech": [
+    "Terraform",
+    "AWS",
+    "Git"
+  ]
+}

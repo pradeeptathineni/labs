@@ -1,0 +1,27 @@
+{
+  "title": "CI/CD Pipeline",
+  "summary": "Set up a GitHub Actions pipeline that tests, builds, and deploys a Node.js app to a cloud server.",
+  "type": "project",
+  "difficulty": "beginner",
+  "skills": [
+    "docker",
+    "github-actions",
+    "linux"
+  ],
+  "source": {
+    "provider": "devroadmaps",
+    "item_id": "project-ideas/devops/ci-cd-pipeline",
+    "url": "https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L29",
+    "revision": "104d7bc31f3ade603c13ba7efa79968aca42cd15"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-04",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "content_sha256": "42cbb8edb48cb9d5335580abfc12a1076a7e13bc46ab189a7c0e4e962f37f595"
+  }
+}

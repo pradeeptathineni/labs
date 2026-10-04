@@ -1,0 +1,27 @@
+{
+  "title": "Multi-Region Architecture",
+  "summary": "Design and implement a highly available multi-region architecture with failover and data replication.",
+  "type": "project",
+  "difficulty": "advanced",
+  "skills": [
+    "aws",
+    "dynamodb-streams",
+    "route53"
+  ],
+  "source": {
+    "provider": "devroadmaps",
+    "item_id": "project-ideas/cloud-architect/multi-region-architecture",
+    "url": "https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L64",
+    "revision": "104d7bc31f3ade603c13ba7efa79968aca42cd15"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-04",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "content_sha256": "4a9133fb3d8de50d013bac902174d72600f8f76abfb5474d0f8c0f7ed1d000af"
+  }
+}

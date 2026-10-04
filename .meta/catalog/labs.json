@@ -1,5 +1,292 @@
 [
   {
+    "title": "Multi-Region Architecture",
+    "summary": "Design and implement a highly available multi-region architecture with failover and data replication.",
+    "type": "project",
+    "difficulty": "advanced",
+    "skills": [
+      "aws",
+      "dynamodb-streams",
+      "route53"
+    ],
+    "source": {
+      "provider": "devroadmaps",
+      "item_id": "project-ideas/cloud-architect/multi-region-architecture",
+      "url": "https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L64",
+      "revision": "104d7bc31f3ade603c13ba7efa79968aca42cd15"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-04",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "4a9133fb3d8de50d013bac902174d72600f8f76abfb5474d0f8c0f7ed1d000af"
+    },
+    "niche": "code",
+    "domain": "cloud",
+    "group": "aws",
+    "collection": "devroadmaps",
+    "path": "niches/code/cloud/aws/devroadmaps/multi-region-architecture",
+    "slug": "multi-region-architecture",
+    "order": null,
+    "source_display": {
+      "name": "DevRoadmaps",
+      "type": "external",
+      "url": "https://github.com/rudra496/devroadmaps"
+    },
+    "collection_title": "DevRoadmaps — AWS Cloud Architecture",
+    "goals_effective": []
+  },
+  {
+    "title": "Serverless API",
+    "summary": "Build a serverless REST API using AWS Lambda, API Gateway, DynamoDB, and Cognito.",
+    "type": "project",
+    "difficulty": "intermediate",
+    "skills": [
+      "api-gateway",
+      "aws-lambda",
+      "dynamodb"
+    ],
+    "source": {
+      "provider": "devroadmaps",
+      "item_id": "project-ideas/cloud-architect/serverless-api",
+      "url": "https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L63",
+      "revision": "104d7bc31f3ade603c13ba7efa79968aca42cd15"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-04",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "2312b634e0c7a4c1d575ba7326658db24933dfcc419491f7b7e60627e2c4fbab"
+    },
+    "niche": "code",
+    "domain": "cloud",
+    "group": "aws",
+    "collection": "devroadmaps",
+    "path": "niches/code/cloud/aws/devroadmaps/serverless-api",
+    "slug": "serverless-api",
+    "order": null,
+    "source_display": {
+      "name": "DevRoadmaps",
+      "type": "external",
+      "url": "https://github.com/rudra496/devroadmaps"
+    },
+    "collection_title": "DevRoadmaps — AWS Cloud Architecture",
+    "goals_effective": []
+  },
+  {
+    "title": "CI/CD Pipeline",
+    "summary": "Set up a GitHub Actions pipeline that tests, builds, and deploys a Node.js app to a cloud server.",
+    "type": "project",
+    "difficulty": "beginner",
+    "skills": [
+      "docker",
+      "github-actions",
+      "linux"
+    ],
+    "source": {
+      "provider": "devroadmaps",
+      "item_id": "project-ideas/devops/ci-cd-pipeline",
+      "url": "https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L29",
+      "revision": "104d7bc31f3ade603c13ba7efa79968aca42cd15"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-04",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "42cbb8edb48cb9d5335580abfc12a1076a7e13bc46ab189a7c0e4e962f37f595"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "group": null,
+    "collection": "devroadmaps",
+    "path": "niches/code/devops/devroadmaps/ci-cd-pipeline",
+    "slug": "ci-cd-pipeline",
+    "order": null,
+    "source_display": {
+      "name": "DevRoadmaps",
+      "type": "external",
+      "url": "https://github.com/rudra496/devroadmaps"
+    },
+    "collection_title": "DevRoadmaps — DevOps Projects",
+    "goals_effective": []
+  },
+  {
+    "title": "GitOps Deployment",
+    "summary": "Implement GitOps with ArgoCD for automated deployments from Git to Kubernetes.",
+    "type": "project",
+    "difficulty": "advanced",
+    "skills": [
+      "argocd",
+      "helm",
+      "kubernetes"
+    ],
+    "source": {
+      "provider": "devroadmaps",
+      "item_id": "project-ideas/devops/gitops-deployment",
+      "url": "https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L33",
+      "revision": "104d7bc31f3ade603c13ba7efa79968aca42cd15"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-04",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "0d04a4befd4288c872f545bcfe0f0bd1de0d0f1acf8445080aed9b2b97e2b563"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "group": null,
+    "collection": "devroadmaps",
+    "path": "niches/code/devops/devroadmaps/gitops-deployment",
+    "slug": "gitops-deployment",
+    "order": null,
+    "source_display": {
+      "name": "DevRoadmaps",
+      "type": "external",
+      "url": "https://github.com/rudra496/devroadmaps"
+    },
+    "collection_title": "DevRoadmaps — DevOps Projects",
+    "goals_effective": []
+  },
+  {
+    "title": "Infrastructure as Code",
+    "summary": "Provision a complete AWS environment (VPC, EC2, RDS) using Terraform modules.",
+    "type": "project",
+    "difficulty": "intermediate",
+    "skills": [
+      "aws",
+      "git",
+      "terraform"
+    ],
+    "source": {
+      "provider": "devroadmaps",
+      "item_id": "project-ideas/devops/infrastructure-as-code",
+      "url": "https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L30",
+      "revision": "104d7bc31f3ade603c13ba7efa79968aca42cd15"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-04",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "6cef2db5b285759401b6e2a1d6f225eed9601f389183bae356e2a9938428cc7a"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "group": null,
+    "collection": "devroadmaps",
+    "path": "niches/code/devops/devroadmaps/infrastructure-as-code",
+    "slug": "infrastructure-as-code",
+    "order": null,
+    "source_display": {
+      "name": "DevRoadmaps",
+      "type": "external",
+      "url": "https://github.com/rudra496/devroadmaps"
+    },
+    "collection_title": "DevRoadmaps — DevOps Projects",
+    "goals_effective": []
+  },
+  {
+    "title": "Kubernetes Cluster",
+    "summary": "Set up a production-ready K8s cluster with ingress, autoscaling, secrets management, and backup.",
+    "type": "project",
+    "difficulty": "advanced",
+    "skills": [
+      "cert-manager",
+      "helm",
+      "kubernetes"
+    ],
+    "source": {
+      "provider": "devroadmaps",
+      "item_id": "project-ideas/devops/kubernetes-cluster",
+      "url": "https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L32",
+      "revision": "104d7bc31f3ade603c13ba7efa79968aca42cd15"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-04",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "4dc721500bcbeb7fe073dee921daf4b54b3c1936bac90112747bc98b1eb4db34"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "group": null,
+    "collection": "devroadmaps",
+    "path": "niches/code/devops/devroadmaps/kubernetes-cluster",
+    "slug": "kubernetes-cluster",
+    "order": null,
+    "source_display": {
+      "name": "DevRoadmaps",
+      "type": "external",
+      "url": "https://github.com/rudra496/devroadmaps"
+    },
+    "collection_title": "DevRoadmaps — DevOps Projects",
+    "goals_effective": []
+  },
+  {
+    "title": "Monitoring Stack",
+    "summary": "Deploy Prometheus, Grafana, and Alertmanager to monitor a microservices application.",
+    "type": "project",
+    "difficulty": "intermediate",
+    "skills": [
+      "docker",
+      "grafana",
+      "prometheus"
+    ],
+    "source": {
+      "provider": "devroadmaps",
+      "item_id": "project-ideas/devops/monitoring-stack",
+      "url": "https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L31",
+      "revision": "104d7bc31f3ade603c13ba7efa79968aca42cd15"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-04",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "4bbc80c70e1cb23aa8c0e67ef1a7796fbbf22e4f073d3cf773b52a114643f5c8"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "group": null,
+    "collection": "devroadmaps",
+    "path": "niches/code/devops/devroadmaps/monitoring-stack",
+    "slug": "monitoring-stack",
+    "order": null,
+    "source_display": {
+      "name": "DevRoadmaps",
+      "type": "external",
+      "url": "https://github.com/rudra496/devroadmaps"
+    },
+    "collection_title": "DevRoadmaps — DevOps Projects",
+    "goals_effective": []
+  },
+  {
     "title": "Server Performance Stats",
     "summary": "Write a script that reports basic Linux server performance statistics.",
     "type": "project",

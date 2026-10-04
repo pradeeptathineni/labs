@@ -1,22 +1,29 @@
 # Lab Catalog
 
-26 labs: 0 in progress, 0 complete, 0 paused, 0 abandoned, 26 planned.
+33 labs: 0 in progress, 0 complete, 0 paused, 0 abandoned, 33 planned.
 
-Types: Project 26.
+Types: Project 33.
 
 Imported material is planned practice until I record work. Skills are targets, and the update date records a content snapshot.
 
 <details>
 <summary>Find work by skill</summary>
 
-- **linux** (8): [Server Performance Stats](#lab-niches-code-devops-roadmap-sh-01-server-performance-stats), [SSH Remote Server Setup](#lab-niches-code-devops-roadmap-sh-05-ssh-remote-server-setup), [Static Site Server](#lab-niches-code-devops-roadmap-sh-06-static-site-server), [Simple Monitoring](#lab-niches-code-devops-roadmap-sh-08-simple-monitoring), [Dummy Systemd Service](#lab-niches-code-devops-roadmap-sh-09-dummy-systemd-service), [Configuration Management](#lab-niches-code-devops-roadmap-sh-13-configuration-management), [Linux Server Setup](#lab-niches-code-devops-roadmap-sh-21-linux-server-setup), [VPN Server Setup](#lab-niches-code-devops-roadmap-sh-22-vpn-server-setup)
+- **linux** (9): [CI/CD Pipeline](#lab-niches-code-devops-devroadmaps-ci-cd-pipeline), [Server Performance Stats](#lab-niches-code-devops-roadmap-sh-01-server-performance-stats), [SSH Remote Server Setup](#lab-niches-code-devops-roadmap-sh-05-ssh-remote-server-setup), [Static Site Server](#lab-niches-code-devops-roadmap-sh-06-static-site-server), [Simple Monitoring](#lab-niches-code-devops-roadmap-sh-08-simple-monitoring), [Dummy Systemd Service](#lab-niches-code-devops-roadmap-sh-09-dummy-systemd-service), [Configuration Management](#lab-niches-code-devops-roadmap-sh-13-configuration-management), [Linux Server Setup](#lab-niches-code-devops-roadmap-sh-21-linux-server-setup), [VPN Server Setup](#lab-niches-code-devops-roadmap-sh-22-vpn-server-setup)
+- **docker** (6): [CI/CD Pipeline](#lab-niches-code-devops-devroadmaps-ci-cd-pipeline), [Monitoring Stack](#lab-niches-code-devops-devroadmaps-monitoring-stack), [Basic Dockerfile](#lab-niches-code-devops-roadmap-sh-10-basic-dockerfile), [Dockerized Service](#lab-niches-code-devops-roadmap-sh-16-dockerized-service), [Multi-Container Application](#lab-niches-code-devops-roadmap-sh-17-multi-container-application), [Multi-Service Application](#lab-niches-code-devops-roadmap-sh-25-multi-service-application)
 - **ssh** (5): [SSH Remote Server Setup](#lab-niches-code-devops-roadmap-sh-05-ssh-remote-server-setup), [Static Site Server](#lab-niches-code-devops-roadmap-sh-06-static-site-server), [EC2 Instance](#lab-niches-code-devops-roadmap-sh-11-ec2-instance), [Node.js Service Deployment](#lab-niches-code-devops-roadmap-sh-15-nodejs-service-deployment), [Bastion Host](#lab-niches-code-devops-roadmap-sh-19-bastion-host)
 - **networking** (5): [Basic DNS Setup](#lab-niches-code-devops-roadmap-sh-07-basic-dns-setup), [EC2 Instance](#lab-niches-code-devops-roadmap-sh-11-ec2-instance), [Bastion Host](#lab-niches-code-devops-roadmap-sh-19-bastion-host), [VPN Server Setup](#lab-niches-code-devops-roadmap-sh-22-vpn-server-setup), [Service Discovery](#lab-niches-code-devops-roadmap-sh-26-service-discovery)
+- **github-actions** (4): [CI/CD Pipeline](#lab-niches-code-devops-devroadmaps-ci-cd-pipeline), [GitHub Pages Deployment](#lab-niches-code-devops-roadmap-sh-04-github-pages-deployment), [Node.js Service Deployment](#lab-niches-code-devops-roadmap-sh-15-nodejs-service-deployment), [Dockerized Service](#lab-niches-code-devops-roadmap-sh-16-dockerized-service)
 - **ci-cd** (4): [GitHub Pages Deployment](#lab-niches-code-devops-roadmap-sh-04-github-pages-deployment), [Node.js Service Deployment](#lab-niches-code-devops-roadmap-sh-15-nodejs-service-deployment), [Dockerized Service](#lab-niches-code-devops-roadmap-sh-16-dockerized-service), [Blue-Green Deployment](#lab-niches-code-devops-roadmap-sh-23-blue-green-deployment)
 - **deployment** (4): [GitHub Pages Deployment](#lab-niches-code-devops-roadmap-sh-04-github-pages-deployment), [Static Site Server](#lab-niches-code-devops-roadmap-sh-06-static-site-server), [Node.js Service Deployment](#lab-niches-code-devops-roadmap-sh-15-nodejs-service-deployment), [Dockerized Service](#lab-niches-code-devops-roadmap-sh-16-dockerized-service)
-- **docker** (4): [Basic Dockerfile](#lab-niches-code-devops-roadmap-sh-10-basic-dockerfile), [Dockerized Service](#lab-niches-code-devops-roadmap-sh-16-dockerized-service), [Multi-Container Application](#lab-niches-code-devops-roadmap-sh-17-multi-container-application), [Multi-Service Application](#lab-niches-code-devops-roadmap-sh-25-multi-service-application)
-- **github-actions** (3): [GitHub Pages Deployment](#lab-niches-code-devops-roadmap-sh-04-github-pages-deployment), [Node.js Service Deployment](#lab-niches-code-devops-roadmap-sh-15-nodejs-service-deployment), [Dockerized Service](#lab-niches-code-devops-roadmap-sh-16-dockerized-service)
+- **aws** (3): [Multi-Region Architecture](#lab-niches-code-cloud-aws-devroadmaps-multi-region-architecture), [Infrastructure as Code](#lab-niches-code-devops-devroadmaps-infrastructure-as-code), [EC2 Instance](#lab-niches-code-devops-roadmap-sh-11-ec2-instance)
 - **monitoring** (3): [Simple Monitoring](#lab-niches-code-devops-roadmap-sh-08-simple-monitoring), [File Integrity Checker](#lab-niches-code-devops-roadmap-sh-20-file-integrity-checker), [Prometheus and Grafana](#lab-niches-code-devops-roadmap-sh-24-prometheus-and-grafana)
+- **helm** (2): [GitOps Deployment](#lab-niches-code-devops-devroadmaps-gitops-deployment), [Kubernetes Cluster](#lab-niches-code-devops-devroadmaps-kubernetes-cluster)
+- **kubernetes** (2): [GitOps Deployment](#lab-niches-code-devops-devroadmaps-gitops-deployment), [Kubernetes Cluster](#lab-niches-code-devops-devroadmaps-kubernetes-cluster)
+- **git** (2): [Infrastructure as Code](#lab-niches-code-devops-devroadmaps-infrastructure-as-code), [GitHub Pages Deployment](#lab-niches-code-devops-roadmap-sh-04-github-pages-deployment)
+- **terraform** (2): [Infrastructure as Code](#lab-niches-code-devops-devroadmaps-infrastructure-as-code), [IaC on DigitalOcean](#lab-niches-code-devops-roadmap-sh-14-iac-digitalocean)
+- **grafana** (2): [Monitoring Stack](#lab-niches-code-devops-devroadmaps-monitoring-stack), [Prometheus and Grafana](#lab-niches-code-devops-roadmap-sh-24-prometheus-and-grafana)
+- **prometheus** (2): [Monitoring Stack](#lab-niches-code-devops-devroadmaps-monitoring-stack), [Prometheus and Grafana](#lab-niches-code-devops-roadmap-sh-24-prometheus-and-grafana)
 - **bash** (2): [Server Performance Stats](#lab-niches-code-devops-roadmap-sh-01-server-performance-stats), [Nginx Log Analyser](#lab-niches-code-devops-roadmap-sh-03-nginx-log-analyser)
 - **filesystems** (2): [Server Performance Stats](#lab-niches-code-devops-roadmap-sh-01-server-performance-stats), [File Integrity Checker](#lab-niches-code-devops-roadmap-sh-20-file-integrity-checker)
 - **command-line** (2): [Log Archive Tool](#lab-niches-code-devops-roadmap-sh-02-log-archive-tool), [Nginx Log Analyser](#lab-niches-code-devops-roadmap-sh-03-nginx-log-analyser)
@@ -31,6 +38,13 @@ Imported material is planned practice until I record work. Skills are targets, a
 - **docker-compose** (2): [Multi-Container Application](#lab-niches-code-devops-roadmap-sh-17-multi-container-application), [Multi-Service Application](#lab-niches-code-devops-roadmap-sh-25-multi-service-application)
 - **service-networking** (2): [Multi-Container Application](#lab-niches-code-devops-roadmap-sh-17-multi-container-application), [Multi-Service Application](#lab-niches-code-devops-roadmap-sh-25-multi-service-application)
 - **security** (2): [Bastion Host](#lab-niches-code-devops-roadmap-sh-19-bastion-host), [File Integrity Checker](#lab-niches-code-devops-roadmap-sh-20-file-integrity-checker)
+- **dynamodb-streams** (1): [Multi-Region Architecture](#lab-niches-code-cloud-aws-devroadmaps-multi-region-architecture)
+- **route53** (1): [Multi-Region Architecture](#lab-niches-code-cloud-aws-devroadmaps-multi-region-architecture)
+- **api-gateway** (1): [Serverless API](#lab-niches-code-cloud-aws-devroadmaps-serverless-api)
+- **aws-lambda** (1): [Serverless API](#lab-niches-code-cloud-aws-devroadmaps-serverless-api)
+- **dynamodb** (1): [Serverless API](#lab-niches-code-cloud-aws-devroadmaps-serverless-api)
+- **argocd** (1): [GitOps Deployment](#lab-niches-code-devops-devroadmaps-gitops-deployment)
+- **cert-manager** (1): [Kubernetes Cluster](#lab-niches-code-devops-devroadmaps-kubernetes-cluster)
 - **performance-monitoring** (1): [Server Performance Stats](#lab-niches-code-devops-roadmap-sh-01-server-performance-stats)
 - **process-inspection** (1): [Server Performance Stats](#lab-niches-code-devops-roadmap-sh-01-server-performance-stats)
 - **resource-metrics** (1): [Server Performance Stats](#lab-niches-code-devops-roadmap-sh-01-server-performance-stats)
@@ -41,7 +55,6 @@ Imported material is planned practice until I record work. Skills are targets, a
 - **awk** (1): [Nginx Log Analyser](#lab-niches-code-devops-roadmap-sh-03-nginx-log-analyser)
 - **log-analysis** (1): [Nginx Log Analyser](#lab-niches-code-devops-roadmap-sh-03-nginx-log-analyser)
 - **text-processing** (1): [Nginx Log Analyser](#lab-niches-code-devops-roadmap-sh-03-nginx-log-analyser)
-- **git** (1): [GitHub Pages Deployment](#lab-niches-code-devops-roadmap-sh-04-github-pages-deployment)
 - **github-pages** (1): [GitHub Pages Deployment](#lab-niches-code-devops-roadmap-sh-04-github-pages-deployment)
 - **remote-access** (1): [SSH Remote Server Setup](#lab-niches-code-devops-roadmap-sh-05-ssh-remote-server-setup)
 - **ssh-keys** (1): [SSH Remote Server Setup](#lab-niches-code-devops-roadmap-sh-05-ssh-remote-server-setup)
@@ -59,7 +72,6 @@ Imported material is planned practice until I record work. Skills are targets, a
 - **systemd** (1): [Dummy Systemd Service](#lab-niches-code-devops-roadmap-sh-09-dummy-systemd-service)
 - **dockerfile** (1): [Basic Dockerfile](#lab-niches-code-devops-roadmap-sh-10-basic-dockerfile)
 - **image-building** (1): [Basic Dockerfile](#lab-niches-code-devops-roadmap-sh-10-basic-dockerfile)
-- **aws** (1): [EC2 Instance](#lab-niches-code-devops-roadmap-sh-11-ec2-instance)
 - **ec2** (1): [EC2 Instance](#lab-niches-code-devops-roadmap-sh-11-ec2-instance)
 - **accessibility** (1): [Pomodoro Timer](#lab-niches-code-devops-roadmap-sh-12-pomodoro-timer)
 - **css** (1): [Pomodoro Timer](#lab-niches-code-devops-roadmap-sh-12-pomodoro-timer)
@@ -73,7 +85,6 @@ Imported material is planned practice until I record work. Skills are targets, a
 - **idempotency** (1): [Configuration Management](#lab-niches-code-devops-roadmap-sh-13-configuration-management)
 - **digitalocean** (1): [IaC on DigitalOcean](#lab-niches-code-devops-roadmap-sh-14-iac-digitalocean)
 - **infrastructure-as-code** (1): [IaC on DigitalOcean](#lab-niches-code-devops-roadmap-sh-14-iac-digitalocean)
-- **terraform** (1): [IaC on DigitalOcean](#lab-niches-code-devops-roadmap-sh-14-iac-digitalocean)
 - **backup-and-recovery** (1): [Automated DB Backups](#lab-niches-code-devops-roadmap-sh-18-automated-db-backups)
 - **database-backups** (1): [Automated DB Backups](#lab-niches-code-devops-roadmap-sh-18-automated-db-backups)
 - **mongodb** (1): [Automated DB Backups](#lab-niches-code-devops-roadmap-sh-18-automated-db-backups)
@@ -95,14 +106,48 @@ Imported material is planned practice until I record work. Skills are targets, a
 - **deployment-strategies** (1): [Blue-Green Deployment](#lab-niches-code-devops-roadmap-sh-23-blue-green-deployment)
 - **load-balancing** (1): [Blue-Green Deployment](#lab-niches-code-devops-roadmap-sh-23-blue-green-deployment)
 - **rollback** (1): [Blue-Green Deployment](#lab-niches-code-devops-roadmap-sh-23-blue-green-deployment)
-- **grafana** (1): [Prometheus and Grafana](#lab-niches-code-devops-roadmap-sh-24-prometheus-and-grafana)
-- **prometheus** (1): [Prometheus and Grafana](#lab-niches-code-devops-roadmap-sh-24-prometheus-and-grafana)
 - **multi-service-architecture** (1): [Multi-Service Application](#lab-niches-code-devops-roadmap-sh-25-multi-service-application)
 - **optimization** (1): [Multi-Service Application](#lab-niches-code-devops-roadmap-sh-25-multi-service-application)
 - **consul** (1): [Service Discovery](#lab-niches-code-devops-roadmap-sh-26-service-discovery)
 - **service-discovery** (1): [Service Discovery](#lab-niches-code-devops-roadmap-sh-26-service-discovery)
 
 </details>
+
+## [DevRoadmaps — AWS Cloud Architecture](niches/code/cloud/aws/devroadmaps/README.md)
+
+code / cloud / aws · 2 labs
+
+<a id="lab-niches-code-cloud-aws-devroadmaps-multi-region-architecture"></a>
+- [Multi-Region Architecture](niches/code/cloud/aws/devroadmaps/multi-region-architecture/README.md#exercise-definition) — Design and implement a highly available multi-region architecture with failover and data replication.
+  <small>Project · Not started · [DevRoadmaps](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L64) · updated 2026-10-04 · skills: aws, dynamodb-streams, route53</small>
+
+<a id="lab-niches-code-cloud-aws-devroadmaps-serverless-api"></a>
+- [Serverless API](niches/code/cloud/aws/devroadmaps/serverless-api/README.md#exercise-definition) — Build a serverless REST API using AWS Lambda, API Gateway, DynamoDB, and Cognito.
+  <small>Project · Not started · [DevRoadmaps](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L63) · updated 2026-10-04 · skills: api-gateway, aws-lambda, dynamodb</small>
+
+## [DevRoadmaps — DevOps Projects](niches/code/devops/devroadmaps/README.md)
+
+code / devops · 5 labs
+
+<a id="lab-niches-code-devops-devroadmaps-ci-cd-pipeline"></a>
+- [CI/CD Pipeline](niches/code/devops/devroadmaps/ci-cd-pipeline/README.md#exercise-definition) — Set up a GitHub Actions pipeline that tests, builds, and deploys a Node.js app to a cloud server.
+  <small>Project · Not started · [DevRoadmaps](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L29) · updated 2026-10-04 · skills: docker, github-actions, linux</small>
+
+<a id="lab-niches-code-devops-devroadmaps-gitops-deployment"></a>
+- [GitOps Deployment](niches/code/devops/devroadmaps/gitops-deployment/README.md#exercise-definition) — Implement GitOps with ArgoCD for automated deployments from Git to Kubernetes.
+  <small>Project · Not started · [DevRoadmaps](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L33) · updated 2026-10-04 · skills: argocd, helm, kubernetes</small>
+
+<a id="lab-niches-code-devops-devroadmaps-infrastructure-as-code"></a>
+- [Infrastructure as Code](niches/code/devops/devroadmaps/infrastructure-as-code/README.md#exercise-definition) — Provision a complete AWS environment (VPC, EC2, RDS) using Terraform modules.
+  <small>Project · Not started · [DevRoadmaps](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L30) · updated 2026-10-04 · skills: aws, git, terraform</small>
+
+<a id="lab-niches-code-devops-devroadmaps-kubernetes-cluster"></a>
+- [Kubernetes Cluster](niches/code/devops/devroadmaps/kubernetes-cluster/README.md#exercise-definition) — Set up a production-ready K8s cluster with ingress, autoscaling, secrets management, and backup.
+  <small>Project · Not started · [DevRoadmaps](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L32) · updated 2026-10-04 · skills: cert-manager, helm, kubernetes</small>
+
+<a id="lab-niches-code-devops-devroadmaps-monitoring-stack"></a>
+- [Monitoring Stack](niches/code/devops/devroadmaps/monitoring-stack/README.md#exercise-definition) — Deploy Prometheus, Grafana, and Alertmanager to monitor a microservices application.
+  <small>Project · Not started · [DevRoadmaps](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L31) · updated 2026-10-04 · skills: docker, grafana, prometheus</small>
 
 ## [roadmap.sh — DevOps Projects](niches/code/devops/roadmap-sh/README.md)
 

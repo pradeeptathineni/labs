@@ -1,0 +1,12 @@
+{
+  "key": "project-ideas/cloud-architect/multi-region-architecture",
+  "track": "cloud-architect",
+  "title": "Multi-Region Architecture",
+  "desc": "Design and implement a highly available multi-region architecture with failover and data replication.",
+  "difficulty": "Advanced",
+  "tech": [
+    "AWS",
+    "Route53",
+    "DynamoDB Streams"
+  ]
+}

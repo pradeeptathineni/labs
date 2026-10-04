@@ -1,0 +1,12 @@
+{
+  "key": "project-ideas/devops/gitops-deployment",
+  "track": "devops",
+  "title": "GitOps Deployment",
+  "desc": "Implement GitOps with ArgoCD for automated deployments from Git to Kubernetes.",
+  "difficulty": "Advanced",
+  "tech": [
+    "ArgoCD",
+    "Kubernetes",
+    "Helm"
+  ]
+}

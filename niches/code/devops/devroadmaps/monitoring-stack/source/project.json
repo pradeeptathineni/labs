@@ -1,0 +1,12 @@
+{
+  "key": "project-ideas/devops/monitoring-stack",
+  "track": "devops",
+  "title": "Monitoring Stack",
+  "desc": "Deploy Prometheus, Grafana, and Alertmanager to monitor a microservices application.",
+  "difficulty": "Intermediate",
+  "tech": [
+    "Prometheus",
+    "Grafana",
+    "Docker"
+  ]
+}
