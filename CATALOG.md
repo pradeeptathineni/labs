@@ -149,7 +149,7 @@ No labs in progress yet.
 ### [DevRoadmaps — AWS Cloud Architecture](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js)
 
 <details>
-<summary>code / cloud / aws / devroadmaps</summary>
+<summary>code / cloud / aws / devroadmaps · 2 labs</summary>
 
 - <a id="lab-niches-code-cloud-aws-devroadmaps-multi-region-architecture"></a>[Multi-Region Architecture](niches/code/cloud/aws/devroadmaps/multi-region-architecture/README.md#exercise-definition) — Design and implement a highly available multi-region architecture with failover and data replication.
   <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `aws` `dynamodb-streams` `route53` · [`ref`](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L64)</small>
@@ -161,7 +161,7 @@ No labs in progress yet.
 ### [DevRoadmaps — DevOps Projects](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js)
 
 <details>
-<summary>code / devops / devroadmaps</summary>
+<summary>code / devops / devroadmaps · 5 labs</summary>
 
 - <a id="lab-niches-code-devops-devroadmaps-ci-cd-pipeline"></a>[CI/CD Pipeline](niches/code/devops/devroadmaps/ci-cd-pipeline/README.md#exercise-definition) — Set up a GitHub Actions pipeline that tests, builds, and deploys a Node.js app to a cloud server.
   <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `docker` `github-actions` `linux` · [`ref`](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L29)</small>
@@ -176,10 +176,10 @@ No labs in progress yet.
 
 </details>
 
-### [roadmap.sh — DevOps Projects](https://roadmap.sh/devops/projects) · [notes](niches/code/devops/roadmap-sh/README.md)
+### [roadmap.sh — DevOps Projects](https://roadmap.sh/devops/projects)
 
 <details>
-<summary>code / devops / roadmap-sh</summary>
+<summary>code / devops / roadmap-sh · 26 labs · <a href="niches/code/devops/roadmap-sh/README.md">notes</a></summary>
 
 1. <a id="lab-niches-code-devops-roadmap-sh-01-server-performance-stats"></a>[Server Performance Stats](niches/code/devops/roadmap-sh/01-server-performance-stats/README.md#exercise-definition) — Write a script that reports basic Linux server performance statistics.
    <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `bash` `filesystems` `linux` `performance-monitoring` `process-inspection` `resource-metrics` · [`ref`](https://roadmap.sh/projects/server-stats)</small>
@@ -239,7 +239,7 @@ No labs in progress yet.
 ### CLF-C02 — Cloud Practitioner Practice
 
 <details>
-<summary>study / cloud / aws / clf-c02</summary>
+<summary>study / cloud / aws / clf-c02 · 2 labs</summary>
 
 - <a id="lab-niches-study-cloud-aws-clf-c02-cloudcertprep"></a>[CloudCertPrep CLF-C02 Question Bank](niches/study/cloud/aws/clf-c02/cloudcertprep/README.md#exercise-definition) — Practice and review 1050 adopted CLF-C02 questions across 4 domains.
   <br/><small>`Question bank` · `Not started` · `1050 materialized questions` · `updated 2026-10-04` · `aws` `billing-pricing` `cloud-concepts` `security-compliance` · `CloudCertPrep` · [`ref`](https://github.com/nastaso/cloudcertprep/tree/9367b00d9f5b39676f4ec3413304d91a7dccbbfb/src/data/clf-c02)</small>

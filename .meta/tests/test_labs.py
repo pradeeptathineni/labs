@@ -114,6 +114,7 @@ class CoreTests(RepositoryCase):
             "source_url": "https://example.com/projects",
             "ordered": True,
         }))
+        (collection / "README.md").write_text("# Example projects\n")
         first_lab = self.init("code", "cloud", "projects", "First task", "--group", "aws", "--summary", "First summary", "--source", "roadmap-sh", "--source-url", "https://example.com/first", "--skill", "aws", "--skill", "route53")
         second_lab = self.init("code", "cloud", "projects", "Second task", "--group", "aws", "--source", "roadmap-sh", "--source-url", "https://example.com/second")
         self.init("code", "cloud", "other", "Unordered task")
@@ -126,8 +127,8 @@ class CoreTests(RepositoryCase):
         self.assertEqual(catalog[catalog.index(summaries[2]) - 1], "<details>")
         self.assertEqual(catalog[catalog.index(summaries[3]) - 1], "<details>")
         self.assertIn("### [Example projects](https://example.com/projects)", catalog)
-        self.assertIn("<summary>code / cloud / aws / projects</summary>", catalog)
-        self.assertNotIn("code / cloud / aws / projects · 2 labs", catalog)
+        self.assertIn('<summary>code / cloud / aws / projects · 2 labs · <a href="niches/code/cloud/aws/projects/README.md">notes</a></summary>', catalog)
+        self.assertIn("<summary>code / cloud / other · 1 lab</summary>", catalog)
         first = next(index for index, line in enumerate(catalog) if "First summary" in line)
         self.assertTrue(catalog[first].startswith('1. <a id="lab-niches-code-cloud-aws-projects-01-first-task"></a>'))
         self.assertIn("<br/><small>`Exercise` · `Not started` · `updated ", catalog[first + 1])

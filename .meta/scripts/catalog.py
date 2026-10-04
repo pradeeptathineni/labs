@@ -322,7 +322,7 @@ def render_catalog(records: list[dict[str, Any]]) -> str:
             if not matches:
                 continue
             found = True
-            heading, breadcrumb, show_source_name = _collection_display(key, items)
+            heading, breadcrumb, show_source_name, _ = _collection_display(key, items)
             lines += [f"**{heading}** · {breadcrumb}", ""]
             for item in matches:
                 lines += _catalog_entry(item, show_source_name, show_order=False, anchor=False)
@@ -349,8 +349,12 @@ def render_catalog(records: list[dict[str, Any]]) -> str:
     lines += ["", "</details>", ""]
     lines += ["<details>", "<summary>Browse all labs</summary>", ""]
     for key, items in ranked:
-        heading, breadcrumb, show_source_name = _collection_display(key, items)
-        lines += [f"### {heading}", "", "<details>", f"<summary>{breadcrumb}</summary>", ""]
+        heading, breadcrumb, show_source_name, notes_url = _collection_display(key, items)
+        count = f"{len(items)} lab{'s' if len(items) != 1 else ''}"
+        summary = f"{breadcrumb} · {count}"
+        if notes_url:
+            summary += f' · <a href="{notes_url}">notes</a>'
+        lines += [f"### {heading}", "", "<details>", f"<summary>{summary}</summary>", ""]
         for item in items:
             lines += _catalog_entry(item, show_source_name)
         lines += ["", "</details>", ""]
@@ -358,7 +362,7 @@ def render_catalog(records: list[dict[str, Any]]) -> str:
     return "\n".join(lines).rstrip() + "\n"
 
 
-def _collection_display(key: tuple[str, str, str | None, str], items: list[dict[str, Any]]) -> tuple[str, str, bool]:
+def _collection_display(key: tuple[str, str, str | None, str], items: list[dict[str, Any]]) -> tuple[str, str, bool, str | None]:
     niche, domain, group, collection = key
     title = items[0]["collection_title"]
     breadcrumb = " / ".join(filter(None, (niche, domain, group, collection)))
@@ -367,9 +371,8 @@ def _collection_display(key: tuple[str, str, str | None, str], items: list[dict[
     source_url = items[0].get("collection_source_url")
     show_source_name = not source_url or len({item["source"]["provider"] for item in items}) > 1
     heading = f"[{_escape(title)}]({source_url})" if source_url else _escape(title)
-    if readme.is_file():
-        heading += f" · [notes]({display_path(readme)})"
-    return heading, breadcrumb, show_source_name
+    notes_url = display_path(readme) if readme.is_file() else None
+    return heading, breadcrumb, show_source_name, notes_url
 
 
 def _catalog_entry(item: dict[str, Any], show_source_name: bool, *, show_order: bool = True, anchor: bool = True) -> list[str]:
