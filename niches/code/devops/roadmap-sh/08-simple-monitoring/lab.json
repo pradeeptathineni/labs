@@ -15,11 +15,16 @@
   "dates": {
     "created": "2026-10-03",
     "started": null,
-    "completed": null
+    "completed": null,
+    "updated": "2026-10-03"
   },
   "difficulty": "beginner",
   "source": {
-    "id": "simple-monitoring-dashboard",
+    "provider": "roadmap-sh",
+    "item_id": "simple-monitoring-dashboard",
     "url": "https://roadmap.sh/projects/simple-monitoring-dashboard"
+  },
+  "tracking": {
+    "content_sha256": "229a98063870b18ef5baf46c2d57e2969443c3966114ed8ed57c5b2c968586f7"
   }
 }

@@ -11,11 +11,16 @@
   "dates": {
     "created": "2026-10-03",
     "started": null,
-    "completed": null
+    "completed": null,
+    "updated": "2026-10-03"
   },
   "difficulty": "beginner",
   "source": {
-    "id": "basic-dns",
+    "provider": "roadmap-sh",
+    "item_id": "basic-dns",
     "url": "https://roadmap.sh/projects/basic-dns"
+  },
+  "tracking": {
+    "content_sha256": "4c14fee1be1c84ef189ac6283de96fc209d850676935b8eb6e32a0a209d76cdb"
   }
 }

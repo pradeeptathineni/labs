@@ -12,11 +12,16 @@
   "dates": {
     "created": "2026-10-03",
     "started": null,
-    "completed": null
+    "completed": null,
+    "updated": "2026-10-03"
   },
   "difficulty": "intermediate",
   "source": {
-    "id": "nodejs-service-deployment",
+    "provider": "roadmap-sh",
+    "item_id": "nodejs-service-deployment",
     "url": "https://roadmap.sh/projects/nodejs-service-deployment"
+  },
+  "tracking": {
+    "content_sha256": "bb8ca6abf28844396c8724ee3ff6c933be39a9b8a6959e66d6fc144ef96a8f3b"
   }
 }

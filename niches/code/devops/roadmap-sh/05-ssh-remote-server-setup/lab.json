@@ -11,11 +11,16 @@
   "dates": {
     "created": "2026-10-03",
     "started": null,
-    "completed": null
+    "completed": null,
+    "updated": "2026-10-03"
   },
   "difficulty": "beginner",
   "source": {
-    "id": "ssh-remote-server-setup",
+    "provider": "roadmap-sh",
+    "item_id": "ssh-remote-server-setup",
     "url": "https://roadmap.sh/projects/ssh-remote-server-setup"
+  },
+  "tracking": {
+    "content_sha256": "5c0e697be0417645c0256c1845a662a58b9ecbf8f8450a350b974cdd3865c804"
   }
 }

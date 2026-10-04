@@ -11,11 +11,16 @@
   "dates": {
     "created": "2026-10-03",
     "started": null,
-    "completed": null
+    "completed": null,
+    "updated": "2026-10-03"
   },
   "difficulty": "intermediate",
   "source": {
-    "id": "iac-digitalocean",
+    "provider": "roadmap-sh",
+    "item_id": "iac-digitalocean",
     "url": "https://roadmap.sh/projects/iac-digitalocean"
+  },
+  "tracking": {
+    "content_sha256": "09bbecb97509adfc44cb50f54589596bc762fd38b30fd6d9fc182d347c31974a"
   }
 }

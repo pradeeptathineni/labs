@@ -12,11 +12,16 @@
   "dates": {
     "created": "2026-10-03",
     "started": null,
-    "completed": null
+    "completed": null,
+    "updated": "2026-10-03"
   },
   "difficulty": "beginner",
   "source": {
-    "id": "log-archive-tool",
+    "provider": "roadmap-sh",
+    "item_id": "log-archive-tool",
     "url": "https://roadmap.sh/projects/log-archive-tool"
+  },
+  "tracking": {
+    "content_sha256": "215c69b18877ba600429f6d9aa692a40ac1241ab21ceb7e9dcdb0970c9ff119e"
   }
 }

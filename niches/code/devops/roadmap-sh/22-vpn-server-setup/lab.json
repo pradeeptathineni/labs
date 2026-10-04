@@ -13,11 +13,16 @@
   "dates": {
     "created": "2026-10-03",
     "started": null,
-    "completed": null
+    "completed": null,
+    "updated": "2026-10-03"
   },
   "difficulty": "intermediate",
   "source": {
-    "id": "vpn-server-setup",
+    "provider": "roadmap-sh",
+    "item_id": "vpn-server-setup",
     "url": "https://roadmap.sh/projects/vpn-server-setup"
+  },
+  "tracking": {
+    "content_sha256": "85fca431e126a2a7183965bc9a88aefc34c4a923842fb8c147616c6f59925d0b"
   }
 }

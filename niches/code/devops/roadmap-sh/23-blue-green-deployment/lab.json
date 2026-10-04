@@ -11,11 +11,16 @@
   "dates": {
     "created": "2026-10-03",
     "started": null,
-    "completed": null
+    "completed": null,
+    "updated": "2026-10-03"
   },
   "difficulty": "advanced",
   "source": {
-    "id": "blue-green-deployment",
+    "provider": "roadmap-sh",
+    "item_id": "blue-green-deployment",
     "url": "https://roadmap.sh/projects/blue-green-deployment"
+  },
+  "tracking": {
+    "content_sha256": "597b3eb5abb9510e5c8d2945b681cf3cc59f8c440d8256b7b8b639b05b0ea2dd"
   }
 }

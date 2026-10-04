@@ -12,11 +12,16 @@
   "dates": {
     "created": "2026-10-03",
     "started": null,
-    "completed": null
+    "completed": null,
+    "updated": "2026-10-03"
   },
   "difficulty": "advanced",
   "source": {
-    "id": "multiservice-docker",
+    "provider": "roadmap-sh",
+    "item_id": "multiservice-docker",
     "url": "https://roadmap.sh/projects/multiservice-docker"
+  },
+  "tracking": {
+    "content_sha256": "4346c202c0c20bae2bdb9c1db713a95dbf650611f35db4326f86b735f5be6eb0"
   }
 }

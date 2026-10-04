@@ -11,11 +11,16 @@
   "dates": {
     "created": "2026-10-03",
     "started": null,
-    "completed": null
+    "completed": null,
+    "updated": "2026-10-03"
   },
   "difficulty": "intermediate",
   "source": {
-    "id": "multi-container-service",
+    "provider": "roadmap-sh",
+    "item_id": "multi-container-service",
     "url": "https://roadmap.sh/projects/multi-container-service"
+  },
+  "tracking": {
+    "content_sha256": "69189285157ae38e2fa29067ffaed9e0b6897b01c81c5e5acf805b039adbc158"
   }
 }

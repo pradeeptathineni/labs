@@ -12,11 +12,16 @@
   "dates": {
     "created": "2026-10-03",
     "started": null,
-    "completed": null
+    "completed": null,
+    "updated": "2026-10-03"
   },
   "difficulty": "intermediate",
   "source": {
-    "id": "linux-server-setup",
+    "provider": "roadmap-sh",
+    "item_id": "linux-server-setup",
     "url": "https://roadmap.sh/projects/linux-server-setup"
+  },
+  "tracking": {
+    "content_sha256": "32f157b154c483d0037289fd071c1678b1411d07caa5d789da85cff928a2fdce"
   }
 }

@@ -11,11 +11,16 @@
   "dates": {
     "created": "2026-10-03",
     "started": null,
-    "completed": null
+    "completed": null,
+    "updated": "2026-10-03"
   },
   "difficulty": "advanced",
   "source": {
-    "id": "service-discovery",
+    "provider": "roadmap-sh",
+    "item_id": "service-discovery",
     "url": "https://roadmap.sh/projects/service-discovery"
+  },
+  "tracking": {
+    "content_sha256": "23c49799f59ac3377970c264ce0a02a0589175a53d10a0b5453d94f7ea2a3ef7"
   }
 }

@@ -12,11 +12,16 @@
   "dates": {
     "created": "2026-10-03",
     "started": null,
-    "completed": null
+    "completed": null,
+    "updated": "2026-10-03"
   },
   "difficulty": "intermediate",
   "source": {
-    "id": "file-integrity-checker",
+    "provider": "roadmap-sh",
+    "item_id": "file-integrity-checker",
     "url": "https://roadmap.sh/projects/file-integrity-checker"
+  },
+  "tracking": {
+    "content_sha256": "f00aad10ac951da3ce5c92bc07073021df6fdbb6d868dbc88ac138651086d37d"
   }
 }

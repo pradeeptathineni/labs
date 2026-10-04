@@ -10,68 +10,40 @@
       "additionalProperties": false,
       "required": ["type", "name"],
       "properties": {
-        "type": {"enum": ["external", "local"]},
+        "type": {"enum": ["external", "organization", "local"]},
         "name": {"type": "string", "minLength": 1, "pattern": "\\S"},
         "url": {"type": "string", "format": "uri", "pattern": "^https?://"},
-        "collections": {
-          "type": "object",
-          "propertyNames": {
-            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*(?:/[a-z0-9]+(?:-[a-z0-9]+)*)?$"
-          },
-          "additionalProperties": {"$ref": "#/$defs/collection"}
-        },
-        "difficulty_map": {"$ref": "#/$defs/difficultyMap"},
-        "content_policy": {"$ref": "#/$defs/contentPolicy"}
+        "reuse": {"$ref": "#/$defs/reuse"},
+        "difficulty_map": {"$ref": "#/$defs/difficultyMap"}
       },
       "allOf": [
         {
-          "if": {"required": ["type"], "properties": {"type": {"const": "external"}}},
-          "then": {"required": ["url"]}
+          "if": {"properties": {"type": {"enum": ["external", "organization"]}}, "required": ["type"]},
+          "then": {"required": ["url", "reuse"]}
         },
         {
-          "if": {"required": ["type"], "properties": {"type": {"const": "local"}}},
-          "then": {
-            "not": {
-              "anyOf": [
-                {"required": ["url"]},
-                {"required": ["content_policy"]},
-                {"required": ["collections"]},
-                {"required": ["difficulty_map"]}
-              ]
-            }
-          }
+          "if": {"properties": {"type": {"const": "local"}}, "required": ["type"]},
+          "then": {"not": {"anyOf": [{"required": ["url"]}, {"required": ["reuse"]}, {"required": ["difficulty_map"]}]}}
         }
       ]
     },
-    "collection": {
+    "reuse": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["name", "url"],
+      "required": ["policy"],
       "properties": {
-        "name": {"type": "string", "minLength": 1, "pattern": "\\S"},
-        "url": {"type": "string", "format": "uri", "pattern": "^https?://"},
-        "ordered": {"type": "boolean"},
-        "difficulty_map": {"$ref": "#/$defs/difficultyMap"}
+        "policy": {"enum": ["copy", "link-only", "review"]},
+        "license": {"type": "string", "minLength": 1, "pattern": "\\S"},
+        "license_url": {"type": "string", "format": "uri", "pattern": "^https?://"},
+        "policy_url": {"type": "string", "format": "uri", "pattern": "^https?://"},
+        "verified": {"type": "string", "format": "date"},
+        "notes": {"type": "string", "minLength": 1, "pattern": "\\S"}
       }
     },
     "difficultyMap": {
       "type": "object",
       "propertyNames": {"pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
-      "additionalProperties": {
-        "enum": ["beginner", "intermediate", "advanced"]
-      }
-    },
-    "contentPolicy": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["url", "verified", "redistribution", "personal_use", "linking"],
-      "properties": {
-        "url": {"type": "string", "format": "uri", "pattern": "^https?://"},
-        "verified": {"type": "string", "format": "date"},
-        "redistribution": {"enum": ["prohibited", "permitted", "unspecified"]},
-        "personal_use": {"enum": ["allowed", "unspecified"]},
-        "linking": {"enum": ["allowed", "unspecified"]}
-      }
+      "additionalProperties": {"enum": ["beginner", "intermediate", "advanced"]}
     }
   }
 }

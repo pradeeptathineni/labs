@@ -12,11 +12,16 @@
   "dates": {
     "created": "2026-10-03",
     "started": null,
-    "completed": null
+    "completed": null,
+    "updated": "2026-10-03"
   },
   "difficulty": "intermediate",
   "source": {
-    "id": "bastion-host",
+    "provider": "roadmap-sh",
+    "item_id": "bastion-host",
     "url": "https://roadmap.sh/projects/bastion-host"
+  },
+  "tracking": {
+    "content_sha256": "1052a4ba7dc3de9754ceb0ebe6d70305ee6db28b8078f449ddac133a4bd1a28c"
   }
 }

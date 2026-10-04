@@ -3,58 +3,49 @@
   "title": "Lab metadata",
   "type": "object",
   "additionalProperties": false,
-  "required": ["title", "kind", "status", "skills", "dates"],
+  "required": ["title", "kind", "status", "skills", "source", "dates", "tracking"],
   "properties": {
-    "title": {
-      "type": "string",
-      "minLength": 1,
-      "pattern": "\\S"
-    },
+    "title": {"type": "string", "minLength": 1, "pattern": "\\S"},
     "kind": {
       "type": "string",
-      "enum": ["project", "challenge", "exercise", "experiment", "incident", "kata"]
+      "enum": ["project", "challenge", "exercise", "problem", "prompt", "question", "case-study", "experiment", "incident", "kata"]
     },
     "status": {
       "type": "string",
       "enum": ["not-started", "in-progress", "complete", "paused", "abandoned"]
     },
-    "difficulty": {
-      "type": "string",
-      "enum": ["beginner", "intermediate", "advanced"]
-    },
+    "difficulty": {"type": "string", "enum": ["beginner", "intermediate", "advanced"]},
     "skills": {
       "type": "array",
       "uniqueItems": true,
-      "items": {
-        "type": "string",
-        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
-      }
+      "items": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"}
     },
     "source": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "url"],
+      "required": ["provider"],
       "properties": {
-        "id": {
-          "type": "string",
-          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
-        },
-        "url": {
-          "type": "string",
-          "format": "uri",
-          "pattern": "^https?://"
-        }
+        "provider": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+        "item_id": {"type": "string", "minLength": 1, "pattern": "\\S"},
+        "url": {"type": "string", "format": "uri", "pattern": "^https?://"}
       }
     },
     "dates": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["created", "started", "completed"],
+      "required": ["created", "started", "updated", "completed"],
       "properties": {
         "created": {"type": "string", "format": "date"},
         "started": {"type": ["string", "null"], "format": "date"},
+        "updated": {"type": "string", "format": "date"},
         "completed": {"type": ["string", "null"], "format": "date"}
       }
+    },
+    "tracking": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["content_sha256"],
+      "properties": {"content_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}
     }
   }
 }

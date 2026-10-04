@@ -11,11 +11,16 @@
   "dates": {
     "created": "2026-10-03",
     "started": null,
-    "completed": null
+    "completed": null,
+    "updated": "2026-10-03"
   },
   "difficulty": "beginner",
   "source": {
-    "id": "basic-dockerfile",
+    "provider": "roadmap-sh",
+    "item_id": "basic-dockerfile",
     "url": "https://roadmap.sh/projects/basic-dockerfile"
+  },
+  "tracking": {
+    "content_sha256": "f3c652ff923d544e0dd81d52e6aa662ed04f52a8222694841534baec2f2897a7"
   }
 }

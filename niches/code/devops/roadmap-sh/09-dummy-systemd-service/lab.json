@@ -12,11 +12,16 @@
   "dates": {
     "created": "2026-10-03",
     "started": null,
-    "completed": null
+    "completed": null,
+    "updated": "2026-10-03"
   },
   "difficulty": "beginner",
   "source": {
-    "id": "dummy-systemd-service",
+    "provider": "roadmap-sh",
+    "item_id": "dummy-systemd-service",
     "url": "https://roadmap.sh/projects/dummy-systemd-service"
+  },
+  "tracking": {
+    "content_sha256": "011106293bb1b081170f8753b1feec74b22264ef531ab3e4ef59cb9b96f6297d"
   }
 }

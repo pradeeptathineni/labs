@@ -3,7 +3,6 @@
     "title": "Server Performance Stats",
     "kind": "project",
     "status": "not-started",
-    "difficulty": "beginner",
     "skills": [
       "bash",
       "filesystems",
@@ -12,27 +11,33 @@
       "process-inspection",
       "resource-metrics"
     ],
+    "source": {
+      "provider": "roadmap-sh",
+      "item_id": "server-stats",
+      "url": "https://roadmap.sh/projects/server-stats"
+    },
     "dates": {
       "created": "2026-10-03",
       "started": null,
+      "updated": "2026-10-03",
       "completed": null
     },
-    "source": {
-      "id": "server-stats",
-      "url": "https://roadmap.sh/projects/server-stats"
+    "tracking": {
+      "content_sha256": "55f3eefca11ac5e28338453e085afda897cc1410bd4298fb8c0d5b6a2cf4e1d2"
     },
     "niche": "code",
     "domain": "devops",
-    "provider": "roadmap-sh",
+    "subdomain": null,
+    "collection": "roadmap-sh",
     "slug": "server-performance-stats",
+    "order": 1,
     "path": "niches/code/devops/roadmap-sh/01-server-performance-stats",
-    "order": 1
+    "difficulty": "beginner"
   },
   {
     "title": "Log Archive Tool",
     "kind": "project",
     "status": "not-started",
-    "difficulty": "beginner",
     "skills": [
       "archiving",
       "command-line",
@@ -40,27 +45,33 @@
       "log-management",
       "timestamps"
     ],
+    "source": {
+      "provider": "roadmap-sh",
+      "item_id": "log-archive-tool",
+      "url": "https://roadmap.sh/projects/log-archive-tool"
+    },
     "dates": {
       "created": "2026-10-03",
       "started": null,
+      "updated": "2026-10-03",
       "completed": null
     },
-    "source": {
-      "id": "log-archive-tool",
-      "url": "https://roadmap.sh/projects/log-archive-tool"
+    "tracking": {
+      "content_sha256": "215c69b18877ba600429f6d9aa692a40ac1241ab21ceb7e9dcdb0970c9ff119e"
     },
     "niche": "code",
     "domain": "devops",
-    "provider": "roadmap-sh",
+    "subdomain": null,
+    "collection": "roadmap-sh",
     "slug": "log-archive-tool",
+    "order": 2,
     "path": "niches/code/devops/roadmap-sh/02-log-archive-tool",
-    "order": 2
+    "difficulty": "beginner"
   },
   {
     "title": "Nginx Log Analyser",
     "kind": "project",
     "status": "not-started",
-    "difficulty": "beginner",
     "skills": [
       "awk",
       "bash",
@@ -69,27 +80,33 @@
       "shell-scripting",
       "text-processing"
     ],
+    "source": {
+      "provider": "roadmap-sh",
+      "item_id": "nginx-log-analyser",
+      "url": "https://roadmap.sh/projects/nginx-log-analyser"
+    },
     "dates": {
       "created": "2026-10-03",
       "started": null,
+      "updated": "2026-10-03",
       "completed": null
     },
-    "source": {
-      "id": "nginx-log-analyser",
-      "url": "https://roadmap.sh/projects/nginx-log-analyser"
+    "tracking": {
+      "content_sha256": "c9f94754d74103bef0ebeeb8d8e78c206641da5e4e18befccbd40395c045a862"
     },
     "niche": "code",
     "domain": "devops",
-    "provider": "roadmap-sh",
+    "subdomain": null,
+    "collection": "roadmap-sh",
     "slug": "nginx-log-analyser",
+    "order": 3,
     "path": "niches/code/devops/roadmap-sh/03-nginx-log-analyser",
-    "order": 3
+    "difficulty": "beginner"
   },
   {
     "title": "GitHub Pages Deployment",
     "kind": "project",
     "status": "not-started",
-    "difficulty": "beginner",
     "skills": [
       "ci-cd",
       "deployment",
@@ -97,54 +114,66 @@
       "github-actions",
       "github-pages"
     ],
+    "source": {
+      "provider": "roadmap-sh",
+      "item_id": "github-actions-deployment-workflow",
+      "url": "https://roadmap.sh/projects/github-actions-deployment-workflow"
+    },
     "dates": {
       "created": "2026-10-03",
       "started": null,
+      "updated": "2026-10-03",
       "completed": null
     },
-    "source": {
-      "id": "github-actions-deployment-workflow",
-      "url": "https://roadmap.sh/projects/github-actions-deployment-workflow"
+    "tracking": {
+      "content_sha256": "43fe69ff37c7b11b1fbd30685f0608f80c1ebe3fdccf157216fdb277257fc315"
     },
     "niche": "code",
     "domain": "devops",
-    "provider": "roadmap-sh",
+    "subdomain": null,
+    "collection": "roadmap-sh",
     "slug": "github-pages-deployment",
+    "order": 4,
     "path": "niches/code/devops/roadmap-sh/04-github-pages-deployment",
-    "order": 4
+    "difficulty": "beginner"
   },
   {
     "title": "SSH Remote Server Setup",
     "kind": "project",
     "status": "not-started",
-    "difficulty": "beginner",
     "skills": [
       "linux",
       "remote-access",
       "ssh",
       "ssh-keys"
     ],
+    "source": {
+      "provider": "roadmap-sh",
+      "item_id": "ssh-remote-server-setup",
+      "url": "https://roadmap.sh/projects/ssh-remote-server-setup"
+    },
     "dates": {
       "created": "2026-10-03",
       "started": null,
+      "updated": "2026-10-03",
       "completed": null
     },
-    "source": {
-      "id": "ssh-remote-server-setup",
-      "url": "https://roadmap.sh/projects/ssh-remote-server-setup"
+    "tracking": {
+      "content_sha256": "5c0e697be0417645c0256c1845a662a58b9ecbf8f8450a350b974cdd3865c804"
     },
     "niche": "code",
     "domain": "devops",
-    "provider": "roadmap-sh",
+    "subdomain": null,
+    "collection": "roadmap-sh",
     "slug": "ssh-remote-server-setup",
+    "order": 5,
     "path": "niches/code/devops/roadmap-sh/05-ssh-remote-server-setup",
-    "order": 5
+    "difficulty": "beginner"
   },
   {
     "title": "Static Site Server",
     "kind": "project",
     "status": "not-started",
-    "difficulty": "beginner",
     "skills": [
       "deployment",
       "linux",
@@ -153,54 +182,66 @@
       "ssh",
       "static-sites"
     ],
+    "source": {
+      "provider": "roadmap-sh",
+      "item_id": "static-site-server",
+      "url": "https://roadmap.sh/projects/static-site-server"
+    },
     "dates": {
       "created": "2026-10-03",
       "started": null,
+      "updated": "2026-10-03",
       "completed": null
     },
-    "source": {
-      "id": "static-site-server",
-      "url": "https://roadmap.sh/projects/static-site-server"
+    "tracking": {
+      "content_sha256": "108af3cddf0693c366f61cec11fb6d32bbda4f73809de7f67f990d0a1866ab31"
     },
     "niche": "code",
     "domain": "devops",
-    "provider": "roadmap-sh",
+    "subdomain": null,
+    "collection": "roadmap-sh",
     "slug": "static-site-server",
+    "order": 6,
     "path": "niches/code/devops/roadmap-sh/06-static-site-server",
-    "order": 6
+    "difficulty": "beginner"
   },
   {
     "title": "Basic DNS Setup",
     "kind": "project",
     "status": "not-started",
-    "difficulty": "beginner",
     "skills": [
       "cloud-hosting",
       "dns",
       "domain-names",
       "networking"
     ],
+    "source": {
+      "provider": "roadmap-sh",
+      "item_id": "basic-dns",
+      "url": "https://roadmap.sh/projects/basic-dns"
+    },
     "dates": {
       "created": "2026-10-03",
       "started": null,
+      "updated": "2026-10-03",
       "completed": null
     },
-    "source": {
-      "id": "basic-dns",
-      "url": "https://roadmap.sh/projects/basic-dns"
+    "tracking": {
+      "content_sha256": "4c14fee1be1c84ef189ac6283de96fc209d850676935b8eb6e32a0a209d76cdb"
     },
     "niche": "code",
     "domain": "devops",
-    "provider": "roadmap-sh",
+    "subdomain": null,
+    "collection": "roadmap-sh",
     "slug": "basic-dns-setup",
+    "order": 7,
     "path": "niches/code/devops/roadmap-sh/07-basic-dns-setup",
-    "order": 7
+    "difficulty": "beginner"
   },
   {
     "title": "Simple Monitoring",
     "kind": "project",
     "status": "not-started",
-    "difficulty": "beginner",
     "skills": [
       "alerting",
       "dashboarding",
@@ -211,27 +252,33 @@
       "observability",
       "shell-scripting"
     ],
+    "source": {
+      "provider": "roadmap-sh",
+      "item_id": "simple-monitoring-dashboard",
+      "url": "https://roadmap.sh/projects/simple-monitoring-dashboard"
+    },
     "dates": {
       "created": "2026-10-03",
       "started": null,
+      "updated": "2026-10-03",
       "completed": null
     },
-    "source": {
-      "id": "simple-monitoring-dashboard",
-      "url": "https://roadmap.sh/projects/simple-monitoring-dashboard"
+    "tracking": {
+      "content_sha256": "229a98063870b18ef5baf46c2d57e2969443c3966114ed8ed57c5b2c968586f7"
     },
     "niche": "code",
     "domain": "devops",
-    "provider": "roadmap-sh",
+    "subdomain": null,
+    "collection": "roadmap-sh",
     "slug": "simple-monitoring",
+    "order": 8,
     "path": "niches/code/devops/roadmap-sh/08-simple-monitoring",
-    "order": 8
+    "difficulty": "beginner"
   },
   {
     "title": "Dummy Systemd Service",
     "kind": "project",
     "status": "not-started",
-    "difficulty": "beginner",
     "skills": [
       "journald",
       "linux",
@@ -239,54 +286,66 @@
       "services",
       "systemd"
     ],
+    "source": {
+      "provider": "roadmap-sh",
+      "item_id": "dummy-systemd-service",
+      "url": "https://roadmap.sh/projects/dummy-systemd-service"
+    },
     "dates": {
       "created": "2026-10-03",
       "started": null,
+      "updated": "2026-10-03",
       "completed": null
     },
-    "source": {
-      "id": "dummy-systemd-service",
-      "url": "https://roadmap.sh/projects/dummy-systemd-service"
+    "tracking": {
+      "content_sha256": "011106293bb1b081170f8753b1feec74b22264ef531ab3e4ef59cb9b96f6297d"
     },
     "niche": "code",
     "domain": "devops",
-    "provider": "roadmap-sh",
+    "subdomain": null,
+    "collection": "roadmap-sh",
     "slug": "dummy-systemd-service",
+    "order": 9,
     "path": "niches/code/devops/roadmap-sh/09-dummy-systemd-service",
-    "order": 9
+    "difficulty": "beginner"
   },
   {
     "title": "Basic Dockerfile",
     "kind": "project",
     "status": "not-started",
-    "difficulty": "beginner",
     "skills": [
       "containers",
       "docker",
       "dockerfile",
       "image-building"
     ],
+    "source": {
+      "provider": "roadmap-sh",
+      "item_id": "basic-dockerfile",
+      "url": "https://roadmap.sh/projects/basic-dockerfile"
+    },
     "dates": {
       "created": "2026-10-03",
       "started": null,
+      "updated": "2026-10-03",
       "completed": null
     },
-    "source": {
-      "id": "basic-dockerfile",
-      "url": "https://roadmap.sh/projects/basic-dockerfile"
+    "tracking": {
+      "content_sha256": "f3c652ff923d544e0dd81d52e6aa662ed04f52a8222694841534baec2f2897a7"
     },
     "niche": "code",
     "domain": "devops",
-    "provider": "roadmap-sh",
+    "subdomain": null,
+    "collection": "roadmap-sh",
     "slug": "basic-dockerfile",
+    "order": 10,
     "path": "niches/code/devops/roadmap-sh/10-basic-dockerfile",
-    "order": 10
+    "difficulty": "beginner"
   },
   {
     "title": "EC2 Instance",
     "kind": "project",
     "status": "not-started",
-    "difficulty": "beginner",
     "skills": [
       "aws",
       "cloud-computing",
@@ -294,27 +353,33 @@
       "networking",
       "ssh"
     ],
+    "source": {
+      "provider": "roadmap-sh",
+      "item_id": "ec2-instance",
+      "url": "https://roadmap.sh/projects/ec2-instance"
+    },
     "dates": {
       "created": "2026-10-03",
       "started": null,
+      "updated": "2026-10-03",
       "completed": null
     },
-    "source": {
-      "id": "ec2-instance",
-      "url": "https://roadmap.sh/projects/ec2-instance"
+    "tracking": {
+      "content_sha256": "5bc0cdaa3b49540f0f0cb4a9d472a0d217964a7621e6a80eb97ddce5caea2222"
     },
     "niche": "code",
     "domain": "devops",
-    "provider": "roadmap-sh",
+    "subdomain": null,
+    "collection": "roadmap-sh",
     "slug": "ec2-instance",
+    "order": 11,
     "path": "niches/code/devops/roadmap-sh/11-ec2-instance",
-    "order": 11
+    "difficulty": "beginner"
   },
   {
     "title": "Pomodoro Timer",
     "kind": "project",
     "status": "not-started",
-    "difficulty": "intermediate",
     "skills": [
       "accessibility",
       "css",
@@ -324,27 +389,33 @@
       "state-management",
       "timer-logic"
     ],
+    "source": {
+      "provider": "roadmap-sh",
+      "item_id": "pomodoro-timer",
+      "url": "https://roadmap.sh/projects/pomodoro-timer"
+    },
     "dates": {
       "created": "2026-10-03",
       "started": null,
+      "updated": "2026-10-03",
       "completed": null
     },
-    "source": {
-      "id": "pomodoro-timer",
-      "url": "https://roadmap.sh/projects/pomodoro-timer"
+    "tracking": {
+      "content_sha256": "fe056a4bd2a2c41dd4bf239f179f088adb7cbac1c1a2381b3d88d42f08194e11"
     },
     "niche": "code",
     "domain": "devops",
-    "provider": "roadmap-sh",
+    "subdomain": null,
+    "collection": "roadmap-sh",
     "slug": "pomodoro-timer",
+    "order": 12,
     "path": "niches/code/devops/roadmap-sh/12-pomodoro-timer",
-    "order": 12
+    "difficulty": "intermediate"
   },
   {
     "title": "Configuration Management",
     "kind": "project",
     "status": "not-started",
-    "difficulty": "intermediate",
     "skills": [
       "ansible",
       "automation",
@@ -352,54 +423,66 @@
       "idempotency",
       "linux"
     ],
+    "source": {
+      "provider": "roadmap-sh",
+      "item_id": "configuration-management",
+      "url": "https://roadmap.sh/projects/configuration-management"
+    },
     "dates": {
       "created": "2026-10-03",
       "started": null,
+      "updated": "2026-10-03",
       "completed": null
     },
-    "source": {
-      "id": "configuration-management",
-      "url": "https://roadmap.sh/projects/configuration-management"
+    "tracking": {
+      "content_sha256": "d4abfa549741710f4d17db8439b86f100328e9b66ebbc527c44e5509108544c2"
     },
     "niche": "code",
     "domain": "devops",
-    "provider": "roadmap-sh",
+    "subdomain": null,
+    "collection": "roadmap-sh",
     "slug": "configuration-management",
+    "order": 13,
     "path": "niches/code/devops/roadmap-sh/13-configuration-management",
-    "order": 13
+    "difficulty": "intermediate"
   },
   {
     "title": "IaC on DigitalOcean",
     "kind": "project",
     "status": "not-started",
-    "difficulty": "intermediate",
     "skills": [
       "cloud-computing",
       "digitalocean",
       "infrastructure-as-code",
       "terraform"
     ],
+    "source": {
+      "provider": "roadmap-sh",
+      "item_id": "iac-digitalocean",
+      "url": "https://roadmap.sh/projects/iac-digitalocean"
+    },
     "dates": {
       "created": "2026-10-03",
       "started": null,
+      "updated": "2026-10-03",
       "completed": null
     },
-    "source": {
-      "id": "iac-digitalocean",
-      "url": "https://roadmap.sh/projects/iac-digitalocean"
+    "tracking": {
+      "content_sha256": "09bbecb97509adfc44cb50f54589596bc762fd38b30fd6d9fc182d347c31974a"
     },
     "niche": "code",
     "domain": "devops",
-    "provider": "roadmap-sh",
+    "subdomain": null,
+    "collection": "roadmap-sh",
     "slug": "iac-digitalocean",
+    "order": 14,
     "path": "niches/code/devops/roadmap-sh/14-iac-digitalocean",
-    "order": 14
+    "difficulty": "intermediate"
   },
   {
     "title": "Node.js Service Deployment",
     "kind": "project",
     "status": "not-started",
-    "difficulty": "intermediate",
     "skills": [
       "ci-cd",
       "deployment",
@@ -407,27 +490,33 @@
       "nodejs",
       "ssh"
     ],
+    "source": {
+      "provider": "roadmap-sh",
+      "item_id": "nodejs-service-deployment",
+      "url": "https://roadmap.sh/projects/nodejs-service-deployment"
+    },
     "dates": {
       "created": "2026-10-03",
       "started": null,
+      "updated": "2026-10-03",
       "completed": null
     },
-    "source": {
-      "id": "nodejs-service-deployment",
-      "url": "https://roadmap.sh/projects/nodejs-service-deployment"
+    "tracking": {
+      "content_sha256": "bb8ca6abf28844396c8724ee3ff6c933be39a9b8a6959e66d6fc144ef96a8f3b"
     },
     "niche": "code",
     "domain": "devops",
-    "provider": "roadmap-sh",
+    "subdomain": null,
+    "collection": "roadmap-sh",
     "slug": "nodejs-service-deployment",
+    "order": 15,
     "path": "niches/code/devops/roadmap-sh/15-nodejs-service-deployment",
-    "order": 15
+    "difficulty": "intermediate"
   },
   {
     "title": "Dockerized Service",
     "kind": "project",
     "status": "not-started",
-    "difficulty": "intermediate",
     "skills": [
       "ci-cd",
       "deployment",
@@ -435,54 +524,66 @@
       "github-actions",
       "nodejs"
     ],
+    "source": {
+      "provider": "roadmap-sh",
+      "item_id": "dockerized-service-deployment",
+      "url": "https://roadmap.sh/projects/dockerized-service-deployment"
+    },
     "dates": {
       "created": "2026-10-03",
       "started": null,
+      "updated": "2026-10-03",
       "completed": null
     },
-    "source": {
-      "id": "dockerized-service-deployment",
-      "url": "https://roadmap.sh/projects/dockerized-service-deployment"
+    "tracking": {
+      "content_sha256": "f7c8c368a5290719e54490d8b8741490c4e1e4aa500c3414c6762487bcd90aa8"
     },
     "niche": "code",
     "domain": "devops",
-    "provider": "roadmap-sh",
+    "subdomain": null,
+    "collection": "roadmap-sh",
     "slug": "dockerized-service",
+    "order": 16,
     "path": "niches/code/devops/roadmap-sh/16-dockerized-service",
-    "order": 16
+    "difficulty": "intermediate"
   },
   {
     "title": "Multi-Container Application",
     "kind": "project",
     "status": "not-started",
-    "difficulty": "intermediate",
     "skills": [
       "containers",
       "docker",
       "docker-compose",
       "service-networking"
     ],
+    "source": {
+      "provider": "roadmap-sh",
+      "item_id": "multi-container-service",
+      "url": "https://roadmap.sh/projects/multi-container-service"
+    },
     "dates": {
       "created": "2026-10-03",
       "started": null,
+      "updated": "2026-10-03",
       "completed": null
     },
-    "source": {
-      "id": "multi-container-service",
-      "url": "https://roadmap.sh/projects/multi-container-service"
+    "tracking": {
+      "content_sha256": "69189285157ae38e2fa29067ffaed9e0b6897b01c81c5e5acf805b039adbc158"
     },
     "niche": "code",
     "domain": "devops",
-    "provider": "roadmap-sh",
+    "subdomain": null,
+    "collection": "roadmap-sh",
     "slug": "multi-container-application",
+    "order": 17,
     "path": "niches/code/devops/roadmap-sh/17-multi-container-application",
-    "order": 17
+    "difficulty": "intermediate"
   },
   {
     "title": "Automated DB Backups",
     "kind": "project",
     "status": "not-started",
-    "difficulty": "intermediate",
     "skills": [
       "automation",
       "backup-and-recovery",
@@ -492,27 +593,33 @@
       "scheduling",
       "workflow-automation"
     ],
+    "source": {
+      "provider": "roadmap-sh",
+      "item_id": "automated-backups",
+      "url": "https://roadmap.sh/projects/automated-backups"
+    },
     "dates": {
       "created": "2026-10-03",
       "started": null,
+      "updated": "2026-10-03",
       "completed": null
     },
-    "source": {
-      "id": "automated-backups",
-      "url": "https://roadmap.sh/projects/automated-backups"
+    "tracking": {
+      "content_sha256": "dad731b2caa26e963d03c9e44d3f8106c346dd643460216905aaba3ad06ad807"
     },
     "niche": "code",
     "domain": "devops",
-    "provider": "roadmap-sh",
+    "subdomain": null,
+    "collection": "roadmap-sh",
     "slug": "automated-db-backups",
+    "order": 18,
     "path": "niches/code/devops/roadmap-sh/18-automated-db-backups",
-    "order": 18
+    "difficulty": "intermediate"
   },
   {
     "title": "Bastion Host",
     "kind": "project",
     "status": "not-started",
-    "difficulty": "intermediate",
     "skills": [
       "access-control",
       "bastion-hosts",
@@ -520,27 +627,33 @@
       "security",
       "ssh"
     ],
+    "source": {
+      "provider": "roadmap-sh",
+      "item_id": "bastion-host",
+      "url": "https://roadmap.sh/projects/bastion-host"
+    },
     "dates": {
       "created": "2026-10-03",
       "started": null,
+      "updated": "2026-10-03",
       "completed": null
     },
-    "source": {
-      "id": "bastion-host",
-      "url": "https://roadmap.sh/projects/bastion-host"
+    "tracking": {
+      "content_sha256": "1052a4ba7dc3de9754ceb0ebe6d70305ee6db28b8078f449ddac133a4bd1a28c"
     },
     "niche": "code",
     "domain": "devops",
-    "provider": "roadmap-sh",
+    "subdomain": null,
+    "collection": "roadmap-sh",
     "slug": "bastion-host",
+    "order": 19,
     "path": "niches/code/devops/roadmap-sh/19-bastion-host",
-    "order": 19
+    "difficulty": "intermediate"
   },
   {
     "title": "File Integrity Checker",
     "kind": "project",
     "status": "not-started",
-    "difficulty": "intermediate",
     "skills": [
       "cryptographic-hashing",
       "file-integrity",
@@ -548,27 +661,33 @@
       "monitoring",
       "security"
     ],
+    "source": {
+      "provider": "roadmap-sh",
+      "item_id": "file-integrity-checker",
+      "url": "https://roadmap.sh/projects/file-integrity-checker"
+    },
     "dates": {
       "created": "2026-10-03",
       "started": null,
+      "updated": "2026-10-03",
       "completed": null
     },
-    "source": {
-      "id": "file-integrity-checker",
-      "url": "https://roadmap.sh/projects/file-integrity-checker"
+    "tracking": {
+      "content_sha256": "f00aad10ac951da3ce5c92bc07073021df6fdbb6d868dbc88ac138651086d37d"
     },
     "niche": "code",
     "domain": "devops",
-    "provider": "roadmap-sh",
+    "subdomain": null,
+    "collection": "roadmap-sh",
     "slug": "file-integrity-checker",
+    "order": 20,
     "path": "niches/code/devops/roadmap-sh/20-file-integrity-checker",
-    "order": 20
+    "difficulty": "intermediate"
   },
   {
     "title": "Linux Server Setup",
     "kind": "project",
     "status": "not-started",
-    "difficulty": "intermediate",
     "skills": [
       "firewalls",
       "hardening",
@@ -576,27 +695,33 @@
       "system-administration",
       "user-management"
     ],
+    "source": {
+      "provider": "roadmap-sh",
+      "item_id": "linux-server-setup",
+      "url": "https://roadmap.sh/projects/linux-server-setup"
+    },
     "dates": {
       "created": "2026-10-03",
       "started": null,
+      "updated": "2026-10-03",
       "completed": null
     },
-    "source": {
-      "id": "linux-server-setup",
-      "url": "https://roadmap.sh/projects/linux-server-setup"
+    "tracking": {
+      "content_sha256": "32f157b154c483d0037289fd071c1678b1411d07caa5d789da85cff928a2fdce"
     },
     "niche": "code",
     "domain": "devops",
-    "provider": "roadmap-sh",
+    "subdomain": null,
+    "collection": "roadmap-sh",
     "slug": "linux-server-setup",
+    "order": 21,
     "path": "niches/code/devops/roadmap-sh/21-linux-server-setup",
-    "order": 21
+    "difficulty": "intermediate"
   },
   {
     "title": "VPN Server Setup",
     "kind": "project",
     "status": "not-started",
-    "difficulty": "intermediate",
     "skills": [
       "cryptography",
       "linux",
@@ -605,54 +730,66 @@
       "vpn",
       "wireguard"
     ],
+    "source": {
+      "provider": "roadmap-sh",
+      "item_id": "vpn-server-setup",
+      "url": "https://roadmap.sh/projects/vpn-server-setup"
+    },
     "dates": {
       "created": "2026-10-03",
       "started": null,
+      "updated": "2026-10-03",
       "completed": null
     },
-    "source": {
-      "id": "vpn-server-setup",
-      "url": "https://roadmap.sh/projects/vpn-server-setup"
+    "tracking": {
+      "content_sha256": "85fca431e126a2a7183965bc9a88aefc34c4a923842fb8c147616c6f59925d0b"
     },
     "niche": "code",
     "domain": "devops",
-    "provider": "roadmap-sh",
+    "subdomain": null,
+    "collection": "roadmap-sh",
     "slug": "vpn-server-setup",
+    "order": 22,
     "path": "niches/code/devops/roadmap-sh/22-vpn-server-setup",
-    "order": 22
+    "difficulty": "intermediate"
   },
   {
     "title": "Blue-Green Deployment",
     "kind": "project",
     "status": "not-started",
-    "difficulty": "advanced",
     "skills": [
       "ci-cd",
       "deployment-strategies",
       "load-balancing",
       "rollback"
     ],
+    "source": {
+      "provider": "roadmap-sh",
+      "item_id": "blue-green-deployment",
+      "url": "https://roadmap.sh/projects/blue-green-deployment"
+    },
     "dates": {
       "created": "2026-10-03",
       "started": null,
+      "updated": "2026-10-03",
       "completed": null
     },
-    "source": {
-      "id": "blue-green-deployment",
-      "url": "https://roadmap.sh/projects/blue-green-deployment"
+    "tracking": {
+      "content_sha256": "597b3eb5abb9510e5c8d2945b681cf3cc59f8c440d8256b7b8b639b05b0ea2dd"
     },
     "niche": "code",
     "domain": "devops",
-    "provider": "roadmap-sh",
+    "subdomain": null,
+    "collection": "roadmap-sh",
     "slug": "blue-green-deployment",
+    "order": 23,
     "path": "niches/code/devops/roadmap-sh/23-blue-green-deployment",
-    "order": 23
+    "difficulty": "advanced"
   },
   {
     "title": "Prometheus and Grafana",
     "kind": "project",
     "status": "not-started",
-    "difficulty": "advanced",
     "skills": [
       "grafana",
       "metrics",
@@ -660,27 +797,33 @@
       "observability",
       "prometheus"
     ],
+    "source": {
+      "provider": "roadmap-sh",
+      "item_id": "monitoring",
+      "url": "https://roadmap.sh/projects/monitoring"
+    },
     "dates": {
       "created": "2026-10-03",
       "started": null,
+      "updated": "2026-10-03",
       "completed": null
     },
-    "source": {
-      "id": "monitoring",
-      "url": "https://roadmap.sh/projects/monitoring"
+    "tracking": {
+      "content_sha256": "fb796851dc932c769104b7a8112ae670c6a5bf6e5ac97ed84518f42da4a410dd"
     },
     "niche": "code",
     "domain": "devops",
-    "provider": "roadmap-sh",
+    "subdomain": null,
+    "collection": "roadmap-sh",
     "slug": "prometheus-and-grafana",
+    "order": 24,
     "path": "niches/code/devops/roadmap-sh/24-prometheus-and-grafana",
-    "order": 24
+    "difficulty": "advanced"
   },
   {
     "title": "Multi-Service Application",
     "kind": "project",
     "status": "not-started",
-    "difficulty": "advanced",
     "skills": [
       "docker",
       "docker-compose",
@@ -688,47 +831,60 @@
       "optimization",
       "service-networking"
     ],
+    "source": {
+      "provider": "roadmap-sh",
+      "item_id": "multiservice-docker",
+      "url": "https://roadmap.sh/projects/multiservice-docker"
+    },
     "dates": {
       "created": "2026-10-03",
       "started": null,
+      "updated": "2026-10-03",
       "completed": null
     },
-    "source": {
-      "id": "multiservice-docker",
-      "url": "https://roadmap.sh/projects/multiservice-docker"
+    "tracking": {
+      "content_sha256": "4346c202c0c20bae2bdb9c1db713a95dbf650611f35db4326f86b735f5be6eb0"
     },
     "niche": "code",
     "domain": "devops",
-    "provider": "roadmap-sh",
+    "subdomain": null,
+    "collection": "roadmap-sh",
     "slug": "multi-service-application",
+    "order": 25,
     "path": "niches/code/devops/roadmap-sh/25-multi-service-application",
-    "order": 25
+    "difficulty": "advanced"
   },
   {
     "title": "Service Discovery",
     "kind": "project",
     "status": "not-started",
-    "difficulty": "advanced",
     "skills": [
       "consul",
       "dns",
       "networking",
       "service-discovery"
     ],
+    "source": {
+      "provider": "roadmap-sh",
+      "item_id": "service-discovery",
+      "url": "https://roadmap.sh/projects/service-discovery"
+    },
     "dates": {
       "created": "2026-10-03",
       "started": null,
+      "updated": "2026-10-03",
       "completed": null
     },
-    "source": {
-      "id": "service-discovery",
-      "url": "https://roadmap.sh/projects/service-discovery"
+    "tracking": {
+      "content_sha256": "23c49799f59ac3377970c264ce0a02a0589175a53d10a0b5453d94f7ea2a3ef7"
     },
     "niche": "code",
     "domain": "devops",
-    "provider": "roadmap-sh",
+    "subdomain": null,
+    "collection": "roadmap-sh",
     "slug": "service-discovery",
+    "order": 26,
     "path": "niches/code/devops/roadmap-sh/26-service-discovery",
-    "order": 26
+    "difficulty": "advanced"
   }
 ]

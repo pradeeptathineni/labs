@@ -12,11 +12,16 @@
   "dates": {
     "created": "2026-10-03",
     "started": null,
-    "completed": null
+    "completed": null,
+    "updated": "2026-10-03"
   },
   "difficulty": "advanced",
   "source": {
-    "id": "monitoring",
+    "provider": "roadmap-sh",
+    "item_id": "monitoring",
     "url": "https://roadmap.sh/projects/monitoring"
+  },
+  "tracking": {
+    "content_sha256": "fb796851dc932c769104b7a8112ae670c6a5bf6e5ac97ed84518f42da4a410dd"
   }
 }

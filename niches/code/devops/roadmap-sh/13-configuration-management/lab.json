@@ -12,11 +12,16 @@
   "dates": {
     "created": "2026-10-03",
     "started": null,
-    "completed": null
+    "completed": null,
+    "updated": "2026-10-03"
   },
   "difficulty": "intermediate",
   "source": {
-    "id": "configuration-management",
+    "provider": "roadmap-sh",
+    "item_id": "configuration-management",
     "url": "https://roadmap.sh/projects/configuration-management"
+  },
+  "tracking": {
+    "content_sha256": "d4abfa549741710f4d17db8439b86f100328e9b66ebbc527c44e5509108544c2"
   }
 }

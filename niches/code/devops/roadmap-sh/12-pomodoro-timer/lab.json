@@ -14,11 +14,16 @@
   "dates": {
     "created": "2026-10-03",
     "started": null,
-    "completed": null
+    "completed": null,
+    "updated": "2026-10-03"
   },
   "difficulty": "intermediate",
   "source": {
-    "id": "pomodoro-timer",
+    "provider": "roadmap-sh",
+    "item_id": "pomodoro-timer",
     "url": "https://roadmap.sh/projects/pomodoro-timer"
+  },
+  "tracking": {
+    "content_sha256": "fe056a4bd2a2c41dd4bf239f179f088adb7cbac1c1a2381b3d88d42f08194e11"
   }
 }

@@ -13,11 +13,16 @@
   "dates": {
     "created": "2026-10-03",
     "started": null,
-    "completed": null
+    "completed": null,
+    "updated": "2026-10-03"
   },
   "difficulty": "beginner",
   "source": {
-    "id": "server-stats",
+    "provider": "roadmap-sh",
+    "item_id": "server-stats",
     "url": "https://roadmap.sh/projects/server-stats"
+  },
+  "tracking": {
+    "content_sha256": "55f3eefca11ac5e28338453e085afda897cc1410bd4298fb8c0d5b6a2cf4e1d2"
   }
 }

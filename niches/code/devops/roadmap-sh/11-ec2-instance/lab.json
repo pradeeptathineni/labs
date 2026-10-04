@@ -12,11 +12,16 @@
   "dates": {
     "created": "2026-10-03",
     "started": null,
-    "completed": null
+    "completed": null,
+    "updated": "2026-10-03"
   },
   "difficulty": "beginner",
   "source": {
-    "id": "ec2-instance",
+    "provider": "roadmap-sh",
+    "item_id": "ec2-instance",
     "url": "https://roadmap.sh/projects/ec2-instance"
+  },
+  "tracking": {
+    "content_sha256": "5bc0cdaa3b49540f0f0cb4a9d472a0d217964a7621e6a80eb97ddce5caea2222"
   }
 }

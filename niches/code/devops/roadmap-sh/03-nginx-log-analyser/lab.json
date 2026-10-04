@@ -13,11 +13,16 @@
   "dates": {
     "created": "2026-10-03",
     "started": null,
-    "completed": null
+    "completed": null,
+    "updated": "2026-10-03"
   },
   "difficulty": "beginner",
   "source": {
-    "id": "nginx-log-analyser",
+    "provider": "roadmap-sh",
+    "item_id": "nginx-log-analyser",
     "url": "https://roadmap.sh/projects/nginx-log-analyser"
+  },
+  "tracking": {
+    "content_sha256": "c9f94754d74103bef0ebeeb8d8e78c206641da5e4e18befccbd40395c045a862"
   }
 }

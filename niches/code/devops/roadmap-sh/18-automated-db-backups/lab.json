@@ -14,11 +14,16 @@
   "dates": {
     "created": "2026-10-03",
     "started": null,
-    "completed": null
+    "completed": null,
+    "updated": "2026-10-03"
   },
   "difficulty": "intermediate",
   "source": {
-    "id": "automated-backups",
+    "provider": "roadmap-sh",
+    "item_id": "automated-backups",
     "url": "https://roadmap.sh/projects/automated-backups"
+  },
+  "tracking": {
+    "content_sha256": "dad731b2caa26e963d03c9e44d3f8106c346dd643460216905aaba3ad06ad807"
   }
 }

@@ -12,11 +12,16 @@
   "dates": {
     "created": "2026-10-03",
     "started": null,
-    "completed": null
+    "completed": null,
+    "updated": "2026-10-03"
   },
   "difficulty": "beginner",
   "source": {
-    "id": "github-actions-deployment-workflow",
+    "provider": "roadmap-sh",
+    "item_id": "github-actions-deployment-workflow",
     "url": "https://roadmap.sh/projects/github-actions-deployment-workflow"
+  },
+  "tracking": {
+    "content_sha256": "43fe69ff37c7b11b1fbd30685f0608f80c1ebe3fdccf157216fdb277257fc315"
   }
 }

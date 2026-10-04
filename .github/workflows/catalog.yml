@@ -1,4 +1,4 @@
-name: Catalog
+name: Lab metadata
 
 on:
   push:
@@ -16,4 +16,6 @@ jobs:
         with:
           python-version: "3.13"
       - run: python3 -m pip install -r .meta/requirements.txt
+      - run: python3 -m unittest discover -s .meta/tests
+      - run: python3 .meta/scripts/lab_sync.py --check
       - run: python3 .meta/scripts/catalog.py --check
