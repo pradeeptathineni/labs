@@ -15,11 +15,13 @@ python3 .meta/importers/devroadmaps.py --checkout /path/to/devroadmaps --interac
 
 ```bash
 python3 .meta/importers/cloudcertprep.py --checkout /path/to/cloudcertprep --list
-python3 .meta/importers/cloudcertprep.py --checkout /path/to/cloudcertprep --all-domains --destination niches/study/cloud/aws/clf-c02 --dry-run
-python3 .meta/importers/cloudcertprep.py --checkout /path/to/cloudcertprep --all-domains --destination niches/study/cloud/aws/clf-c02 --yes
+python3 .meta/importers/cloudcertprep.py --checkout /path/to/cloudcertprep --all-domains --destination niches/study/cloud/aws/clf-c02 --subdomain aws --dry-run
+python3 .meta/importers/cloudcertprep.py --checkout /path/to/cloudcertprep --all-domains --destination niches/study/cloud/aws/clf-c02 --subdomain aws --yes
 python3 .meta/importers/cloudcertprep.py --checkout /path/to/cloudcertprep --interactive
 ```
 
-Both importers preview the exact plan and require `--yes` for flag writes. Interactive writes always ask for confirmation. Rerunning the same selection and revision is a no-op. A changed source needs an explicit `--refresh` with the same selection and a reviewed preview. Importer-owned snapshots are checked for local edits before refresh. My README Solution, responses, status, history, and manual metadata are preserved. If a source definition changes, the importer reports that the README definition needs manual review; it does not rewrite that section automatically.
+Both importers use the initializer's destination parser: `niches/<niche>/<domain>/[<subdomain>/][<group>/...]<collection>`. For a new collection with a subdomain, pass `--subdomain` matching the first directory after the domain. It is recorded as `has_subdomain: true` in the collection descriptor. Existing descriptors supply that boundary on later runs. Interactive mode asks for it explicitly. Any directories after the subject organize collections; they do not establish source provenance.
+
+Both importers preview the exact plan, including new collection descriptors, and require `--yes` for flag writes. Interactive writes always ask for confirmation. Rerunning the same selection and revision is a no-op. A changed source needs an explicit `--refresh` with the same selection and a reviewed preview. Importer-owned snapshots are checked for local edits before refresh. My README Solution, responses, status, history, and manual metadata are preserved. If a source definition changes, the importer reports that the README definition needs manual review; it does not rewrite that section automatically.
 
 TidyTuesday datasets and other registered sources remain selective future choices. Kananinirav study notes are linked in an active problem set; its linked practice-exam content is deferred pending specific provenance and permission review.

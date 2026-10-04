@@ -1,6 +1,6 @@
 # Repository metadata
 
-The schemas, source registry, generated views, and maintenance commands live here. Each lab keeps its own facts beside its work. The path supplies niche, domain, optional group, collection, and slug; the registered `source.provider` supplies provenance independently.
+The schemas, source registry, generated views, and maintenance commands live here. Each lab keeps its own facts beside its work. The path supplies niche, domain, optional subdomain, any collection groupings, collection, and slug; the registered `source.provider` supplies provenance independently.
 
 Install the generic dependency with `python3 -m pip install -r .meta/requirements.txt`. Importers also need `python3 -m pip install -r .meta/importers/requirements.txt`.
 
@@ -10,6 +10,8 @@ A write with flags needs `--yes`. `--dry-run` previews without writing or prompt
 
 ```bash
 python3 .meta/scripts/lab_init.py code devops my-projects "Inspect a deployment" --type exercise --skill deployment --yes
+python3 .meta/scripts/lab_init.py code cloud my-projects "Inspect failover" --subdomain aws --yes
+python3 .meta/scripts/lab_init.py study systems course-abc "Problem set 1" --subdomain distributed --group mit --yes
 python3 .meta/scripts/lab_init.py --interactive
 python3 .meta/scripts/lab_meta.py niches/code/devops/roadmap-sh/01-server-performance-stats --status in-progress --yes
 python3 .meta/scripts/lab_meta.py niches/code/devops/roadmap-sh/01-server-performance-stats --interactive
@@ -21,7 +23,11 @@ python3 .meta/scripts/source_meta.py update my-source --interactive
 
 The six lab types are `exercise`, `challenge`, `problem-set`, `question-bank`, `project`, and `experiment`. `exercise` is the default. Status and dates live under `tracking`; entering progress or completion records the first date if unknown, while reopening keeps that history. Dates can be corrected explicitly. Content edits never change status.
 
-An optional `collection.json` can name a collection, link its source with `source_url`, and set `"ordered": true`. Only an explicitly ordered collection interprets a numeric folder prefix as order. The initializer appends after the highest existing number and leaves gaps alone; creating a descriptor never overwrites a collection README.
+`--subdomain` adds the optional subject level immediately after the domain. Repeat `--group` for provider or collection groupings between that subject and the final collection. Interactive mode accepts the groupings as a slash-separated path. These examples show valid layouts; they are not imported course assignments.
+
+An optional `collection.json` can name a collection, link its source with `source_url`, mark `has_subdomain: true`, and set `ordered: true`. The initializer records `has_subdomain` automatically when `--subdomain` is used, including it in the preview before writing. Without that declaration, the domain is the whole subject and all intermediate folders are collection groupings. The same domain/subdomain boundary must be used consistently across niches. A directory cannot both contain labs as a collection and contain other collections.
+
+Only an explicitly ordered collection interprets a numeric folder prefix as order. The initializer appends after the highest existing number and leaves gaps alone; creating a descriptor never overwrites a collection README. Names and hierarchy stay out of individual `lab.json` files.
 
 ## Record staged content
 

@@ -97,35 +97,53 @@ def lab_paths() -> list[Path]:
     return sorted(found)
 
 
-def collection_info(parent: Path) -> dict[str, Any]:
+def collection_info(parent: Path, overrides: Mapping[Path, Any] | None = None) -> dict[str, Any]:
     descriptor = parent / "collection.json"
     if descriptor.is_symlink():
         raise CatalogError(f"Collection descriptor cannot be a symlink: {display_path(descriptor)}")
-    if descriptor.is_file():
+    if overrides and parent in overrides:
+        value = overrides[parent]
+    elif descriptor.is_file():
         value = read_json(descriptor)
-        validate_document(value, load_schema(COLLECTION_SCHEMA_PATH), display_path(descriptor))
-        return value
-    return {}
+    else:
+        return {}
+    validate_document(value, load_schema(COLLECTION_SCHEMA_PATH), display_path(descriptor))
+    return value
 
 
-def _lab_path_parts(path: Path) -> tuple[str, str, str | None, str, str, int | None]:
+def collection_parts(parent: Path, descriptor: dict[str, Any] | None = None) -> dict[str, Any]:
+    """Separate the declared subject prefix from the remaining collection hierarchy."""
+    try:
+        parts = parent.absolute().relative_to(NICHES.absolute()).parts
+    except ValueError as error:
+        raise CatalogError(f"Collection must be under niches/: {display_path(parent)}") from error
+    if len(parts) < 3:
+        raise CatalogError(f"Bad collection depth at {display_path(parent)}; use niche/domain/[subdomain/][groups/...]collection")
+    for part in parts:
+        if not SLUG_PATTERN.fullmatch(part):
+            raise CatalogError(f"Invalid hierarchy name {part!r} in {display_path(parent)}")
+    niche, domain, *ancestors, collection = parts
+    info = collection_info(parent) if descriptor is None else descriptor
+    subdomain = None
+    if info.get("has_subdomain"):
+        if not ancestors:
+            raise CatalogError(f"Collection declares a subdomain but has no subdomain directory: {display_path(parent)}")
+        subdomain, *ancestors = ancestors
+    return {"niche": niche, "domain": domain, "subdomain": subdomain, "groups": ancestors, "collection": collection}
+
+
+def _lab_path_parts(path: Path, collection_overrides: Mapping[Path, Any] | None = None) -> tuple[dict[str, Any], str, int | None]:
     try:
         parts = path.resolve().relative_to(NICHES.resolve()).parts
     except ValueError as error:
         raise CatalogError(f"Lab must be under niches/: {display_path(path)}") from error
-    if path.name != "lab.json" or len(parts) not in (5, 6):
-        raise CatalogError(f"Bad lab depth at {display_path(path)}; use niche/domain/[group/]collection/lab/lab.json")
-    if len(parts) == 5:
-        niche, domain, collection, folder, _ = parts
-        group = None
-    else:
-        niche, domain, group, collection, folder, _ = parts
-    for label, value in (("niche", niche), ("domain", domain), ("group", group), ("collection", collection)):
-        if value is not None and not SLUG_PATTERN.fullmatch(value):
-            raise CatalogError(f"Invalid {label} {value!r} in {display_path(path)}")
+    if path.name != "lab.json" or len(parts) < 5:
+        raise CatalogError(f"Bad lab depth at {display_path(path)}; use niche/domain/[subdomain/][groups/...]collection/lab/lab.json")
+    folder = parts[-2]
     if not LAB_DIR_PATTERN.fullmatch(folder):
         raise CatalogError(f"Invalid lab folder {folder!r} in {display_path(path)}")
-    info = collection_info(path.parent.parent)
+    info = collection_info(path.parent.parent, collection_overrides)
+    hierarchy = collection_parts(path.parent.parent, info)
     order = None
     slug = folder
     if info.get("ordered") is True:
@@ -134,7 +152,7 @@ def _lab_path_parts(path: Path) -> tuple[str, str, str | None, str, str, int | N
             raise CatalogError(f"Ordered collection requires a positive number prefix: {display_path(path)}")
         order = int(match.group(1))
         slug = match.group(2)
-    return niche, domain, group, collection, slug, order
+    return hierarchy, slug, order
 
 
 def source_for(provider: str, sources: dict[str, Any]) -> dict[str, Any]:
@@ -187,9 +205,9 @@ def json_text(value: Any) -> str:
     return json.dumps(value, indent=2, ensure_ascii=False) + "\n"
 
 
-def lab_record(path: Path, metadata: Any, sources: dict[str, Any], schema: dict[str, Any] | None = None) -> dict[str, Any]:
+def lab_record(path: Path, metadata: Any, sources: dict[str, Any], schema: dict[str, Any] | None = None, *, collection_overrides: Mapping[Path, Any] | None = None) -> dict[str, Any]:
     validate_document(metadata, schema or load_schema(LAB_SCHEMA_PATH), display_path(path))
-    niche, domain, group, collection, slug, order = _lab_path_parts(path)
+    hierarchy, slug, order = _lab_path_parts(path, collection_overrides)
     source = metadata["source"]
     source_record = source_for(source["provider"], sources)
     if source_record["type"] == "local" and any(key in source for key in ("item_id", "url", "revision")):
@@ -204,12 +222,12 @@ def lab_record(path: Path, metadata: Any, sources: dict[str, Any], schema: dict[
             raise CatalogError(f"Local link does not exist: {target} in {display_path(path)}")
     record = ordered_lab(metadata)
     record.update({
-        "niche": niche, "domain": domain, "group": group, "collection": collection,
+        **hierarchy,
         "path": path.parent.relative_to(ROOT).as_posix(), "slug": slug, "order": order,
         "source_display": {"name": source_record["name"], "type": source_record["type"], "url": source_record.get("url")},
     })
-    descriptor = collection_info(path.parent.parent)
-    record["collection_title"] = descriptor.get("title") or _readme_title(path.parent.parent) or collection.replace("-", " ")
+    descriptor = collection_info(path.parent.parent, collection_overrides)
+    record["collection_title"] = descriptor.get("title") or _readme_title(path.parent.parent) or hierarchy["collection"].replace("-", " ")
     if "source_url" in descriptor:
         record["collection_source_url"] = descriptor["source_url"]
     record["goals_effective"] = sorted(set(metadata.get("goals", [])) | set(descriptor.get("goals", [])))
@@ -231,25 +249,29 @@ def _readme_title(parent: Path) -> str | None:
     return None
 
 
-def collect_labs(overrides: Mapping[Path, Any] | None = None, sources_override: dict[str, Any] | None = None) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+def collect_labs(overrides: Mapping[Path, Any] | None = None, sources_override: dict[str, Any] | None = None, *, collection_overrides: Mapping[Path, Any] | None = None) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     sources = sources_override if sources_override is not None else load_sources()
     validate_document(sources, load_schema(SOURCE_SCHEMA_PATH), display_path(SOURCES_PATH))
     schema = load_schema(LAB_SCHEMA_PATH)
     by_path = {path.absolute(): read_json(path) for path in lab_paths()}
     for path, value in (overrides or {}).items():
         by_path[path.absolute()] = value
-    records = [lab_record(path, value, sources, schema) for path, value in sorted(by_path.items())]
+    records = [lab_record(path, value, sources, schema, collection_overrides=collection_overrides) for path, value in sorted(by_path.items())]
     source_ids: dict[tuple[str, str], str] = {}
     collection_paths: set[Path] = set()
-    group_paths: set[Path] = set()
+    container_paths: set[Path] = set()
+    subdomains = {(item["domain"], item["subdomain"]) for item in records if item["subdomain"]}
     orders: dict[tuple[Path, int], str] = {}
     slugs: dict[tuple[Path, str], str] = {}
     for record in records:
         path = ROOT / record["path"]
         parent = path.parent
         collection_paths.add(parent)
-        if record["group"] is not None:
-            group_paths.add(parent.parent)
+        container_paths.update(ancestor for ancestor in parent.parents if ancestor.is_relative_to(NICHES))
+        if record["subdomain"] is None:
+            first_container = record["groups"][0] if record["groups"] else record["collection"]
+            if (record["domain"], first_container) in subdomains:
+                raise CatalogError(f"Subject boundary conflicts for {record['domain']}/{first_container}: {record['path']}. Declare has_subdomain consistently across niches.")
         source = record["source"]
         if source.get("item_id"):
             key = (source["provider"], source["item_id"])
@@ -265,10 +287,10 @@ def collect_labs(overrides: Mapping[Path, Any] | None = None, sources_override: 
             if order_key in orders:
                 raise CatalogError(f"Duplicate order in {display_path(parent)}: {record['order']}")
             orders[order_key] = record["path"]
-    conflict = collection_paths & group_paths
+    conflict = collection_paths & container_paths
     if conflict:
-        raise CatalogError(f"Directory is both collection and group: {display_path(sorted(conflict)[0])}")
-    records.sort(key=lambda item: (item["niche"], item["domain"], item["group"] or "", item["collection"], item["order"] or 0, item["slug"]))
+        raise CatalogError(f"Directory is both collection and container: {display_path(sorted(conflict)[0])}")
+    records.sort(key=lambda item: (item["niche"], item["domain"], item["subdomain"] or "", item["groups"], item["collection"], item["order"] or 0, item["slug"]))
     return records, sources
 
 
@@ -307,10 +329,10 @@ def render_catalog(records: list[dict[str, Any]]) -> str:
         "Imported material is planned practice until I record work. Skills are targets, and the update date records a content snapshot.",
         "",
     ]
-    groups: dict[tuple[str, str, str | None, str], list[dict[str, Any]]] = defaultdict(list)
+    groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for item in records:
-        groups[item["niche"], item["domain"], item["group"], item["collection"]].append(item)
-    ranked = sorted(groups.items(), key=lambda pair: (not any(item["tracking"]["status"] != "not-started" for item in pair[1]), pair[0][0], pair[0][1], pair[0][2] or "", pair[0][3]))
+        groups[str(Path(item["path"]).parent)].append(item)
+    ranked = sorted(groups.items(), key=lambda pair: (not any(item["tracking"]["status"] != "not-started" for item in pair[1]), pair[0]))
     for status, title, empty_message in (
         ("complete", "Completed", "No completed labs yet."),
         ("in-progress", "In progress", "No labs in progress yet."),
@@ -362,10 +384,9 @@ def render_catalog(records: list[dict[str, Any]]) -> str:
     return "\n".join(lines).rstrip() + "\n"
 
 
-def _collection_display(key: tuple[str, str, str | None, str], items: list[dict[str, Any]]) -> tuple[str, str, bool, str | None]:
-    niche, domain, group, collection = key
+def _collection_display(key: str, items: list[dict[str, Any]]) -> tuple[str, str, bool, str | None]:
     title = items[0]["collection_title"]
-    breadcrumb = " / ".join(filter(None, (niche, domain, group, collection)))
+    breadcrumb = " / ".join(Path(key).parts[1:])
     collection_path = (ROOT / items[0]["path"]).parent
     readme = collection_path / "README.md"
     source_url = items[0].get("collection_source_url")

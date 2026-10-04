@@ -93,22 +93,6 @@ def parse_projects(text: str) -> dict[str, list[dict[str, Any]]]:
     return projects
 
 
-def _destination(value: str) -> dict[str, str]:
-    path = Path(value).absolute()
-    try:
-        parts = path.relative_to(catalog.NICHES.absolute()).parts
-    except ValueError as error:
-        raise catalog.CatalogError("Destination must be a collection under niches/") from error
-    if len(parts) == 3:
-        niche, domain, collection = parts
-        group = None
-    elif len(parts) == 4:
-        niche, domain, group, collection = parts
-    else:
-        raise catalog.CatalogError("Destination must be niche/domain/[group/]collection")
-    return {"niche": niche, "domain": domain, "group": group, "collection": collection}
-
-
 def _project_key(track: str, title: str) -> str:
     return f"project-ideas/{track}/{catalog.slugify(title)}"
 
@@ -151,7 +135,8 @@ def _parser() -> argparse.ArgumentParser:
     parser.add_argument("--track")
     parser.add_argument("--item", action="append", help="select title slug or full project key; repeat")
     parser.add_argument("--all-track", action="store_true", help="select every item in the given track")
-    parser.add_argument("--destination", help="niches/<niche>/<domain>/[group/]<collection>")
+    parser.add_argument("--destination", help="niches/<niche>/<domain>/[subdomain/][groups/...]<collection>")
+    parser.add_argument("--subdomain", help="declare the subject subdomain for a new collection; must match the path")
     parser.add_argument("--refresh", action="store_true", help="review a changed upstream revision of selected items")
     parser.add_argument("--interactive", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
@@ -183,13 +168,15 @@ def main() -> int:
             args.all_track = choice == "all"
             args.item = None if args.all_track else [choice]
             args.destination = workflow.prompt("Destination collection", args.destination)
+            current_subdomain = lab_init.destination(args.destination)["subdomain"]
+            args.subdomain = workflow.prompt("Subject subdomain", args.subdomain or current_subdomain, optional=True)
         if not args.track or args.track not in projects:
             raise catalog.CatalogError("Choose an existing --track; use --list")
         if bool(args.item) == args.all_track:
             raise catalog.CatalogError("Choose --item or --all-track")
         if not args.destination:
             raise catalog.CatalogError("Choose --destination")
-        destination = _destination(args.destination)
+        destination = lab_init.destination(args.destination, args.subdomain)
         by_key = {_project_key(args.track, item["title"]): item for item in projects[args.track]}
         requested = list(by_key) if args.all_track else [key if key.startswith("project-ideas/") else f"project-ideas/{args.track}/{key}" for key in args.item]
         missing = sorted(set(requested) - set(by_key))
@@ -226,9 +213,9 @@ def main() -> int:
                 plans.append(lab_init.plan_lab(data, sources, files=files, existing_plans=plans))
         overrides = {plan["path"] / "lab.json": plan["metadata"] for plan in plans}
         overrides.update({path / "lab.json": metadata for path, metadata, _, _, _ in updates})
-        catalog.collect_labs(overrides=overrides)
+        catalog.collect_labs(overrides=overrides, collection_overrides=lab_init.collection_updates(plans))
         for plan in plans:
-            workflow.preview(catalog.display_path(plan["path"]), plan["metadata"], sorted(plan["files"]) + ["lab.json"])
+            lab_init.preview_plan(plan)
         for path, metadata, changes, definition_changed, desc in updates:
             workflow.preview(catalog.display_path(path), metadata, sorted(changes) + ["lab.json"])
             if definition_changed:

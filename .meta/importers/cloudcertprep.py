@@ -98,22 +98,6 @@ def _check_owned(path: Path) -> dict[str, str]:
     return contents
 
 
-def _destination(value: str) -> dict[str, str]:
-    path = Path(value).absolute()
-    try:
-        parts = path.relative_to(catalog.NICHES.absolute()).parts
-    except ValueError as error:
-        raise catalog.CatalogError("Destination must be a collection under niches/") from error
-    if len(parts) == 3:
-        niche, domain, collection = parts
-        group = None
-    elif len(parts) == 4:
-        niche, domain, group, collection = parts
-    else:
-        raise catalog.CatalogError("Destination must be niche/domain/[group/]collection")
-    return {"niche": niche, "domain": domain, "group": group, "collection": collection}
-
-
 def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Import one selected CloudCertPrep CLF-C02 question bank from Git.")
     parser.add_argument("--checkout", type=Path, required=True)
@@ -123,7 +107,8 @@ def _parser() -> argparse.ArgumentParser:
     selection.add_argument("--domain", action="append", type=int)
     selection.add_argument("--question-id", action="append", help="qualified domainN:qNNN; repeat")
     parser.add_argument("--limit", type=int, help="bound selected questions after sorting")
-    parser.add_argument("--destination")
+    parser.add_argument("--destination", help="niches/<niche>/<domain>/[subdomain/][groups/...]<collection>")
+    parser.add_argument("--subdomain", help="declare the subject subdomain for a new collection; must match the path")
     parser.add_argument("--slug", default="cloudcertprep")
     parser.add_argument("--refresh", action="store_true")
     parser.add_argument("--interactive", action="store_true")
@@ -157,6 +142,8 @@ def main() -> int:
             args.all_domains = answer == "all"
             args.domain = None if args.all_domains else [int(answer)]
             args.destination = workflow.prompt("Destination collection", args.destination)
+            current_subdomain = lab_init.destination(args.destination)["subdomain"]
+            args.subdomain = workflow.prompt("Subject subdomain", args.subdomain or current_subdomain, optional=True)
             args.slug = workflow.prompt("Lab slug", args.slug)
         if not (args.all_domains or args.domain or args.question_id):
             raise catalog.CatalogError("Select --all-domains, --domain, or --question-id")
@@ -164,7 +151,7 @@ def main() -> int:
             raise catalog.CatalogError("Choose --destination")
         if args.limit is not None and args.limit < 1:
             raise catalog.CatalogError("--limit must be positive")
-        destination = _destination(args.destination)
+        destination = lab_init.destination(args.destination, args.subdomain)
         if args.all_domains:
             selected = all_questions
         elif args.domain:
@@ -226,8 +213,7 @@ def main() -> int:
             return 0
         fields = dict(destination, title="CloudCertPrep CLF-C02 Question Bank", slug=args.slug, summary=f"Practice and review {len(selected)} adopted CLF-C02 questions across {len(set(item['domain'] for item in selected))} domains.", type="question-bank", skills=["aws", "cloud-concepts", "security-compliance", "billing-pricing"], provider=PROVIDER, item_id=identity, source_url=source_url, revision=revision)
         plan = lab_init.plan_lab(fields, sources, files={"README.md": readme, **owned})
-        catalog.collect_labs(overrides={plan["path"] / "lab.json": plan["metadata"]})
-        workflow.preview(catalog.display_path(plan["path"]), plan["metadata"], sorted(plan["files"]) + ["lab.json"])
+        lab_init.preview_plan(plan)
         if args.dry_run:
             return 0
         if not args.interactive and not args.yes:

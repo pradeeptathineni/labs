@@ -28,8 +28,9 @@ def starter_readme(title: str, source_name: str | None, url: str | None) -> str:
 
 def _parent(data: dict[str, Any]) -> Path:
     parts = [data["niche"], data["domain"]]
-    if data.get("group"):
-        parts.append(data["group"])
+    if data.get("subdomain"):
+        parts.append(data["subdomain"])
+    parts.extend(data.get("groups", []))
     parts.append(data["collection"])
     for part in parts:
         if not catalog.SLUG_PATTERN.fullmatch(part):
@@ -42,7 +43,40 @@ def _parent(data: dict[str, Any]) -> Path:
             raise catalog.CatalogError(f"Refusing symlinked lab parent: {catalog.display_path(cursor)}")
         if cursor.exists() and not cursor.is_dir():
             raise catalog.CatalogError(f"Lab parent is not a directory: {catalog.display_path(cursor)}")
+        if (cursor / "lab.json").exists():
+            raise catalog.CatalogError(f"Cannot create a collection inside a lab: {catalog.display_path(cursor)}")
     return parent
+
+
+def destination(value: str, subdomain: str | None = None) -> dict[str, Any]:
+    """Interpret an importer destination using the same subject boundary as init."""
+    parent = Path(value).absolute()
+    descriptor = catalog.collection_info(parent)
+    if subdomain is not None:
+        if not descriptor.get("has_subdomain") and ("has_subdomain" in descriptor or any(parent.glob("*/lab.json"))):
+            raise catalog.CatalogError(f"Subject boundary disagrees with existing collection: {catalog.display_path(parent)}")
+        descriptor = dict(descriptor, has_subdomain=True)
+    parts = catalog.collection_parts(parent, descriptor)
+    if subdomain is not None and parts["subdomain"] != subdomain:
+        raise catalog.CatalogError("--subdomain must match the directory immediately after the domain")
+    _parent(parts)
+    return parts
+
+
+def collection_updates(plans: list[dict[str, Any]]) -> dict[Path, dict[str, Any]]:
+    updates = {}
+    for plan in plans:
+        for parent, descriptor in plan["collection_updates"].items():
+            if parent in updates and updates[parent] != descriptor:
+                raise catalog.CatalogError(f"Conflicting collection plans: {catalog.display_path(parent)}")
+            updates[parent] = descriptor
+    return updates
+
+
+def preview_plan(plan: dict[str, Any]) -> None:
+    for parent, descriptor in plan["collection_updates"].items():
+        workflow.preview(catalog.display_path(parent), descriptor, ["collection.json"])
+    workflow.preview(catalog.display_path(plan["path"]), plan["metadata"], sorted(plan["files"]) + ["lab.json"])
 
 
 def plan_lab(data: dict[str, Any], sources: dict[str, Any], *, files: dict[str, str] | None = None, existing_plans: list[dict[str, Any]] | None = None) -> dict[str, Any]:
@@ -57,6 +91,12 @@ def plan_lab(data: dict[str, Any], sources: dict[str, Any], *, files: dict[str, 
     if not catalog.SLUG_PATTERN.fullmatch(slug):
         raise catalog.CatalogError(f"Invalid lab slug: {slug!r}")
     descriptor = catalog.collection_info(parent)
+    proposed_descriptor = dict(descriptor)
+    has_subdomain = bool(data.get("subdomain"))
+    if descriptor.get("has_subdomain", False) != has_subdomain:
+        if "has_subdomain" in descriptor or (parent.exists() and any(parent.glob("*/lab.json"))):
+            raise catalog.CatalogError(f"Subject boundary disagrees with existing collection: {catalog.display_path(parent)}")
+        proposed_descriptor["has_subdomain"] = has_subdomain
     siblings = [p for p in parent.iterdir() if p.is_dir()] if parent.exists() else []
     planned_siblings = [plan["path"] for plan in (existing_plans or []) if plan["path"].parent == parent]
     all_siblings = siblings + planned_siblings
@@ -102,14 +142,22 @@ def plan_lab(data: dict[str, Any], sources: dict[str, Any], *, files: dict[str, 
     if "difficulty" in metadata:
         metadata["difficulty"] = catalog.normalize_difficulty(metadata["difficulty"], provider, sources)
     metadata = catalog.ordered_lab(metadata)
-    catalog.lab_record(path / "lab.json", metadata, sources)
-    return {"path": path, "metadata": metadata, "files": content}
+    updates = {parent: proposed_descriptor} if proposed_descriptor != descriptor else {}
+    plan = {"path": path, "metadata": metadata, "files": content, "collection_updates": updates}
+    plans = [*(existing_plans or []), plan]
+    catalog.collect_labs(
+        overrides={item["path"] / "lab.json": item["metadata"] for item in plans},
+        sources_override=sources,
+        collection_overrides=collection_updates(plans),
+    )
+    return plan
 
 
 def write_plans(plans: list[dict[str, Any]], sources: dict[str, Any]) -> None:
     """Validate the whole batch and stage file contents before any destination moves."""
     overrides = {plan["path"] / "lab.json": plan["metadata"] for plan in plans}
-    records, checked_sources = catalog.collect_labs(overrides=overrides, sources_override=sources)
+    descriptors = collection_updates(plans)
+    catalog.collect_labs(overrides=overrides, sources_override=sources, collection_overrides=descriptors)
     with tempfile.TemporaryDirectory(prefix=".lab-init-", dir=catalog.ROOT / ".meta") as temporary:
         staged = Path(temporary)
         for index, plan in enumerate(plans):
@@ -118,6 +166,8 @@ def write_plans(plans: list[dict[str, Any]], sources: dict[str, Any]) -> None:
             for relative, content in plan["files"].items():
                 catalog.write_text_atomic(target / relative, content)
             catalog.write_text_atomic(target / "lab.json", catalog.json_text(plan["metadata"]))
+        for parent, descriptor in descriptors.items():
+            catalog.write_text_atomic(parent / "collection.json", catalog.json_text(descriptor))
         for index, plan in enumerate(plans):
             destination = plan["path"]
             if destination.exists():
@@ -138,7 +188,8 @@ def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Initialize a lab and refresh the catalog.")
     for name in ("niche", "domain", "collection", "title"):
         parser.add_argument(name, nargs="?")
-    parser.add_argument("--group", help="optional navigational group between domain and collection")
+    parser.add_argument("--subdomain", help="optional subject specialization immediately after the domain")
+    parser.add_argument("--group", dest="groups", action="append", default=[], help="provider or collection grouping after the subject; repeat for nested groups")
     parser.add_argument("--slug")
     parser.add_argument("--summary")
     parser.add_argument("--type", choices=schema["properties"]["type"]["enum"], default="exercise")
@@ -162,13 +213,20 @@ def _parser() -> argparse.ArgumentParser:
 def _interactive(data: dict[str, Any], sources: dict[str, Any]) -> dict[str, Any]:
     schema = catalog.load_schema(catalog.LAB_SCHEMA_PATH)
     records, _ = catalog.collect_labs()
-    for key in ("niche", "domain", "group", "collection", "title", "slug"):
-        parent_filter = lambda item: item.get("niche") == data.get("niche") and item.get("domain") == data.get("domain") and item.get("group") == data.get("group")
-        suggestions = sorted({item[key] for item in records if key in item and item[key] and (key in ("niche", "domain") or parent_filter(item))})
+    parents = []
+    for key in ("niche", "domain", "subdomain", "groups", "collection", "title", "slug"):
+        matching = [item for item in records if all(item.get(parent) == data.get(parent) for parent in parents)]
+        suggestions = sorted({"/".join(item[key]) if key == "groups" else item[key] for item in matching if item.get(key)})
         default = data.get(key)
         if key == "slug" and not default and data.get("title"):
             default = catalog.slugify(data["title"])
-        data[key] = workflow.prompt(key.capitalize(), default, suggestions=suggestions, optional=key in ("group", "slug"))
+        if key == "groups":
+            answer = workflow.prompt("Groupings (slash separated)", "/".join(default or []), suggestions=suggestions, optional=True)
+            data[key] = answer.split("/") if answer else []
+        else:
+            data[key] = workflow.prompt(key.capitalize(), default, suggestions=suggestions, optional=key in ("subdomain", "slug"))
+        if key not in ("title", "slug"):
+            parents.append(key)
     data["summary"] = workflow.prompt("Summary", data.get("summary"), optional=True)
     data["type"] = workflow.prompt("Type", data.get("type", "exercise"), choices=schema["properties"]["type"]["enum"])
     data["source"] = workflow.prompt("Source provider", data.get("source", "created"), choices=sorted(sources))
@@ -207,7 +265,7 @@ def main() -> int:
         elif not all(data.get(key) for key in ("niche", "domain", "collection", "title")):
             parser.error("niche, domain, collection, and title are required")
         plan = plan_lab(data, sources)
-        workflow.preview(catalog.display_path(plan["path"]), plan["metadata"], sorted(plan["files"]) + ["lab.json"])
+        preview_plan(plan)
         if args.dry_run:
             return 0
         if args.interactive and not workflow.confirm():

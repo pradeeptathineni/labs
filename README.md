@@ -11,13 +11,14 @@ Code is one way to practice problem-solving, but so are research, writing, desig
 ## How I organize a lab
 
 ```text
-niches/<niche>/<domain>/<collection>/<lab>/
-niches/<niche>/<domain>/<group>/<collection>/<lab>/
+niches/<niche>/<domain>/[<subdomain>/][<group>/...]<collection>/<lab>/
 ```
 
-The niche describes the primary form of work (`code`, `study`, `writing`, and so on). The domain names the subject. The optional group gives me one useful navigation step, such as `aws` or `mit`. The collection groups a curriculum, course, certification, or project series. The lab is one work unit, which may contain several questions.
+The niche describes the primary form of work (`code`, `study`, `writing`, and so on). The domain and optional subdomain name the subject: `devops`, `cloud/aws`, or `systems/distributed`. After the subject, any groupings organize providers, programs, or collections. A collection holds the lab units; one lab may contain several questions.
 
-The path gives each lab one physical home. `lab.json` records type, target skills, provenance, and status. Its `source.provider` points to the registry; a folder named `aws` or `mit` never implies a provider. The [maintenance guide](.meta/README.md) has the commands for creating, editing, syncing, and importing labs.
+For example, `study/systems/mit/course-abc` is a course under Systems, while `study/systems/distributed/mit/course-abc` is under Distributed Systems. MIT organizes the course; it is not part of the subject. A collection can also combine providers, as `study/cloud/aws/clf-c02` does. The catalog brings collections with the same domain and subdomain together across niches.
+
+The path gives each lab one physical home. A collection descriptor marks whether the optional subdomain is present; names still come from the path. `lab.json` records type, target skills, provenance, and status. Its `source.provider` points to the registry; a folder named `aws` or `mit` never implies a provider. The [maintenance guide](.meta/README.md) has the commands for creating, editing, syncing, and importing labs.
 
 > [!IMPORTANT]
 > I credit the people who created source material and keep required notices with copied content. Some sources are link-only, and linked third-party material can need its own review.

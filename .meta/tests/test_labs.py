@@ -65,20 +65,53 @@ class RepositoryCase(unittest.TestCase):
 
 
 class CoreTests(RepositoryCase):
-    def test_empty_corpus_and_two_shapes_ignore_nested_fixture(self) -> None:
+    def test_subjects_and_nested_collections_ignore_lab_fixtures(self) -> None:
         self.assertEqual(self.command("scripts", "catalog.py").returncode, 0)
         self.assertEqual(self.command("scripts", "catalog.py", "--check").returncode, 0)
         direct = self.init("code", "devops", "roadmap-sh", "First task")
         grouped = self.init("study", "systems", "course-abc", "Second task", "--group", "mit")
+        specialized = self.init("code", "systems", "course-abc", "Third task", "--subdomain", "distributed", "--group", "practice", "--group", "mit")
+        cloud = self.init("code", "cloud", "projects", "Fourth task", "--subdomain", "aws")
+        study = self.init("study", "cloud", "clf-c02", "Fifth task", "--subdomain", "aws")
         nested = direct / "solution/fixture/lab.json"
         nested.parent.mkdir(parents=True)
         nested.write_text("not a root")
         self.assertEqual(self.command("scripts", "catalog.py").returncode, 0)
         records = json.loads((self.root / ".meta/catalog/labs.json").read_text())
-        self.assertEqual(len(records), 2)
-        self.assertEqual(records[1]["group"], "mit")
-        self.assertEqual(records[1]["source"]["provider"], "created")
+        self.assertEqual(len(records), 5)
+        by_path = {self.root / item["path"]: item for item in records}
+        self.assertEqual(by_path[grouped]["groups"], ["mit"])
+        self.assertIsNone(by_path[grouped]["subdomain"])
+        self.assertEqual(by_path[grouped]["source"]["provider"], "created")
+        self.assertEqual(by_path[specialized]["subdomain"], "distributed")
+        self.assertEqual(by_path[specialized]["groups"], ["practice", "mit"])
+        self.assertEqual(by_path[cloud]["subdomain"], by_path[study]["subdomain"])
+        self.assertNotIn("subdomain", self.metadata(cloud))
+        self.assertTrue(json.loads((cloud.parent / "collection.json").read_text())["has_subdomain"])
         self.assertTrue(grouped.is_dir())
+        conflict = self.command("scripts", "lab_init.py", "writing", "cloud", "notes", "Ambiguous", "--group", "aws", "--yes")
+        self.assertIn("Subject boundary conflicts", conflict.stderr)
+        self.assertFalse((self.root / "niches/writing").exists())
+        nested_lab = self.command("scripts", "lab_init.py", "code", "cloud", "nested", "Hidden lab", "--subdomain", "aws", "--group", "projects", "--group", "fourth-task", "--yes")
+        self.assertIn("inside a lab", nested_lab.stderr)
+
+    def test_subdomain_creation_preview_and_prompt_share_one_plan(self) -> None:
+        args = ["code", "systems", "course", "Task", "--subdomain", "distributed", "--group", "mit"]
+        target = self.root / "niches/code/systems/distributed/mit/course"
+        preview = self.command("scripts", "lab_init.py", *args, "--dry-run")
+        self.assertEqual(preview.returncode, 0, preview.stderr)
+        self.assertIn('"has_subdomain": true', preview.stdout)
+        self.assertFalse(target.exists())
+        cancelled = self.command("scripts", "lab_init.py", *args, "--interactive", stdin="\n" * 19 + "n\n")
+        self.assertEqual(cancelled.returncode, 0, cancelled.stderr)
+        self.assertFalse(target.exists())
+        created = self.command("scripts", "lab_init.py", *args, "--interactive", stdin="\n" * 19 + "y\n")
+        self.assertEqual(created.returncode, 0, created.stderr)
+        self.assertTrue((target / "task/lab.json").exists())
+        self.assertTrue(json.loads((target / "collection.json").read_text())["has_subdomain"])
+        mismatch = self.command("scripts", "lab_init.py", "code", "systems", "course", "Another task", "--group", "distributed", "--group", "mit", "--yes")
+        self.assertIn("Subject boundary disagrees", mismatch.stderr)
+        self.assertFalse((target / "another-task").exists())
 
     def test_bad_depth_ambiguity_and_order_descriptor(self) -> None:
         collection = self.root / "niches/code/devops/course"
@@ -93,18 +126,18 @@ class CoreTests(RepositoryCase):
         year = self.init("writing", "philosophy", "papers", "Paper", "--slug", "24-00-paper-1")
         records = json.loads((self.root / ".meta/catalog/labs.json").read_text())
         self.assertIsNone(next(item for item in records if item["path"] == year.relative_to(self.root).as_posix())["order"])
-        bad = self.root / "niches/code/devops/too/deep/extra/lab/lab.json"
+        bad = self.root / "niches/code/too-shallow/lab.json"
         bad.parent.mkdir(parents=True)
         bad.write_bytes((first / "lab.json").read_bytes())
         result = self.command("scripts", "catalog.py", "--check")
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("Bad lab depth", result.stderr)
         bad.unlink()
-        group_collection = self.root / "niches/code/devops/course/another/thing"
+        group_collection = self.root / "niches/code/devops/course/another/collection/thing"
         group_collection.mkdir(parents=True)
         (group_collection / "lab.json").write_bytes((first / "lab.json").read_bytes())
         result = self.command("scripts", "catalog.py", "--check")
-        self.assertIn("both collection and group", result.stderr)
+        self.assertIn("both collection and container", result.stderr)
 
     def test_catalog_collection_links_and_multiline_entries(self) -> None:
         collection = self.root / "niches/code/cloud/aws/projects"
@@ -112,11 +145,12 @@ class CoreTests(RepositoryCase):
         (collection / "collection.json").write_text(json.dumps({
             "title": "Example projects",
             "source_url": "https://example.com/projects",
+            "has_subdomain": True,
             "ordered": True,
         }))
         (collection / "README.md").write_text("# Example projects\n")
-        first_lab = self.init("code", "cloud", "projects", "First task", "--group", "aws", "--summary", "First summary", "--source", "roadmap-sh", "--source-url", "https://example.com/first", "--skill", "aws", "--skill", "route53")
-        second_lab = self.init("code", "cloud", "projects", "Second task", "--group", "aws", "--source", "roadmap-sh", "--source-url", "https://example.com/second")
+        first_lab = self.init("code", "cloud", "projects", "First task", "--subdomain", "aws", "--summary", "First summary", "--source", "roadmap-sh", "--source-url", "https://example.com/first", "--skill", "aws", "--skill", "route53")
+        second_lab = self.init("code", "cloud", "projects", "Second task", "--subdomain", "aws", "--source", "roadmap-sh", "--source-url", "https://example.com/second")
         self.init("code", "cloud", "other", "Unordered task")
         catalog = (self.root / "CATALOG.md").read_text().splitlines()
         self.assertEqual(catalog[:11], ["<style>", "small {", "  display: inline-block;", "  margin: 0 0 6px 15px;", "}", "summary {", "    margin: 0 0 15px 0;", "}", "</style>", "", "# Lab Catalog"])
@@ -151,7 +185,7 @@ class CoreTests(RepositoryCase):
         self.assertEqual(self.command("scripts", "catalog.py", "--check").returncode, 0)
 
     def test_commit_hook_syncs_staged_lab_content(self) -> None:
-        lab = self.init("code", "devops", "tasks", "Tracked")
+        lab = self.init("code", "systems", "course", "Tracked", "--subdomain", "distributed", "--group", "mit")
         metadata = self.metadata(lab)
         metadata["tracking"]["dates"]["updated"] = "2020-01-01"
         (lab / "lab.json").write_text(json.dumps(metadata) + "\n")
@@ -188,6 +222,15 @@ class CoreTests(RepositoryCase):
         self.assertEqual(recorded["tracking"]["status"], "in-progress")
         self.assertEqual(recorded["tracking"]["content_sha256"], previous_commit["tracking"]["content_sha256"])
         self.assertEqual(self.git("show", "HEAD:CATALOG.md").stdout, (self.root / "CATALOG.md").read_text())
+
+        descriptor_path = lab.parent / "collection.json"
+        descriptor = json.loads(descriptor_path.read_text())
+        descriptor["title"] = "Nested course"
+        descriptor_path.write_text(json.dumps(descriptor) + "\n")
+        self.git("add", str(descriptor_path))
+        self.git("commit", "-qm", "name collection")
+        self.assertEqual(self.metadata(lab), recorded)
+        self.assertIn("Nested course", self.git("show", "HEAD:CATALOG.md").stdout)
 
         readme.write_text(readme.read_text() + "\nAn unstaged draft.\n")
         (self.root / "README.md").write_text("# Fixture\n\nStructure notes.\n")
@@ -307,14 +350,16 @@ class ImporterTests(RepositoryCase):
     def test_devroadmaps_static_parser_import_and_refresh_guard(self) -> None:
         js = "// static data\nconst PROJECT_IDEAS = { devops: [{ title: \"One\", difficulty: 'Beginner', desc: 'Build one.', tech: ['Git'], },], };\n"
         upstream = self.upstream("devroadmaps", {"LICENSE": self.MIT, "js/project-ideas.js": js}, "https://github.com/rudra496/devroadmaps.git")
-        args = ["--checkout", str(upstream), "--track", "devops", "--all-track", "--destination", "niches/code/devops/devroadmaps"]
+        destination = "niches/code/systems/distributed/practice/devroadmaps"
+        args = ["--checkout", str(upstream), "--track", "devops", "--all-track", "--destination", destination, "--subdomain", "distributed"]
         preview = self.command("importers", "devroadmaps.py", *args, "--dry-run")
         self.assertEqual(preview.returncode, 0, preview.stderr)
-        self.assertFalse((self.root / "niches/code/devops/devroadmaps/one").exists())
+        self.assertFalse((self.root / destination).exists())
         imported = self.command("importers", "devroadmaps.py", *args, "--yes")
         self.assertEqual(imported.returncode, 0, imported.stderr)
-        lab = self.root / "niches/code/devops/devroadmaps/one"
+        lab = self.root / destination / "one"
         self.assertEqual(self.metadata(lab)["type"], "project")
+        self.assertTrue(json.loads((lab.parent / "collection.json").read_text())["has_subdomain"])
         self.assertIn("No change", self.command("importers", "devroadmaps.py", *args, "--yes").stdout)
         (lab / "README.md").write_text((lab / "README.md").read_text() + "My Solution notes stay here.\n")
         (upstream / "js/project-ideas.js").write_text(js.replace("Build one.", "Build two."))
@@ -344,7 +389,7 @@ class ImporterTests(RepositoryCase):
     def test_cloudcertprep_one_bank_and_multi_answer(self) -> None:
         questions = [{"id": "q001", "question": "Choose two", "options": {"A": "first", "B": "second"}, "answer": ["A", "B"], "isMultiAnswer": True, "explanation": "Both."}]
         upstream = self.upstream("cloudcertprep", {"LICENSE": self.MIT, "src/data/clf-c02/domain1.json": json.dumps(questions)}, "https://github.com/nastaso/cloudcertprep.git")
-        args = ["--checkout", str(upstream), "--all-domains", "--destination", "niches/study/cloud/aws/clf-c02"]
+        args = ["--checkout", str(upstream), "--all-domains", "--destination", "niches/study/cloud/aws/clf-c02", "--subdomain", "aws"]
         preview = self.command("importers", "cloudcertprep.py", *args, "--dry-run")
         self.assertEqual(preview.returncode, 0, preview.stderr)
         imported = self.command("importers", "cloudcertprep.py", *args, "--yes")
