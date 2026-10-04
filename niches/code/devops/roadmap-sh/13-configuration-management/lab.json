@@ -1,7 +1,8 @@
 {
   "title": "Configuration Management",
-  "kind": "project",
-  "status": "not-started",
+  "summary": "Write an Ansible playbook that configures a Linux server.",
+  "type": "project",
+  "difficulty": "intermediate",
   "skills": [
     "ansible",
     "automation",
@@ -9,19 +10,19 @@
     "idempotency",
     "linux"
   ],
-  "dates": {
-    "created": "2026-10-03",
-    "started": null,
-    "completed": null,
-    "updated": "2026-10-03"
-  },
-  "difficulty": "intermediate",
   "source": {
     "provider": "roadmap-sh",
     "item_id": "configuration-management",
     "url": "https://roadmap.sh/projects/configuration-management"
   },
   "tracking": {
-    "content_sha256": "d4abfa549741710f4d17db8439b86f100328e9b66ebbc527c44e5509108544c2"
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-03",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "content_sha256": "48054ca169b01111de6812b8cb877fa1ed116c1e26ae1a3cf24107c1f5a59713"
   }
 }

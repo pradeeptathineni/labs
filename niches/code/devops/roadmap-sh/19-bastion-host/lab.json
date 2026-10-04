@@ -1,7 +1,8 @@
 {
   "title": "Bastion Host",
-  "kind": "project",
-  "status": "not-started",
+  "summary": "Set up a bastion host for access to private infrastructure.",
+  "type": "project",
+  "difficulty": "intermediate",
   "skills": [
     "access-control",
     "bastion-hosts",
@@ -9,19 +10,19 @@
     "security",
     "ssh"
   ],
-  "dates": {
-    "created": "2026-10-03",
-    "started": null,
-    "completed": null,
-    "updated": "2026-10-03"
-  },
-  "difficulty": "intermediate",
   "source": {
     "provider": "roadmap-sh",
     "item_id": "bastion-host",
     "url": "https://roadmap.sh/projects/bastion-host"
   },
   "tracking": {
-    "content_sha256": "1052a4ba7dc3de9754ceb0ebe6d70305ee6db28b8078f449ddac133a4bd1a28c"
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-03",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "content_sha256": "bc11c76e5f19268bc4d48472132231bec6af24233af249a9eb955a190a19c4e0"
   }
 }

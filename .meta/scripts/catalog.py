@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
-"""Validate lab metadata and build deterministic, source-independent catalogs.
-
-A lab's path gives its browsing facets; lab.json keeps only maintained facts and
-source provenance. Keeping those boundaries strict prevents one provider's
-catalog from quietly becoming the repository's hierarchy schema.
-"""
+"""Validate the practice corpus and generate deterministic browsing views."""
 
 from __future__ import annotations
 
@@ -15,6 +10,8 @@ import re
 import stat
 import sys
 import tempfile
+from urllib.parse import unquote
+from collections import Counter, defaultdict
 from collections.abc import Mapping
 from pathlib import Path
 from typing import Any
@@ -22,26 +19,25 @@ from typing import Any
 from jsonschema import Draft202012Validator, FormatChecker
 from jsonschema.exceptions import SchemaError
 
-
 ROOT = Path(__file__).resolve().parents[2]
 NICHES = ROOT / "niches"
 SCHEMA_DIR = ROOT / ".meta/catalog/schema"
 LAB_SCHEMA_PATH = SCHEMA_DIR / "lab.schema.json"
 SOURCE_SCHEMA_PATH = SCHEMA_DIR / "source.schema.json"
+COLLECTION_SCHEMA_PATH = SCHEMA_DIR / "collection.schema.json"
 SOURCES_PATH = ROOT / ".meta/catalog/sources.json"
 LABS_PATH = ROOT / ".meta/catalog/labs.json"
 CATALOG_PATH = ROOT / "CATALOG.md"
-
 SLUG_PATTERN = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
-LAB_DIR_PATTERN = re.compile(r"(?:(?P<order>[0-9]+)-)?(?P<slug>[a-z0-9]+(?:-[a-z0-9]+)*)")
+ORDER_PATTERN = re.compile(r"([0-9]+)-([a-z0-9]+(?:-[a-z0-9]+)*)")
+LAB_DIR_PATTERN = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
 
 
 class CatalogError(Exception):
-    """An expected metadata or catalog problem suitable for the command line."""
+    """A repository validation error suitable for the command line."""
 
 
 def display_path(path: Path) -> str:
-    """Return a repository-relative path when possible."""
     try:
         return path.relative_to(ROOT).as_posix()
     except ValueError:
@@ -49,24 +45,16 @@ def display_path(path: Path) -> str:
 
 
 def read_json(path: Path) -> Any:
-    """Read UTF-8 JSON and report common file and parse errors clearly."""
     try:
         return json.loads(path.read_text(encoding="utf-8"))
     except FileNotFoundError as error:
         raise CatalogError(f"Missing required file: {display_path(path)}") from error
     except (UnicodeDecodeError, json.JSONDecodeError) as error:
-        if isinstance(error, json.JSONDecodeError):
-            location, detail = f" at line {error.lineno}, column {error.colno}", error.msg
-        else:
-            location, detail = "", "file is not valid UTF-8"
-        raise CatalogError(f"Invalid JSON in {display_path(path)}{location}: {detail}") from error
+        raise CatalogError(f"Invalid JSON in {display_path(path)}: {error}") from error
 
 
 def load_schema(path: Path) -> dict[str, Any]:
-    """Read and validate a Draft 2020-12 JSON Schema."""
     schema = read_json(path)
-    if not isinstance(schema, dict):
-        raise CatalogError(f"Schema must be a JSON object: {display_path(path)}")
     try:
         Draft202012Validator.check_schema(schema)
     except SchemaError as error:
@@ -74,307 +62,367 @@ def load_schema(path: Path) -> dict[str, Any]:
     return schema
 
 
-def _instance_path(error: Any) -> str:
-    """Format a jsonschema instance path for concise diagnostics."""
-    parts = [str(part) for part in error.absolute_path]
-    return "$" + "".join(f"[{part}]" if part.isdigit() else f".{part}" for part in parts)
-
-
 def validate_document(document: Any, schema: dict[str, Any], label: str) -> None:
-    """Validate a document and include every actionable schema error."""
     validator = Draft202012Validator(schema, format_checker=FormatChecker())
-    errors = sorted(
-        validator.iter_errors(document),
-        key=lambda error: (list(map(str, error.absolute_path)), error.message),
-    )
+    errors = sorted(validator.iter_errors(document), key=lambda error: (str(list(error.path)), error.message))
     if errors:
-        detail = "; ".join(f"{_instance_path(error)} {error.message}" for error in errors)
-        raise CatalogError(f"Invalid {label}: {detail}")
+        details = "; ".join(f"{'.'.join(map(str, error.path)) or '$'}: {error.message}" for error in errors)
+        raise CatalogError(f"Invalid {label}: {details}")
 
 
 def load_sources() -> dict[str, Any]:
-    """Load and validate the source registry."""
     sources = read_json(SOURCES_PATH)
     validate_document(sources, load_schema(SOURCE_SCHEMA_PATH), display_path(SOURCES_PATH))
     return sources
 
 
 def slugify(value: str) -> str:
-    """Make a predictable ASCII folder slug from a human-readable title."""
     return re.sub(r"[^a-z0-9]+", "-", value.casefold()).strip("-")
 
 
 def lab_paths() -> list[Path]:
-    """Find every metadata file so an illegal-depth lab cannot hide from checks."""
+    """Stop at a lab root, skipping hidden trees and symlinks but reporting bad depth."""
     if not NICHES.is_dir():
         raise CatalogError(f"Missing lab hierarchy directory: {display_path(NICHES)}")
-    return sorted(NICHES.rglob("lab.json"))
+    found: list[Path] = []
+    for parent, dirs, files in os.walk(NICHES, topdown=True, followlinks=False):
+        dirs[:] = sorted(child for child in dirs if not child.startswith(".") and child != ".shared" and not (Path(parent) / child).is_symlink())
+        if "lab.json" in files:
+            path = Path(parent) / "lab.json"
+            if path.is_symlink():
+                continue
+            _lab_path_parts(path)
+            found.append(path)
+            dirs.clear()
+    return sorted(found)
 
 
-def _lab_path_parts(metadata_path: Path) -> tuple[str, str, str | None, str, str, int | None]:
-    """Parse only the two supported hierarchy shapes and the optional order prefix.
+def collection_info(parent: Path) -> dict[str, Any]:
+    descriptor = parent / "collection.json"
+    if descriptor.is_symlink():
+        raise CatalogError(f"Collection descriptor cannot be a symlink: {display_path(descriptor)}")
+    if descriptor.is_file():
+        value = read_json(descriptor)
+        validate_document(value, load_schema(COLLECTION_SCHEMA_PATH), display_path(descriptor))
+        return value
+    return {}
 
-    The metadata filename is included in ``relative.parts``. A fourth structural
-    level between domain and collection is deliberately rejected.
-    """
-    absolute_path = metadata_path.resolve()
+
+def _lab_path_parts(path: Path) -> tuple[str, str, str | None, str, str, int | None]:
     try:
-        relative = absolute_path.relative_to(NICHES.resolve())
+        parts = path.resolve().relative_to(NICHES.resolve()).parts
     except ValueError as error:
-        raise CatalogError(f"Lab must live under niches/: {display_path(metadata_path)}") from error
-    if relative.name != "lab.json" or len(relative.parts) not in {5, 6}:
-        raise CatalogError(
-            "A lab must be at niches/<niche>/<domain>/<collection>/<lab>/lab.json or "
-            "niches/<niche>/<domain>/<subdomain>/<collection>/<lab>/lab.json: "
-            f"{display_path(metadata_path)}"
-        )
-    if len(relative.parts) == 5:
-        niche, domain, collection, lab_dir, _ = relative.parts
-        subdomain = None
+        raise CatalogError(f"Lab must be under niches/: {display_path(path)}") from error
+    if path.name != "lab.json" or len(parts) not in (5, 6):
+        raise CatalogError(f"Bad lab depth at {display_path(path)}; use niche/domain/[group/]collection/lab/lab.json")
+    if len(parts) == 5:
+        niche, domain, collection, folder, _ = parts
+        group = None
     else:
-        niche, domain, subdomain, collection, lab_dir, _ = relative.parts
-    for label, value in (("niche", niche), ("domain", domain), ("subdomain", subdomain), ("collection", collection)):
+        niche, domain, group, collection, folder, _ = parts
+    for label, value in (("niche", niche), ("domain", domain), ("group", group), ("collection", collection)):
         if value is not None and not SLUG_PATTERN.fullmatch(value):
-            raise CatalogError(f"Invalid {label} directory {value!r} in {display_path(metadata_path)}.")
-    match = LAB_DIR_PATTERN.fullmatch(lab_dir)
-    if match is None:
-        raise CatalogError(f"Lab directory must be a lowercase slug with an optional numeric prefix: {display_path(metadata_path.parent)}")
-    order_value = match.group("order")
-    order = int(order_value) if order_value is not None else None
-    if order == 0:
-        raise CatalogError(f"Lab order must be positive: {display_path(metadata_path)}")
-    return niche, domain, subdomain, collection, match.group("slug"), order
+            raise CatalogError(f"Invalid {label} {value!r} in {display_path(path)}")
+    if not LAB_DIR_PATTERN.fullmatch(folder):
+        raise CatalogError(f"Invalid lab folder {folder!r} in {display_path(path)}")
+    info = collection_info(path.parent.parent)
+    order = None
+    slug = folder
+    if info.get("ordered") is True:
+        match = ORDER_PATTERN.fullmatch(folder)
+        if match is None or int(match.group(1)) < 1:
+            raise CatalogError(f"Ordered collection requires a positive number prefix: {display_path(path)}")
+        order = int(match.group(1))
+        slug = match.group(2)
+    return niche, domain, group, collection, slug, order
 
 
 def source_for(provider: str, sources: dict[str, Any]) -> dict[str, Any]:
-    """Return a registered source, rejecting typos without path-based inference."""
-    source = sources.get(provider)
-    if source is None:
-        raise CatalogError(f"Source provider {provider!r} is not registered in .meta/catalog/sources.json.")
-    return source
+    if provider not in sources:
+        raise CatalogError(f"Unregistered source provider {provider!r}")
+    return sources[provider]
 
 
 def require_copy_permission(provider: str, sources: dict[str, Any]) -> dict[str, Any]:
-    """Return source policy only when repository tooling may materialize content."""
     source = source_for(provider, sources)
-    policy = source.get("reuse", {}).get("policy")
-    if policy != "copy":
-        raise CatalogError(
-            f"Source {provider!r} has reuse policy {policy!r}; copying requires policy 'copy'."
-        )
+    if source.get("reuse", {}).get("policy") != "copy":
+        raise CatalogError(f"Source {provider!r} does not have a copy policy")
     return source
 
 
-def normalize_difficulty(value: str, provider: str, sources: dict[str, Any], lab_schema: dict[str, Any] | None = None) -> str:
-    """Map a source-specific label onto the repository's small difficulty scale."""
-    schema = lab_schema or load_schema(LAB_SCHEMA_PATH)
-    normalized = schema["properties"]["difficulty"]["enum"]
-    if value in normalized:
-        return value
-    mappings = source_for(provider, sources).get("difficulty_map", {})
-    mapped = mappings.get(value)
-    if mapped in normalized:
-        return mapped
-    choices = ", ".join(normalized)
-    if mappings:
-        choices += ", or a configured source level (" + ", ".join(sorted(mappings)) + ")"
-    raise CatalogError(f"Unknown difficulty {value!r}; use {choices}.")
+def normalize_difficulty(value: str, provider: str, sources: dict[str, Any], schema: dict[str, Any] | None = None) -> str:
+    choices = (schema or load_schema(LAB_SCHEMA_PATH))["properties"]["difficulty"]["enum"]
+    mapped = source_for(provider, sources).get("difficulty_map", {}).get(value, value)
+    if mapped not in choices:
+        raise CatalogError(f"Unknown difficulty {value!r}; choose {', '.join(choices)} or a mapped source label")
+    return mapped
 
 
-def lab_record(metadata_path: Path, metadata: Any, sources: dict[str, Any], lab_schema: dict[str, Any] | None = None) -> dict[str, Any]:
-    """Validate local metadata and combine it with hierarchy-derived facts."""
-    schema = lab_schema or load_schema(LAB_SCHEMA_PATH)
-    validate_document(metadata, schema, display_path(metadata_path))
-    if not isinstance(metadata, dict):
-        raise CatalogError(f"Lab metadata must be a JSON object: {display_path(metadata_path)}")
-    niche, domain, subdomain, collection, slug, order = _lab_path_parts(metadata_path)
-    source_item = metadata["source"]
-    provider = source_item["provider"]
-    provider_data = source_for(provider, sources)
-    if provider_data["type"] == "local":
-        if "item_id" in source_item or "url" in source_item:
-            raise CatalogError(f"Local source {provider!r} cannot have an external item ID or URL: {display_path(metadata_path)}.")
-    elif not source_item.get("item_id") or not source_item.get("url"):
-        raise CatalogError(f"External source {provider!r} needs an item_id and URL: {display_path(metadata_path)}.")
+def ordered_lab(metadata: dict[str, Any]) -> dict[str, Any]:
+    """One serialization order for migration, commands, and importers."""
+    result: dict[str, Any] = {"title": metadata["title"]}
+    for key in ("summary", "type", "difficulty", "skills", "goals"):
+        if key in metadata:
+            result[key] = metadata[key]
+    result["source"] = {key: metadata["source"][key] for key in ("provider", "item_id", "url", "revision") if key in metadata["source"]}
+    if "links" in metadata and metadata["links"]:
+        result["links"] = {key: metadata["links"][key] for key in ("solution", "demo") if key in metadata["links"]}
+    tracking = metadata["tracking"]
+    result["tracking"] = {"status": tracking["status"], "dates": {key: tracking["dates"][key] for key in ("created", "started", "updated", "completed")}}
+    if "content_sha256" in tracking:
+        result["tracking"]["content_sha256"] = tracking["content_sha256"]
+    return result
 
-    record: dict[str, Any] = {
-        "title": metadata["title"],
-        "kind": metadata["kind"],
-        "status": metadata["status"],
-        "skills": sorted(metadata["skills"]),
-        "source": dict(source_item),
-        "dates": {key: metadata["dates"][key] for key in ("created", "started", "updated", "completed")},
-        "tracking": dict(metadata["tracking"]),
-        "niche": niche,
-        "domain": domain,
-        "subdomain": subdomain,
-        "collection": collection,
-        "slug": slug,
-        "order": order,
-        "path": absolute_path_relative(metadata_path),
-    }
-    if "difficulty" in metadata:
-        record["difficulty"] = metadata["difficulty"]
+
+def ordered_source(record: dict[str, Any]) -> dict[str, Any]:
+    result = {key: record[key] for key in ("type", "name", "url") if key in record}
+    if "reuse" in record:
+        result["reuse"] = {key: record["reuse"][key] for key in ("policy_url", "license", "license_url", "notes", "policy", "verified") if key in record["reuse"]}
+    if "difficulty_map" in record:
+        result["difficulty_map"] = record["difficulty_map"]
+    return result
+
+
+def json_text(value: Any) -> str:
+    return json.dumps(value, indent=2, ensure_ascii=False) + "\n"
+
+
+def lab_record(path: Path, metadata: Any, sources: dict[str, Any], schema: dict[str, Any] | None = None) -> dict[str, Any]:
+    validate_document(metadata, schema or load_schema(LAB_SCHEMA_PATH), display_path(path))
+    niche, domain, group, collection, slug, order = _lab_path_parts(path)
+    source = metadata["source"]
+    source_record = source_for(source["provider"], sources)
+    if source_record["type"] == "local" and any(key in source for key in ("item_id", "url", "revision")):
+        raise CatalogError(f"Local source cannot have external item fields: {display_path(path)}")
+    if source_record["type"] == "external" and not source.get("url"):
+        raise CatalogError(f"External lab needs a source URL: {display_path(path)}")
+    dates = metadata["tracking"]["dates"]
+    if dates["started"] and dates["completed"] and dates["started"] > dates["completed"]:
+        raise CatalogError(f"Started date follows completed date: {display_path(path)}")
+    for target in metadata.get("links", {}).values():
+        if not target.startswith(("http://", "https://")) and not (ROOT / target).is_file():
+            raise CatalogError(f"Local link does not exist: {target} in {display_path(path)}")
+    record = ordered_lab(metadata)
+    record.update({
+        "niche": niche, "domain": domain, "group": group, "collection": collection,
+        "path": path.parent.relative_to(ROOT).as_posix(), "slug": slug, "order": order,
+        "source_display": {"name": source_record["name"], "type": source_record["type"], "url": source_record.get("url")},
+    })
+    descriptor = collection_info(path.parent.parent)
+    record["collection_title"] = descriptor.get("title") or _readme_title(path.parent.parent) or collection.replace("-", " ")
+    record["goals_effective"] = sorted(set(metadata.get("goals", [])) | set(descriptor.get("goals", [])))
+    question_file = path.parent / "questions.json"
+    if metadata["type"] == "question-bank" and question_file.is_file():
+        data = read_json(question_file)
+        if not isinstance(data, dict) or not isinstance(data.get("questions"), list):
+            raise CatalogError(f"Question bank needs a questions array: {display_path(question_file)}")
+        record["question_count"] = len(data["questions"])
     return record
 
 
-def absolute_path_relative(metadata_path: Path) -> str:
-    """Return the lab directory relative to the repository root."""
-    return metadata_path.resolve().parent.relative_to(ROOT.resolve()).as_posix()
-
-
-def _collection_key(record: dict[str, Any]) -> tuple[str, str, str | None, str]:
-    """Return the complete, source-independent collection identity."""
-    return (record["niche"], record["domain"], record["subdomain"], record["collection"])
+def _readme_title(parent: Path) -> str | None:
+    readme = parent / "README.md"
+    if readme.is_file():
+        first = readme.read_text(encoding="utf-8").splitlines()[0:1]
+        if first and first[0].startswith("# "):
+            return first[0][2:].strip()
+    return None
 
 
 def collect_labs(overrides: Mapping[Path, Any] | None = None, sources_override: dict[str, Any] | None = None) -> tuple[list[dict[str, Any]], dict[str, Any]]:
-    """Validate all labs and return normalized records in stable hierarchy order."""
-    lab_schema = load_schema(LAB_SCHEMA_PATH)
     sources = sources_override if sources_override is not None else load_sources()
     validate_document(sources, load_schema(SOURCE_SCHEMA_PATH), display_path(SOURCES_PATH))
-    override_map = {path.resolve(): value for path, value in (overrides or {}).items()}
-    records: list[dict[str, Any]] = []
-    discovered: set[Path] = set()
-    for metadata_path in lab_paths():
-        absolute = metadata_path.resolve()
-        discovered.add(absolute)
-        metadata = override_map.get(absolute)
-        if metadata is None:
-            metadata = read_json(metadata_path)
-        records.append(lab_record(metadata_path, metadata, sources, lab_schema))
-    for metadata_path, metadata in sorted(override_map.items()):
-        if metadata_path not in discovered:
-            records.append(lab_record(metadata_path, metadata, sources, lab_schema))
-
+    schema = load_schema(LAB_SCHEMA_PATH)
+    by_path = {path.absolute(): read_json(path) for path in lab_paths()}
+    for path, value in (overrides or {}).items():
+        by_path[path.absolute()] = value
+    records = [lab_record(path, value, sources, schema) for path, value in sorted(by_path.items())]
     source_ids: dict[tuple[str, str], str] = {}
-    lab_slugs: dict[tuple[tuple[str, str, str | None, str], str], str] = {}
-    orders: dict[tuple[tuple[str, str, str | None, str], int], str] = {}
-    collection_orders: dict[tuple[str, str, str | None, str], set[int | None]] = {}
+    collection_paths: set[Path] = set()
+    group_paths: set[Path] = set()
+    orders: dict[tuple[Path, int], str] = {}
+    slugs: dict[tuple[Path, str], str] = {}
     for record in records:
-        provider, item_id = record["source"]["provider"], record["source"].get("item_id")
-        if item_id is not None:
-            key = (provider, item_id)
-            previous = source_ids.get(key)
-            if previous is not None:
-                raise CatalogError(f"Duplicate source item ID {item_id!r} for {provider!r}: {previous} and {record['path']}.")
+        path = ROOT / record["path"]
+        parent = path.parent
+        collection_paths.add(parent)
+        if record["group"] is not None:
+            group_paths.add(parent.parent)
+        source = record["source"]
+        if source.get("item_id"):
+            key = (source["provider"], source["item_id"])
+            if key in source_ids:
+                raise CatalogError(f"Duplicate source item {key}: {source_ids[key]} and {record['path']}")
             source_ids[key] = record["path"]
-        collection = _collection_key(record)
-        slug_key = (collection, record["slug"])
-        previous = lab_slugs.get(slug_key)
-        if previous is not None:
-            raise CatalogError(f"Duplicate lab slug {record['slug']!r} in collection: {previous} and {record['path']}.")
-        lab_slugs[slug_key] = record["path"]
-        order = record["order"]
-        collection_orders.setdefault(collection, set()).add(order)
-        if order is not None:
-            order_key = (collection, order)
-            previous = orders.get(order_key)
-            if previous is not None:
-                raise CatalogError(f"Duplicate order {order} in collection: {previous} and {record['path']}.")
+        slug_key = (parent, record["slug"])
+        if slug_key in slugs:
+            raise CatalogError(f"Duplicate lab slug in {display_path(parent)}: {record['slug']}")
+        slugs[slug_key] = record["path"]
+        if record["order"] is not None:
+            order_key = (parent, record["order"])
+            if order_key in orders:
+                raise CatalogError(f"Duplicate order in {display_path(parent)}: {record['order']}")
             orders[order_key] = record["path"]
-    for collection, values in collection_orders.items():
-        if None in values and len(values) > 1:
-            name = "/".join(part for part in collection if part)
-            raise CatalogError(f"Collection {name} mixes numbered and unnumbered lab folders.")
-
-    records.sort(key=lambda item: (item["niche"], item["domain"], item["subdomain"] or "", item["collection"], item["order"] if item["order"] is not None else sys.maxsize, item["path"]))
+    conflict = collection_paths & group_paths
+    if conflict:
+        raise CatalogError(f"Directory is both collection and group: {display_path(sorted(conflict)[0])}")
+    records.sort(key=lambda item: (item["niche"], item["domain"], item["group"] or "", item["collection"], item["order"] or 0, item["slug"]))
     return records, sources
 
 
 def render_labs(records: list[dict[str, Any]]) -> str:
-    """Serialize records in their normalized deterministic order."""
-    return json.dumps(records, indent=2, ensure_ascii=False) + "\n"
+    return json_text(records)
 
 
-def _markdown_text(value: str) -> str:
-    """Escape characters that can break a title or value in a Markdown table."""
-    return value.replace("\\", "\\\\").replace("|", "\\|").replace("[", "\\[").replace("]", "\\]")
+def _escape(value: str) -> str:
+    return value.replace("[", "\\[").replace("]", "\\]").replace("|", "\\|")
 
 
-def _title(value: str) -> str:
-    """Make path slugs readable without assigning meaning to particular facets."""
-    return value.replace("-", " ").title()
+def _label(value: str) -> str:
+    return value.replace("-", " ").capitalize()
 
 
 def render_catalog(records: list[dict[str, Any]], sources: dict[str, Any]) -> str:
-    """Render a readable catalog grouped only by hierarchy, with sources per row."""
-    lines = ["# Lab Catalog", "", f"{len(records)} labs, generated from their neighboring `lab.json` files.", "", "> Do not edit this file by hand. Run `python3 .meta/scripts/catalog.py`."]
-    groups: dict[tuple[str, str, str | None, str], list[dict[str, Any]]] = {}
-    for record in records:
-        groups.setdefault(_collection_key(record), []).append(record)
-    for (niche, domain, subdomain, collection), group in groups.items():
-        facets = [niche, domain]
-        if subdomain:
-            facets.append(subdomain)
-        facets.append(collection)
-        lines.extend(["", f"## {' / '.join(_title(part) for part in facets)}", "", "| # | Lab | Kind | Difficulty | Status | Skills | Source |", "| ---: | --- | --- | --- | --- | --- | --- |"])
-        for index, record in enumerate(group, start=1):
-            source_item = record["source"]
-            provider = source_item["provider"]
-            source = sources[provider]
-            item_url = source_item.get("url")
-            label = _markdown_text(source["name"])
-            if item_url:
-                original = f"[{label}]({item_url})"
-            else:
-                original = label
-            status = record["status"].replace("-", " ").title()
-            skills = ", ".join(record["skills"]) or "—"
-            order = record["order"] if record["order"] is not None else index
-            difficulty = record.get("difficulty", "—").capitalize()
-            lines.append(f"| {order} | [{_markdown_text(record['title'])}]({record['path']}/) | {record['kind'].replace('-', ' ').title()} | {difficulty} | {status} | {_markdown_text(skills)} | {original} |")
-    return "\n".join(lines) + "\n"
+    statuses = Counter(item["tracking"]["status"] for item in records)
+    types = Counter(item["type"] for item in records)
+    lines = ["# Lab Catalog", "", f"{len(records)} labs: {statuses['in-progress']} in progress, {statuses['complete']} complete, {statuses['paused']} paused, {statuses['abandoned']} abandoned, {statuses['not-started']} planned.", "", "Types: " + ", ".join(f"{_label(key)} {value}" for key, value in sorted(types.items())) + ".", "", "Imported material is planned practice until I record work. Skills are targets, and the update date records a content snapshot.", ""]
+    skills = Counter(skill for item in records for skill in item["skills"])
+    if skills:
+        lines += ["<details>", "<summary>Find work by skill</summary>", ""]
+        for skill, count in skills.most_common():
+            matches = [item for item in records if skill in item["skills"]]
+            links = ", ".join(f"[{_escape(item['title'])}](#{_anchor(item)})" for item in matches)
+            lines.append(f"- **{skill}** ({count}): {links}")
+        lines += ["", "</details>", ""]
+    goals = Counter(goal for item in records for goal in item["goals_effective"])
+    if goals:
+        lines += ["<details>", "<summary>Find work by goal</summary>", ""]
+        for goal, count in goals.most_common():
+            matches = [item for item in records if goal in item["goals_effective"]]
+            links = ", ".join(f"[{_escape(item['title'])}](#{_anchor(item)})" for item in matches)
+            lines.append(f"- **{goal}** ({count}): {links}")
+        lines += ["", "</details>", ""]
+    groups: dict[tuple[str, str, str | None, str], list[dict[str, Any]]] = defaultdict(list)
+    for item in records:
+        groups[item["niche"], item["domain"], item["group"], item["collection"]].append(item)
+    ranked = sorted(groups.items(), key=lambda pair: (not any(item["tracking"]["status"] != "not-started" for item in pair[1]), pair[0][0], pair[0][1], pair[0][2] or "", pair[0][3]))
+    for (niche, domain, group, collection), items in ranked:
+        title = items[0]["collection_title"]
+        breadcrumb = " / ".join(filter(None, (niche, domain, group)))
+        collection_path = (ROOT / items[0]["path"]).parent
+        readme = collection_path / "README.md"
+        heading = f"[{_escape(title)}]({display_path(readme)})" if readme.is_file() else _escape(title)
+        lines += [f"## {heading}", "", f"{breadcrumb} · {len(items)} lab{'s' if len(items) != 1 else ''}", ""]
+        active = [item for item in items if item["tracking"]["status"] != "not-started"]
+        planned = [item for item in items if item["tracking"]["status"] == "not-started"]
+        for item in active:
+            lines += _catalog_entry(item, sources)
+        if planned and len(planned) > 6:
+            lines += ["<details>", f"<summary>{len(planned)} planned labs</summary>", ""]
+        for item in planned:
+            lines += _catalog_entry(item, sources)
+        if planned and len(planned) > 6:
+            lines += ["</details>", ""]
+    return "\n".join(lines).rstrip() + "\n"
+
+
+def _catalog_entry(item: dict[str, Any], sources: dict[str, Any]) -> list[str]:
+    base = item["path"]
+    source = item["source"]
+    source_name = _escape(sources[source["provider"]]["name"])
+    attribution = f"[{source_name}]({source['url']})" if source.get("url") else source_name
+    number = f"{item['order']}. " if item["order"] is not None else ""
+    summary = item.get("summary", "Open the source brief and work through the exercise.")
+    readme = ROOT / base / "README.md"
+    exercise = f"[{_escape(item['title'])}]({base}/README.md#exercise-definition)" if readme.is_file() else _escape(item["title"])
+    links = item.get("links", {})
+    solution = links.get("solution")
+    if solution:
+        solution_link = f" · [Solution]({solution})"
+    elif item["tracking"]["status"] != "not-started" and readme.is_file() and "## Solution" in readme.read_text(encoding="utf-8"):
+        solution_link = f" · [Solution]({base}/README.md#solution)"
+    else:
+        solution_link = ""
+    count = f" · {item['question_count']} materialized questions" if "question_count" in item else ""
+    details = f"{_label(item['type'])} · {_label(item['tracking']['status'])}{count} · {attribution} · updated {item['tracking']['dates']['updated']}"
+    goals = f" · goals: {', '.join(item['goals_effective'])}" if item["goals_effective"] else ""
+    skills = f" · skills: {', '.join(item['skills'])}" if item["skills"] else ""
+    return [f"<a id=\"{_anchor(item)}\"></a>", f"- {number}{exercise}{solution_link} — {_escape(summary)}", f"  <small>{details}{skills}{goals}</small>", ""]
+
+
+def _anchor(item: dict[str, Any]) -> str:
+    return "lab-" + slugify(item["path"].replace("/", "-"))
+
+
+def validate_local_links(include_catalog: bool = True) -> None:
+    """Check Markdown file targets in this repository without visiting external sites."""
+    documents = [ROOT / "README.md"]
+    if include_catalog:
+        documents.append(CATALOG_PATH)
+    documents += list((ROOT / ".meta").rglob("README.md"))
+    documents += list(NICHES.rglob("README.md"))
+    for document in documents:
+        if not document.is_file():
+            continue
+        for match in re.finditer(r"\]\(([^)]+)\)", document.read_text(encoding="utf-8")):
+            target = unquote(match.group(1).split("#", 1)[0])
+            if not target or target.startswith(("http://", "https://", "mailto:")):
+                continue
+            resolved = (document.parent / target).resolve()
+            try:
+                resolved.relative_to(ROOT.resolve())
+            except ValueError as error:
+                raise CatalogError(f"Local link escapes repository: {display_path(document)} -> {target}") from error
+            if not resolved.exists():
+                raise CatalogError(f"Broken local link: {display_path(document)} -> {target}")
 
 
 def write_text_atomic(path: Path, content: str) -> None:
-    """Replace one UTF-8 file atomically and preserve existing permissions."""
     path.parent.mkdir(parents=True, exist_ok=True)
     mode = stat.S_IMODE(path.stat().st_mode) if path.exists() else 0o644
-    temporary_path: Path | None = None
+    temporary: Path | None = None
     try:
-        with tempfile.NamedTemporaryFile("w", encoding="utf-8", newline="", dir=path.parent, delete=False) as temporary:
-            temporary_path = Path(temporary.name)
-            temporary.write(content)
-            temporary.flush()
-            os.fsync(temporary.fileno())
-        os.chmod(temporary_path, mode)
-        temporary_path.replace(path)
+        with tempfile.NamedTemporaryFile("w", encoding="utf-8", newline="", dir=path.parent, delete=False) as stream:
+            temporary = Path(stream.name)
+            stream.write(content)
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.chmod(temporary, mode)
+        temporary.replace(path)
     finally:
-        if temporary_path is not None:
-            temporary_path.unlink(missing_ok=True)
+        if temporary:
+            temporary.unlink(missing_ok=True)
 
 
 def expected_catalogs(records: list[dict[str, Any]], sources: dict[str, Any]) -> dict[Path, str]:
-    """Build the exact generated outputs used by write and check modes."""
     return {LABS_PATH: render_labs(records), CATALOG_PATH: render_catalog(records, sources)}
 
 
 def write_catalog(records: list[dict[str, Any]], sources: dict[str, Any]) -> None:
-    """Write generated outputs only when their contents have changed."""
     for path, content in expected_catalogs(records, sources).items():
-        if not path.exists() or path.read_bytes() != content.encode("utf-8"):
+        if not path.exists() or path.read_text(encoding="utf-8") != content:
             write_text_atomic(path, content)
 
 
 def update_catalog(check: bool = False) -> None:
-    """Validate the corpus and either write or check its generated catalogs."""
     records, sources = collect_labs()
-    expected = expected_catalogs(records, sources)
     if check:
-        stale = [display_path(path) for path, content in expected.items() if not path.exists() or path.read_bytes() != content.encode("utf-8")]
+        validate_local_links()
+    if check:
+        stale = [display_path(path) for path, content in expected_catalogs(records, sources).items() if not path.exists() or path.read_text(encoding="utf-8") != content]
         if stale:
-            raise CatalogError("Generated catalog files are stale: " + ", ".join(stale) + ". Run python3 .meta/scripts/catalog.py.")
+            raise CatalogError("Stale catalog: " + ", ".join(stale))
         print(f"Catalog is valid and current ({len(records)} labs).")
-        return
-    write_catalog(records, sources)
-    print(f"Generated catalogs for {len(records)} labs.")
+    else:
+        validate_local_links(include_catalog=False)
+        write_catalog(records, sources)
+        validate_local_links()
+        print(f"Generated catalogs for {len(records)} labs.")
 
 
 def main() -> int:
-    """Run catalog generation or report stale output without mutation."""
-    parser = argparse.ArgumentParser(description="Validate lab metadata and generate the lab catalogs.")
-    parser.add_argument("--check", action="store_true", help="validate without writing and fail if generated files are stale")
+    parser = argparse.ArgumentParser(description="Validate labs and generate their browsing catalog.")
+    parser.add_argument("--check", action="store_true", help="read-only stale check")
     args = parser.parse_args()
     try:
         update_catalog(check=args.check)

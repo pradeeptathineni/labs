@@ -1,26 +1,27 @@
 {
   "title": "Basic DNS Setup",
-  "kind": "project",
-  "status": "not-started",
+  "summary": "Set up a custom domain and its basic DNS records.",
+  "type": "project",
+  "difficulty": "beginner",
   "skills": [
     "cloud-hosting",
     "dns",
     "domain-names",
     "networking"
   ],
-  "dates": {
-    "created": "2026-10-03",
-    "started": null,
-    "completed": null,
-    "updated": "2026-10-03"
-  },
-  "difficulty": "beginner",
   "source": {
     "provider": "roadmap-sh",
     "item_id": "basic-dns",
     "url": "https://roadmap.sh/projects/basic-dns"
   },
   "tracking": {
-    "content_sha256": "4c14fee1be1c84ef189ac6283de96fc209d850676935b8eb6e32a0a209d76cdb"
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-03",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "content_sha256": "41112f29c4c542499dbfbddc945ec5a588ee003f5ee26d905d1963bdc34df28d"
   }
 }

@@ -1,61 +1,40 @@
-# Repository Metadata
+# Repository metadata
 
-Machine-readable lab metadata and the small tools that maintain it live here.
+The schemas, source registry, generated views, and maintenance commands live here. Each lab keeps its own facts beside its work. The path supplies niche, domain, optional group, collection, and slug; the registered `source.provider` supplies provenance independently.
 
-- [`catalog/`](catalog/) — source registry, JSON Schemas, and generated lab index.
-- [`scripts/`](scripts/) — generic lab creation, metadata, source, sync, and catalog tools.
-- [`importers/`](importers/) — only small scripts with useful knowledge of one source format.
-- [`tests/`](tests/) — standard-library tests for the generic rules and tracking behavior.
-- [`requirements.txt`](requirements.txt) — the one runtime dependency: `jsonschema`.
+Install the generic dependency with `python3 -m pip install -r .meta/requirements.txt`. Importers also need `python3 -m pip install -r .meta/importers/requirements.txt`.
 
-The hierarchy has exactly two shapes:
+## Create and edit
 
-```text
-niches/<niche>/<domain>/<collection>/<lab>/
-niches/<niche>/<domain>/<subdomain>/<collection>/<lab>/
-```
-
-Hierarchy is for browsing. The source provider belongs in `lab.json` and points to `.meta/catalog/sources.json`.
-
-## Usage
-
-Install dependencies:
+A write with flags needs `--yes`. `--dry-run` previews without writing or prompting. `--interactive` asks for every field and still ends with `Write these changes? [y/N]`; blank keeps the shown value and `-` clears an optional value.
 
 ```bash
-python3 -m pip install -r .meta/requirements.txt
-```
-
-Create interactively, or pass values for automation:
-
-```bash
+python3 .meta/scripts/lab_init.py code devops my-projects "Inspect a deployment" --type exercise --skill deployment --yes
 python3 .meta/scripts/lab_init.py --interactive
-python3 .meta/scripts/lab_init.py code software devroadmaps "REST API with Auth" --subdomain backend --source devroadmaps --item-id backend-rest-api-with-auth --source-url https://github.com/rudra496/devroadmaps/blob/master/js/project-ideas.js --kind project --difficulty beginner --skill api-design --yes
-```
-
-View or update a lab. Blank interactive inputs preserve current values; use `-` to clear optional difficulty or all skills:
-
-```bash
-python3 .meta/scripts/lab_meta.py niches/code/devops/roadmap-sh/01-server-performance-stats
-python3 .meta/scripts/lab_meta.py niches/code/devops/roadmap-sh/01-server-performance-stats --status in-progress --add-skill process-management
-python3 .meta/scripts/lab_meta.py --interactive
-```
-
-Create/view/update source records without free-form schema drift:
-
-```bash
-python3 .meta/scripts/source_meta.py create --interactive
+python3 .meta/scripts/lab_meta.py niches/code/devops/roadmap-sh/01-server-performance-stats --status in-progress --yes
+python3 .meta/scripts/lab_meta.py niches/code/devops/roadmap-sh/01-server-performance-stats --interactive
 python3 .meta/scripts/source_meta.py view roadmap-sh
-python3 .meta/scripts/source_meta.py update roadmap-sh --reuse-policy link-only
+python3 .meta/scripts/source_meta.py create my-source --type external --name "My source" --url https://example.com --reuse-policy review --yes
+python3 .meta/scripts/source_meta.py update my-source --notes "Review each item before copying." --yes
+python3 .meta/scripts/source_meta.py update my-source --interactive
 ```
 
-Synchronize actual lab content and check generated catalogs:
+The six lab types are `exercise`, `challenge`, `problem-set`, `question-bank`, `project`, and `experiment`. `exercise` is the default. Status and dates live under `tracking`; entering progress or completion records the first date if unknown, while reopening keeps that history. Dates can be corrected explicitly. Content edits never change status.
+
+An optional `collection.json` can name a collection and set `"ordered": true`. Only an explicitly ordered collection interprets a numeric folder prefix as order. The initializer appends after the highest existing number and leaves gaps alone; creating a descriptor never overwrites a collection README.
+
+## Record staged content
+
+Stage the lab content you want to record, then write the fingerprint and catalog from the Git index snapshot:
 
 ```bash
-python3 .meta/scripts/lab_sync.py
+git add niches/code/devops/roadmap-sh/01-server-performance-stats
+python3 .meta/scripts/lab_sync.py --yes
+git add niches/code/devops/roadmap-sh/01-server-performance-stats/lab.json CATALOG.md .meta/catalog/labs.json
 python3 .meta/scripts/lab_sync.py --check
-python3 .meta/scripts/catalog.py
 python3 .meta/scripts/catalog.py --check
-python3 -m unittest discover -s .meta/tests
 ```
 
-Only interactive runs ask for a final preview confirmation. Flag-driven commands do not prompt; `--yes` is available when an interactive write should be confirmed explicitly.
+`lab_sync.py` also accepts one or more lab paths. Its check mode is read-only. Unstaged edits to tracked lab content are reported so I can stage the intended bytes. Untracked files enter the snapshot only after `git add`. A changed snapshot updates `tracking.dates.updated`, which is a recording date, not time spent working. The root `lab.json` is excluded from its own hash; nested fixtures, links, executable bits, and staged deletions count.
+
+Run the small suite with `python3 -m unittest discover -s .meta/tests`. Import commands and source-specific limits are in [the importer guide](importers/README.md).

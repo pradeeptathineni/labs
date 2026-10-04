@@ -6,9 +6,7 @@
   "additionalProperties": {"$ref": "#/$defs/source"},
   "$defs": {
     "source": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["type", "name"],
+      "type": "object", "additionalProperties": false, "required": ["type", "name"],
       "properties": {
         "type": {"enum": ["external", "organization", "local"]},
         "name": {"type": "string", "minLength": 1, "pattern": "\\S"},
@@ -17,32 +15,24 @@
         "difficulty_map": {"$ref": "#/$defs/difficultyMap"}
       },
       "allOf": [
-        {
-          "if": {"properties": {"type": {"enum": ["external", "organization"]}}, "required": ["type"]},
-          "then": {"required": ["url", "reuse"]}
-        },
-        {
-          "if": {"properties": {"type": {"const": "local"}}, "required": ["type"]},
-          "then": {"not": {"anyOf": [{"required": ["url"]}, {"required": ["reuse"]}, {"required": ["difficulty_map"]}]}}
-        }
+        {"if": {"properties": {"type": {"const": "external"}}, "required": ["type"]}, "then": {"required": ["url", "reuse"]}},
+        {"if": {"properties": {"type": {"const": "organization"}}, "required": ["type"]}, "then": {"required": ["reuse"]}},
+        {"if": {"properties": {"type": {"const": "local"}}, "required": ["type"]}, "then": {"not": {"anyOf": [{"required": ["url"]}, {"required": ["reuse"]}, {"required": ["difficulty_map"]}]}}}
       ]
     },
     "reuse": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["policy"],
+      "type": "object", "additionalProperties": false, "required": ["policy"],
       "properties": {
-        "policy": {"enum": ["copy", "link-only", "review"]},
+        "policy_url": {"type": "string", "format": "uri", "pattern": "^https?://"},
         "license": {"type": "string", "minLength": 1, "pattern": "\\S"},
         "license_url": {"type": "string", "format": "uri", "pattern": "^https?://"},
-        "policy_url": {"type": "string", "format": "uri", "pattern": "^https?://"},
-        "verified": {"type": "string", "format": "date"},
-        "notes": {"type": "string", "minLength": 1, "pattern": "\\S"}
+        "notes": {"type": "string", "minLength": 1, "pattern": "\\S"},
+        "policy": {"enum": ["copy", "link-only", "review"]},
+        "verified": {"type": "string", "format": "date"}
       }
     },
     "difficultyMap": {
       "type": "object",
-      "propertyNames": {"pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
       "additionalProperties": {"enum": ["beginner", "intermediate", "advanced"]}
     }
   }

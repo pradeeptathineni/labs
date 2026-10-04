@@ -1,7 +1,8 @@
 {
   "title": "Linux Server Setup",
-  "kind": "project",
-  "status": "not-started",
+  "summary": "Set up and secure a Linux server from scratch.",
+  "type": "project",
+  "difficulty": "intermediate",
   "skills": [
     "firewalls",
     "hardening",
@@ -9,19 +10,19 @@
     "system-administration",
     "user-management"
   ],
-  "dates": {
-    "created": "2026-10-03",
-    "started": null,
-    "completed": null,
-    "updated": "2026-10-03"
-  },
-  "difficulty": "intermediate",
   "source": {
     "provider": "roadmap-sh",
     "item_id": "linux-server-setup",
     "url": "https://roadmap.sh/projects/linux-server-setup"
   },
   "tracking": {
-    "content_sha256": "32f157b154c483d0037289fd071c1678b1411d07caa5d789da85cff928a2fdce"
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-03",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "content_sha256": "b9e32839825222c542d6e90cb2363a36dc1920342aa6316fa1e743059b810254"
   }
 }

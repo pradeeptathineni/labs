@@ -1,7 +1,8 @@
 {
   "title": "Dummy Systemd Service",
-  "kind": "project",
-  "status": "not-started",
+  "summary": "Create a long-running systemd service that writes to a log file.",
+  "type": "project",
+  "difficulty": "beginner",
   "skills": [
     "journald",
     "linux",
@@ -9,19 +10,19 @@
     "services",
     "systemd"
   ],
-  "dates": {
-    "created": "2026-10-03",
-    "started": null,
-    "completed": null,
-    "updated": "2026-10-03"
-  },
-  "difficulty": "beginner",
   "source": {
     "provider": "roadmap-sh",
     "item_id": "dummy-systemd-service",
     "url": "https://roadmap.sh/projects/dummy-systemd-service"
   },
   "tracking": {
-    "content_sha256": "011106293bb1b081170f8753b1feec74b22264ef531ab3e4ef59cb9b96f6297d"
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-03",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "content_sha256": "cfebe0b6ec00a139c3fcfa624e299d4428a5a51e429db58797d79d4f2630a360"
   }
 }

@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""Selectively materialize licensed CloudCertPrep JSON questions as labs."""
+"""Import a selected CloudCertPrep CLF-C02 bank as one practice lab."""
 
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 from typing import Any
@@ -15,154 +17,230 @@ sys.path.insert(0, str(SCRIPT_DIR))
 
 import catalog
 import lab_init
-
+import workflow
 
 PROVIDER = "cloudcertprep"
+REPO = "nastaso/cloudcertprep"
+CERTIFICATION = "clf-c02"
+DATA_PREFIX = "src/data/clf-c02/"
+
+
+def _files(checkout: Path, revision: str) -> list[str]:
+    result = subprocess.run(["git", "-C", str(checkout.resolve()), "ls-tree", "-r", "--name-only", revision, DATA_PREFIX], capture_output=True)
+    if result.returncode:
+        raise catalog.CatalogError(result.stderr.decode(errors="replace"))
+    paths = [path for path in result.stdout.decode().splitlines() if re.fullmatch(r"src/data/clf-c02/domain[0-9]+\.json", path)]
+    if not paths:
+        raise catalog.CatalogError("No committed CLF-C02 domain JSON files found")
+    return sorted(paths, key=lambda path: int(re.search(r"domain([0-9]+)", path).group(1)))
+
+
+def _load_questions(committed: dict[str, bytes], paths: list[str]) -> list[dict[str, Any]]:
+    questions = []
+    seen = set()
+    for path in paths:
+        domain = int(re.search(r"domain([0-9]+)", path).group(1))
+        try:
+            data = json.loads(committed[path])
+        except (ValueError, UnicodeDecodeError) as error:
+            raise catalog.CatalogError(f"Invalid upstream JSON in {path}: {error}") from error
+        if not isinstance(data, list):
+            raise catalog.CatalogError(f"Expected question array in {path}")
+        for item in data:
+            if not isinstance(item, dict) or not isinstance(item.get("id"), str) or not isinstance(item.get("question"), str) or not isinstance(item.get("options"), dict):
+                raise catalog.CatalogError(f"Malformed question in {path}")
+            if not all(isinstance(key, str) and isinstance(value, str) for key, value in item["options"].items()):
+                raise catalog.CatalogError(f"Malformed answer options in {path}")
+            answer = item.get("answer")
+            if not isinstance(answer, str) and not (isinstance(answer, list) and all(isinstance(value, str) for value in answer)):
+                raise catalog.CatalogError(f"Malformed reference answer in {path}")
+            key = f"{CERTIFICATION}/domain{domain}/{item['id']}"
+            if key in seen:
+                raise catalog.CatalogError(f"Duplicate qualified question ID {key}")
+            seen.add(key)
+            questions.append({"key": key, "domain": domain, "source_file": path, "original": item})
+    return questions
+
+
+def _questions_md(questions: list[dict[str, Any]]) -> str:
+    lines = ["# CloudCertPrep CLF-C02 Questions", "", "These are imported prompts. My answers belong in the lab's Solution section or my own files.", ""]
+    for entry in questions:
+        item = entry["original"]
+        lines += [f"## {entry['key']}", "", item["question"], ""]
+        lines += [f"- **{key}.** {value}" for key, value in item["options"].items()]
+        lines.append("")
+    return "\n".join(lines)
+
+
+def _answers_md(questions: list[dict[str, Any]]) -> str:
+    lines = ["# Upstream Reference Answers", "", "> [!IMPORTANT]", "> These answers and explanations come from CloudCertPrep. They are not my answers or evidence of practice.", ""]
+    for entry in questions:
+        item = entry["original"]
+        answer = item["answer"]
+        lines += [f"## {entry['key']}", "", "Answer: " + (", ".join(answer) if isinstance(answer, list) else answer), ""]
+        if item.get("explanation"):
+            lines += [item["explanation"], ""]
+    return "\n".join(lines)
+
+
+def _manifest(files: dict[str, str]) -> str:
+    return catalog.json_text({name: hashlib.sha256(content.encode()).hexdigest() for name, content in files.items()})
+
+
+def _check_owned(path: Path) -> dict[str, str]:
+    manifest = catalog.read_json(path / "source/manifest.json")
+    contents = {}
+    for name, expected in manifest.items():
+        actual = (path / name).read_text(encoding="utf-8")
+        if hashlib.sha256(actual.encode()).hexdigest() != expected:
+            raise catalog.CatalogError(f"Importer-owned file changed: {catalog.display_path(path / name)}")
+        contents[name] = actual
+    return contents
+
+
+def _destination(value: str) -> dict[str, str]:
+    path = Path(value).absolute()
+    try:
+        parts = path.relative_to(catalog.NICHES.absolute()).parts
+    except ValueError as error:
+        raise catalog.CatalogError("Destination must be a collection under niches/") from error
+    if len(parts) == 3:
+        niche, domain, collection = parts
+        group = None
+    elif len(parts) == 4:
+        niche, domain, group, collection = parts
+    else:
+        raise catalog.CatalogError("Destination must be niche/domain/[group/]collection")
+    return {"niche": niche, "domain": domain, "group": group, "collection": collection}
 
 
 def _parser() -> argparse.ArgumentParser:
-    """Require a narrow item selection so imports cannot dump entire exams."""
-    parser = argparse.ArgumentParser(description="Import selected CloudCertPrep questions from a local checkout.")
-    parser.add_argument("--checkout", required=True, type=Path, help="local CloudCertPrep repository checkout")
-    parser.add_argument("--certification", required=True, help="target collection, e.g. aws-clf-c02")
-    parser.add_argument("--domain", type=int, help="one CloudCertPrep exam domain number")
-    selection = parser.add_mutually_exclusive_group(required=True)
-    selection.add_argument("--question-id", action="append", help="select a stable question ID; repeat as needed")
-    selection.add_argument("--limit", type=int, help="select the first N questions after domain/ID sorting")
-    selection.add_argument("--range", nargs=2, metavar=("START_ID", "END_ID"), help="inclusive ID range within --domain")
-    parser.add_argument("--dry-run", action="store_true", help="preview selected items without writing")
-    parser.add_argument("--yes", action="store_true", help="confirm materializing source content under its registered copy policy")
+    parser = argparse.ArgumentParser(description="Import one selected CloudCertPrep CLF-C02 question bank from Git.")
+    parser.add_argument("--checkout", type=Path, required=True)
+    parser.add_argument("--list", action="store_true")
+    selection = parser.add_mutually_exclusive_group()
+    selection.add_argument("--all-domains", action="store_true")
+    selection.add_argument("--domain", action="append", type=int)
+    selection.add_argument("--question-id", action="append", help="qualified domainN:qNNN; repeat")
+    parser.add_argument("--limit", type=int, help="bound selected questions after sorting")
+    parser.add_argument("--destination")
+    parser.add_argument("--slug", default="cloudcertprep")
+    parser.add_argument("--refresh", action="store_true")
+    parser.add_argument("--interactive", action="store_true")
+    parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--yes", action="store_true")
     return parser
 
 
-def _id_number(value: str) -> int:
-    """Sort numbered upstream IDs numerically while retaining arbitrary IDs last."""
-    match = re.search(r"([0-9]+)$", value)
-    return int(match.group(1)) if match else sys.maxsize
-
-
-def _load_items(checkout: Path, certification: str, bank_domain: int | None) -> list[tuple[int, dict[str, Any]]]:
-    """Read the upstream JSON files without executing any upstream JavaScript."""
-    if not catalog.SLUG_PATTERN.fullmatch(certification):
-        raise catalog.CatalogError("Certification must be a lowercase kebab-case collection slug.")
-    exam_slug = certification.removeprefix("aws-")
-    data_dir = checkout.resolve() / "src/data" / exam_slug
-    if not data_dir.is_dir():
-        raise catalog.CatalogError(f"No CloudCertPrep data directory: {data_dir}")
-    files = sorted(data_dir.glob("domain*.json"))
-    items: list[tuple[int, dict[str, Any]]] = []
-    for path in files:
-        match = re.fullmatch(r"domain([0-9]+)", path.stem)
-        if match is None:
-            continue
-        domain_number = int(match.group(1))
-        if bank_domain is not None and domain_number != bank_domain:
-            continue
-        data = catalog.read_json(path)
-        if not isinstance(data, list):
-            raise catalog.CatalogError(f"Expected a JSON array in {path}.")
-        for item in data:
-            if not isinstance(item, dict) or not isinstance(item.get("id"), str) or not isinstance(item.get("question"), str):
-                raise catalog.CatalogError(f"Unexpected question record in {path}.")
-            item["_domain_number"] = domain_number
-            items.append((domain_number, item))
-    return sorted(items, key=lambda pair: (pair[0], _id_number(pair[1]["id"]), pair[1]["id"]))
-
-
-def _select(items: list[tuple[int, dict[str, Any]]], args: argparse.Namespace) -> list[tuple[int, dict[str, Any]]]:
-    """Apply explicit IDs, a bounded count, or an inclusive stable-ID range."""
-    if args.question_id:
-        requested = set(args.question_id)
-        selected = [pair for pair in items if pair[1]["id"] in requested]
-        found = {pair[1]["id"] for pair in selected}
-        missing = sorted(requested - found)
-        if missing:
-            raise catalog.CatalogError("Question IDs were not found in the selected domain(s): " + ", ".join(missing))
-        if len(selected) != len(requested):
-            raise catalog.CatalogError("Question IDs must be unique in the selected bank.")
-        return selected
-    if args.limit is not None:
-        if args.limit < 1:
-            raise catalog.CatalogError("--limit must be positive.")
-        return items[:args.limit]
-    if not args.domain:
-        raise catalog.CatalogError("--range requires --domain to identify one exam bank.")
-    start, end = args.range
-    start_number, end_number = _id_number(start), _id_number(end)
-    if start_number == sys.maxsize or end_number == sys.maxsize or start_number > end_number:
-        raise catalog.CatalogError("Range IDs must end in ascending numbers, such as q001 q010.")
-    return [pair for pair in items if start_number <= _id_number(pair[1]["id"]) <= end_number]
-
-
-def render_question(item: dict[str, Any], source_url: str, source_name: str, license_text: str) -> tuple[str, str]:
-    """Build the question page and include the upstream MIT notice verbatim."""
-    title = f"{item.get('_certification', 'AWS certification').upper()} question {item['id']}"
-    lines = [
-        f"# {title}",
-        "",
-        f"Source: [{source_name}]({source_url})",
-        "",
-        "> [!IMPORTANT]",
-        "> This question and explanation are reproduced from CloudCertPrep under the MIT License.",
-        "> Original source: https://github.com/nastaso/cloudcertprep. Formatting was adjusted for this lab.",
-        "",
-        "## Question",
-        "",
-        item["question"],
-        "",
-    ]
-    options = item.get("options", {})
-    if isinstance(options, dict):
-        for key, value in options.items():
-            lines.append(f"- **{key}.** {value}")
-    answer = item.get("answer")
-    if answer is not None:
-        lines.extend(["", "## Answer", "", str(answer), ""])
-    if item.get("explanation"):
-        lines.extend(["## Explanation", "", item["explanation"], ""])
-    return "\n".join(lines), license_text
-
-
 def main() -> int:
-    """Preview or import only explicitly selected question records."""
     parser = _parser()
     args = parser.parse_args()
+    if args.interactive and (args.yes or args.dry_run):
+        parser.error("--interactive cannot be combined with --yes or --dry-run")
     try:
         sources = catalog.load_sources()
-        source = catalog.require_copy_permission(PROVIDER, sources)
-        selected = _select(_load_items(args.checkout, args.certification, args.domain), args)
+        catalog.require_copy_permission(PROVIDER, sources)
+        revision, initial = workflow.git_checkout(args.checkout, REPO, ["LICENSE"])
+        license_text = initial["LICENSE"].decode("utf-8")
+        if "MIT License" not in license_text or "Permission is hereby granted" not in license_text:
+            raise catalog.CatalogError("Expected the reviewed MIT license at this revision")
+        paths = _files(args.checkout, revision)
+        _, committed = workflow.git_checkout(args.checkout, REPO, paths)
+        all_questions = _load_questions(committed, paths)
+        if args.list:
+            for path in paths:
+                number = int(re.search(r"domain([0-9]+)", path).group(1))
+                print(f"domain{number}: {sum(item['domain'] == number for item in all_questions)} questions")
+            return 0
+        if args.interactive:
+            answer = workflow.prompt("Selection: all or domain number", "all", choices=["all"] + [str(item["domain"]) for item in all_questions])
+            args.all_domains = answer == "all"
+            args.domain = None if args.all_domains else [int(answer)]
+            args.destination = workflow.prompt("Destination collection", args.destination)
+            args.slug = workflow.prompt("Lab slug", args.slug)
+        if not (args.all_domains or args.domain or args.question_id):
+            raise catalog.CatalogError("Select --all-domains, --domain, or --question-id")
+        if not args.destination:
+            raise catalog.CatalogError("Choose --destination")
+        if args.limit is not None and args.limit < 1:
+            raise catalog.CatalogError("--limit must be positive")
+        destination = _destination(args.destination)
+        if args.all_domains:
+            selected = all_questions
+        elif args.domain:
+            wanted = set(args.domain)
+            selected = [item for item in all_questions if item["domain"] in wanted]
+            if wanted - {item["domain"] for item in selected}:
+                raise catalog.CatalogError("Selected domain does not exist")
+        else:
+            wanted = {f"{CERTIFICATION}/{value.replace(':', '/')}" for value in args.question_id}
+            selected = [item for item in all_questions if item["key"] in wanted]
+            if wanted - {item["key"] for item in selected}:
+                raise catalog.CatalogError("Selected qualified question ID does not exist")
+        if args.limit is not None:
+            selected = selected[:args.limit]
         if not selected:
-            raise catalog.CatalogError("The selection matched no questions.")
-        license_path = args.checkout.resolve() / "LICENSE"
-        if not license_path.is_file():
-            raise catalog.CatalogError("The source checkout must contain its upstream LICENSE file.")
-        license_text = license_path.read_text(encoding="utf-8")
-        if not license_text.strip():
-            raise catalog.CatalogError("The upstream LICENSE file is empty.")
-        if not args.dry_run and not args.yes:
-            parser.error("materializing source content requires --yes; use --dry-run to preview")
-        schema = catalog.load_schema(catalog.LAB_SCHEMA_PATH)
-        for domain_number, item in selected:
-            item_id = f"{args.certification}-domain{domain_number}-{item['id']}"
-            title = f"{args.certification.upper()} question {item['id']}"
-            slug = f"domain{domain_number}-{catalog.slugify(item['id'])}"
-            item["_certification"] = args.certification
-            source_url = f"{source['url']}/blob/main/src/data/{args.certification.removeprefix('aws-')}/domain{domain_number}.json"
-            readme, copied_license = render_question(item, source_url, source["name"], license_text)
-            preview_path = Path("niches") / "certification" / "cloud" / "aws" / args.certification / slug
+            raise catalog.CatalogError("The selection is empty")
+        source_url = f"https://github.com/{REPO}/tree/{revision}/src/data/{CERTIFICATION}"
+        data = {"certification": CERTIFICATION, "selection": {"domains": sorted({item["domain"] for item in selected}), "question_keys": [item["key"] for item in selected]}, "questions": selected}
+        owned = {"questions.json": catalog.json_text(data), "QUESTIONS.md": _questions_md(selected), "REFERENCE-ANSWERS.md": _answers_md(selected), "source/LICENSE.txt": license_text}
+        owned["source/manifest.json"] = _manifest(owned)
+        readme = "\n".join([
+            "# CloudCertPrep CLF-C02 Question Bank", "", f"Source: [CloudCertPrep CLF-C02 data]({source_url})", "",
+            "> [!IMPORTANT]", "> The questions and reference answers are imported from CloudCertPrep under its MIT License. They are not my responses.", "",
+            "## Exercise Definition", "", f"I will work through this adopted bank of {len(selected)} questions across CLF-C02 domains {', '.join(map(str, sorted({item['domain'] for item in selected})))}. I will explain choices, review mistakes, and record my own responses separately.", "",
+            "[Questions](QUESTIONS.md) · [Upstream reference answers](REFERENCE-ANSWERS.md)", "", "## Solution", "",
+        ])
+        records, _ = catalog.collect_labs()
+        identity = f"{CERTIFICATION}/bank/{args.slug}"
+        prior = next((item for item in records if item["source"].get("provider") == PROVIDER and item["source"].get("item_id") == identity), None)
+        if prior:
+            path = catalog.ROOT / prior["path"]
+            if path.parent != (catalog.ROOT / args.destination).absolute():
+                raise catalog.CatalogError(f"Existing bank lives in another collection: {prior['path']}")
+            old = _check_owned(path)
+            if prior["source"].get("revision") == revision and all(old.get(key) == value for key, value in owned.items() if key != "source/manifest.json"):
+                print(f"No change: {prior['path']} ({len(selected)} questions)")
+                return 0
+            if not args.refresh:
+                raise catalog.CatalogError("Bank selection or upstream content changed; rerun with --refresh to review")
+            metadata = catalog.ordered_lab(catalog.read_json(path / "lab.json"))
+            metadata["source"]["revision"] = revision
+            metadata["source"]["url"] = source_url
+            catalog.collect_labs(overrides={path / "lab.json": metadata})
+            changes = {key: value for key, value in owned.items() if (path / key).read_text(encoding="utf-8") != value}
+            workflow.preview(catalog.display_path(path), metadata, sorted(changes) + ["lab.json"])
+            print("Review the README Exercise Definition and summary if the adopted bank scope changed; my Solution is untouched.")
             if args.dry_run:
-                print(f"{catalog.display_path(preview_path)}  {item_id}  {title}")
-                continue
-            import argparse as argparse_module
-            create_args = argparse_module.Namespace(
-                niche="certification", domain="cloud", subdomain="aws", collection=args.certification,
-                title=title, slug=slug, source=PROVIDER, kind="question", status="not-started",
-                difficulty=None, skill=["aws", "certification"], item_id=item_id, source_url=source_url,
-                ordered=False,
-            )
-            created = lab_init.create_lab(create_args, schema, sources, readme_override=readme, additional_files={"LICENSE-CLOUDCERTPREP.txt": copied_license})
-            print(f"Imported {catalog.display_path(created)}")
-    except (catalog.CatalogError, OSError) as error:
+                return 0
+            if not args.interactive and not args.yes:
+                parser.error("writing requires --yes")
+            if args.interactive and not workflow.confirm():
+                print("No changes made.")
+                return 0
+            for key, value in changes.items():
+                catalog.write_text_atomic(path / key, value)
+            catalog.write_text_atomic(path / "lab.json", catalog.json_text(metadata))
+            catalog.update_catalog()
+            print(f"Refreshed {catalog.display_path(path)}")
+            return 0
+        fields = dict(destination, title="CloudCertPrep CLF-C02 Question Bank", slug=args.slug, summary=f"Practice and review {len(selected)} adopted CLF-C02 questions across {len(set(item['domain'] for item in selected))} domains.", type="question-bank", skills=["aws", "cloud-concepts", "security-compliance", "billing-pricing"], provider=PROVIDER, item_id=identity, source_url=source_url, revision=revision)
+        plan = lab_init.plan_lab(fields, sources, files={"README.md": readme, **owned})
+        catalog.collect_labs(overrides={plan["path"] / "lab.json": plan["metadata"]})
+        workflow.preview(catalog.display_path(plan["path"]), plan["metadata"], sorted(plan["files"]) + ["lab.json"])
+        if args.dry_run:
+            return 0
+        if not args.interactive and not args.yes:
+            parser.error("writing requires --yes")
+        if args.interactive and not workflow.confirm():
+            print("No changes made.")
+            return 0
+        lab_init.write_plans([plan], sources)
+        print(f"Imported one bank with {len(selected)} questions: {catalog.display_path(plan['path'])}")
+    except (catalog.CatalogError, OSError, UnicodeDecodeError, EOFError, KeyboardInterrupt) as error:
+        if isinstance(error, (EOFError, KeyboardInterrupt)):
+            print("\nNo changes made.")
+            return 0
         print(f"error: {error}", file=sys.stderr)
         return 1
     return 0

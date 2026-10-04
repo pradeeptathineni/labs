@@ -1,7 +1,8 @@
 {
   "title": "File Integrity Checker",
-  "kind": "project",
-  "status": "not-started",
+  "summary": "Check application log files for tampering.",
+  "type": "project",
+  "difficulty": "intermediate",
   "skills": [
     "cryptographic-hashing",
     "file-integrity",
@@ -9,19 +10,19 @@
     "monitoring",
     "security"
   ],
-  "dates": {
-    "created": "2026-10-03",
-    "started": null,
-    "completed": null,
-    "updated": "2026-10-03"
-  },
-  "difficulty": "intermediate",
   "source": {
     "provider": "roadmap-sh",
     "item_id": "file-integrity-checker",
     "url": "https://roadmap.sh/projects/file-integrity-checker"
   },
   "tracking": {
-    "content_sha256": "f00aad10ac951da3ce5c92bc07073021df6fdbb6d868dbc88ac138651086d37d"
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-03",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "content_sha256": "b69e35eb3131617d8cc1da5ef04f4c4d3332fd38a99f5520c3d933248fd42fbe"
   }
 }

@@ -1,26 +1,27 @@
 {
   "title": "Basic Dockerfile",
-  "kind": "project",
-  "status": "not-started",
+  "summary": "Build a Dockerfile for a basic application image.",
+  "type": "project",
+  "difficulty": "beginner",
   "skills": [
     "containers",
     "docker",
     "dockerfile",
     "image-building"
   ],
-  "dates": {
-    "created": "2026-10-03",
-    "started": null,
-    "completed": null,
-    "updated": "2026-10-03"
-  },
-  "difficulty": "beginner",
   "source": {
     "provider": "roadmap-sh",
     "item_id": "basic-dockerfile",
     "url": "https://roadmap.sh/projects/basic-dockerfile"
   },
   "tracking": {
-    "content_sha256": "f3c652ff923d544e0dd81d52e6aa662ed04f52a8222694841534baec2f2897a7"
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-03",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "content_sha256": "6d2de5f07b1feab2da350ac195f50b60a16a745414b1a37ee5358dc03c000fec"
   }
 }

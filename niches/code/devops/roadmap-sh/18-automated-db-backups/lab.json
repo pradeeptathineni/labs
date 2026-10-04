@@ -1,7 +1,8 @@
 {
   "title": "Automated DB Backups",
-  "kind": "project",
-  "status": "not-started",
+  "summary": "Schedule database backups every twelve hours.",
+  "type": "project",
+  "difficulty": "intermediate",
   "skills": [
     "automation",
     "backup-and-recovery",
@@ -11,19 +12,19 @@
     "scheduling",
     "workflow-automation"
   ],
-  "dates": {
-    "created": "2026-10-03",
-    "started": null,
-    "completed": null,
-    "updated": "2026-10-03"
-  },
-  "difficulty": "intermediate",
   "source": {
     "provider": "roadmap-sh",
     "item_id": "automated-backups",
     "url": "https://roadmap.sh/projects/automated-backups"
   },
   "tracking": {
-    "content_sha256": "dad731b2caa26e963d03c9e44d3f8106c346dd643460216905aaba3ad06ad807"
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-03",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "content_sha256": "83f18309348bd1af3acf68af8e899be36a2b8aa116d28fd6bb66c7a59cf5c940"
   }
 }

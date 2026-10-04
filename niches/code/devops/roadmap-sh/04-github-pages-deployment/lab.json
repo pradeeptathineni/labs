@@ -1,7 +1,8 @@
 {
   "title": "GitHub Pages Deployment",
-  "kind": "project",
-  "status": "not-started",
+  "summary": "Create a GitHub Actions workflow that deploys a static site to GitHub Pages.",
+  "type": "project",
+  "difficulty": "beginner",
   "skills": [
     "ci-cd",
     "deployment",
@@ -9,19 +10,19 @@
     "github-actions",
     "github-pages"
   ],
-  "dates": {
-    "created": "2026-10-03",
-    "started": null,
-    "completed": null,
-    "updated": "2026-10-03"
-  },
-  "difficulty": "beginner",
   "source": {
     "provider": "roadmap-sh",
     "item_id": "github-actions-deployment-workflow",
     "url": "https://roadmap.sh/projects/github-actions-deployment-workflow"
   },
   "tracking": {
-    "content_sha256": "43fe69ff37c7b11b1fbd30685f0608f80c1ebe3fdccf157216fdb277257fc315"
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-03",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "content_sha256": "cfb3c4d78f82b3e21dc4fcfcc6997e512b5ee339f824ee4915b1f7a004978c80"
   }
 }

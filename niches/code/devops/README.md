@@ -1,5 +1,5 @@
 # DevOps
 
-Coding labs centered on software delivery, systems operations, automation, infrastructure, reliability, observability, networking, and adjacent DevOps practice.
+These coding labs cover delivery, automation, infrastructure, reliability, observability, and systems work.
 
-The [`roadmap-sh/`](roadmap-sh/) collection currently holds the 26 roadmap.sh DevOps projects. The collection name is a convenient browse label; source provenance is recorded independently in each lab's `lab.json`.
+The [roadmap.sh collection](roadmap-sh/) has 26 ordered, link-only starters. They are planned work until I actually work through them.

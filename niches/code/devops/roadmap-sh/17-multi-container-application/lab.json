@@ -1,26 +1,27 @@
 {
   "title": "Multi-Container Application",
-  "kind": "project",
-  "status": "not-started",
+  "summary": "Run a multi-container application with Docker Compose.",
+  "type": "project",
+  "difficulty": "intermediate",
   "skills": [
     "containers",
     "docker",
     "docker-compose",
     "service-networking"
   ],
-  "dates": {
-    "created": "2026-10-03",
-    "started": null,
-    "completed": null,
-    "updated": "2026-10-03"
-  },
-  "difficulty": "intermediate",
   "source": {
     "provider": "roadmap-sh",
     "item_id": "multi-container-service",
     "url": "https://roadmap.sh/projects/multi-container-service"
   },
   "tracking": {
-    "content_sha256": "69189285157ae38e2fa29067ffaed9e0b6897b01c81c5e5acf805b039adbc158"
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-03",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "content_sha256": "6b38bf100d1e38c449d40dfb41543ddd82c5f0857b4a8c44e27797230baf589e"
   }
 }

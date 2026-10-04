@@ -1,212 +1,266 @@
-"""Exercise the source-independent hierarchy and content tracking invariants."""
+"""Small command-level checks for hierarchy, mutation, tracking, and imports."""
 
 from __future__ import annotations
 
-import contextlib
-import io
 import json
+import os
 import shutil
 import subprocess
 import sys
 import tempfile
 import unittest
-from datetime import date
 from pathlib import Path
-from unittest.mock import patch
 
-SCRIPT_DIR = Path(__file__).resolve().parents[1] / "scripts"
-IMPORTER_DIR = Path(__file__).resolve().parents[1] / "importers"
-sys.path.insert(0, str(SCRIPT_DIR))
-sys.path.insert(0, str(IMPORTER_DIR))
-
-import catalog
-import lab_init
-import lab_meta
-import lab_sync
-import source_meta
-from support import RepositoryCase
+HERE = Path(__file__).resolve().parents[2]
+PYTHON = sys.executable
 
 
-class LabArchitectureTests(RepositoryCase):
-    """Check hierarchy, metadata, source, and tracking behavior."""
+class RepositoryCase(unittest.TestCase):
+    def setUp(self) -> None:
+        self.temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temporary.cleanup)
+        self.root = Path(self.temporary.name)
+        for section in ("scripts", "importers", "catalog/schema"):
+            source = HERE / ".meta" / section
+            target = self.root / ".meta" / section
+            target.mkdir(parents=True)
+            for path in source.glob("*.py" if section != "catalog/schema" else "*.json"):
+                shutil.copy2(path, target / path.name)
+        (self.root / ".meta/catalog/sources.json").write_bytes((HERE / ".meta/catalog/sources.json").read_bytes())
+        (self.root / "niches").mkdir()
+        self.git("init", "-q")
+        self.git("config", "user.email", "test@example.com")
+        self.git("config", "user.name", "Lab Tests")
 
-    def test_hierarchy_shapes_sources_and_mixed_collection(self) -> None:
-        self.add_lab("niches/code/software/backend/devroadmaps/rest-api", "external-a", "backend-rest-api")
-        self.add_lab("niches/code/data/tidytuesday/gutenberg", "external-a", "tuesday-gutenberg")
-        self.add_lab("niches/certification/cloud/aws/aws-saa-c03/resilience", "external-a", "saa-resilience")
-        self.add_lab("niches/certification/cloud/aws/aws-saa-c03/cost", "external-b", "saa-cost")
-        self.add_lab("niches/writing/argumentation/mit-ocw-problems-of-philosophy/paper-1", "created")
-        self.add_lab("niches/mathematics/problem-solving/project-euler/multiples", "generated")
+    def git(self, *args: str, cwd: Path | None = None) -> subprocess.CompletedProcess[str]:
+        return subprocess.run(["git", *args], cwd=cwd or self.root, capture_output=True, text=True, check=True)
 
-        records, _ = catalog.collect_labs()
-        by_path = {record["path"]: record for record in records}
-        self.assertEqual(by_path["niches/code/software/backend/devroadmaps/rest-api"]["subdomain"], "backend")
-        self.assertIsNone(by_path["niches/code/data/tidytuesday/gutenberg"]["subdomain"])
-        self.assertEqual(by_path["niches/code/data/tidytuesday/gutenberg"]["source"]["provider"], "external-a")
-        self.assertEqual(by_path["niches/writing/argumentation/mit-ocw-problems-of-philosophy/paper-1"]["source"]["provider"], "created")
-        self.assertEqual(by_path["niches/mathematics/problem-solving/project-euler/multiples"]["source"]["provider"], "generated")
-        saa = [record for record in records if record["collection"] == "aws-saa-c03"]
-        self.assertEqual({record["source"]["provider"] for record in saa}, {"external-a", "external-b"})
+    def command(self, section: str, name: str, *args: str, stdin: str | None = None) -> subprocess.CompletedProcess[str]:
+        return subprocess.run([PYTHON, str(self.root / ".meta" / section / name), *args], cwd=self.root, input=stdin, capture_output=True, text=True)
 
-    def test_ordered_and_unordered_collections_and_duplicate_order(self) -> None:
-        self.add_lab("niches/code/devops/roadmap-sh/01-first", "external-a", "first")
-        self.add_lab("niches/code/devops/roadmap-sh/02-second", "external-a", "second")
-        records, _ = catalog.collect_labs()
-        self.assertEqual([record["order"] for record in records], [1, 2])
-        with self.assertRaisesRegex(catalog.CatalogError, "Duplicate order"):
-            self.add_lab("niches/code/devops/roadmap-sh/02-other", "external-a", "other")
-            catalog.collect_labs()
+    def init(self, *args: str) -> Path:
+        result = self.command("scripts", "lab_init.py", *args, "--yes")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        path = next(line.removeprefix("Created ") for line in result.stdout.splitlines() if line.startswith("Created "))
+        return self.root / path
 
-    def test_mixed_ordering_is_rejected(self) -> None:
-        self.add_lab("niches/code/devops/roadmap-sh/01-first", "external-a", "first")
-        self.add_lab("niches/code/devops/roadmap-sh/second", "external-a", "second")
-        with self.assertRaisesRegex(catalog.CatalogError, "mixes numbered and unnumbered"):
-            catalog.collect_labs()
+    def metadata(self, lab: Path) -> dict:
+        return json.loads((lab / "lab.json").read_text())
 
-    def test_invalid_depth_and_provider_are_rejected(self) -> None:
-        self.add_lab("niches/code/devops/aws/extra/roadmap-sh/lab", "external-a", "deep")
-        with self.assertRaisesRegex(catalog.CatalogError, "niches/<niche>/<domain>"):
-            catalog.collect_labs()
-        for metadata_path in catalog.lab_paths():
-            metadata_path.unlink()
-        self.add_lab("niches/code/devops/roadmap-sh/lab", "missing-source", "missing")
-        with self.assertRaisesRegex(catalog.CatalogError, "not registered"):
-            catalog.collect_labs()
+    def upstream(self, name: str, files: dict[str, str], origin: str) -> Path:
+        path = self.root / name
+        path.mkdir()
+        self.git("init", "-q", cwd=path)
+        self.git("remote", "add", "origin", origin, cwd=path)
+        self.git("config", "user.email", "test@example.com", cwd=path)
+        self.git("config", "user.name", "Lab Tests", cwd=path)
+        for relative, content in files.items():
+            target = path / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(content)
+        self.git("add", ".", cwd=path)
+        self.git("commit", "-qm", "upstream fixture", cwd=path)
+        return path
 
-    def test_copy_guard_rejects_link_only_and_review_sources(self) -> None:
-        with self.assertRaisesRegex(catalog.CatalogError, "copying requires policy 'copy'"):
-            catalog.require_copy_permission("link-only", self.sources)
-        with self.assertRaisesRegex(catalog.CatalogError, "copying requires policy 'copy'"):
-            catalog.require_copy_permission("external-b", self.sources)
-        self.assertEqual(catalog.require_copy_permission("external-a", self.sources)["name"], "Source A")
 
-    def test_new_organization_sources_fit_the_same_registry_contract(self) -> None:
-        candidate = dict(self.sources)
-        candidate["rearc"] = {
-            "type": "organization",
-            "name": "Rearc",
-            "url": "https://www.rearc.io/",
-            "reuse": {"policy": "review"},
-        }
-        catalog.validate_document(candidate, catalog.load_schema(catalog.SOURCE_SCHEMA_PATH), "test sources")
-        self.assertEqual(catalog.source_for("rearc", candidate)["type"], "organization")
+class CoreTests(RepositoryCase):
+    def test_empty_corpus_and_two_shapes_ignore_nested_fixture(self) -> None:
+        self.assertEqual(self.command("scripts", "catalog.py").returncode, 0)
+        self.assertEqual(self.command("scripts", "catalog.py", "--check").returncode, 0)
+        direct = self.init("code", "devops", "roadmap-sh", "First task")
+        grouped = self.init("study", "systems", "course-abc", "Second task", "--group", "mit")
+        nested = direct / "solution/fixture/lab.json"
+        nested.parent.mkdir(parents=True)
+        nested.write_text("not a root")
+        self.assertEqual(self.command("scripts", "catalog.py").returncode, 0)
+        records = json.loads((self.root / ".meta/catalog/labs.json").read_text())
+        self.assertEqual(len(records), 2)
+        self.assertEqual(records[1]["group"], "mit")
+        self.assertEqual(records[1]["source"]["provider"], "created")
+        self.assertTrue(grouped.is_dir())
 
-    def test_catalog_order_is_deterministic(self) -> None:
-        self.add_lab("niches/code/data/z-collection/zeta", "external-a", "zeta")
-        self.add_lab("niches/code/data/a-collection/alpha", "external-b", "alpha")
-        first, sources = catalog.collect_labs()
-        second, _ = catalog.collect_labs()
-        self.assertEqual(catalog.render_labs(first), catalog.render_labs(second))
-        self.assertEqual([item["collection"] for item in first], ["a-collection", "z-collection"])
-        self.assertEqual(catalog.render_catalog(first, sources), catalog.render_catalog(second, sources))
+    def test_bad_depth_ambiguity_and_order_descriptor(self) -> None:
+        collection = self.root / "niches/code/devops/course"
+        collection.mkdir(parents=True)
+        (collection / "collection.json").write_text('{"title":"Course","ordered":true}\n')
+        first = self.init("code", "devops", "course", "First task")
+        self.assertEqual(first.name, "01-first-task")
+        (collection / "03-deliberate-gap").mkdir()
+        (collection / "03-deliberate-gap/lab.json").write_bytes((first / "lab.json").read_bytes())
+        fourth = self.init("code", "devops", "course", "Fourth task")
+        self.assertEqual(fourth.name, "04-fourth-task")
+        year = self.init("writing", "philosophy", "papers", "Paper", "--slug", "24-00-paper-1")
+        records = json.loads((self.root / ".meta/catalog/labs.json").read_text())
+        self.assertIsNone(next(item for item in records if item["path"] == year.relative_to(self.root).as_posix())["order"])
+        bad = self.root / "niches/code/devops/too/deep/extra/lab/lab.json"
+        bad.parent.mkdir(parents=True)
+        bad.write_bytes((first / "lab.json").read_bytes())
+        result = self.command("scripts", "catalog.py", "--check")
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("Bad lab depth", result.stderr)
+        bad.unlink()
+        group_collection = self.root / "niches/code/devops/course/another/thing"
+        group_collection.mkdir(parents=True)
+        (group_collection / "lab.json").write_bytes((first / "lab.json").read_bytes())
+        result = self.command("scripts", "catalog.py", "--check")
+        self.assertIn("both collection and group", result.stderr)
 
-    def test_fingerprint_ignores_metadata_and_ignored_files(self) -> None:
-        lab = self.add_lab("niches/code/software/backend/devroadmaps/rest-api", "external-a", "api")
-        first = lab_sync.fingerprint_lab(lab)
-        self.assertEqual(first, lab_sync.fingerprint_lab(lab))
-        (lab / "cache").mkdir()
-        (lab / "cache/build.log").write_text("ignored\n")
-        self.assertEqual(first, lab_sync.fingerprint_lab(lab))
-        metadata_path = lab / "lab.json"
-        metadata = json.loads(metadata_path.read_text())
-        metadata["status"] = "in-progress"
-        metadata_path.write_text(json.dumps(metadata))
-        self.assertEqual(first, lab_sync.fingerprint_lab(lab))
-        (lab / "README.md").write_text("# Edited content\n")
-        self.assertNotEqual(first, lab_sync.fingerprint_lab(lab))
+    def test_collision_cancellation_clearing_and_lifecycle(self) -> None:
+        one = self.init("code", "devops", "tasks", "One", "--summary", "Original summary")
+        two = self.init("code", "devops", "tasks", "Two")
+        collision = self.command("scripts", "lab_init.py", "code", "devops", "tasks", "One", "--yes")
+        self.assertNotEqual(collision.returncode, 0)
+        before = (one / "lab.json").read_bytes()
+        cancelled = self.command("scripts", "lab_meta.py", str(one), "--interactive", stdin="\n" * 13 + "n\n")
+        self.assertEqual(cancelled.returncode, 0, cancelled.stderr)
+        self.assertEqual((one / "lab.json").read_bytes(), before)
+        flagged = self.command("scripts", "lab_meta.py", str(one), "--status", "in-progress", "--clear-summary", "--yes")
+        self.assertEqual(flagged.returncode, 0, flagged.stderr)
+        answers = ["", "", "", "", "", "", "", "", "", "in-progress", "", "", "", "y"]
+        prompted = self.command("scripts", "lab_meta.py", str(two), "--interactive", stdin="\n".join(answers) + "\n")
+        self.assertEqual(prompted.returncode, 0, prompted.stderr)
+        self.assertEqual(self.metadata(one)["tracking"]["dates"]["started"], self.metadata(two)["tracking"]["dates"]["started"])
+        self.assertNotIn("summary", self.metadata(one))
+        direct = self.command("scripts", "lab_meta.py", str(one), "--status", "complete", "--yes")
+        self.assertEqual(direct.returncode, 0, direct.stderr)
+        self.assertIsNotNone(self.metadata(one)["tracking"]["dates"]["completed"])
+        self.command("scripts", "lab_meta.py", str(one), "--status", "in-progress", "--yes")
+        self.assertIsNotNone(self.metadata(one)["tracking"]["dates"]["completed"])
+        invalid = self.command("scripts", "lab_meta.py", str(one), "--started", "2026-12-01", "--completed", "2026-11-01", "--yes")
+        self.assertNotEqual(invalid.returncode, 0)
 
-    def test_interactive_naming_lists_existing_slugs_and_source_item_ids(self) -> None:
-        self.add_lab("niches/code/software/backend/devroadmaps/rest-api", "external-a", "backend-rest-api")
-        self.assertEqual(lab_init._collection_slugs("code", "software", "backend", "devroadmaps"), ["rest-api"])
-        self.assertEqual(lab_init._source_item_ids("external-a"), ["backend-rest-api"])
+    def test_source_creation_collision_and_interactive_clear(self) -> None:
+        result = self.command("scripts", "source_meta.py", "create", "organization", "--type", "organization", "--name", "Again", "--reuse-policy", "review", "--yes")
+        self.assertNotEqual(result.returncode, 0)
+        result = self.command("scripts", "source_meta.py", "create", "test-org", "--type", "organization", "--name", "Test org", "--reuse-policy", "review", "--notes", "Old note", "--yes")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        answers = ["", "", "", "", "", "", "", "-", "", "", "y"]
+        result = self.command("scripts", "source_meta.py", "update", "test-org", "--interactive", stdin="\n".join(answers) + "\n")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        record = json.loads((self.root / ".meta/catalog/sources.json").read_text())["test-org"]
+        self.assertNotIn("notes", record["reuse"])
+        self.assertNotIn("verified", record["reuse"])
+        self.assertNotIn("url", record)
 
-    def test_sync_updates_date_without_changing_status_and_check_never_writes(self) -> None:
-        lab = self.add_lab("niches/code/software/backend/devroadmaps/rest-api", "external-a", "api", order_status="in-progress")
-        path = lab / "lab.json"
-        metadata = json.loads(path.read_text())
-        metadata["dates"]["started"] = "2026-01-02"
-        metadata["tracking"]["content_sha256"] = lab_sync.fingerprint_lab(lab)
-        path.write_text(json.dumps(metadata, indent=2) + "\n")
-        (lab / "README.md").write_text("# A meaningful content change\n")
-        before = path.read_bytes()
-        with self.assertRaisesRegex(catalog.CatalogError, "tracking is stale"):
-            lab_sync.sync_all(check=True)
-        self.assertEqual(path.read_bytes(), before)
+    def test_staged_fingerprint_and_read_only_checks(self) -> None:
+        lab = self.init("code", "devops", "tasks", "Tracked")
+        self.git("add", ".")
+        self.assertEqual(self.command("scripts", "lab_sync.py", "--check").returncode, 0)
+        original = self.metadata(lab)["tracking"]["content_sha256"]
+        (lab / "README.md").write_text((lab / "README.md").read_text() + "\nA new definition.\n")
+        unstaged = self.command("scripts", "lab_sync.py", "--check")
+        self.assertIn("Stage intended content", unstaged.stderr)
+        self.git("add", str(lab / "README.md"))
+        self.assertIn("Stale fingerprints", self.command("scripts", "lab_sync.py", "--check").stderr)
+        self.assertEqual(self.command("scripts", "lab_sync.py", "--yes").returncode, 0)
+        revised = self.metadata(lab)["tracking"]["content_sha256"]
+        self.assertNotEqual(original, revised)
+        self.git("add", str(lab / "lab.json"))
+        self.assertEqual(self.command("scripts", "lab_sync.py", "--check").returncode, 0)
+        nested = lab / "solution/fixture/lab.json"
+        nested.parent.mkdir(parents=True)
+        nested.write_text("nested metadata is content\n")
+        self.git("add", str(nested))
+        self.command("scripts", "lab_sync.py", "--yes")
+        with_nested = self.metadata(lab)["tracking"]["content_sha256"]
+        self.assertNotEqual(revised, with_nested)
+        self.git("rm", "-fq", str(nested))
+        self.command("scripts", "lab_sync.py", "--yes")
+        self.assertEqual(self.metadata(lab)["tracking"]["content_sha256"], revised)
+        self.git("add", str(lab / "lab.json"))
+        self.assertEqual(self.command("scripts", "lab_sync.py", "--check").returncode, 0)
+        os.chmod(lab / "README.md", 0o755)
+        self.git("add", str(lab / "README.md"))
+        self.command("scripts", "lab_sync.py", "--yes")
+        self.assertNotEqual(self.metadata(lab)["tracking"]["content_sha256"], revised)
+        external = self.root / "outside.txt"
+        external.write_text("first")
+        link = lab / "solution/link"
+        link.parent.mkdir(parents=True, exist_ok=True)
+        link.symlink_to(external)
+        self.git("add", str(link))
+        self.command("scripts", "lab_sync.py", "--yes")
+        link_hash = self.metadata(lab)["tracking"]["content_sha256"]
+        external.write_text("second")
+        self.assertEqual(self.command("scripts", "lab_sync.py", "--check").returncode, 0)
+        self.assertEqual(self.metadata(lab)["tracking"]["content_sha256"], link_hash)
+        self.assertEqual(self.command("scripts", "catalog.py", "--check").returncode, 0)
+        (self.root / "CATALOG.md").write_text("stale")
+        self.assertNotEqual(self.command("scripts", "catalog.py", "--check").returncode, 0)
+        self.assertEqual((self.root / "CATALOG.md").read_text(), "stale")
 
-        lab_sync.sync_all()
-        updated = json.loads(path.read_text())
-        self.assertEqual(updated["dates"]["updated"], date.today().isoformat())
-        self.assertEqual(updated["status"], "in-progress")
-        self.assertEqual(updated["dates"]["started"], "2026-01-02")
-        catalog.update_catalog(check=True)
+    def test_missing_fingerprint_establishes_baseline_without_new_date(self) -> None:
+        lab = self.init("study", "systems", "notes", "Review")
+        metadata = self.metadata(lab)
+        metadata["tracking"]["dates"]["created"] = "2020-01-01"
+        metadata["tracking"]["dates"]["updated"] = "2020-01-01"
+        metadata["tracking"].pop("content_sha256")
+        (lab / "lab.json").write_text(json.dumps(metadata) + "\n")
+        self.git("add", ".")
+        result = self.command("scripts", "lab_sync.py", "--yes")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(self.metadata(lab)["tracking"]["dates"]["updated"], "2020-01-01")
+        self.assertEqual(self.metadata(lab)["tracking"]["status"], "not-started")
 
-    def test_first_sync_initializes_tracking_without_moving_updated_date(self) -> None:
-        lab = self.add_lab("niches/code/software/backend/devroadmaps/rest-api", "external-a", "api", order_status="paused")
-        path = lab / "lab.json"
-        metadata = json.loads(path.read_text())
-        metadata.pop("tracking")
-        path.write_text(json.dumps(metadata, indent=2) + "\n")
-        lab_sync.sync_all()
-        updated = json.loads(path.read_text())
-        self.assertEqual(updated["dates"]["updated"], "2026-01-01")
-        self.assertEqual(updated["status"], "paused")
-        self.assertEqual(updated["tracking"]["content_sha256"], lab_sync.fingerprint_lab(lab))
 
-    def test_interactive_enum_lists_names_and_closed_choices(self) -> None:
-        prompts: list[str] = []
-        answers = iter(["new-value", "challenge"])
-        def answer(prompt: str) -> str:
-            prompts.append(prompt)
-            return next(answers)
-        with patch("builtins.input", side_effect=answer):
-            value = lab_init._prompt_value("Kind", "project", existing=["exercise", "project"], choices=["project", "challenge"], free=False)
-        self.assertEqual(value, "challenge")
-        self.assertIn("existing values: exercise, project", prompts[0])
-        self.assertIn("choose one: project, challenge", prompts[0])
+class ImporterTests(RepositoryCase):
+    MIT = "MIT License\n\nCopyright (c) Test\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\n"
 
-    def test_interactive_lab_update_blank_inputs_preserve_everything(self) -> None:
-        lab = self.add_lab("niches/code/software/backend/devroadmaps/rest-api", "external-a", "api")
-        path = lab / "lab.json"
-        current = json.loads(path.read_text())
-        schema = catalog.load_schema(catalog.LAB_SCHEMA_PATH)
-        answers = ["", "", "", "", "", "", "", ""]
-        with patch("builtins.input", side_effect=answers), contextlib.redirect_stdout(io.StringIO()):
-            updated = lab_meta._interactive_update(current, schema, self.sources)
-        self.assertEqual(updated, current)
+    def test_devroadmaps_static_parser_import_and_refresh_guard(self) -> None:
+        js = "// static data\nconst PROJECT_IDEAS = { devops: [{ title: \"One\", difficulty: 'Beginner', desc: 'Build one.', tech: ['Git'], },], };\n"
+        upstream = self.upstream("devroadmaps", {"LICENSE": self.MIT, "js/project-ideas.js": js}, "https://github.com/rudra496/devroadmaps.git")
+        args = ["--checkout", str(upstream), "--track", "devops", "--all-track", "--destination", "niches/code/devops/devroadmaps"]
+        preview = self.command("importers", "devroadmaps.py", *args, "--dry-run")
+        self.assertEqual(preview.returncode, 0, preview.stderr)
+        self.assertFalse((self.root / "niches/code/devops/devroadmaps/one").exists())
+        imported = self.command("importers", "devroadmaps.py", *args, "--yes")
+        self.assertEqual(imported.returncode, 0, imported.stderr)
+        lab = self.root / "niches/code/devops/devroadmaps/one"
+        self.assertEqual(self.metadata(lab)["type"], "project")
+        self.assertIn("No change", self.command("importers", "devroadmaps.py", *args, "--yes").stdout)
+        (lab / "README.md").write_text((lab / "README.md").read_text() + "My Solution notes stay here.\n")
+        (upstream / "js/project-ideas.js").write_text(js.replace("Build one.", "Build two."))
+        self.git("add", ".", cwd=upstream)
+        self.git("commit", "-qm", "change definition", cwd=upstream)
+        conflict = self.command("importers", "devroadmaps.py", *args, "--yes")
+        self.assertIn("--refresh", conflict.stderr)
+        refreshed = self.command("importers", "devroadmaps.py", *args, "--refresh", "--yes")
+        self.assertEqual(refreshed.returncode, 0, refreshed.stderr)
+        self.assertIn("My Solution notes stay here.", (lab / "README.md").read_text())
+        self.assertIn("Build one.", (lab / "README.md").read_text())
+        (lab / "source/project.json").write_text("manual change")
+        changed_owned = self.command("importers", "devroadmaps.py", *args, "--refresh", "--yes")
+        self.assertIn("Importer-owned", changed_owned.stderr)
+        (upstream / "js/project-ideas.js").write_text(js.replace("'Build one.'", "makeProject()"))
+        self.git("add", ".", cwd=upstream)
+        self.git("commit", "-qm", "unsafe expression", cwd=upstream)
+        unsafe = self.command("importers", "devroadmaps.py", *args, "--yes", "--refresh")
+        self.assertIn("Executable JavaScript", unsafe.stderr)
+        self.assertIn("Build one.", (lab / "README.md").read_text())
+        (upstream / "js/project-ideas.js").write_text(js.replace("desc: 'Build one.'", "desc: 'Build one.', desc: 'Again.'"))
+        self.git("add", ".", cwd=upstream)
+        self.git("commit", "-qm", "duplicate key", cwd=upstream)
+        duplicate = self.command("importers", "devroadmaps.py", *args, "--yes", "--refresh")
+        self.assertIn("Duplicate project key", duplicate.stderr)
 
-    def test_source_enum_prompt_shows_existing_values_and_group(self) -> None:
-        prompts: list[str] = []
-        def answer(prompt: str) -> str:
-            prompts.append(prompt)
-            return "copy"
-        with patch("builtins.input", side_effect=answer):
-            value = source_meta._prompt("Reuse policy", "review", choices=["copy", "link-only", "review"], existing=["copy", "review"])
-        self.assertEqual(value, "copy")
-        self.assertIn("currently used: copy, review", prompts[0])
-        self.assertIn("choose one: copy, link-only, review", prompts[0])
+    def test_cloudcertprep_one_bank_and_multi_answer(self) -> None:
+        questions = [{"id": "q001", "question": "Choose two", "options": {"A": "first", "B": "second"}, "answer": ["A", "B"], "isMultiAnswer": True, "explanation": "Both."}]
+        upstream = self.upstream("cloudcertprep", {"LICENSE": self.MIT, "src/data/clf-c02/domain1.json": json.dumps(questions)}, "https://github.com/nastaso/cloudcertprep.git")
+        args = ["--checkout", str(upstream), "--all-domains", "--destination", "niches/study/cloud/aws/clf-c02"]
+        preview = self.command("importers", "cloudcertprep.py", *args, "--dry-run")
+        self.assertEqual(preview.returncode, 0, preview.stderr)
+        imported = self.command("importers", "cloudcertprep.py", *args, "--yes")
+        self.assertEqual(imported.returncode, 0, imported.stderr)
+        lab = self.root / "niches/study/cloud/aws/clf-c02/cloudcertprep"
+        data = json.loads((lab / "questions.json").read_text())
+        self.assertEqual(len(data["questions"]), 1)
+        self.assertEqual(data["questions"][0]["original"]["answer"], ["A", "B"])
+        self.assertEqual(self.metadata(lab)["tracking"]["status"], "not-started")
+        self.assertNotIn("Answer: ", (lab / "README.md").read_text())
+        self.assertIn("No change", self.command("importers", "cloudcertprep.py", *args, "--yes").stdout)
+        records = json.loads((self.root / ".meta/catalog/labs.json").read_text())
+        self.assertEqual(records[0]["question_count"], 1)
 
-    def test_interactive_source_cancel_leaves_registry_unwritten(self) -> None:
-        original = catalog.SOURCES_PATH.read_bytes()
-        answers = ["sample-source", "", "Sample source", "https://example.com", "", "", "", "", "", "", "n"]
-        with patch("sys.argv", ["source_meta.py", "create", "--interactive"]), patch("builtins.input", side_effect=answers), contextlib.redirect_stdout(io.StringIO()):
-            self.assertEqual(source_meta.main(), 0)
-        self.assertEqual(catalog.SOURCES_PATH.read_bytes(), original)
-        self.assertNotIn("sample-source", catalog.load_sources())
-
-    def test_source_meta_flag_crud_keeps_schema_and_refreshes_catalog(self) -> None:
-        with patch("sys.argv", [
-            "source_meta.py", "create", "demo-source", "--name", "Demo Source", "--type", "external",
-            "--url", "https://example.com/demo", "--reuse-policy", "copy", "--policy-url", "https://example.com/license",
-        ]), contextlib.redirect_stdout(io.StringIO()):
-            self.assertEqual(source_meta.main(), 0)
-        self.assertEqual(catalog.load_sources()["demo-source"]["reuse"]["policy_url"], "https://example.com/license")
-        with patch("sys.argv", ["source_meta.py", "update", "demo-source", "--reuse-policy", "link-only"]), contextlib.redirect_stdout(io.StringIO()):
-            self.assertEqual(source_meta.main(), 0)
-        output = io.StringIO()
-        with patch("sys.argv", ["source_meta.py", "view", "demo-source"]), contextlib.redirect_stdout(output):
-            self.assertEqual(source_meta.main(), 0)
-        self.assertIn('"policy": "link-only"', output.getvalue())
-        catalog.update_catalog(check=True)
 
 if __name__ == "__main__":
     unittest.main()

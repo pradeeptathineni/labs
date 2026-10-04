@@ -1,7 +1,8 @@
 {
   "title": "Node.js Service Deployment",
-  "kind": "project",
-  "status": "not-started",
+  "summary": "Deploy a Node.js service to a remote server with GitHub Actions.",
+  "type": "project",
+  "difficulty": "intermediate",
   "skills": [
     "ci-cd",
     "deployment",
@@ -9,19 +10,19 @@
     "nodejs",
     "ssh"
   ],
-  "dates": {
-    "created": "2026-10-03",
-    "started": null,
-    "completed": null,
-    "updated": "2026-10-03"
-  },
-  "difficulty": "intermediate",
   "source": {
     "provider": "roadmap-sh",
     "item_id": "nodejs-service-deployment",
     "url": "https://roadmap.sh/projects/nodejs-service-deployment"
   },
   "tracking": {
-    "content_sha256": "bb8ca6abf28844396c8724ee3ff6c933be39a9b8a6959e66d6fc144ef96a8f3b"
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-03",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "content_sha256": "d7c37a86c8e878c70727b4d97641bc83d55a9572d24924323e86a0e5d0d1f24e"
   }
 }

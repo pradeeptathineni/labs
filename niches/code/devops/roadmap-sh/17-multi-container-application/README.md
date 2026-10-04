@@ -2,4 +2,8 @@
 
 Source: [roadmap.sh](https://roadmap.sh/projects/multi-container-service)
 
-## Problem
+## Exercise Definition
+
+Read the [original exercise definition](https://roadmap.sh/projects/multi-container-service).
+
+## Solution

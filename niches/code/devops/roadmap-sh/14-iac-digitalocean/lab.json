@@ -1,26 +1,27 @@
 {
   "title": "IaC on DigitalOcean",
-  "kind": "project",
-  "status": "not-started",
+  "summary": "Provision a DigitalOcean Droplet with Terraform.",
+  "type": "project",
+  "difficulty": "intermediate",
   "skills": [
     "cloud-computing",
     "digitalocean",
     "infrastructure-as-code",
     "terraform"
   ],
-  "dates": {
-    "created": "2026-10-03",
-    "started": null,
-    "completed": null,
-    "updated": "2026-10-03"
-  },
-  "difficulty": "intermediate",
   "source": {
     "provider": "roadmap-sh",
     "item_id": "iac-digitalocean",
     "url": "https://roadmap.sh/projects/iac-digitalocean"
   },
   "tracking": {
-    "content_sha256": "09bbecb97509adfc44cb50f54589596bc762fd38b30fd6d9fc182d347c31974a"
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-03",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "content_sha256": "ad0ef1af75f87ad59ef6ae64a88e26eab8f9d80481136499aec54f706c37578e"
   }
 }

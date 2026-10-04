@@ -1,26 +1,27 @@
 {
   "title": "Service Discovery",
-  "kind": "project",
-  "status": "not-started",
+  "summary": "Set up service discovery for dummy services with Consul.",
+  "type": "project",
+  "difficulty": "advanced",
   "skills": [
     "consul",
     "dns",
     "networking",
     "service-discovery"
   ],
-  "dates": {
-    "created": "2026-10-03",
-    "started": null,
-    "completed": null,
-    "updated": "2026-10-03"
-  },
-  "difficulty": "advanced",
   "source": {
     "provider": "roadmap-sh",
     "item_id": "service-discovery",
     "url": "https://roadmap.sh/projects/service-discovery"
   },
   "tracking": {
-    "content_sha256": "23c49799f59ac3377970c264ce0a02a0589175a53d10a0b5453d94f7ea2a3ef7"
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-03",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "content_sha256": "3d727dba066577dc4a4e194aba0098ebbecffc3a8f08469a0dbb8a83998f986d"
   }
 }

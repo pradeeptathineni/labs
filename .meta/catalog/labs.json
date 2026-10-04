@@ -1,273 +1,9 @@
 [
   {
-    "title": "ESD.34 System Architecture: Opportunity Set 1",
-    "kind": "problem",
-    "status": "not-started",
-    "skills": [
-      "systems-architecture"
-    ],
-    "source": {
-      "provider": "mit-ocw",
-      "item_id": "esd34-opportunity-set-1",
-      "url": "https://ocw.mit.edu/courses/esd-34-system-architecture-january-iap-2007/pages/assignments/"
-    },
-    "dates": {
-      "created": "2026-10-04",
-      "started": null,
-      "updated": "2026-10-04",
-      "completed": null
-    },
-    "tracking": {
-      "content_sha256": "627242ed50d1fa4c4626f41f3cf184285a598efaa9d5d5f7e6e689d5c6645c1f"
-    },
-    "niche": "architecture",
-    "domain": "systems",
-    "subdomain": null,
-    "collection": "mit-ocw-system-architecture",
-    "slug": "esd-34-system-architecture-opportunity-set-1",
-    "order": null,
-    "path": "niches/architecture/systems/mit-ocw-system-architecture/esd-34-system-architecture-opportunity-set-1"
-  },
-  {
-    "title": "AWS CLF-C02 Question q003: EC2 Termination Actor",
-    "kind": "question",
-    "status": "not-started",
-    "skills": [
-      "aws-cloudtrail",
-      "aws-ec2"
-    ],
-    "source": {
-      "provider": "cloudcertprep",
-      "item_id": "clf-c02-domain2-q003",
-      "url": "https://github.com/nastaso/cloudcertprep/blob/main/src/data/clf-c02/domain2.json"
-    },
-    "dates": {
-      "created": "2026-10-04",
-      "started": null,
-      "updated": "2026-10-04",
-      "completed": null
-    },
-    "tracking": {
-      "content_sha256": "8832205792edf52229753e3587fa3a9a44b2fe62ed4292bc5be6b1d8f91be221"
-    },
-    "niche": "certification",
-    "domain": "cloud",
-    "subdomain": "aws",
-    "collection": "aws-clf-c02",
-    "slug": "aws-clf-c02-question-q003-ec2-termination-actor",
-    "order": null,
-    "path": "niches/certification/cloud/aws/aws-clf-c02/aws-clf-c02-question-q003-ec2-termination-actor",
-    "difficulty": "beginner"
-  },
-  {
-    "title": "DVA-C02: Development with AWS Services",
-    "kind": "exercise",
-    "status": "not-started",
-    "skills": [
-      "aws-development"
-    ],
-    "source": {
-      "provider": "ihatesea69-dva-study-plan",
-      "item_id": "domain-1-development-with-aws-services",
-      "url": "https://github.com/ihatesea69/aws-dva-c02-study-plan"
-    },
-    "dates": {
-      "created": "2026-10-04",
-      "started": null,
-      "updated": "2026-10-04",
-      "completed": null
-    },
-    "tracking": {
-      "content_sha256": "6a9042d44b06f9debeb4e9afd7ee1afcbdb17f1779aae06a81d118da28987153"
-    },
-    "niche": "certification",
-    "domain": "cloud",
-    "subdomain": "aws",
-    "collection": "aws-dva-c02",
-    "slug": "dva-c02-development-with-aws-services",
-    "order": null,
-    "path": "niches/certification/cloud/aws/aws-dva-c02/dva-c02-development-with-aws-services"
-  },
-  {
-    "title": "SAA-C03 Architecture Trade-off Notes",
-    "kind": "prompt",
-    "status": "not-started",
-    "skills": [
-      "aws-architecture"
-    ],
-    "source": {
-      "provider": "created"
-    },
-    "dates": {
-      "created": "2026-10-04",
-      "started": null,
-      "updated": "2026-10-04",
-      "completed": null
-    },
-    "tracking": {
-      "content_sha256": "58d4438bc611f4ddf569f7a0fdbc257bfa8b1f3f78da78c2a9fdeb34f2aa1890"
-    },
-    "niche": "certification",
-    "domain": "cloud",
-    "subdomain": "aws",
-    "collection": "aws-saa-c03",
-    "slug": "saa-c03-architecture-trade-off-notes",
-    "order": null,
-    "path": "niches/certification/cloud/aws/aws-saa-c03/saa-c03-architecture-trade-off-notes"
-  },
-  {
-    "title": "SAA-C03 Practice Question 1: Design Resilient Architectures",
-    "kind": "question",
-    "status": "not-started",
-    "skills": [
-      "aws-architecture",
-      "aws-availability"
-    ],
-    "source": {
-      "provider": "cloud-cert-practice-questions",
-      "item_id": "saa-c03-question-1",
-      "url": "https://github.com/fabricio852/cloud-certification-practice-questions/blob/main/aws/saa-c03/README.md"
-    },
-    "dates": {
-      "created": "2026-10-04",
-      "started": null,
-      "updated": "2026-10-04",
-      "completed": null
-    },
-    "tracking": {
-      "content_sha256": "04e805ce2a3ebd7ae9ab932e8a2e3c9387ee36e910612db7805c821bad10dd10"
-    },
-    "niche": "certification",
-    "domain": "cloud",
-    "subdomain": "aws",
-    "collection": "aws-saa-c03",
-    "slug": "saa-c03-practice-question-1-design-resilient-architectures",
-    "order": null,
-    "path": "niches/certification/cloud/aws/aws-saa-c03/saa-c03-practice-question-1-design-resilient-architectures",
-    "difficulty": "intermediate"
-  },
-  {
-    "title": "Exercise 01: Pod Basics",
-    "kind": "exercise",
-    "status": "not-started",
-    "skills": [
-      "kubernetes-pods"
-    ],
-    "source": {
-      "provider": "platformlab-cka",
-      "item_id": "exercise-01-pod-basics",
-      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/main/exercises/01-pod-basics/README.md"
-    },
-    "dates": {
-      "created": "2026-10-04",
-      "started": null,
-      "updated": "2026-10-04",
-      "completed": null
-    },
-    "tracking": {
-      "content_sha256": "3146b5ef4ad6470c7f1c65f2f63199a10e08a81e84bd387ff6b2ee577ca009d1"
-    },
-    "niche": "certification",
-    "domain": "devops",
-    "subdomain": "kubernetes",
-    "collection": "cka",
-    "slug": "exercise-01-pod-basics",
-    "order": null,
-    "path": "niches/certification/devops/kubernetes/cka/exercise-01-pod-basics"
-  },
-  {
-    "title": "CKAD: Deploy Three Nginx Replicas",
-    "kind": "challenge",
-    "status": "not-started",
-    "skills": [
-      "kubernetes-deployments"
-    ],
-    "source": {
-      "provider": "ck-x",
-      "item_id": "ckad-exam001-question1",
-      "url": "https://github.com/sailor-sh/CK-X/blob/master/facilitator/assets/exams/ckad/001/assessment.json"
-    },
-    "dates": {
-      "created": "2026-10-04",
-      "started": null,
-      "updated": "2026-10-04",
-      "completed": null
-    },
-    "tracking": {
-      "content_sha256": "4c5ee499ff77c014687d711713d9f29db18512b26c9baabd8bd1fca1258d1335"
-    },
-    "niche": "certification",
-    "domain": "devops",
-    "subdomain": "kubernetes",
-    "collection": "ckad",
-    "slug": "ckad-deploy-three-nginx-replicas",
-    "order": null,
-    "path": "niches/certification/devops/kubernetes/ckad/ckad-deploy-three-nginx-replicas"
-  },
-  {
-    "title": "CKS: Restrict Backend Traffic with a NetworkPolicy",
-    "kind": "challenge",
-    "status": "not-started",
-    "skills": [
-      "kubernetes-network-policy"
-    ],
-    "source": {
-      "provider": "ck-x",
-      "item_id": "cks-exam001-question1",
-      "url": "https://github.com/sailor-sh/CK-X/blob/master/facilitator/assets/exams/cks/001/assessment.json"
-    },
-    "dates": {
-      "created": "2026-10-04",
-      "started": null,
-      "updated": "2026-10-04",
-      "completed": null
-    },
-    "tracking": {
-      "content_sha256": "1cc06a53f865821d1d7a7e4eb8ac22461791845001a6f613160c2690cf101087"
-    },
-    "niche": "certification",
-    "domain": "devops",
-    "subdomain": "kubernetes",
-    "collection": "cks",
-    "slug": "cks-restrict-backend-traffic-with-a-networkpolicy",
-    "order": null,
-    "path": "niches/certification/devops/kubernetes/cks/cks-restrict-backend-traffic-with-a-networkpolicy"
-  },
-  {
-    "title": "Project Gutenberg (TidyTuesday 2025-06-03)",
-    "kind": "challenge",
-    "status": "not-started",
-    "skills": [
-      "data-exploration",
-      "data-visualization",
-      "r"
-    ],
-    "source": {
-      "provider": "tidytuesday",
-      "item_id": "2025-06-03",
-      "url": "https://github.com/rfordatascience/tidytuesday/tree/main/data/2025/2025-06-03"
-    },
-    "dates": {
-      "created": "2026-10-04",
-      "started": null,
-      "updated": "2026-10-04",
-      "completed": null
-    },
-    "tracking": {
-      "content_sha256": "e5b4ff42791a65a81f6136408f1ba36b440d010ad3140ff18ca565bac4cf1055"
-    },
-    "niche": "code",
-    "domain": "data",
-    "subdomain": null,
-    "collection": "tidytuesday",
-    "slug": "project-gutenberg-tidytuesday-2025-06-03",
-    "order": null,
-    "path": "niches/code/data/tidytuesday/project-gutenberg-tidytuesday-2025-06-03"
-  },
-  {
     "title": "Server Performance Stats",
-    "kind": "project",
-    "status": "not-started",
+    "summary": "Write a script that reports basic Linux server performance statistics.",
+    "type": "project",
+    "difficulty": "beginner",
     "skills": [
       "bash",
       "filesystems",
@@ -281,28 +17,36 @@
       "item_id": "server-stats",
       "url": "https://roadmap.sh/projects/server-stats"
     },
-    "dates": {
-      "created": "2026-10-03",
-      "started": null,
-      "updated": "2026-10-03",
-      "completed": null
-    },
     "tracking": {
-      "content_sha256": "55f3eefca11ac5e28338453e085afda897cc1410bd4298fb8c0d5b6a2cf4e1d2"
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-03",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "62bee43b0bfe07c69ddb601925ba99e028b10afa0bfaa071b3094b8529935bf7"
     },
     "niche": "code",
     "domain": "devops",
-    "subdomain": null,
+    "group": null,
     "collection": "roadmap-sh",
+    "path": "niches/code/devops/roadmap-sh/01-server-performance-stats",
     "slug": "server-performance-stats",
     "order": 1,
-    "path": "niches/code/devops/roadmap-sh/01-server-performance-stats",
-    "difficulty": "beginner"
+    "source_display": {
+      "name": "roadmap.sh",
+      "type": "external",
+      "url": "https://roadmap.sh/"
+    },
+    "collection_title": "roadmap.sh — DevOps Projects",
+    "goals_effective": []
   },
   {
     "title": "Log Archive Tool",
-    "kind": "project",
-    "status": "not-started",
+    "summary": "Build a command-line tool that archives logs with a dated filename.",
+    "type": "project",
+    "difficulty": "beginner",
     "skills": [
       "archiving",
       "command-line",
@@ -315,28 +59,36 @@
       "item_id": "log-archive-tool",
       "url": "https://roadmap.sh/projects/log-archive-tool"
     },
-    "dates": {
-      "created": "2026-10-03",
-      "started": null,
-      "updated": "2026-10-03",
-      "completed": null
-    },
     "tracking": {
-      "content_sha256": "215c69b18877ba600429f6d9aa692a40ac1241ab21ceb7e9dcdb0970c9ff119e"
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-03",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "a5439343a6fbbcbb0ea9c86987f44b495038433d7b072fab2886b51b504e5950"
     },
     "niche": "code",
     "domain": "devops",
-    "subdomain": null,
+    "group": null,
     "collection": "roadmap-sh",
+    "path": "niches/code/devops/roadmap-sh/02-log-archive-tool",
     "slug": "log-archive-tool",
     "order": 2,
-    "path": "niches/code/devops/roadmap-sh/02-log-archive-tool",
-    "difficulty": "beginner"
+    "source_display": {
+      "name": "roadmap.sh",
+      "type": "external",
+      "url": "https://roadmap.sh/"
+    },
+    "collection_title": "roadmap.sh — DevOps Projects",
+    "goals_effective": []
   },
   {
     "title": "Nginx Log Analyser",
-    "kind": "project",
-    "status": "not-started",
+    "summary": "Analyze Nginx logs from the command line.",
+    "type": "project",
+    "difficulty": "beginner",
     "skills": [
       "awk",
       "bash",
@@ -350,28 +102,36 @@
       "item_id": "nginx-log-analyser",
       "url": "https://roadmap.sh/projects/nginx-log-analyser"
     },
-    "dates": {
-      "created": "2026-10-03",
-      "started": null,
-      "updated": "2026-10-03",
-      "completed": null
-    },
     "tracking": {
-      "content_sha256": "c9f94754d74103bef0ebeeb8d8e78c206641da5e4e18befccbd40395c045a862"
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-03",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "ef68d309dbad9ce5b178b2bc5c0685c7f53578f92f7f5e1a3d37acfc47988eeb"
     },
     "niche": "code",
     "domain": "devops",
-    "subdomain": null,
+    "group": null,
     "collection": "roadmap-sh",
+    "path": "niches/code/devops/roadmap-sh/03-nginx-log-analyser",
     "slug": "nginx-log-analyser",
     "order": 3,
-    "path": "niches/code/devops/roadmap-sh/03-nginx-log-analyser",
-    "difficulty": "beginner"
+    "source_display": {
+      "name": "roadmap.sh",
+      "type": "external",
+      "url": "https://roadmap.sh/"
+    },
+    "collection_title": "roadmap.sh — DevOps Projects",
+    "goals_effective": []
   },
   {
     "title": "GitHub Pages Deployment",
-    "kind": "project",
-    "status": "not-started",
+    "summary": "Create a GitHub Actions workflow that deploys a static site to GitHub Pages.",
+    "type": "project",
+    "difficulty": "beginner",
     "skills": [
       "ci-cd",
       "deployment",
@@ -384,28 +144,36 @@
       "item_id": "github-actions-deployment-workflow",
       "url": "https://roadmap.sh/projects/github-actions-deployment-workflow"
     },
-    "dates": {
-      "created": "2026-10-03",
-      "started": null,
-      "updated": "2026-10-03",
-      "completed": null
-    },
     "tracking": {
-      "content_sha256": "43fe69ff37c7b11b1fbd30685f0608f80c1ebe3fdccf157216fdb277257fc315"
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-03",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "cfb3c4d78f82b3e21dc4fcfcc6997e512b5ee339f824ee4915b1f7a004978c80"
     },
     "niche": "code",
     "domain": "devops",
-    "subdomain": null,
+    "group": null,
     "collection": "roadmap-sh",
+    "path": "niches/code/devops/roadmap-sh/04-github-pages-deployment",
     "slug": "github-pages-deployment",
     "order": 4,
-    "path": "niches/code/devops/roadmap-sh/04-github-pages-deployment",
-    "difficulty": "beginner"
+    "source_display": {
+      "name": "roadmap.sh",
+      "type": "external",
+      "url": "https://roadmap.sh/"
+    },
+    "collection_title": "roadmap.sh — DevOps Projects",
+    "goals_effective": []
   },
   {
     "title": "SSH Remote Server Setup",
-    "kind": "project",
-    "status": "not-started",
+    "summary": "Configure a Linux server for remote SSH access.",
+    "type": "project",
+    "difficulty": "beginner",
     "skills": [
       "linux",
       "remote-access",
@@ -417,28 +185,36 @@
       "item_id": "ssh-remote-server-setup",
       "url": "https://roadmap.sh/projects/ssh-remote-server-setup"
     },
-    "dates": {
-      "created": "2026-10-03",
-      "started": null,
-      "updated": "2026-10-03",
-      "completed": null
-    },
     "tracking": {
-      "content_sha256": "5c0e697be0417645c0256c1845a662a58b9ecbf8f8450a350b974cdd3865c804"
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-03",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "a7242855b47c803fd92f444c89bd44c5eeefeed5a6174d913bfbd18002940847"
     },
     "niche": "code",
     "domain": "devops",
-    "subdomain": null,
+    "group": null,
     "collection": "roadmap-sh",
+    "path": "niches/code/devops/roadmap-sh/05-ssh-remote-server-setup",
     "slug": "ssh-remote-server-setup",
     "order": 5,
-    "path": "niches/code/devops/roadmap-sh/05-ssh-remote-server-setup",
-    "difficulty": "beginner"
+    "source_display": {
+      "name": "roadmap.sh",
+      "type": "external",
+      "url": "https://roadmap.sh/"
+    },
+    "collection_title": "roadmap.sh — DevOps Projects",
+    "goals_effective": []
   },
   {
     "title": "Static Site Server",
-    "kind": "project",
-    "status": "not-started",
+    "summary": "Configure a Linux server to serve a static website.",
+    "type": "project",
+    "difficulty": "beginner",
     "skills": [
       "deployment",
       "linux",
@@ -452,28 +228,36 @@
       "item_id": "static-site-server",
       "url": "https://roadmap.sh/projects/static-site-server"
     },
-    "dates": {
-      "created": "2026-10-03",
-      "started": null,
-      "updated": "2026-10-03",
-      "completed": null
-    },
     "tracking": {
-      "content_sha256": "108af3cddf0693c366f61cec11fb6d32bbda4f73809de7f67f990d0a1866ab31"
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-03",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "7c07711754a16e6b545ce822b01f6f9fc046ddbfc0d326ee4d45e67df14c98f7"
     },
     "niche": "code",
     "domain": "devops",
-    "subdomain": null,
+    "group": null,
     "collection": "roadmap-sh",
+    "path": "niches/code/devops/roadmap-sh/06-static-site-server",
     "slug": "static-site-server",
     "order": 6,
-    "path": "niches/code/devops/roadmap-sh/06-static-site-server",
-    "difficulty": "beginner"
+    "source_display": {
+      "name": "roadmap.sh",
+      "type": "external",
+      "url": "https://roadmap.sh/"
+    },
+    "collection_title": "roadmap.sh — DevOps Projects",
+    "goals_effective": []
   },
   {
     "title": "Basic DNS Setup",
-    "kind": "project",
-    "status": "not-started",
+    "summary": "Set up a custom domain and its basic DNS records.",
+    "type": "project",
+    "difficulty": "beginner",
     "skills": [
       "cloud-hosting",
       "dns",
@@ -485,28 +269,36 @@
       "item_id": "basic-dns",
       "url": "https://roadmap.sh/projects/basic-dns"
     },
-    "dates": {
-      "created": "2026-10-03",
-      "started": null,
-      "updated": "2026-10-03",
-      "completed": null
-    },
     "tracking": {
-      "content_sha256": "4c14fee1be1c84ef189ac6283de96fc209d850676935b8eb6e32a0a209d76cdb"
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-03",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "41112f29c4c542499dbfbddc945ec5a588ee003f5ee26d905d1963bdc34df28d"
     },
     "niche": "code",
     "domain": "devops",
-    "subdomain": null,
+    "group": null,
     "collection": "roadmap-sh",
+    "path": "niches/code/devops/roadmap-sh/07-basic-dns-setup",
     "slug": "basic-dns-setup",
     "order": 7,
-    "path": "niches/code/devops/roadmap-sh/07-basic-dns-setup",
-    "difficulty": "beginner"
+    "source_display": {
+      "name": "roadmap.sh",
+      "type": "external",
+      "url": "https://roadmap.sh/"
+    },
+    "collection_title": "roadmap.sh — DevOps Projects",
+    "goals_effective": []
   },
   {
     "title": "Simple Monitoring",
-    "kind": "project",
-    "status": "not-started",
+    "summary": "Set up a basic Netdata monitoring dashboard.",
+    "type": "project",
+    "difficulty": "beginner",
     "skills": [
       "alerting",
       "dashboarding",
@@ -522,28 +314,36 @@
       "item_id": "simple-monitoring-dashboard",
       "url": "https://roadmap.sh/projects/simple-monitoring-dashboard"
     },
-    "dates": {
-      "created": "2026-10-03",
-      "started": null,
-      "updated": "2026-10-03",
-      "completed": null
-    },
     "tracking": {
-      "content_sha256": "229a98063870b18ef5baf46c2d57e2969443c3966114ed8ed57c5b2c968586f7"
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-03",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "ec42dbfd87ec685e2fa54f33d3c185ae877a3960717aedaf1245fe332df9cdb0"
     },
     "niche": "code",
     "domain": "devops",
-    "subdomain": null,
+    "group": null,
     "collection": "roadmap-sh",
+    "path": "niches/code/devops/roadmap-sh/08-simple-monitoring",
     "slug": "simple-monitoring",
     "order": 8,
-    "path": "niches/code/devops/roadmap-sh/08-simple-monitoring",
-    "difficulty": "beginner"
+    "source_display": {
+      "name": "roadmap.sh",
+      "type": "external",
+      "url": "https://roadmap.sh/"
+    },
+    "collection_title": "roadmap.sh — DevOps Projects",
+    "goals_effective": []
   },
   {
     "title": "Dummy Systemd Service",
-    "kind": "project",
-    "status": "not-started",
+    "summary": "Create a long-running systemd service that writes to a log file.",
+    "type": "project",
+    "difficulty": "beginner",
     "skills": [
       "journald",
       "linux",
@@ -556,28 +356,36 @@
       "item_id": "dummy-systemd-service",
       "url": "https://roadmap.sh/projects/dummy-systemd-service"
     },
-    "dates": {
-      "created": "2026-10-03",
-      "started": null,
-      "updated": "2026-10-03",
-      "completed": null
-    },
     "tracking": {
-      "content_sha256": "011106293bb1b081170f8753b1feec74b22264ef531ab3e4ef59cb9b96f6297d"
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-03",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "cfebe0b6ec00a139c3fcfa624e299d4428a5a51e429db58797d79d4f2630a360"
     },
     "niche": "code",
     "domain": "devops",
-    "subdomain": null,
+    "group": null,
     "collection": "roadmap-sh",
+    "path": "niches/code/devops/roadmap-sh/09-dummy-systemd-service",
     "slug": "dummy-systemd-service",
     "order": 9,
-    "path": "niches/code/devops/roadmap-sh/09-dummy-systemd-service",
-    "difficulty": "beginner"
+    "source_display": {
+      "name": "roadmap.sh",
+      "type": "external",
+      "url": "https://roadmap.sh/"
+    },
+    "collection_title": "roadmap.sh — DevOps Projects",
+    "goals_effective": []
   },
   {
     "title": "Basic Dockerfile",
-    "kind": "project",
-    "status": "not-started",
+    "summary": "Build a Dockerfile for a basic application image.",
+    "type": "project",
+    "difficulty": "beginner",
     "skills": [
       "containers",
       "docker",
@@ -589,28 +397,36 @@
       "item_id": "basic-dockerfile",
       "url": "https://roadmap.sh/projects/basic-dockerfile"
     },
-    "dates": {
-      "created": "2026-10-03",
-      "started": null,
-      "updated": "2026-10-03",
-      "completed": null
-    },
     "tracking": {
-      "content_sha256": "f3c652ff923d544e0dd81d52e6aa662ed04f52a8222694841534baec2f2897a7"
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-03",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "6d2de5f07b1feab2da350ac195f50b60a16a745414b1a37ee5358dc03c000fec"
     },
     "niche": "code",
     "domain": "devops",
-    "subdomain": null,
+    "group": null,
     "collection": "roadmap-sh",
+    "path": "niches/code/devops/roadmap-sh/10-basic-dockerfile",
     "slug": "basic-dockerfile",
     "order": 10,
-    "path": "niches/code/devops/roadmap-sh/10-basic-dockerfile",
-    "difficulty": "beginner"
+    "source_display": {
+      "name": "roadmap.sh",
+      "type": "external",
+      "url": "https://roadmap.sh/"
+    },
+    "collection_title": "roadmap.sh — DevOps Projects",
+    "goals_effective": []
   },
   {
     "title": "EC2 Instance",
-    "kind": "project",
-    "status": "not-started",
+    "summary": "Create an EC2 instance and connect to it over SSH.",
+    "type": "project",
+    "difficulty": "beginner",
     "skills": [
       "aws",
       "cloud-computing",
@@ -623,28 +439,36 @@
       "item_id": "ec2-instance",
       "url": "https://roadmap.sh/projects/ec2-instance"
     },
-    "dates": {
-      "created": "2026-10-03",
-      "started": null,
-      "updated": "2026-10-03",
-      "completed": null
-    },
     "tracking": {
-      "content_sha256": "5bc0cdaa3b49540f0f0cb4a9d472a0d217964a7621e6a80eb97ddce5caea2222"
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-03",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "ece6911e475efc412a0685b75fe7323d0024c0e47424681ae3d673c4fd8dd1b8"
     },
     "niche": "code",
     "domain": "devops",
-    "subdomain": null,
+    "group": null,
     "collection": "roadmap-sh",
+    "path": "niches/code/devops/roadmap-sh/11-ec2-instance",
     "slug": "ec2-instance",
     "order": 11,
-    "path": "niches/code/devops/roadmap-sh/11-ec2-instance",
-    "difficulty": "beginner"
+    "source_display": {
+      "name": "roadmap.sh",
+      "type": "external",
+      "url": "https://roadmap.sh/"
+    },
+    "collection_title": "roadmap.sh — DevOps Projects",
+    "goals_effective": []
   },
   {
     "title": "Pomodoro Timer",
-    "kind": "project",
-    "status": "not-started",
+    "summary": "Build a Pomodoro tracker application.",
+    "type": "project",
+    "difficulty": "intermediate",
     "skills": [
       "accessibility",
       "css",
@@ -659,28 +483,36 @@
       "item_id": "pomodoro-timer",
       "url": "https://roadmap.sh/projects/pomodoro-timer"
     },
-    "dates": {
-      "created": "2026-10-03",
-      "started": null,
-      "updated": "2026-10-03",
-      "completed": null
-    },
     "tracking": {
-      "content_sha256": "fe056a4bd2a2c41dd4bf239f179f088adb7cbac1c1a2381b3d88d42f08194e11"
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-03",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "04bcd0ea5c06b34487638122c1d0a61efa4b0c11c68d04434050f857a503f027"
     },
     "niche": "code",
     "domain": "devops",
-    "subdomain": null,
+    "group": null,
     "collection": "roadmap-sh",
+    "path": "niches/code/devops/roadmap-sh/12-pomodoro-timer",
     "slug": "pomodoro-timer",
     "order": 12,
-    "path": "niches/code/devops/roadmap-sh/12-pomodoro-timer",
-    "difficulty": "intermediate"
+    "source_display": {
+      "name": "roadmap.sh",
+      "type": "external",
+      "url": "https://roadmap.sh/"
+    },
+    "collection_title": "roadmap.sh — DevOps Projects",
+    "goals_effective": []
   },
   {
     "title": "Configuration Management",
-    "kind": "project",
-    "status": "not-started",
+    "summary": "Write an Ansible playbook that configures a Linux server.",
+    "type": "project",
+    "difficulty": "intermediate",
     "skills": [
       "ansible",
       "automation",
@@ -693,28 +525,36 @@
       "item_id": "configuration-management",
       "url": "https://roadmap.sh/projects/configuration-management"
     },
-    "dates": {
-      "created": "2026-10-03",
-      "started": null,
-      "updated": "2026-10-03",
-      "completed": null
-    },
     "tracking": {
-      "content_sha256": "d4abfa549741710f4d17db8439b86f100328e9b66ebbc527c44e5509108544c2"
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-03",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "48054ca169b01111de6812b8cb877fa1ed116c1e26ae1a3cf24107c1f5a59713"
     },
     "niche": "code",
     "domain": "devops",
-    "subdomain": null,
+    "group": null,
     "collection": "roadmap-sh",
+    "path": "niches/code/devops/roadmap-sh/13-configuration-management",
     "slug": "configuration-management",
     "order": 13,
-    "path": "niches/code/devops/roadmap-sh/13-configuration-management",
-    "difficulty": "intermediate"
+    "source_display": {
+      "name": "roadmap.sh",
+      "type": "external",
+      "url": "https://roadmap.sh/"
+    },
+    "collection_title": "roadmap.sh — DevOps Projects",
+    "goals_effective": []
   },
   {
     "title": "IaC on DigitalOcean",
-    "kind": "project",
-    "status": "not-started",
+    "summary": "Provision a DigitalOcean Droplet with Terraform.",
+    "type": "project",
+    "difficulty": "intermediate",
     "skills": [
       "cloud-computing",
       "digitalocean",
@@ -726,28 +566,36 @@
       "item_id": "iac-digitalocean",
       "url": "https://roadmap.sh/projects/iac-digitalocean"
     },
-    "dates": {
-      "created": "2026-10-03",
-      "started": null,
-      "updated": "2026-10-03",
-      "completed": null
-    },
     "tracking": {
-      "content_sha256": "09bbecb97509adfc44cb50f54589596bc762fd38b30fd6d9fc182d347c31974a"
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-03",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "ad0ef1af75f87ad59ef6ae64a88e26eab8f9d80481136499aec54f706c37578e"
     },
     "niche": "code",
     "domain": "devops",
-    "subdomain": null,
+    "group": null,
     "collection": "roadmap-sh",
+    "path": "niches/code/devops/roadmap-sh/14-iac-digitalocean",
     "slug": "iac-digitalocean",
     "order": 14,
-    "path": "niches/code/devops/roadmap-sh/14-iac-digitalocean",
-    "difficulty": "intermediate"
+    "source_display": {
+      "name": "roadmap.sh",
+      "type": "external",
+      "url": "https://roadmap.sh/"
+    },
+    "collection_title": "roadmap.sh — DevOps Projects",
+    "goals_effective": []
   },
   {
     "title": "Node.js Service Deployment",
-    "kind": "project",
-    "status": "not-started",
+    "summary": "Deploy a Node.js service to a remote server with GitHub Actions.",
+    "type": "project",
+    "difficulty": "intermediate",
     "skills": [
       "ci-cd",
       "deployment",
@@ -760,28 +608,36 @@
       "item_id": "nodejs-service-deployment",
       "url": "https://roadmap.sh/projects/nodejs-service-deployment"
     },
-    "dates": {
-      "created": "2026-10-03",
-      "started": null,
-      "updated": "2026-10-03",
-      "completed": null
-    },
     "tracking": {
-      "content_sha256": "bb8ca6abf28844396c8724ee3ff6c933be39a9b8a6959e66d6fc144ef96a8f3b"
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-03",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "d7c37a86c8e878c70727b4d97641bc83d55a9572d24924323e86a0e5d0d1f24e"
     },
     "niche": "code",
     "domain": "devops",
-    "subdomain": null,
+    "group": null,
     "collection": "roadmap-sh",
+    "path": "niches/code/devops/roadmap-sh/15-nodejs-service-deployment",
     "slug": "nodejs-service-deployment",
     "order": 15,
-    "path": "niches/code/devops/roadmap-sh/15-nodejs-service-deployment",
-    "difficulty": "intermediate"
+    "source_display": {
+      "name": "roadmap.sh",
+      "type": "external",
+      "url": "https://roadmap.sh/"
+    },
+    "collection_title": "roadmap.sh — DevOps Projects",
+    "goals_effective": []
   },
   {
     "title": "Dockerized Service",
-    "kind": "project",
-    "status": "not-started",
+    "summary": "Deploy a Dockerized Node.js service with GitHub Actions.",
+    "type": "project",
+    "difficulty": "intermediate",
     "skills": [
       "ci-cd",
       "deployment",
@@ -794,28 +650,36 @@
       "item_id": "dockerized-service-deployment",
       "url": "https://roadmap.sh/projects/dockerized-service-deployment"
     },
-    "dates": {
-      "created": "2026-10-03",
-      "started": null,
-      "updated": "2026-10-03",
-      "completed": null
-    },
     "tracking": {
-      "content_sha256": "f7c8c368a5290719e54490d8b8741490c4e1e4aa500c3414c6762487bcd90aa8"
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-03",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "c2de78a90616d4b39b67cd68aef125bdc8a255dfe599917acb4179b75dd5331f"
     },
     "niche": "code",
     "domain": "devops",
-    "subdomain": null,
+    "group": null,
     "collection": "roadmap-sh",
+    "path": "niches/code/devops/roadmap-sh/16-dockerized-service",
     "slug": "dockerized-service",
     "order": 16,
-    "path": "niches/code/devops/roadmap-sh/16-dockerized-service",
-    "difficulty": "intermediate"
+    "source_display": {
+      "name": "roadmap.sh",
+      "type": "external",
+      "url": "https://roadmap.sh/"
+    },
+    "collection_title": "roadmap.sh — DevOps Projects",
+    "goals_effective": []
   },
   {
     "title": "Multi-Container Application",
-    "kind": "project",
-    "status": "not-started",
+    "summary": "Run a multi-container application with Docker Compose.",
+    "type": "project",
+    "difficulty": "intermediate",
     "skills": [
       "containers",
       "docker",
@@ -827,28 +691,36 @@
       "item_id": "multi-container-service",
       "url": "https://roadmap.sh/projects/multi-container-service"
     },
-    "dates": {
-      "created": "2026-10-03",
-      "started": null,
-      "updated": "2026-10-03",
-      "completed": null
-    },
     "tracking": {
-      "content_sha256": "69189285157ae38e2fa29067ffaed9e0b6897b01c81c5e5acf805b039adbc158"
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-03",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "6b38bf100d1e38c449d40dfb41543ddd82c5f0857b4a8c44e27797230baf589e"
     },
     "niche": "code",
     "domain": "devops",
-    "subdomain": null,
+    "group": null,
     "collection": "roadmap-sh",
+    "path": "niches/code/devops/roadmap-sh/17-multi-container-application",
     "slug": "multi-container-application",
     "order": 17,
-    "path": "niches/code/devops/roadmap-sh/17-multi-container-application",
-    "difficulty": "intermediate"
+    "source_display": {
+      "name": "roadmap.sh",
+      "type": "external",
+      "url": "https://roadmap.sh/"
+    },
+    "collection_title": "roadmap.sh — DevOps Projects",
+    "goals_effective": []
   },
   {
     "title": "Automated DB Backups",
-    "kind": "project",
-    "status": "not-started",
+    "summary": "Schedule database backups every twelve hours.",
+    "type": "project",
+    "difficulty": "intermediate",
     "skills": [
       "automation",
       "backup-and-recovery",
@@ -863,28 +735,36 @@
       "item_id": "automated-backups",
       "url": "https://roadmap.sh/projects/automated-backups"
     },
-    "dates": {
-      "created": "2026-10-03",
-      "started": null,
-      "updated": "2026-10-03",
-      "completed": null
-    },
     "tracking": {
-      "content_sha256": "dad731b2caa26e963d03c9e44d3f8106c346dd643460216905aaba3ad06ad807"
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-03",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "83f18309348bd1af3acf68af8e899be36a2b8aa116d28fd6bb66c7a59cf5c940"
     },
     "niche": "code",
     "domain": "devops",
-    "subdomain": null,
+    "group": null,
     "collection": "roadmap-sh",
+    "path": "niches/code/devops/roadmap-sh/18-automated-db-backups",
     "slug": "automated-db-backups",
     "order": 18,
-    "path": "niches/code/devops/roadmap-sh/18-automated-db-backups",
-    "difficulty": "intermediate"
+    "source_display": {
+      "name": "roadmap.sh",
+      "type": "external",
+      "url": "https://roadmap.sh/"
+    },
+    "collection_title": "roadmap.sh — DevOps Projects",
+    "goals_effective": []
   },
   {
     "title": "Bastion Host",
-    "kind": "project",
-    "status": "not-started",
+    "summary": "Set up a bastion host for access to private infrastructure.",
+    "type": "project",
+    "difficulty": "intermediate",
     "skills": [
       "access-control",
       "bastion-hosts",
@@ -897,28 +777,36 @@
       "item_id": "bastion-host",
       "url": "https://roadmap.sh/projects/bastion-host"
     },
-    "dates": {
-      "created": "2026-10-03",
-      "started": null,
-      "updated": "2026-10-03",
-      "completed": null
-    },
     "tracking": {
-      "content_sha256": "1052a4ba7dc3de9754ceb0ebe6d70305ee6db28b8078f449ddac133a4bd1a28c"
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-03",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "bc11c76e5f19268bc4d48472132231bec6af24233af249a9eb955a190a19c4e0"
     },
     "niche": "code",
     "domain": "devops",
-    "subdomain": null,
+    "group": null,
     "collection": "roadmap-sh",
+    "path": "niches/code/devops/roadmap-sh/19-bastion-host",
     "slug": "bastion-host",
     "order": 19,
-    "path": "niches/code/devops/roadmap-sh/19-bastion-host",
-    "difficulty": "intermediate"
+    "source_display": {
+      "name": "roadmap.sh",
+      "type": "external",
+      "url": "https://roadmap.sh/"
+    },
+    "collection_title": "roadmap.sh — DevOps Projects",
+    "goals_effective": []
   },
   {
     "title": "File Integrity Checker",
-    "kind": "project",
-    "status": "not-started",
+    "summary": "Check application log files for tampering.",
+    "type": "project",
+    "difficulty": "intermediate",
     "skills": [
       "cryptographic-hashing",
       "file-integrity",
@@ -931,28 +819,36 @@
       "item_id": "file-integrity-checker",
       "url": "https://roadmap.sh/projects/file-integrity-checker"
     },
-    "dates": {
-      "created": "2026-10-03",
-      "started": null,
-      "updated": "2026-10-03",
-      "completed": null
-    },
     "tracking": {
-      "content_sha256": "f00aad10ac951da3ce5c92bc07073021df6fdbb6d868dbc88ac138651086d37d"
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-03",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "b69e35eb3131617d8cc1da5ef04f4c4d3332fd38a99f5520c3d933248fd42fbe"
     },
     "niche": "code",
     "domain": "devops",
-    "subdomain": null,
+    "group": null,
     "collection": "roadmap-sh",
+    "path": "niches/code/devops/roadmap-sh/20-file-integrity-checker",
     "slug": "file-integrity-checker",
     "order": 20,
-    "path": "niches/code/devops/roadmap-sh/20-file-integrity-checker",
-    "difficulty": "intermediate"
+    "source_display": {
+      "name": "roadmap.sh",
+      "type": "external",
+      "url": "https://roadmap.sh/"
+    },
+    "collection_title": "roadmap.sh — DevOps Projects",
+    "goals_effective": []
   },
   {
     "title": "Linux Server Setup",
-    "kind": "project",
-    "status": "not-started",
+    "summary": "Set up and secure a Linux server from scratch.",
+    "type": "project",
+    "difficulty": "intermediate",
     "skills": [
       "firewalls",
       "hardening",
@@ -965,28 +861,36 @@
       "item_id": "linux-server-setup",
       "url": "https://roadmap.sh/projects/linux-server-setup"
     },
-    "dates": {
-      "created": "2026-10-03",
-      "started": null,
-      "updated": "2026-10-03",
-      "completed": null
-    },
     "tracking": {
-      "content_sha256": "32f157b154c483d0037289fd071c1678b1411d07caa5d789da85cff928a2fdce"
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-03",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "b9e32839825222c542d6e90cb2363a36dc1920342aa6316fa1e743059b810254"
     },
     "niche": "code",
     "domain": "devops",
-    "subdomain": null,
+    "group": null,
     "collection": "roadmap-sh",
+    "path": "niches/code/devops/roadmap-sh/21-linux-server-setup",
     "slug": "linux-server-setup",
     "order": 21,
-    "path": "niches/code/devops/roadmap-sh/21-linux-server-setup",
-    "difficulty": "intermediate"
+    "source_display": {
+      "name": "roadmap.sh",
+      "type": "external",
+      "url": "https://roadmap.sh/"
+    },
+    "collection_title": "roadmap.sh — DevOps Projects",
+    "goals_effective": []
   },
   {
     "title": "VPN Server Setup",
-    "kind": "project",
-    "status": "not-started",
+    "summary": "Configure a WireGuard or OpenVPN server for remote access.",
+    "type": "project",
+    "difficulty": "intermediate",
     "skills": [
       "cryptography",
       "linux",
@@ -1000,28 +904,36 @@
       "item_id": "vpn-server-setup",
       "url": "https://roadmap.sh/projects/vpn-server-setup"
     },
-    "dates": {
-      "created": "2026-10-03",
-      "started": null,
-      "updated": "2026-10-03",
-      "completed": null
-    },
     "tracking": {
-      "content_sha256": "85fca431e126a2a7183965bc9a88aefc34c4a923842fb8c147616c6f59925d0b"
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-03",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "e01ebfa6dfa3ba611ff44f70828a377fdc070ddd608807e01830cc41c3c9c7ea"
     },
     "niche": "code",
     "domain": "devops",
-    "subdomain": null,
+    "group": null,
     "collection": "roadmap-sh",
+    "path": "niches/code/devops/roadmap-sh/22-vpn-server-setup",
     "slug": "vpn-server-setup",
     "order": 22,
-    "path": "niches/code/devops/roadmap-sh/22-vpn-server-setup",
-    "difficulty": "intermediate"
+    "source_display": {
+      "name": "roadmap.sh",
+      "type": "external",
+      "url": "https://roadmap.sh/"
+    },
+    "collection_title": "roadmap.sh — DevOps Projects",
+    "goals_effective": []
   },
   {
     "title": "Blue-Green Deployment",
-    "kind": "project",
-    "status": "not-started",
+    "summary": "Set up a blue-green deployment for an application.",
+    "type": "project",
+    "difficulty": "advanced",
     "skills": [
       "ci-cd",
       "deployment-strategies",
@@ -1033,28 +945,36 @@
       "item_id": "blue-green-deployment",
       "url": "https://roadmap.sh/projects/blue-green-deployment"
     },
-    "dates": {
-      "created": "2026-10-03",
-      "started": null,
-      "updated": "2026-10-03",
-      "completed": null
-    },
     "tracking": {
-      "content_sha256": "597b3eb5abb9510e5c8d2945b681cf3cc59f8c440d8256b7b8b639b05b0ea2dd"
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-03",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "352f70fdbb9b1c51a59d92f0c107eac7cb57874ec1fac4634d2e4db1f7cd9524"
     },
     "niche": "code",
     "domain": "devops",
-    "subdomain": null,
+    "group": null,
     "collection": "roadmap-sh",
+    "path": "niches/code/devops/roadmap-sh/23-blue-green-deployment",
     "slug": "blue-green-deployment",
     "order": 23,
-    "path": "niches/code/devops/roadmap-sh/23-blue-green-deployment",
-    "difficulty": "advanced"
+    "source_display": {
+      "name": "roadmap.sh",
+      "type": "external",
+      "url": "https://roadmap.sh/"
+    },
+    "collection_title": "roadmap.sh — DevOps Projects",
+    "goals_effective": []
   },
   {
     "title": "Prometheus and Grafana",
-    "kind": "project",
-    "status": "not-started",
+    "summary": "Collect metrics with Prometheus and visualize them in Grafana.",
+    "type": "project",
+    "difficulty": "advanced",
     "skills": [
       "grafana",
       "metrics",
@@ -1067,28 +987,36 @@
       "item_id": "monitoring",
       "url": "https://roadmap.sh/projects/monitoring"
     },
-    "dates": {
-      "created": "2026-10-03",
-      "started": null,
-      "updated": "2026-10-03",
-      "completed": null
-    },
     "tracking": {
-      "content_sha256": "fb796851dc932c769104b7a8112ae670c6a5bf6e5ac97ed84518f42da4a410dd"
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-03",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "d62065ab68500293e9aefb2aed28a86ca81c64356d3788c004705875416baf18"
     },
     "niche": "code",
     "domain": "devops",
-    "subdomain": null,
+    "group": null,
     "collection": "roadmap-sh",
+    "path": "niches/code/devops/roadmap-sh/24-prometheus-and-grafana",
     "slug": "prometheus-and-grafana",
     "order": 24,
-    "path": "niches/code/devops/roadmap-sh/24-prometheus-and-grafana",
-    "difficulty": "advanced"
+    "source_display": {
+      "name": "roadmap.sh",
+      "type": "external",
+      "url": "https://roadmap.sh/"
+    },
+    "collection_title": "roadmap.sh — DevOps Projects",
+    "goals_effective": []
   },
   {
     "title": "Multi-Service Application",
-    "kind": "project",
-    "status": "not-started",
+    "summary": "Set up an optimized multi-service Docker application.",
+    "type": "project",
+    "difficulty": "advanced",
     "skills": [
       "docker",
       "docker-compose",
@@ -1101,28 +1029,36 @@
       "item_id": "multiservice-docker",
       "url": "https://roadmap.sh/projects/multiservice-docker"
     },
-    "dates": {
-      "created": "2026-10-03",
-      "started": null,
-      "updated": "2026-10-03",
-      "completed": null
-    },
     "tracking": {
-      "content_sha256": "4346c202c0c20bae2bdb9c1db713a95dbf650611f35db4326f86b735f5be6eb0"
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-03",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "d6088f09fd0d8495054a5c99271b41efce5fc11e84747947f93d853e408ed523"
     },
     "niche": "code",
     "domain": "devops",
-    "subdomain": null,
+    "group": null,
     "collection": "roadmap-sh",
+    "path": "niches/code/devops/roadmap-sh/25-multi-service-application",
     "slug": "multi-service-application",
     "order": 25,
-    "path": "niches/code/devops/roadmap-sh/25-multi-service-application",
-    "difficulty": "advanced"
+    "source_display": {
+      "name": "roadmap.sh",
+      "type": "external",
+      "url": "https://roadmap.sh/"
+    },
+    "collection_title": "roadmap.sh — DevOps Projects",
+    "goals_effective": []
   },
   {
     "title": "Service Discovery",
-    "kind": "project",
-    "status": "not-started",
+    "summary": "Set up service discovery for dummy services with Consul.",
+    "type": "project",
+    "difficulty": "advanced",
     "skills": [
       "consul",
       "dns",
@@ -1134,143 +1070,29 @@
       "item_id": "service-discovery",
       "url": "https://roadmap.sh/projects/service-discovery"
     },
-    "dates": {
-      "created": "2026-10-03",
-      "started": null,
-      "updated": "2026-10-03",
-      "completed": null
-    },
     "tracking": {
-      "content_sha256": "23c49799f59ac3377970c264ce0a02a0589175a53d10a0b5453d94f7ea2a3ef7"
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-03",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "3d727dba066577dc4a4e194aba0098ebbecffc3a8f08469a0dbb8a83998f986d"
     },
     "niche": "code",
     "domain": "devops",
-    "subdomain": null,
+    "group": null,
     "collection": "roadmap-sh",
+    "path": "niches/code/devops/roadmap-sh/26-service-discovery",
     "slug": "service-discovery",
     "order": 26,
-    "path": "niches/code/devops/roadmap-sh/26-service-discovery",
-    "difficulty": "advanced"
-  },
-  {
-    "title": "SQL injection vulnerability allowing login bypass",
-    "kind": "exercise",
-    "status": "not-started",
-    "skills": [
-      "authentication",
-      "sql-injection",
-      "web-security"
-    ],
-    "source": {
-      "provider": "portswigger-web-security-academy",
-      "item_id": "sql-injection-login-bypass",
-      "url": "https://portswigger.net/web-security/sql-injection/lab-login-bypass"
+    "source_display": {
+      "name": "roadmap.sh",
+      "type": "external",
+      "url": "https://roadmap.sh/"
     },
-    "dates": {
-      "created": "2026-10-04",
-      "started": null,
-      "updated": "2026-10-04",
-      "completed": null
-    },
-    "tracking": {
-      "content_sha256": "549d02b5a3a5f16506874a6efc2de3207594889eb747d086fb637bbae3fe8549"
-    },
-    "niche": "code",
-    "domain": "security",
-    "subdomain": "web",
-    "collection": "portswigger",
-    "slug": "sql-injection-vulnerability-allowing-login-bypass",
-    "order": null,
-    "path": "niches/code/security/web/portswigger/sql-injection-vulnerability-allowing-login-bypass"
-  },
-  {
-    "title": "REST API with Auth",
-    "kind": "project",
-    "status": "not-started",
-    "skills": [
-      "api-design",
-      "backend-development"
-    ],
-    "source": {
-      "provider": "devroadmaps",
-      "item_id": "backend-rest-api-with-auth",
-      "url": "https://github.com/rudra496/devroadmaps/blob/master/js/project-ideas.js"
-    },
-    "dates": {
-      "created": "2026-10-04",
-      "started": null,
-      "updated": "2026-10-04",
-      "completed": null
-    },
-    "tracking": {
-      "content_sha256": "2cd862d21d337ad118d01d1e6c0cc91e96309bc2750ccf85c6add0af5dde725e"
-    },
-    "niche": "code",
-    "domain": "software",
-    "subdomain": "backend",
-    "collection": "devroadmaps",
-    "slug": "rest-api-with-auth",
-    "order": null,
-    "path": "niches/code/software/backend/devroadmaps/rest-api-with-auth",
-    "difficulty": "beginner"
-  },
-  {
-    "title": "Multiples of 3 or 5",
-    "kind": "problem",
-    "status": "not-started",
-    "skills": [
-      "number-theory"
-    ],
-    "source": {
-      "provider": "project-euler",
-      "item_id": "problem-1",
-      "url": "https://projecteuler.net/problem=1"
-    },
-    "dates": {
-      "created": "2026-10-04",
-      "started": null,
-      "updated": "2026-10-04",
-      "completed": null
-    },
-    "tracking": {
-      "content_sha256": "9a34f26b95ead6c678d4637663df5467dd4ea52dbf410b38ed39342283226ef4"
-    },
-    "niche": "mathematics",
-    "domain": "problem-solving",
-    "subdomain": null,
-    "collection": "project-euler",
-    "slug": "multiples-of-3-or-5",
-    "order": null,
-    "path": "niches/mathematics/problem-solving/project-euler/multiples-of-3-or-5"
-  },
-  {
-    "title": "24.00 Problems of Philosophy: Paper 1",
-    "kind": "prompt",
-    "status": "not-started",
-    "skills": [
-      "argument-analysis",
-      "epistemology"
-    ],
-    "source": {
-      "provider": "mit-ocw",
-      "item_id": "24-00-fall-2019-paper-1",
-      "url": "https://ocw.mit.edu/courses/24-00-problems-of-philosophy-fall-2019/pages/assignments/"
-    },
-    "dates": {
-      "created": "2026-10-04",
-      "started": null,
-      "updated": "2026-10-04",
-      "completed": null
-    },
-    "tracking": {
-      "content_sha256": "f721c47dd7d153814210a582f9d9f70022a6eb57e635dc127d2deb2b1b60ba2c"
-    },
-    "niche": "writing",
-    "domain": "argumentation",
-    "subdomain": null,
-    "collection": "mit-ocw-problems-of-philosophy",
-    "slug": "00-problems-of-philosophy-paper-1",
-    "order": 24,
-    "path": "niches/writing/argumentation/mit-ocw-problems-of-philosophy/24-00-problems-of-philosophy-paper-1"
+    "collection_title": "roadmap.sh — DevOps Projects",
+    "goals_effective": []
   }
 ]

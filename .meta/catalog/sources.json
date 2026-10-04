@@ -4,10 +4,10 @@
     "name": "roadmap.sh",
     "url": "https://roadmap.sh/",
     "reuse": {
-      "policy": "link-only",
-      "verified": "2026-10-04",
+      "policy_url": "https://roadmap.sh/about",
       "notes": "Link to the project pages; do not copy challenge text or assets.",
-      "policy_url": "https://roadmap.sh/about"
+      "policy": "link-only",
+      "verified": "2026-10-04"
     }
   },
   "devroadmaps": {
@@ -15,12 +15,17 @@
     "name": "DevRoadmaps",
     "url": "https://github.com/rudra496/devroadmaps",
     "reuse": {
-      "policy": "copy",
+      "policy_url": "https://github.com/rudra496/devroadmaps/blob/master/LICENSE",
       "license": "MIT",
       "license_url": "https://opensource.org/license/mit/",
-      "verified": "2026-10-04",
       "notes": "Preserve the MIT copyright and permission notice with copied content.",
-      "policy_url": "https://github.com/rudra496/devroadmaps/blob/master/LICENSE"
+      "policy": "copy",
+      "verified": "2026-10-04"
+    },
+    "difficulty_map": {
+      "Beginner": "beginner",
+      "Intermediate": "intermediate",
+      "Advanced": "advanced"
     }
   },
   "cloudcertprep": {
@@ -28,12 +33,12 @@
     "name": "CloudCertPrep",
     "url": "https://github.com/nastaso/cloudcertprep",
     "reuse": {
-      "policy": "copy",
+      "policy_url": "https://github.com/nastaso/cloudcertprep/blob/main/LICENSE",
       "license": "MIT",
       "license_url": "https://opensource.org/license/mit/",
-      "verified": "2026-10-04",
       "notes": "Question banks are JSON; include the upstream MIT notice when materializing questions.",
-      "policy_url": "https://github.com/nastaso/cloudcertprep/blob/main/LICENSE"
+      "policy": "copy",
+      "verified": "2026-10-04"
     }
   },
   "kananinirav-aws-ccp": {
@@ -41,12 +46,12 @@
     "name": "AWS Certified Cloud Practitioner Notes by Kananinirav",
     "url": "https://github.com/kananinirav/AWS-Certified-Cloud-Practitioner-Notes",
     "reuse": {
-      "policy": "copy",
+      "policy_url": "https://github.com/kananinirav/AWS-Certified-Cloud-Practitioner-Notes/blob/master/LICENSE",
       "license": "MIT",
       "license_url": "https://opensource.org/license/mit/",
-      "verified": "2026-10-04",
-      "notes": "Preserve the MIT copyright and permission notice with copied content.",
-      "policy_url": "https://github.com/kananinirav/AWS-Certified-Cloud-Practitioner-Notes/blob/master/LICENSE"
+      "notes": "Link to reviewed study notes. Practice-exam links need separate provenance and permission review before copying.",
+      "policy": "review",
+      "verified": "2026-10-04"
     }
   },
   "cloud-cert-practice-questions": {
@@ -54,12 +59,12 @@
     "name": "Cloud Certification Practice Questions",
     "url": "https://github.com/fabricio852/cloud-certification-practice-questions",
     "reuse": {
-      "policy": "copy",
+      "policy_url": "https://github.com/fabricio852/cloud-certification-practice-questions/blob/main/LICENSE",
       "license": "CC BY 4.0",
       "license_url": "https://creativecommons.org/licenses/by/4.0/",
-      "verified": "2026-10-04",
       "notes": "Attribute the original source and identify changes.",
-      "policy_url": "https://github.com/fabricio852/cloud-certification-practice-questions/blob/main/LICENSE"
+      "policy": "copy",
+      "verified": "2026-10-04"
     }
   },
   "ihatesea69-saa-workshop": {
@@ -67,12 +72,12 @@
     "name": "AWS-SAA-C03 Workshop Study Guide",
     "url": "https://github.com/ihatesea69/AWS-SAA-C03-Workshop-Study-Guide",
     "reuse": {
-      "policy": "copy",
+      "policy_url": "https://github.com/ihatesea69/AWS-SAA-C03-Workshop-Study-Guide/blob/main/LICENSE",
       "license": "MIT",
       "license_url": "https://opensource.org/license/mit/",
-      "verified": "2026-10-04",
       "notes": "Preserve the MIT copyright and permission notice with copied content.",
-      "policy_url": "https://github.com/ihatesea69/AWS-SAA-C03-Workshop-Study-Guide/blob/main/LICENSE"
+      "policy": "copy",
+      "verified": "2026-10-04"
     }
   },
   "ihatesea69-dva-study-plan": {
@@ -80,10 +85,10 @@
     "name": "AWS DVA-C02 Study Plan",
     "url": "https://github.com/ihatesea69/aws-dva-c02-study-plan",
     "reuse": {
-      "policy": "review",
-      "verified": "2026-10-04",
+      "policy_url": "https://github.com/ihatesea69/aws-dva-c02-study-plan",
       "notes": "The repository describes personal educational use but has no standalone content license.",
-      "policy_url": "https://github.com/ihatesea69/aws-dva-c02-study-plan"
+      "policy": "review",
+      "verified": "2026-10-04"
     }
   },
   "platformlab-cka": {
@@ -91,12 +96,12 @@
     "name": "ThePlatformLab CKA Study Repository",
     "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator",
     "reuse": {
-      "policy": "copy",
+      "policy_url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/main/LICENSE",
       "license": "MIT",
       "license_url": "https://opensource.org/license/mit/",
-      "verified": "2026-10-04",
       "notes": "Preserve the MIT copyright and permission notice with copied content.",
-      "policy_url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/main/LICENSE"
+      "policy": "copy",
+      "verified": "2026-10-04"
     }
   },
   "ck-x": {
@@ -104,12 +109,12 @@
     "name": "CK-X",
     "url": "https://github.com/sailor-sh/CK-X",
     "reuse": {
-      "policy": "review",
+      "policy_url": "https://github.com/sailor-sh/CK-X/blob/master/LICENSE",
       "license": "BSL 1.1",
       "license_url": "https://mariadb.com/bsl11/",
-      "verified": "2026-10-04",
       "notes": "The license permits some personal, educational, research, and non-production uses with additional restrictions; review each intended use before copying.",
-      "policy_url": "https://github.com/sailor-sh/CK-X/blob/master/LICENSE"
+      "policy": "review",
+      "verified": "2026-10-04"
     }
   },
   "mit-ocw": {
@@ -117,12 +122,12 @@
     "name": "MIT OpenCourseWare",
     "url": "https://ocw.mit.edu/",
     "reuse": {
-      "policy": "review",
+      "policy_url": "https://ocw.mit.edu/pages/privacy-and-terms-of-use/",
       "license": "CC BY-NC-SA 4.0 (most materials)",
       "license_url": "https://ocw.mit.edu/pages/privacy-and-terms-of-use/",
-      "verified": "2026-10-04",
       "notes": "Check each course page and asset for third-party exclusions; any reuse must remain noncommercial, attributed, and share-alike.",
-      "policy_url": "https://ocw.mit.edu/pages/privacy-and-terms-of-use/"
+      "policy": "review",
+      "verified": "2026-10-04"
     }
   },
   "project-euler": {
@@ -130,12 +135,12 @@
     "name": "Project Euler",
     "url": "https://projecteuler.net/",
     "reuse": {
-      "policy": "review",
+      "policy_url": "https://projecteuler.net/copyright",
       "license": "CC BY-NC-SA 4.0 (main problem archive)",
       "license_url": "https://projecteuler.net/copyright",
-      "verified": "2026-10-04",
       "notes": "Only main archive problems use this license; bonus material and member statistics are excluded.",
-      "policy_url": "https://projecteuler.net/copyright"
+      "policy": "review",
+      "verified": "2026-10-04"
     }
   },
   "tidytuesday": {
@@ -143,12 +148,12 @@
     "name": "TidyTuesday",
     "url": "https://github.com/rfordatascience/tidytuesday",
     "reuse": {
-      "policy": "review",
+      "policy_url": "https://github.com/rfordatascience/tidytuesday/blob/main/LICENSE",
       "license": "CC0-1.0 (repository)",
       "license_url": "https://github.com/rfordatascience/tidytuesday/blob/main/LICENSE",
-      "verified": "2026-10-04",
       "notes": "Review the original source and license for each underlying dataset before copying data.",
-      "policy_url": "https://github.com/rfordatascience/tidytuesday/blob/main/LICENSE"
+      "policy": "review",
+      "verified": "2026-10-04"
     }
   },
   "portswigger-web-security-academy": {
@@ -156,10 +161,10 @@
     "name": "PortSwigger Web Security Academy",
     "url": "https://portswigger.net/web-security",
     "reuse": {
-      "policy": "link-only",
-      "verified": "2026-10-04",
+      "policy_url": "https://portswigger.net/web-security/certification/terms-and-conditions/website-terms-of-use",
       "notes": "Website terms permit limited personal use and prohibit modification of downloaded material.",
-      "policy_url": "https://portswigger.net/web-security/certification/terms-and-conditions/website-terms-of-use"
+      "policy": "link-only",
+      "verified": "2026-10-04"
     }
   },
   "sadservers": {
@@ -167,10 +172,10 @@
     "name": "SadServers",
     "url": "https://sadservers.com/",
     "reuse": {
-      "policy": "link-only",
-      "verified": "2026-10-04",
+      "policy_url": "https://docs.sadservers.com/docs/tc/",
       "notes": "Terms expressly prohibit copying, redistributing, or creating derivatives of scenarios; link to them instead.",
-      "policy_url": "https://docs.sadservers.com/docs/tc/"
+      "policy": "link-only",
+      "verified": "2026-10-04"
     }
   },
   "pwn-college": {
@@ -178,10 +183,10 @@
     "name": "pwn.college",
     "url": "https://pwn.college/",
     "reuse": {
-      "policy": "link-only",
-      "verified": "2026-10-04",
+      "policy_url": "https://pwn.college/",
       "notes": "Link to modules and challenges; no general content license was verified.",
-      "policy_url": "https://pwn.college/"
+      "policy": "link-only",
+      "verified": "2026-10-04"
     }
   },
   "exercism": {
@@ -189,12 +194,12 @@
     "name": "Exercism",
     "url": "https://exercism.org/",
     "reuse": {
-      "policy": "review",
+      "policy_url": "https://exercism.org/docs/using/licenses",
       "license": "Varies by repository; exercises are mainly MIT",
       "license_url": "https://exercism.org/docs/using/licenses",
-      "verified": "2026-10-04",
       "notes": "Verify the exact track repository and its content license before copying an exercise.",
-      "policy_url": "https://exercism.org/docs/using/licenses"
+      "policy": "review",
+      "verified": "2026-10-04"
     }
   },
   "30-day-map-challenge": {
@@ -202,12 +207,12 @@
     "name": "30 Day Map Challenge",
     "url": "https://github.com/tjukanovt/30DayMapChallenge",
     "reuse": {
-      "policy": "copy",
+      "policy_url": "https://github.com/tjukanovt/30DayMapChallenge/blob/main/LICENSE",
       "license": "MIT",
       "license_url": "https://opensource.org/license/mit/",
-      "verified": "2026-10-04",
       "notes": "The official challenge repository declares MIT; maps made by participants remain their own work.",
-      "policy_url": "https://github.com/tjukanovt/30DayMapChallenge/blob/main/LICENSE"
+      "policy": "copy",
+      "verified": "2026-10-04"
     }
   },
   "programming-historian": {
@@ -215,23 +220,12 @@
     "name": "Programming Historian",
     "url": "https://programminghistorian.org/en/",
     "reuse": {
-      "policy": "copy",
+      "policy_url": "https://programminghistorian.org/en/about",
       "license": "CC BY 4.0",
       "license_url": "https://creativecommons.org/licenses/by/4.0/",
-      "verified": "2026-10-04",
       "notes": "Attribute the original author and source.",
-      "policy_url": "https://programminghistorian.org/en/about"
-    }
-  },
-  "amazon": {
-    "type": "organization",
-    "name": "Amazon Web Services",
-    "url": "https://aws.amazon.com/",
-    "reuse": {
-      "policy": "review",
-      "verified": "2026-10-04",
-      "notes": "Review the specific AWS material's terms before copying.",
-      "policy_url": "https://aws.amazon.com/service-terms/"
+      "policy": "copy",
+      "verified": "2026-10-04"
     }
   },
   "created": {
@@ -240,6 +234,13 @@
   },
   "generated": {
     "type": "local",
-    "name": "Generated by me"
+    "name": "Generated with AI"
+  },
+  "organization": {
+    "type": "organization",
+    "name": "Organizational challenge",
+    "reuse": {
+      "policy": "review"
+    }
   }
 }

@@ -1,7 +1,8 @@
 {
   "title": "Static Site Server",
-  "kind": "project",
-  "status": "not-started",
+  "summary": "Configure a Linux server to serve a static website.",
+  "type": "project",
+  "difficulty": "beginner",
   "skills": [
     "deployment",
     "linux",
@@ -10,19 +11,19 @@
     "ssh",
     "static-sites"
   ],
-  "dates": {
-    "created": "2026-10-03",
-    "started": null,
-    "completed": null,
-    "updated": "2026-10-03"
-  },
-  "difficulty": "beginner",
   "source": {
     "provider": "roadmap-sh",
     "item_id": "static-site-server",
     "url": "https://roadmap.sh/projects/static-site-server"
   },
   "tracking": {
-    "content_sha256": "108af3cddf0693c366f61cec11fb6d32bbda4f73809de7f67f990d0a1866ab31"
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-03",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "content_sha256": "7c07711754a16e6b545ce822b01f6f9fc046ddbfc0d326ee4d45e67df14c98f7"
   }
 }
