@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import html
 import json
 import os
 import re
@@ -13,6 +14,7 @@ import tempfile
 from urllib.parse import unquote
 from collections import Counter, defaultdict
 from collections.abc import Mapping
+from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
 
@@ -31,6 +33,11 @@ CATALOG_PATH = ROOT / "CATALOG.md"
 SLUG_PATTERN = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
 ORDER_PATTERN = re.compile(r"([0-9]+)-([a-z0-9]+(?:-[a-z0-9]+)*)")
 LAB_DIR_PATTERN = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
+DISPLAY_NAMES = {"aws": "AWS", "devops": "DevOps", "mit": "MIT"}
+SUBJECT_TITLES = {
+    ("cloud", "aws"): "AWS Cloud",
+    ("systems", "distributed"): "Distributed Systems",
+}
 
 
 class CatalogError(Exception):
@@ -227,7 +234,7 @@ def lab_record(path: Path, metadata: Any, sources: dict[str, Any], schema: dict[
         "source_display": {"name": source_record["name"], "type": source_record["type"], "url": source_record.get("url")},
     })
     descriptor = collection_info(path.parent.parent, collection_overrides)
-    record["collection_title"] = descriptor.get("title") or _readme_title(path.parent.parent) or hierarchy["collection"].replace("-", " ")
+    record["collection_title"] = descriptor.get("title") or _readme_title(path.parent.parent) or display_name(hierarchy["collection"], sources)
     if "source_url" in descriptor:
         record["collection_source_url"] = descriptor["source_url"]
     record["goals_effective"] = sorted(set(metadata.get("goals", [])) | set(descriptor.get("goals", [])))
@@ -306,7 +313,20 @@ def _label(value: str) -> str:
     return value.replace("-", " ").capitalize()
 
 
-def render_catalog(records: list[dict[str, Any]]) -> str:
+def display_name(value: str, sources: dict[str, Any] | None = None) -> str:
+    """Use known spelling for labels, without assigning subject or source identity."""
+    if sources and value in sources:
+        return sources[value]["name"]
+    return DISPLAY_NAMES.get(value, value.replace("-", " ").title())
+
+
+def subject_title(domain: str, subdomain: str | None) -> str:
+    if (domain, subdomain) in SUBJECT_TITLES:
+        return SUBJECT_TITLES[domain, subdomain]
+    return " / ".join(display_name(part) for part in (domain, subdomain) if part)
+
+
+def render_catalog(records: list[dict[str, Any]], sources: dict[str, Any]) -> str:
     statuses = Counter(item["tracking"]["status"] for item in records)
     types = Counter(item["type"] for item in records)
     lines = [
@@ -317,6 +337,10 @@ def render_catalog(records: list[dict[str, Any]]) -> str:
         "}",
         "summary {",
         "    margin: 0 0 15px 0;",
+        "}",
+        ".catalog-path {",
+        "  display: inline-block;",
+        "  margin-left: 15px;",
         "}",
         "</style>",
         "",
@@ -332,20 +356,23 @@ def render_catalog(records: list[dict[str, Any]]) -> str:
     groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for item in records:
         groups[str(Path(item["path"]).parent)].append(item)
-    ranked = sorted(groups.items(), key=lambda pair: (not any(item["tracking"]["status"] != "not-started" for item in pair[1]), pair[0]))
+    ranked = sorted(groups.values(), key=lambda items: (
+        not any(item["tracking"]["status"] != "not-started" for item in items),
+        items[0]["domain"], items[0]["subdomain"] or "", items[0]["path"],
+    ))
     for status, title, empty_message in (
         ("complete", "Completed", "No completed labs yet."),
         ("in-progress", "In progress", "No labs in progress yet."),
     ):
         lines += ["<details open>", f"<summary>{title}</summary>", ""]
         found = False
-        for key, items in ranked:
+        for items in ranked:
             matches = [item for item in items if item["tracking"]["status"] == status]
             if not matches:
                 continue
             found = True
-            heading, breadcrumb, show_source_name, _ = _collection_display(key, items)
-            lines += [f"**{heading}** · {breadcrumb}", ""]
+            heading, path_line, show_source_name = _collection_display(matches, sources)
+            lines += [f"**{heading}**<br/>{path_line}", ""]
             for item in matches:
                 lines += _catalog_entry(item, show_source_name, show_order=False, anchor=False)
             lines.append("")
@@ -370,30 +397,39 @@ def render_catalog(records: list[dict[str, Any]]) -> str:
             lines.append(f"- **{goal}** ({count}): {links}")
     lines += ["", "</details>", ""]
     lines += ["<details>", "<summary>Browse all labs</summary>", ""]
-    for key, items in ranked:
-        heading, breadcrumb, show_source_name, notes_url = _collection_display(key, items)
-        count = f"{len(items)} lab{'s' if len(items) != 1 else ''}"
-        summary = f"{breadcrumb} · {count}"
-        if notes_url:
-            summary += f' · <a href="{notes_url}">notes</a>'
-        lines += [f"### {heading}", "", "<details>", f"<summary>{summary}</summary>", ""]
-        for item in items:
-            lines += _catalog_entry(item, show_source_name)
-        lines += ["", "</details>", ""]
+    subjects: dict[tuple[str, str | None], list[list[dict[str, Any]]]] = defaultdict(list)
+    for items in ranked:
+        subjects[items[0]["domain"], items[0]["subdomain"]].append(items)
+    # Ranking collections first also puts subjects with recorded work first.
+    for subject, collections in subjects.items():
+        lines += [f"### {_escape(subject_title(*subject))}", ""]
+        for items in collections:
+            heading, path_line, show_source_name = _collection_display(items, sources)
+            lines += ["<details>", f"<summary>{heading}<br/>{path_line}</summary>", ""]
+            for item in items:
+                lines += _catalog_entry(item, show_source_name)
+            lines += ["", "</details>", ""]
     lines += ["</details>", ""]
     return "\n".join(lines).rstrip() + "\n"
 
 
-def _collection_display(key: str, items: list[dict[str, Any]]) -> tuple[str, str, bool, str | None]:
-    title = items[0]["collection_title"]
-    breadcrumb = " / ".join(Path(key).parts[1:])
-    collection_path = (ROOT / items[0]["path"]).parent
+def _collection_display(items: list[dict[str, Any]], sources: dict[str, Any]) -> tuple[str, str, bool]:
+    first = items[0]
+    title = " / ".join([*(display_name(group, sources) for group in first["groups"]), first["collection_title"]])
+    relative_path = Path(first["path"]).parent
+    breadcrumb = " / ".join(relative_path.parts[1:])
+    collection_path = ROOT / relative_path
     readme = collection_path / "README.md"
-    source_url = items[0].get("collection_source_url")
+    source_url = first.get("collection_source_url")
     show_source_name = not source_url or len({item["source"]["provider"] for item in items}) > 1
-    heading = f"[{_escape(title)}]({source_url})" if source_url else _escape(title)
-    notes_url = display_path(readme) if readme.is_file() else None
-    return heading, breadcrumb, show_source_name, notes_url
+    # Markdown links and backticks stay literal inside summary; use their HTML forms.
+    heading = f'<a href="{html.escape(source_url)}">{html.escape(title)}</a>' if source_url else html.escape(title)
+    heading += f" · {html.escape(display_name(first['niche']))}"
+    count = f"{len(items)} lab{'s' if len(items) != 1 else ''}"
+    path_line = f'<span class="catalog-path"><code>{html.escape(breadcrumb)}</code> · {count}'
+    if readme.is_file():
+        path_line += f' · <a href="{html.escape(display_path(readme))}">notes</a>'
+    return heading, path_line + "</span>", show_source_name
 
 
 def _catalog_entry(item: dict[str, Any], show_source_name: bool, *, show_order: bool = True, anchor: bool = True) -> list[str]:
@@ -444,8 +480,18 @@ def _anchor(item: dict[str, Any]) -> str:
     return "lab-" + slugify(item["path"].replace("/", "-"))
 
 
+class _HTMLLinks(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self.targets: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag == "a":
+            self.targets.extend(value for key, value in attrs if key == "href" and value)
+
+
 def validate_local_links(include_catalog: bool = True) -> None:
-    """Check Markdown file targets in this repository without visiting external sites."""
+    """Check Markdown and HTML link targets without visiting external sites."""
     documents = [ROOT / "README.md"]
     if include_catalog:
         documents.append(CATALOG_PATH)
@@ -454,8 +500,12 @@ def validate_local_links(include_catalog: bool = True) -> None:
     for document in documents:
         if not document.is_file():
             continue
-        for match in re.finditer(r"\]\(([^)]+)\)", document.read_text(encoding="utf-8")):
-            target = unquote(match.group(1).split("#", 1)[0])
+        content = document.read_text(encoding="utf-8")
+        links = _HTMLLinks()
+        links.feed(content)
+        targets = [match.group(1) for match in re.finditer(r"\]\(([^)]+)\)", content)] + links.targets
+        for value in targets:
+            target = unquote(html.unescape(value).split("#", 1)[0])
             if not target or target.startswith(("http://", "https://", "mailto:")):
                 continue
             resolved = (document.parent / target).resolve()
@@ -485,7 +535,7 @@ def write_text_atomic(path: Path, content: str) -> None:
 
 
 def expected_catalogs(records: list[dict[str, Any]], sources: dict[str, Any]) -> dict[Path, str]:
-    return {LABS_PATH: render_labs(records), CATALOG_PATH: render_catalog(records)}
+    return {LABS_PATH: render_labs(records), CATALOG_PATH: render_catalog(records, sources)}
 
 
 def write_catalog(records: list[dict[str, Any]], sources: dict[str, Any]) -> None:

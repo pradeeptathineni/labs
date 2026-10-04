@@ -4,11 +4,15 @@
 
 A source record has a name and one of `external`, `organization`, or `local`. External sources have a canonical URL and reuse policy. An organizational source can omit its public URL; local sources need neither. `copy`, `link-only`, and `review` are operational policies for these tools, with evidence scoped to the source material reviewed. A registered provider name does not make every linked asset safe to copy.
 
-A collection may have `collection.json` with a display title, a collection-level `source_url`, `ordered: true`, or shared goals. The catalog links a collection heading to `source_url` and each lab's `ref` to its own source URL. Without `ordered: true`, numeric-looking lab names are ordinary slugs. Ordered collections require unique positive prefixes and append after the highest number.
+A collection may have `collection.json` with a display title, a collection-level `source_url`, `ordered: true`, or shared goals. Its title names the collection itself; the catalog supplies subject and niche context. Without `ordered: true`, numeric-looking lab names are ordinary slugs. Ordered collections require unique positive prefixes and append after the highest number.
 
 `has_subdomain: true` in that same descriptor declares that the directory immediately after the domain is a subject specialization. With no declaration, only the domain identifies the subject. Every remaining directory before the collection is a grouping, at any depth. This distinguishes `systems/mit/course-abc` from `systems/distributed/mit/course-abc` without guessing what a provider name means. Conflicting interpretations of a domain/subdomain across niches are rejected.
 
 The generated records expose `subdomain` as a name or null and `groups` as an ordered list, alongside the other path-derived fields. No copy of a subject name is maintained in a lab or descriptor. Only the boundary is declared.
+
+Browse all groups collections by the exact domain/subdomain pair across niches. Plain subject headings, such as AWS Cloud and DevOps, sit above closed collection dropdowns. Each summary shows the collection hierarchy linked to `source_url`, followed by the niche. Its next line shows the full path as inline code, the calculated lab count, and a notes link when a collection README exists. Each lab's `ref` still links to its exact source. Completed and In progress use the same collection labels and paths with counts for the displayed status.
+
+Provider spelling comes from the existing source registry where a hierarchy label matches a registered ID; that lookup only formats a name. A few spelling and subject-title exceptions live in the generator, with readable slug-based fallbacks for new names. These labels never determine grouping. The generator keeps styles together and uses HTML links and `<code>` inside summaries because Markdown link syntax and backticks stay literal there.
 
 As a die-hard automater, I wanted the aggregate catalog generated from the get-go. Keeping metadata beside the work makes each lab portable and prevents the central index from becoming another hand-maintained database. Sure, I maintain a metadata file for each lab. That's the particular absurdity I've chosen.
 

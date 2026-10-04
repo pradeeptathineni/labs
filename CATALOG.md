@@ -6,6 +6,10 @@ small {
 summary {
     margin: 0 0 15px 0;
 }
+.catalog-path {
+  display: inline-block;
+  margin-left: 15px;
+}
 </style>
 
 # Lab Catalog
@@ -146,10 +150,10 @@ No labs in progress yet.
 <details>
 <summary>Browse all labs</summary>
 
-### [DevRoadmaps — AWS Cloud Architecture](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js)
+### AWS Cloud
 
 <details>
-<summary>code / cloud / aws / devroadmaps · 2 labs</summary>
+<summary><a href="https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js">DevRoadmaps</a> · Code<br/><span class="catalog-path"><code>code / cloud / aws / devroadmaps</code> · 2 labs</span></summary>
 
 - <a id="lab-niches-code-cloud-aws-devroadmaps-multi-region-architecture"></a>[Multi-Region Architecture](niches/code/cloud/aws/devroadmaps/multi-region-architecture/README.md#exercise-definition) — Design and implement a highly available multi-region architecture with failover and data replication.
   <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `aws` `dynamodb-streams` `route53` · [`ref`](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L64)</small>
@@ -158,10 +162,20 @@ No labs in progress yet.
 
 </details>
 
-### [DevRoadmaps — DevOps Projects](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js)
+<details>
+<summary>CLF-C02 · Study<br/><span class="catalog-path"><code>study / cloud / aws / clf-c02</code> · 2 labs</span></summary>
+
+- <a id="lab-niches-study-cloud-aws-clf-c02-cloudcertprep"></a>[CloudCertPrep CLF-C02 Question Bank](niches/study/cloud/aws/clf-c02/cloudcertprep/README.md#exercise-definition) — Practice and review 1050 adopted CLF-C02 questions across 4 domains.
+  <br/><small>`Question bank` · `Not started` · `1050 materialized questions` · `updated 2026-10-04` · `aws` `billing-pricing` `cloud-concepts` `security-compliance` · `CloudCertPrep` · [`ref`](https://github.com/nastaso/cloudcertprep/tree/9367b00d9f5b39676f4ec3413304d91a7dccbbfb/src/data/clf-c02)</small>
+- <a id="lab-niches-study-cloud-aws-clf-c02-kananinirav-aws-ccp"></a>[CLF-C02 Cloud Foundations Review](niches/study/cloud/aws/clf-c02/kananinirav-aws-ccp/README.md#exercise-definition) — Explain and compare cloud computing, IAM, EC2, S3, and VPC concepts from a bounded set of linked notes.
+  <br/><small>`Problem set` · `Not started` · `updated 2026-10-04` · `aws` `cloud-computing` `ec2` `iam` `s3` `vpc` · `AWS Certified Cloud Practitioner Notes by Kananinirav` · [`ref`](https://github.com/kananinirav/AWS-Certified-Cloud-Practitioner-Notes/tree/c508a2e5d3e8b20000715bc30bad52ed6d4798cf/sections)</small>
+
+</details>
+
+### DevOps
 
 <details>
-<summary>code / devops / devroadmaps · 5 labs</summary>
+<summary><a href="https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js">DevRoadmaps</a> · Code<br/><span class="catalog-path"><code>code / devops / devroadmaps</code> · 5 labs</span></summary>
 
 - <a id="lab-niches-code-devops-devroadmaps-ci-cd-pipeline"></a>[CI/CD Pipeline](niches/code/devops/devroadmaps/ci-cd-pipeline/README.md#exercise-definition) — Set up a GitHub Actions pipeline that tests, builds, and deploys a Node.js app to a cloud server.
   <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `docker` `github-actions` `linux` · [`ref`](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L29)</small>
@@ -176,10 +190,8 @@ No labs in progress yet.
 
 </details>
 
-### [roadmap.sh — DevOps Projects](https://roadmap.sh/devops/projects)
-
 <details>
-<summary>code / devops / roadmap-sh · 26 labs · <a href="niches/code/devops/roadmap-sh/README.md">notes</a></summary>
+<summary><a href="https://roadmap.sh/devops/projects">roadmap.sh</a> · Code<br/><span class="catalog-path"><code>code / devops / roadmap-sh</code> · 26 labs · <a href="niches/code/devops/roadmap-sh/README.md">notes</a></span></summary>
 
 1. <a id="lab-niches-code-devops-roadmap-sh-01-server-performance-stats"></a>[Server Performance Stats](niches/code/devops/roadmap-sh/01-server-performance-stats/README.md#exercise-definition) — Write a script that reports basic Linux server performance statistics.
    <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `bash` `filesystems` `linux` `performance-monitoring` `process-inspection` `resource-metrics` · [`ref`](https://roadmap.sh/projects/server-stats)</small>
@@ -233,18 +245,6 @@ No labs in progress yet.
     <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `docker` `docker-compose` `multi-service-architecture` `optimization` `service-networking` · [`ref`](https://roadmap.sh/projects/multiservice-docker)</small>
 26. <a id="lab-niches-code-devops-roadmap-sh-26-service-discovery"></a>[Service Discovery](niches/code/devops/roadmap-sh/26-service-discovery/README.md#exercise-definition) — Set up service discovery for dummy services with Consul.
     <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `consul` `dns` `networking` `service-discovery` · [`ref`](https://roadmap.sh/projects/service-discovery)</small>
-
-</details>
-
-### CLF-C02 — Cloud Practitioner Practice
-
-<details>
-<summary>study / cloud / aws / clf-c02 · 2 labs</summary>
-
-- <a id="lab-niches-study-cloud-aws-clf-c02-cloudcertprep"></a>[CloudCertPrep CLF-C02 Question Bank](niches/study/cloud/aws/clf-c02/cloudcertprep/README.md#exercise-definition) — Practice and review 1050 adopted CLF-C02 questions across 4 domains.
-  <br/><small>`Question bank` · `Not started` · `1050 materialized questions` · `updated 2026-10-04` · `aws` `billing-pricing` `cloud-concepts` `security-compliance` · `CloudCertPrep` · [`ref`](https://github.com/nastaso/cloudcertprep/tree/9367b00d9f5b39676f4ec3413304d91a7dccbbfb/src/data/clf-c02)</small>
-- <a id="lab-niches-study-cloud-aws-clf-c02-kananinirav-aws-ccp"></a>[CLF-C02 Cloud Foundations Review](niches/study/cloud/aws/clf-c02/kananinirav-aws-ccp/README.md#exercise-definition) — Explain and compare cloud computing, IAM, EC2, S3, and VPC concepts from a bounded set of linked notes.
-  <br/><small>`Problem set` · `Not started` · `updated 2026-10-04` · `aws` `cloud-computing` `ec2` `iam` `s3` `vpc` · `AWS Certified Cloud Practitioner Notes by Kananinirav` · [`ref`](https://github.com/kananinirav/AWS-Certified-Cloud-Practitioner-Notes/tree/c508a2e5d3e8b20000715bc30bad52ed6d4798cf/sections)</small>
 
 </details>
 
