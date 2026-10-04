@@ -1381,5 +1381,89 @@
     },
     "collection_title": "roadmap.sh — DevOps Projects",
     "goals_effective": []
+  },
+  {
+    "title": "CloudCertPrep CLF-C02 Question Bank",
+    "summary": "Practice and review 1050 adopted CLF-C02 questions across 4 domains.",
+    "type": "question-bank",
+    "skills": [
+      "aws",
+      "billing-pricing",
+      "cloud-concepts",
+      "security-compliance"
+    ],
+    "source": {
+      "provider": "cloudcertprep",
+      "item_id": "clf-c02/bank/cloudcertprep",
+      "url": "https://github.com/nastaso/cloudcertprep/tree/9367b00d9f5b39676f4ec3413304d91a7dccbbfb/src/data/clf-c02",
+      "revision": "9367b00d9f5b39676f4ec3413304d91a7dccbbfb"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-04",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "617fab74e7085be36bbd573985acc7c53fe578d0d883b7075f247453522b5628"
+    },
+    "niche": "study",
+    "domain": "cloud",
+    "group": "aws",
+    "collection": "clf-c02",
+    "path": "niches/study/cloud/aws/clf-c02/cloudcertprep",
+    "slug": "cloudcertprep",
+    "order": null,
+    "source_display": {
+      "name": "CloudCertPrep",
+      "type": "external",
+      "url": "https://github.com/nastaso/cloudcertprep"
+    },
+    "collection_title": "CLF-C02 — Cloud Practitioner Practice",
+    "goals_effective": [],
+    "question_count": 1050
+  },
+  {
+    "title": "CLF-C02 Cloud Foundations Review",
+    "summary": "Explain and compare cloud computing, IAM, EC2, S3, and VPC concepts from a bounded set of linked notes.",
+    "type": "problem-set",
+    "skills": [
+      "aws",
+      "cloud-computing",
+      "ec2",
+      "iam",
+      "s3",
+      "vpc"
+    ],
+    "source": {
+      "provider": "kananinirav-aws-ccp",
+      "url": "https://github.com/kananinirav/AWS-Certified-Cloud-Practitioner-Notes/tree/c508a2e5d3e8b20000715bc30bad52ed6d4798cf/sections",
+      "revision": "c508a2e5d3e8b20000715bc30bad52ed6d4798cf"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-04",
+        "started": null,
+        "updated": "2026-10-04",
+        "completed": null
+      },
+      "content_sha256": "4908e711b9312901e936e14e36d84911773b3206b9c51e1fa3001ad27cec39a7"
+    },
+    "niche": "study",
+    "domain": "cloud",
+    "group": "aws",
+    "collection": "clf-c02",
+    "path": "niches/study/cloud/aws/clf-c02/kananinirav-aws-ccp",
+    "slug": "kananinirav-aws-ccp",
+    "order": null,
+    "source_display": {
+      "name": "AWS Certified Cloud Practitioner Notes by Kananinirav",
+      "type": "external",
+      "url": "https://github.com/kananinirav/AWS-Certified-Cloud-Practitioner-Notes"
+    },
+    "collection_title": "CLF-C02 — Cloud Practitioner Practice",
+    "goals_effective": []
   }
 ]

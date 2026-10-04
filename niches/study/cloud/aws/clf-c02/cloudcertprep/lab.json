@@ -1,0 +1,27 @@
+{
+  "title": "CloudCertPrep CLF-C02 Question Bank",
+  "summary": "Practice and review 1050 adopted CLF-C02 questions across 4 domains.",
+  "type": "question-bank",
+  "skills": [
+    "aws",
+    "billing-pricing",
+    "cloud-concepts",
+    "security-compliance"
+  ],
+  "source": {
+    "provider": "cloudcertprep",
+    "item_id": "clf-c02/bank/cloudcertprep",
+    "url": "https://github.com/nastaso/cloudcertprep/tree/9367b00d9f5b39676f4ec3413304d91a7dccbbfb/src/data/clf-c02",
+    "revision": "9367b00d9f5b39676f4ec3413304d91a7dccbbfb"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-04",
+      "started": null,
+      "updated": "2026-10-04",
+      "completed": null
+    },
+    "content_sha256": "617fab74e7085be36bbd573985acc7c53fe578d0d883b7075f247453522b5628"
+  }
+}
