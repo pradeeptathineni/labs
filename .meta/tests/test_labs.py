@@ -9,6 +9,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from datetime import date
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parents[2]
@@ -113,13 +114,20 @@ class CoreTests(RepositoryCase):
             "source_url": "https://example.com/projects",
             "ordered": True,
         }))
-        self.init("code", "cloud", "projects", "First task", "--group", "aws", "--summary", "First summary", "--source", "roadmap-sh", "--source-url", "https://example.com/first", "--skill", "aws", "--skill", "route53")
-        self.init("code", "cloud", "projects", "Second task", "--group", "aws", "--source", "roadmap-sh", "--source-url", "https://example.com/second")
+        first_lab = self.init("code", "cloud", "projects", "First task", "--group", "aws", "--summary", "First summary", "--source", "roadmap-sh", "--source-url", "https://example.com/first", "--skill", "aws", "--skill", "route53")
+        second_lab = self.init("code", "cloud", "projects", "Second task", "--group", "aws", "--source", "roadmap-sh", "--source-url", "https://example.com/second")
         self.init("code", "cloud", "other", "Unordered task")
         catalog = (self.root / "CATALOG.md").read_text().splitlines()
-        self.assertEqual(catalog[:8], ["<style>", "small {", "  display: inline-block;", "  margin: 0 0 6px 15px;", "}", "</style>", "", "# Lab Catalog"])
-        self.assertIn("## [Example projects](https://example.com/projects)", catalog)
-        self.assertIn("code / cloud / aws / projects · 2 labs", catalog)
+        self.assertEqual(catalog[:11], ["<style>", "small {", "  display: inline-block;", "  margin: 0 0 6px 15px;", "}", "summary {", "    margin: 0 0 15px 0;", "}", "</style>", "", "# Lab Catalog"])
+        summaries = [line for line in catalog if line.startswith("<summary>")]
+        self.assertEqual(summaries[:4], ["<summary>Completed</summary>", "<summary>In progress</summary>", "<summary>Browse by skill</summary>", "<summary>Browse all labs</summary>"])
+        self.assertEqual(catalog[catalog.index(summaries[0]) - 1], "<details open>")
+        self.assertEqual(catalog[catalog.index(summaries[1]) - 1], "<details open>")
+        self.assertEqual(catalog[catalog.index(summaries[2]) - 1], "<details>")
+        self.assertEqual(catalog[catalog.index(summaries[3]) - 1], "<details>")
+        self.assertIn("### [Example projects](https://example.com/projects)", catalog)
+        self.assertIn("<summary>code / cloud / aws / projects</summary>", catalog)
+        self.assertNotIn("code / cloud / aws / projects · 2 labs", catalog)
         first = next(index for index, line in enumerate(catalog) if "First summary" in line)
         self.assertTrue(catalog[first].startswith('1. <a id="lab-niches-code-cloud-aws-projects-01-first-task"></a>'))
         self.assertIn("<br/><small>`Exercise` · `Not started` · `updated ", catalog[first + 1])
@@ -127,7 +135,72 @@ class CoreTests(RepositoryCase):
         self.assertTrue(catalog[first + 1].endswith("[`ref`](https://example.com/first)</small>"))
         self.assertTrue(catalog[first + 2].startswith('2. <a id="lab-niches-code-cloud-aws-projects-02-second-task"></a>'))
         self.assertTrue(next(line for line in catalog if "Unordered task" in line).startswith("- <a id="))
+        completed = self.command("scripts", "lab_meta.py", str(first_lab), "--status", "complete", "--yes")
+        self.assertEqual(completed.returncode, 0, completed.stderr)
+        in_progress = self.command("scripts", "lab_meta.py", str(second_lab), "--status", "in-progress", "--yes")
+        self.assertEqual(in_progress.returncode, 0, in_progress.stderr)
+        updated = (self.root / "CATALOG.md").read_text()
+        completed_section = updated.split("<summary>Completed</summary>", 1)[1].split("</details>", 1)[0]
+        progress_section = updated.split("<summary>In progress</summary>", 1)[1].split("</details>", 1)[0]
+        self.assertIn("**[Example projects](https://example.com/projects)** · code / cloud / aws / projects", completed_section)
+        self.assertIn("First summary", completed_section)
+        self.assertNotIn(" · [Solution]", completed_section)
+        self.assertIn("Second task", progress_section)
+        self.assertEqual(updated.count('id="lab-niches-code-cloud-aws-projects-01-first-task"'), 1)
         self.assertEqual(self.command("scripts", "catalog.py", "--check").returncode, 0)
+
+    def test_commit_hook_syncs_staged_lab_content(self) -> None:
+        lab = self.init("code", "devops", "tasks", "Tracked")
+        metadata = self.metadata(lab)
+        metadata["tracking"]["dates"]["updated"] = "2020-01-01"
+        (lab / "lab.json").write_text(json.dumps(metadata) + "\n")
+        self.assertEqual(self.command("scripts", "catalog.py").returncode, 0)
+        hook = self.root / ".githooks/pre-commit"
+        hook.parent.mkdir()
+        shutil.copy2(HERE / ".githooks/pre-commit", hook)
+        hook.chmod(0o755)
+        (self.root / "README.md").write_text("# Fixture\n")
+        self.git("add", ".")
+        self.git("commit", "-qm", "baseline")
+        self.git("config", "core.hooksPath", ".githooks")
+
+        original_hash = self.metadata(lab)["tracking"]["content_sha256"]
+        readme = lab / "README.md"
+        readme.write_text(readme.read_text() + "\nA worked note.\n")
+        self.assertEqual(self.metadata(lab)["tracking"]["content_sha256"], original_hash)
+        self.git("add", str(readme))
+        self.git("commit", "-qm", "record lab work")
+        recorded = self.metadata(lab)
+        self.assertNotEqual(recorded["tracking"]["content_sha256"], original_hash)
+        self.assertEqual(recorded["tracking"]["dates"]["updated"], date.today().isoformat())
+        self.assertEqual(recorded["tracking"]["status"], "not-started")
+        relative_metadata = (lab / "lab.json").relative_to(self.root).as_posix()
+        self.assertEqual(self.git("show", f"HEAD:{relative_metadata}").stdout, (lab / "lab.json").read_text())
+        self.assertEqual(self.git("show", "HEAD:CATALOG.md").stdout, (self.root / "CATALOG.md").read_text())
+
+        started = self.command("scripts", "lab_meta.py", str(lab), "--status", "in-progress", "--yes")
+        self.assertEqual(started.returncode, 0, started.stderr)
+        self.git("add", relative_metadata)
+        self.git("commit", "-qm", "start lab")
+        recorded = self.metadata(lab)
+        previous_commit = json.loads(self.git("show", f"HEAD^:{relative_metadata}").stdout)
+        self.assertEqual(recorded["tracking"]["status"], "in-progress")
+        self.assertEqual(recorded["tracking"]["content_sha256"], previous_commit["tracking"]["content_sha256"])
+        self.assertEqual(self.git("show", "HEAD:CATALOG.md").stdout, (self.root / "CATALOG.md").read_text())
+
+        readme.write_text(readme.read_text() + "\nAn unstaged draft.\n")
+        (self.root / "README.md").write_text("# Fixture\n\nStructure notes.\n")
+        self.git("add", "README.md")
+        self.git("commit", "-qm", "update structure notes")
+        self.assertEqual(self.metadata(lab), recorded)
+        candidate = self.metadata(lab)
+        candidate["summary"] = "A staged metadata edit"
+        (lab / "lab.json").write_text(json.dumps(candidate) + "\n")
+        self.git("add", str(lab / "lab.json"))
+        blocked = subprocess.run(["git", "commit", "-m", "reject mixed snapshot"], cwd=self.root, capture_output=True, text=True)
+        self.assertNotEqual(blocked.returncode, 0)
+        self.assertIn("Unstaged lab/catalog inputs", blocked.stderr)
+        self.assertIn("An unstaged draft.", readme.read_text())
 
     def test_collision_cancellation_clearing_and_lifecycle(self) -> None:
         one = self.init("code", "devops", "tasks", "One", "--summary", "Original summary")

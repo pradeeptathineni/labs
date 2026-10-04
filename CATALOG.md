@@ -3,6 +3,9 @@ small {
   display: inline-block;
   margin: 0 0 6px 15px;
 }
+summary {
+    margin: 0 0 15px 0;
+}
 </style>
 
 # Lab Catalog
@@ -13,8 +16,22 @@ Types: Problem set 1, Project 33, Question bank 1.
 
 Imported material is planned practice until I record work. Skills are targets, and the update date records a content snapshot.
 
+<details open>
+<summary>Completed</summary>
+
+No completed labs yet.
+
+</details>
+
+<details open>
+<summary>In progress</summary>
+
+No labs in progress yet.
+
+</details>
+
 <details>
-<summary>Find work by skill</summary>
+<summary>Browse by skill</summary>
 
 - **linux** (9): [CI/CD Pipeline](#lab-niches-code-devops-devroadmaps-ci-cd-pipeline), [Server Performance Stats](#lab-niches-code-devops-roadmap-sh-01-server-performance-stats), [SSH Remote Server Setup](#lab-niches-code-devops-roadmap-sh-05-ssh-remote-server-setup), [Static Site Server](#lab-niches-code-devops-roadmap-sh-06-static-site-server), [Simple Monitoring](#lab-niches-code-devops-roadmap-sh-08-simple-monitoring), [Dummy Systemd Service](#lab-niches-code-devops-roadmap-sh-09-dummy-systemd-service), [Configuration Management](#lab-niches-code-devops-roadmap-sh-13-configuration-management), [Linux Server Setup](#lab-niches-code-devops-roadmap-sh-21-linux-server-setup), [VPN Server Setup](#lab-niches-code-devops-roadmap-sh-22-vpn-server-setup)
 - **docker** (6): [CI/CD Pipeline](#lab-niches-code-devops-devroadmaps-ci-cd-pipeline), [Monitoring Stack](#lab-niches-code-devops-devroadmaps-monitoring-stack), [Basic Dockerfile](#lab-niches-code-devops-roadmap-sh-10-basic-dockerfile), [Dockerized Service](#lab-niches-code-devops-roadmap-sh-16-dockerized-service), [Multi-Container Application](#lab-niches-code-devops-roadmap-sh-17-multi-container-application), [Multi-Service Application](#lab-niches-code-devops-roadmap-sh-25-multi-service-application)
@@ -126,18 +143,25 @@ Imported material is planned practice until I record work. Skills are targets, a
 
 </details>
 
-## [DevRoadmaps — AWS Cloud Architecture](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js)
+<details>
+<summary>Browse all labs</summary>
 
-code / cloud / aws / devroadmaps · 2 labs
+### [DevRoadmaps — AWS Cloud Architecture](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js)
+
+<details>
+<summary>code / cloud / aws / devroadmaps</summary>
 
 - <a id="lab-niches-code-cloud-aws-devroadmaps-multi-region-architecture"></a>[Multi-Region Architecture](niches/code/cloud/aws/devroadmaps/multi-region-architecture/README.md#exercise-definition) — Design and implement a highly available multi-region architecture with failover and data replication.
   <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `aws` `dynamodb-streams` `route53` · [`ref`](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L64)</small>
 - <a id="lab-niches-code-cloud-aws-devroadmaps-serverless-api"></a>[Serverless API](niches/code/cloud/aws/devroadmaps/serverless-api/README.md#exercise-definition) — Build a serverless REST API using AWS Lambda, API Gateway, DynamoDB, and Cognito.
   <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `api-gateway` `aws-lambda` `dynamodb` · [`ref`](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L63)</small>
 
-## [DevRoadmaps — DevOps Projects](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js)
+</details>
 
-code / devops / devroadmaps · 5 labs
+### [DevRoadmaps — DevOps Projects](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js)
+
+<details>
+<summary>code / devops / devroadmaps</summary>
 
 - <a id="lab-niches-code-devops-devroadmaps-ci-cd-pipeline"></a>[CI/CD Pipeline](niches/code/devops/devroadmaps/ci-cd-pipeline/README.md#exercise-definition) — Set up a GitHub Actions pipeline that tests, builds, and deploys a Node.js app to a cloud server.
   <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `docker` `github-actions` `linux` · [`ref`](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L29)</small>
@@ -150,12 +174,12 @@ code / devops / devroadmaps · 5 labs
 - <a id="lab-niches-code-devops-devroadmaps-monitoring-stack"></a>[Monitoring Stack](niches/code/devops/devroadmaps/monitoring-stack/README.md#exercise-definition) — Deploy Prometheus, Grafana, and Alertmanager to monitor a microservices application.
   <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `docker` `grafana` `prometheus` · [`ref`](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L31)</small>
 
-## [roadmap.sh — DevOps Projects](https://roadmap.sh/devops/projects)
+</details>
 
-code / devops / roadmap-sh · 26 labs · [notes](niches/code/devops/roadmap-sh/README.md)
+### [roadmap.sh — DevOps Projects](https://roadmap.sh/devops/projects) · [notes](niches/code/devops/roadmap-sh/README.md)
 
 <details>
-<summary>26 planned labs</summary>
+<summary>code / devops / roadmap-sh</summary>
 
 1. <a id="lab-niches-code-devops-roadmap-sh-01-server-performance-stats"></a>[Server Performance Stats](niches/code/devops/roadmap-sh/01-server-performance-stats/README.md#exercise-definition) — Write a script that reports basic Linux server performance statistics.
    <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `bash` `filesystems` `linux` `performance-monitoring` `process-inspection` `resource-metrics` · [`ref`](https://roadmap.sh/projects/server-stats)</small>
@@ -212,11 +236,16 @@ code / devops / roadmap-sh · 26 labs · [notes](niches/code/devops/roadmap-sh/R
 
 </details>
 
-## CLF-C02 — Cloud Practitioner Practice
+### CLF-C02 — Cloud Practitioner Practice
 
-study / cloud / aws / clf-c02 · 2 labs
+<details>
+<summary>study / cloud / aws / clf-c02</summary>
 
 - <a id="lab-niches-study-cloud-aws-clf-c02-cloudcertprep"></a>[CloudCertPrep CLF-C02 Question Bank](niches/study/cloud/aws/clf-c02/cloudcertprep/README.md#exercise-definition) — Practice and review 1050 adopted CLF-C02 questions across 4 domains.
   <br/><small>`Question bank` · `Not started` · `1050 materialized questions` · `updated 2026-10-04` · `aws` `billing-pricing` `cloud-concepts` `security-compliance` · `CloudCertPrep` · [`ref`](https://github.com/nastaso/cloudcertprep/tree/9367b00d9f5b39676f4ec3413304d91a7dccbbfb/src/data/clf-c02)</small>
 - <a id="lab-niches-study-cloud-aws-clf-c02-kananinirav-aws-ccp"></a>[CLF-C02 Cloud Foundations Review](niches/study/cloud/aws/clf-c02/kananinirav-aws-ccp/README.md#exercise-definition) — Explain and compare cloud computing, IAM, EC2, S3, and VPC concepts from a bounded set of linked notes.
   <br/><small>`Problem set` · `Not started` · `updated 2026-10-04` · `aws` `cloud-computing` `ec2` `iam` `s3` `vpc` · `AWS Certified Cloud Practitioner Notes by Kananinirav` · [`ref`](https://github.com/kananinirav/AWS-Certified-Cloud-Practitioner-Notes/tree/c508a2e5d3e8b20000715bc30bad52ed6d4798cf/sections)</small>
+
+</details>
+
+</details>

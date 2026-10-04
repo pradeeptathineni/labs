@@ -293,6 +293,9 @@ def render_catalog(records: list[dict[str, Any]]) -> str:
         "  display: inline-block;",
         "  margin: 0 0 6px 15px;",
         "}",
+        "summary {",
+        "    margin: 0 0 15px 0;",
+        "}",
         "</style>",
         "",
         "# Lab Catalog",
@@ -304,57 +307,75 @@ def render_catalog(records: list[dict[str, Any]]) -> str:
         "Imported material is planned practice until I record work. Skills are targets, and the update date records a content snapshot.",
         "",
     ]
-    skills = Counter(skill for item in records for skill in item["skills"])
-    if skills:
-        lines += ["<details>", "<summary>Find work by skill</summary>", ""]
-        for skill, count in skills.most_common():
-            matches = [item for item in records if skill in item["skills"]]
-            links = ", ".join(f"[{_escape(item['title'])}](#{_anchor(item)})" for item in matches)
-            lines.append(f"- **{skill}** ({count}): {links}")
-        lines += ["", "</details>", ""]
-    goals = Counter(goal for item in records for goal in item["goals_effective"])
-    if goals:
-        lines += ["<details>", "<summary>Find work by goal</summary>", ""]
-        for goal, count in goals.most_common():
-            matches = [item for item in records if goal in item["goals_effective"]]
-            links = ", ".join(f"[{_escape(item['title'])}](#{_anchor(item)})" for item in matches)
-            lines.append(f"- **{goal}** ({count}): {links}")
-        lines += ["", "</details>", ""]
     groups: dict[tuple[str, str, str | None, str], list[dict[str, Any]]] = defaultdict(list)
     for item in records:
         groups[item["niche"], item["domain"], item["group"], item["collection"]].append(item)
     ranked = sorted(groups.items(), key=lambda pair: (not any(item["tracking"]["status"] != "not-started" for item in pair[1]), pair[0][0], pair[0][1], pair[0][2] or "", pair[0][3]))
-    for (niche, domain, group, collection), items in ranked:
-        title = items[0]["collection_title"]
-        breadcrumb = " / ".join(filter(None, (niche, domain, group, collection)))
-        collection_path = (ROOT / items[0]["path"]).parent
-        readme = collection_path / "README.md"
-        source_url = items[0].get("collection_source_url")
-        show_source_name = not source_url or len({item["source"]["provider"] for item in items}) > 1
-        heading = f"[{_escape(title)}]({source_url})" if source_url else _escape(title)
-        notes = f" · [notes]({display_path(readme)})" if readme.is_file() else ""
-        lines += [f"## {heading}", "", f"{breadcrumb} · {len(items)} lab{'s' if len(items) != 1 else ''}{notes}", ""]
-        active = [item for item in items if item["tracking"]["status"] != "not-started"]
-        planned = [item for item in items if item["tracking"]["status"] == "not-started"]
-        for item in active:
-            lines += _catalog_entry(item, show_source_name)
-        if active:
+    for status, title, empty_message in (
+        ("complete", "Completed", "No completed labs yet."),
+        ("in-progress", "In progress", "No labs in progress yet."),
+    ):
+        lines += ["<details open>", f"<summary>{title}</summary>", ""]
+        found = False
+        for key, items in ranked:
+            matches = [item for item in items if item["tracking"]["status"] == status]
+            if not matches:
+                continue
+            found = True
+            heading, breadcrumb, show_source_name = _collection_display(key, items)
+            lines += [f"**{heading}** · {breadcrumb}", ""]
+            for item in matches:
+                lines += _catalog_entry(item, show_source_name, show_order=False, anchor=False)
             lines.append("")
-        if planned and len(planned) > 6:
-            lines += ["<details>", f"<summary>{len(planned)} planned labs</summary>", ""]
-        for item in planned:
+        if not found:
+            lines.append(empty_message)
+        lines += ["", "</details>", ""]
+    skills = Counter(skill for item in records for skill in item["skills"])
+    lines += ["<details>", "<summary>Browse by skill</summary>", ""]
+    if skills:
+        for skill, count in skills.most_common():
+            matches = [item for item in records if skill in item["skills"]]
+            links = ", ".join(f"[{_escape(item['title'])}](#{_anchor(item)})" for item in matches)
+            lines.append(f"- **{skill}** ({count}): {links}")
+    else:
+        lines.append("No skills indexed yet.")
+    goals = Counter(goal for item in records for goal in item["goals_effective"])
+    if goals:
+        lines += ["", "**Goals**", ""]
+        for goal, count in goals.most_common():
+            matches = [item for item in records if goal in item["goals_effective"]]
+            links = ", ".join(f"[{_escape(item['title'])}](#{_anchor(item)})" for item in matches)
+            lines.append(f"- **{goal}** ({count}): {links}")
+    lines += ["", "</details>", ""]
+    lines += ["<details>", "<summary>Browse all labs</summary>", ""]
+    for key, items in ranked:
+        heading, breadcrumb, show_source_name = _collection_display(key, items)
+        lines += [f"### {heading}", "", "<details>", f"<summary>{breadcrumb}</summary>", ""]
+        for item in items:
             lines += _catalog_entry(item, show_source_name)
-        if planned:
-            lines.append("")
-        if planned and len(planned) > 6:
-            lines += ["</details>", ""]
+        lines += ["", "</details>", ""]
+    lines += ["</details>", ""]
     return "\n".join(lines).rstrip() + "\n"
 
 
-def _catalog_entry(item: dict[str, Any], show_source_name: bool) -> list[str]:
+def _collection_display(key: tuple[str, str, str | None, str], items: list[dict[str, Any]]) -> tuple[str, str, bool]:
+    niche, domain, group, collection = key
+    title = items[0]["collection_title"]
+    breadcrumb = " / ".join(filter(None, (niche, domain, group, collection)))
+    collection_path = (ROOT / items[0]["path"]).parent
+    readme = collection_path / "README.md"
+    source_url = items[0].get("collection_source_url")
+    show_source_name = not source_url or len({item["source"]["provider"] for item in items}) > 1
+    heading = f"[{_escape(title)}]({source_url})" if source_url else _escape(title)
+    if readme.is_file():
+        heading += f" · [notes]({display_path(readme)})"
+    return heading, breadcrumb, show_source_name
+
+
+def _catalog_entry(item: dict[str, Any], show_source_name: bool, *, show_order: bool = True, anchor: bool = True) -> list[str]:
     base = item["path"]
     source = item["source"]
-    marker = f"{item['order']}." if item["order"] is not None else "-"
+    marker = f"{item['order']}." if show_order and item["order"] is not None else "-"
     summary = item.get("summary", "Open the source brief and work through the exercise.")
     readme = ROOT / base / "README.md"
     exercise = f"[{_escape(item['title'])}]({base}/README.md#exercise-definition)" if readme.is_file() else _escape(item["title"])
@@ -362,7 +383,7 @@ def _catalog_entry(item: dict[str, Any], show_source_name: bool) -> list[str]:
     solution = links.get("solution")
     if solution:
         solution_link = f" · [Solution]({solution})"
-    elif item["tracking"]["status"] != "not-started" and readme.is_file() and "## Solution" in readme.read_text(encoding="utf-8"):
+    elif item["tracking"]["status"] != "not-started" and readme.is_file() and _readme_has_solution(readme):
         solution_link = f" · [Solution]({base}/README.md#solution)"
     else:
         solution_link = ""
@@ -379,10 +400,20 @@ def _catalog_entry(item: dict[str, Any], show_source_name: bool) -> list[str]:
     if source.get("url"):
         details.append(f"[`ref`]({source['url']})")
     indent = " " * (len(marker) + 1)
+    anchor_tag = f'<a id="{_anchor(item)}"></a>' if anchor else ""
     return [
-        f"{marker} <a id=\"{_anchor(item)}\"></a>{exercise}{solution_link} — {_escape(summary)}",
+        f"{marker} {anchor_tag}{exercise}{solution_link} — {_escape(summary)}",
         f"{indent}<br/><small>{' · '.join(details)}</small>",
     ]
+
+
+def _readme_has_solution(readme: Path) -> bool:
+    content = readme.read_text(encoding="utf-8")
+    heading = re.search(r"(?m)^## Solution[ \t]*$", content)
+    if heading is None:
+        return False
+    section = re.split(r"(?m)^## ", content[heading.end():], maxsplit=1)[0]
+    return bool(section.strip())
 
 
 def _anchor(item: dict[str, Any]) -> str:
