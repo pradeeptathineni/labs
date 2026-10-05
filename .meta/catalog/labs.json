@@ -41,7 +41,16 @@
     "collection_title": "DevRoadmaps",
     "collection_source_url": "https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/cloud/aws/devroadmaps",
+    "subject_title": "AWS Cloud",
+    "collection_breadcrumb": [
+      "Code",
+      "DevRoadmaps"
+    ],
+    "exercise_link": "niches/code/cloud/aws/devroadmaps/multi-region-architecture/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
   },
   {
     "title": "Serverless API",
@@ -85,7 +94,16 @@
     "collection_title": "DevRoadmaps",
     "collection_source_url": "https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/cloud/aws/devroadmaps",
+    "subject_title": "AWS Cloud",
+    "collection_breadcrumb": [
+      "Code",
+      "DevRoadmaps"
+    ],
+    "exercise_link": "niches/code/cloud/aws/devroadmaps/serverless-api/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
   },
   {
     "title": "CI/CD Pipeline",
@@ -129,7 +147,16 @@
     "collection_title": "DevRoadmaps",
     "collection_source_url": "https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/devroadmaps",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "DevRoadmaps"
+    ],
+    "exercise_link": "niches/code/devops/devroadmaps/ci-cd-pipeline/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
   },
   {
     "title": "GitOps Deployment",
@@ -173,7 +200,16 @@
     "collection_title": "DevRoadmaps",
     "collection_source_url": "https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/devroadmaps",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "DevRoadmaps"
+    ],
+    "exercise_link": "niches/code/devops/devroadmaps/gitops-deployment/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
   },
   {
     "title": "Infrastructure as Code",
@@ -217,7 +253,16 @@
     "collection_title": "DevRoadmaps",
     "collection_source_url": "https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/devroadmaps",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "DevRoadmaps"
+    ],
+    "exercise_link": "niches/code/devops/devroadmaps/infrastructure-as-code/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
   },
   {
     "title": "Kubernetes Cluster",
@@ -261,7 +306,16 @@
     "collection_title": "DevRoadmaps",
     "collection_source_url": "https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/devroadmaps",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "DevRoadmaps"
+    ],
+    "exercise_link": "niches/code/devops/devroadmaps/kubernetes-cluster/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
   },
   {
     "title": "Monitoring Stack",
@@ -305,7 +359,16 @@
     "collection_title": "DevRoadmaps",
     "collection_source_url": "https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/devroadmaps",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "DevRoadmaps"
+    ],
+    "exercise_link": "niches/code/devops/devroadmaps/monitoring-stack/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
   },
   {
     "title": "Server Performance Stats",
@@ -351,7 +414,16 @@
     "collection_title": "roadmap.sh",
     "collection_source_url": "https://roadmap.sh/devops/projects",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/roadmap-sh",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "roadmap.sh"
+    ],
+    "exercise_link": "niches/code/devops/roadmap-sh/01-server-performance-stats/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
     "title": "Log Archive Tool",
@@ -396,7 +468,16 @@
     "collection_title": "roadmap.sh",
     "collection_source_url": "https://roadmap.sh/devops/projects",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/roadmap-sh",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "roadmap.sh"
+    ],
+    "exercise_link": "niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
     "title": "Nginx Log Analyser",
@@ -442,7 +523,16 @@
     "collection_title": "roadmap.sh",
     "collection_source_url": "https://roadmap.sh/devops/projects",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/roadmap-sh",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "roadmap.sh"
+    ],
+    "exercise_link": "niches/code/devops/roadmap-sh/03-nginx-log-analyser/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
     "title": "GitHub Pages Deployment",
@@ -487,7 +577,16 @@
     "collection_title": "roadmap.sh",
     "collection_source_url": "https://roadmap.sh/devops/projects",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/roadmap-sh",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "roadmap.sh"
+    ],
+    "exercise_link": "niches/code/devops/roadmap-sh/04-github-pages-deployment/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
     "title": "SSH Remote Server Setup",
@@ -531,7 +630,16 @@
     "collection_title": "roadmap.sh",
     "collection_source_url": "https://roadmap.sh/devops/projects",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/roadmap-sh",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "roadmap.sh"
+    ],
+    "exercise_link": "niches/code/devops/roadmap-sh/05-ssh-remote-server-setup/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
     "title": "Static Site Server",
@@ -577,7 +685,16 @@
     "collection_title": "roadmap.sh",
     "collection_source_url": "https://roadmap.sh/devops/projects",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/roadmap-sh",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "roadmap.sh"
+    ],
+    "exercise_link": "niches/code/devops/roadmap-sh/06-static-site-server/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
     "title": "Basic DNS Setup",
@@ -621,7 +738,16 @@
     "collection_title": "roadmap.sh",
     "collection_source_url": "https://roadmap.sh/devops/projects",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/roadmap-sh",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "roadmap.sh"
+    ],
+    "exercise_link": "niches/code/devops/roadmap-sh/07-basic-dns-setup/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
     "title": "Simple Monitoring",
@@ -669,7 +795,16 @@
     "collection_title": "roadmap.sh",
     "collection_source_url": "https://roadmap.sh/devops/projects",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/roadmap-sh",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "roadmap.sh"
+    ],
+    "exercise_link": "niches/code/devops/roadmap-sh/08-simple-monitoring/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
     "title": "Dummy Systemd Service",
@@ -714,7 +849,16 @@
     "collection_title": "roadmap.sh",
     "collection_source_url": "https://roadmap.sh/devops/projects",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/roadmap-sh",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "roadmap.sh"
+    ],
+    "exercise_link": "niches/code/devops/roadmap-sh/09-dummy-systemd-service/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
     "title": "Basic Dockerfile",
@@ -758,7 +902,16 @@
     "collection_title": "roadmap.sh",
     "collection_source_url": "https://roadmap.sh/devops/projects",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/roadmap-sh",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "roadmap.sh"
+    ],
+    "exercise_link": "niches/code/devops/roadmap-sh/10-basic-dockerfile/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
     "title": "EC2 Instance",
@@ -803,7 +956,16 @@
     "collection_title": "roadmap.sh",
     "collection_source_url": "https://roadmap.sh/devops/projects",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/roadmap-sh",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "roadmap.sh"
+    ],
+    "exercise_link": "niches/code/devops/roadmap-sh/11-ec2-instance/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
     "title": "Pomodoro Timer",
@@ -850,7 +1012,16 @@
     "collection_title": "roadmap.sh",
     "collection_source_url": "https://roadmap.sh/devops/projects",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/roadmap-sh",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "roadmap.sh"
+    ],
+    "exercise_link": "niches/code/devops/roadmap-sh/12-pomodoro-timer/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
     "title": "Configuration Management",
@@ -895,7 +1066,16 @@
     "collection_title": "roadmap.sh",
     "collection_source_url": "https://roadmap.sh/devops/projects",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/roadmap-sh",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "roadmap.sh"
+    ],
+    "exercise_link": "niches/code/devops/roadmap-sh/13-configuration-management/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
     "title": "IaC on DigitalOcean",
@@ -939,7 +1119,16 @@
     "collection_title": "roadmap.sh",
     "collection_source_url": "https://roadmap.sh/devops/projects",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/roadmap-sh",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "roadmap.sh"
+    ],
+    "exercise_link": "niches/code/devops/roadmap-sh/14-iac-digitalocean/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
     "title": "Node.js Service Deployment",
@@ -984,7 +1173,16 @@
     "collection_title": "roadmap.sh",
     "collection_source_url": "https://roadmap.sh/devops/projects",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/roadmap-sh",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "roadmap.sh"
+    ],
+    "exercise_link": "niches/code/devops/roadmap-sh/15-nodejs-service-deployment/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
     "title": "Dockerized Service",
@@ -1029,7 +1227,16 @@
     "collection_title": "roadmap.sh",
     "collection_source_url": "https://roadmap.sh/devops/projects",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/roadmap-sh",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "roadmap.sh"
+    ],
+    "exercise_link": "niches/code/devops/roadmap-sh/16-dockerized-service/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
     "title": "Multi-Container Application",
@@ -1073,7 +1280,16 @@
     "collection_title": "roadmap.sh",
     "collection_source_url": "https://roadmap.sh/devops/projects",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/roadmap-sh",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "roadmap.sh"
+    ],
+    "exercise_link": "niches/code/devops/roadmap-sh/17-multi-container-application/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
     "title": "Automated DB Backups",
@@ -1120,7 +1336,16 @@
     "collection_title": "roadmap.sh",
     "collection_source_url": "https://roadmap.sh/devops/projects",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/roadmap-sh",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "roadmap.sh"
+    ],
+    "exercise_link": "niches/code/devops/roadmap-sh/18-automated-db-backups/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
     "title": "Bastion Host",
@@ -1165,7 +1390,16 @@
     "collection_title": "roadmap.sh",
     "collection_source_url": "https://roadmap.sh/devops/projects",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/roadmap-sh",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "roadmap.sh"
+    ],
+    "exercise_link": "niches/code/devops/roadmap-sh/19-bastion-host/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
     "title": "File Integrity Checker",
@@ -1210,7 +1444,16 @@
     "collection_title": "roadmap.sh",
     "collection_source_url": "https://roadmap.sh/devops/projects",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/roadmap-sh",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "roadmap.sh"
+    ],
+    "exercise_link": "niches/code/devops/roadmap-sh/20-file-integrity-checker/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
     "title": "Linux Server Setup",
@@ -1255,7 +1498,16 @@
     "collection_title": "roadmap.sh",
     "collection_source_url": "https://roadmap.sh/devops/projects",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/roadmap-sh",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "roadmap.sh"
+    ],
+    "exercise_link": "niches/code/devops/roadmap-sh/21-linux-server-setup/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
     "title": "VPN Server Setup",
@@ -1301,7 +1553,16 @@
     "collection_title": "roadmap.sh",
     "collection_source_url": "https://roadmap.sh/devops/projects",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/roadmap-sh",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "roadmap.sh"
+    ],
+    "exercise_link": "niches/code/devops/roadmap-sh/22-vpn-server-setup/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
     "title": "Blue-Green Deployment",
@@ -1345,7 +1606,16 @@
     "collection_title": "roadmap.sh",
     "collection_source_url": "https://roadmap.sh/devops/projects",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/roadmap-sh",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "roadmap.sh"
+    ],
+    "exercise_link": "niches/code/devops/roadmap-sh/23-blue-green-deployment/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
     "title": "Prometheus and Grafana",
@@ -1390,7 +1660,16 @@
     "collection_title": "roadmap.sh",
     "collection_source_url": "https://roadmap.sh/devops/projects",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/roadmap-sh",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "roadmap.sh"
+    ],
+    "exercise_link": "niches/code/devops/roadmap-sh/24-prometheus-and-grafana/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
     "title": "Multi-Service Application",
@@ -1435,7 +1714,16 @@
     "collection_title": "roadmap.sh",
     "collection_source_url": "https://roadmap.sh/devops/projects",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/roadmap-sh",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "roadmap.sh"
+    ],
+    "exercise_link": "niches/code/devops/roadmap-sh/25-multi-service-application/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
     "title": "Service Discovery",
@@ -1479,7 +1767,16 @@
     "collection_title": "roadmap.sh",
     "collection_source_url": "https://roadmap.sh/devops/projects",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/roadmap-sh",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "roadmap.sh"
+    ],
+    "exercise_link": "niches/code/devops/roadmap-sh/26-service-discovery/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
     "title": "CloudCertPrep CLF-C02 Question Bank",
@@ -1523,6 +1820,15 @@
     "collection_title": "CLF-C02",
     "tools_effective": [],
     "goals_effective": [],
+    "collection_path": "niches/study/cloud/aws/clf-c02",
+    "subject_title": "AWS Cloud",
+    "collection_breadcrumb": [
+      "Study",
+      "CLF-C02"
+    ],
+    "exercise_link": "niches/study/cloud/aws/clf-c02/cloudcertprep/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null,
     "question_count": 1050
   },
   {
@@ -1567,6 +1873,15 @@
     },
     "collection_title": "CLF-C02",
     "tools_effective": [],
-    "goals_effective": []
+    "goals_effective": [],
+    "collection_path": "niches/study/cloud/aws/clf-c02",
+    "subject_title": "AWS Cloud",
+    "collection_breadcrumb": [
+      "Study",
+      "CLF-C02"
+    ],
+    "exercise_link": "niches/study/cloud/aws/clf-c02/kananinirav-aws-ccp/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
   }
 ]

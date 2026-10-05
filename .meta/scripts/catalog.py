@@ -11,7 +11,7 @@ import re
 import stat
 import sys
 import tempfile
-from urllib.parse import unquote
+from urllib.parse import unquote, urlsplit
 from collections import Counter, defaultdict
 from collections.abc import Mapping
 from html.parser import HTMLParser
@@ -20,6 +20,9 @@ from typing import Any
 
 from jsonschema import Draft202012Validator, FormatChecker
 from jsonschema.exceptions import SchemaError
+
+if __name__ == "__main__":
+    sys.modules["catalog"] = sys.modules[__name__]
 
 ROOT = Path(__file__).resolve().parents[2]
 NICHES = ROOT / "niches"
@@ -33,7 +36,7 @@ CATALOG_PATH = ROOT / "CATALOG.md"
 SLUG_PATTERN = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
 ORDER_PATTERN = re.compile(r"([0-9]+)-([a-z0-9]+(?:-[a-z0-9]+)*)")
 LAB_DIR_PATTERN = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
-DISPLAY_NAMES = {"aws": "AWS", "devops": "DevOps", "mit": "MIT"}
+DISPLAY_NAMES = {"aws": "AWS", "devops": "DevOps", "mit": "MIT", "cka": "CKA", "ckad": "CKAD", "cks": "CKS", "ai": "AI", "mlops": "MLOps", "qgis": "QGIS", "p5js": "p5.js"}
 SUBJECT_TITLES = {
     ("cloud", "aws"): "AWS Cloud",
     ("systems", "distributed"): "Distributed Systems",
@@ -162,6 +165,26 @@ def _lab_path_parts(path: Path, collection_overrides: Mapping[Path, Any] | None 
     return hierarchy, slug, order
 
 
+def validate_collection_layout(collections: Mapping[Path, dict[str, Any]]) -> None:
+    """Check actual or proposed destinations without creating any directories."""
+    parsed = {path: collection_parts(path, info) for path, info in collections.items()}
+    subdomains = {(item["domain"], item["subdomain"]) for item in parsed.values() if item["subdomain"]}
+    for path, item in parsed.items():
+        if item["subdomain"] is None:
+            first = item["groups"][0] if item["groups"] else item["collection"]
+            if (item["domain"], first) in subdomains:
+                raise CatalogError(f"Subject boundary conflicts for {item['domain']}/{first}: {display_path(path)}")
+        if any(parent in parsed for parent in path.parents):
+            raise CatalogError(f"Directory is both collection and container: {display_path(path)}")
+
+
+def safe_url(value: str) -> str:
+    parsed = urlsplit(value)
+    if parsed.scheme not in ("http", "https") or not parsed.hostname or parsed.username or parsed.password or any(ord(char) < 32 for char in value):
+        raise CatalogError(f"Unsafe public URL: {value!r}")
+    return value
+
+
 def source_for(provider: str, sources: dict[str, Any]) -> dict[str, Any]:
     if provider not in sources:
         raise CatalogError(f"Unregistered source provider {provider!r}")
@@ -225,8 +248,12 @@ def lab_record(path: Path, metadata: Any, sources: dict[str, Any], schema: dict[
     if dates["started"] and dates["completed"] and dates["started"] > dates["completed"]:
         raise CatalogError(f"Started date follows completed date: {display_path(path)}")
     for target in metadata.get("links", {}).values():
-        if not target.startswith(("http://", "https://")) and not (ROOT / target).is_file():
-            raise CatalogError(f"Local link does not exist: {target} in {display_path(path)}")
+        if target.startswith(("http://", "https://")):
+            safe_url(target)
+        else:
+            local = ROOT / unquote(target.split("#", 1)[0])
+            if not local.resolve().is_relative_to(ROOT.resolve()) or not local.is_file():
+                raise CatalogError(f"Local link does not exist: {target} in {display_path(path)}")
     record = ordered_lab(metadata)
     record.update({
         **hierarchy,
@@ -239,6 +266,16 @@ def lab_record(path: Path, metadata: Any, sources: dict[str, Any], schema: dict[
         record["collection_source_url"] = descriptor["source_url"]
     for facet in ("tools", "goals"):
         record[facet + "_effective"] = sorted(set(metadata.get(facet, [])) | set(descriptor.get(facet, [])))
+    # Resolve presentation facts once so Markdown and Pages cannot disagree.
+    record["collection_path"] = path.parent.parent.relative_to(ROOT).as_posix()
+    record["subject_title"] = subject_title(hierarchy["domain"], hierarchy["subdomain"])
+    record["collection_breadcrumb"] = [display_name(hierarchy["niche"]), *(display_name(group, sources) for group in hierarchy["groups"]), record["collection_title"]]
+    readme = path.parent / "README.md"
+    record["exercise_link"] = record["path"] + "/README.md#exercise-definition" if readme.is_file() else None
+    record["solution_link"] = metadata.get("links", {}).get("solution")
+    if not record["solution_link"] and readme.is_file() and _readme_has_solution(readme):
+        record["solution_link"] = record["path"] + "/README.md#solution"
+    record["collection_notes"] = record["collection_path"] + "/README.md" if (path.parent.parent / "README.md").is_file() else None
     question_file = path.parent / "questions.json"
     if metadata["type"] == "question-bank" and question_file.is_file():
         data = read_json(question_file)
@@ -265,6 +302,7 @@ def collect_labs(overrides: Mapping[Path, Any] | None = None, sources_override: 
     for path, value in (overrides or {}).items():
         by_path[path.absolute()] = value
     records = [lab_record(path, value, sources, schema, collection_overrides=collection_overrides) for path, value in sorted(by_path.items())]
+    validate_collection_layout({ROOT / record["collection_path"]: collection_info(ROOT / record["collection_path"], collection_overrides) for record in records})
     source_ids: dict[tuple[str, str], str] = {}
     collection_paths: set[Path] = set()
     container_paths: set[Path] = set()
@@ -330,141 +368,81 @@ def subject_title(domain: str, subdomain: str | None) -> str:
 def render_catalog(records: list[dict[str, Any]], sources: dict[str, Any]) -> str:
     statuses = Counter(item["tracking"]["status"] for item in records)
     types = Counter(item["type"] for item in records)
-    lines = [
-        "<style>",
-        "small {",
-        "  display: inline-block;",
-        "}",
-        "summary, small {",
-        "    margin: 0 0 15px 0;",
-        "}",
-        "summary small {",
-        "    margin: 0 0 0 15px;",
-        "}",
-        ".catalog-section-title {",
-        "    font-size: 1.25em;",
-        "    font-weight: 600;",
-        "}",
-        ".catalog-all > h3, .catalog-all > details, .catalog-all > hr {",
-        "    margin-left: 2.5rem;",
-        "}",
-        "</style>",
-        "",
-        "# Lab Catalog",
-        "",
-        f"**{len(records)} labs** · {statuses['complete']} complete · {statuses['in-progress']} in progress · {statuses['not-started']} planned · {statuses['paused']} paused · {statuses['abandoned']} abandoned",
-        "",
-        "**Types:** " + " · ".join(f"{_label(key)} {value}" for key, value in sorted(types.items(), key=lambda pair: (-pair[1], _label(pair[0])))),
-        "",
-    ]
-    groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
-    for item in records:
-        groups[str(Path(item["path"]).parent)].append(item)
-    ranked = sorted(groups.values(), key=lambda items: (
-        not any(item["tracking"]["status"] != "not-started" for item in items),
-        items[0]["domain"], items[0]["subdomain"] or "", items[0]["path"],
-    ))
-    for status, title, empty_message in (
-        ("complete", "✅ Completed", "No completed labs yet."),
-        ("in-progress", "🛠️ In progress", "No labs in progress yet."),
-    ):
-        lines += ["---", "", "<details open>", f'<summary class="catalog-section-title">{title}</summary>', ""]
-        found = False
-        for items in ranked:
-            matches = [item for item in items if item["tracking"]["status"] == status]
-            if not matches:
-                continue
-            found = True
-            heading, path_line = _collection_display(matches, sources)
-            lines += [f"**{heading}**<br/>{path_line}", ""]
-            for item in matches:
-                lines += _catalog_entry(item, show_order=False, anchor=False)
-            lines.append("")
-        if not found:
-            lines.append(empty_message)
+    atlas_path = ROOT / ".meta/catalog/atlas.json"
+    goals = read_json(atlas_path).get("goals", {}) if atlas_path.exists() else {}
+    lines = ["# Lab Catalog", "",
+             "[Visual workbench](https://pradeeptathineni.github.io/labs/) · [Practice atlas](PRACTICE-ATLAS.md) · [About this repo](README.md)" if atlas_path.exists() else "",
+             "", f"**{len(records)} labs** · {statuses['complete']} complete · {statuses['in-progress']} in progress · {statuses['not-started']} planned · {statuses['paused']} paused · {statuses['abandoned']} abandoned", "",
+             "**Types:** " + " · ".join(f"{_label(key)} {value}" for key, value in sorted(types.items(), key=lambda pair: (-pair[1], _label(pair[0])))), "",
+             "> [!IMPORTANT]", "> Imported work is planned practice. Target skills are not demonstrated proficiency; certification goals are preparation, not credentials.", ""]
+    for status, title, empty in (("complete", "Completed", "No completed labs yet."), ("in-progress", "In progress", "No labs in progress yet.")):
+        lines += [f"## {title}", ""]
+        matches = [item for item in records if item["tracking"]["status"] == status]
+        for item in matches:
+            lines += _catalog_entry(item, show_order=False, anchor=False)
+        if not matches:
+            lines.append(empty)
+        lines.append("")
+    for field, title in (("skills", "Browse by skill"), ("tools_effective", "Browse by tool"), ("goals_effective", "Browse by goal")):
+        lines += ["<details>", f"<summary>{title}</summary>", ""]
+        facets = sorted({value for item in records for value in item[field]})
+        for value in facets:
+            matches = [item for item in records if value in item[field]]
+            label = goals.get(value, {}).get("title", value) if field == "goals_effective" else display_name(value)
+            # Direct README links work even when the destination disclosure is closed.
+            links = ", ".join(f"[{_escape(item['title'])}]({item['exercise_link']})" for item in matches if item["exercise_link"])
+            lines.append(f"- **{_escape(label)}** ({len(matches)}): {links}")
+        if not facets:
+            lines.append("No explicit associations yet.")
         lines += ["", "</details>", ""]
-    skills = Counter(skill for item in records for skill in item["skills"])
-    lines += ["---", "", "<details>", '<summary class="catalog-section-title">🔎 Browse by skill</summary>', ""]
-    if skills:
-        for skill, count in skills.most_common():
-            matches = [item for item in records if skill in item["skills"]]
-            links = ", ".join(f"[{_escape(item['title'])}](#{_anchor(item)})" for item in matches)
-            lines.append(f"- **{skill}** ({count}): {links}")
-    else:
-        lines.append("No skills indexed yet.")
-    goals = Counter(goal for item in records for goal in item["goals_effective"])
-    if goals:
-        lines += ["", "**Goals**", ""]
-        for goal, count in goals.most_common():
-            matches = [item for item in records if goal in item["goals_effective"]]
-            links = ", ".join(f"[{_escape(item['title'])}](#{_anchor(item)})" for item in matches)
-            lines.append(f"- **{goal}** ({count}): {links}")
-    lines += ["", "</details>", ""]
-    lines += ["---", "", '<details class="catalog-all">', '<summary class="catalog-section-title">📚 Browse all labs</summary>', ""]
-    subjects: dict[tuple[str, str | None], list[list[dict[str, Any]]]] = defaultdict(list)
-    for items in ranked:
-        subjects[items[0]["domain"], items[0]["subdomain"]].append(items)
-    # Ranking collections first also puts subjects with recorded work first.
-    for subject, collections in subjects.items():
-        lines += ["---", "", f"### {_escape(subject_title(*subject))}", ""]
-        for items in collections:
-            heading, path_line = _collection_display(items, sources)
-            lines += ["<details>", f"<summary>{heading}<br/>{path_line}</summary>", ""]
-            for item in items:
-                lines += _catalog_entry(item)
-            lines += ["", "</details>", ""]
-    lines += ["</details>", ""]
+    lines += ["## Browse by subject", ""]
+    groups: dict[tuple[str, str, str], list[dict[str, Any]]] = defaultdict(list)
+    for item in records:
+        groups[item["domain"], item["subdomain"] or "", item["collection_path"]].append(item)
+    prior_subject = None
+    for (domain, subdomain, _), items in sorted(groups.items()):
+        subject = (domain, subdomain)
+        if subject != prior_subject:
+            lines += [f"### {_escape(subject_title(domain, subdomain or None))}", ""]
+            prior_subject = subject
+        first = items[0]
+        title = " / ".join(first["collection_breadcrumb"])
+        lines += ["<details>", f"<summary>{html.escape(title)} · {len(items)} labs</summary>", "", f"`{first['collection_path']}`", ""]
+        refs = []
+        if first["collection_notes"]:
+            refs.append(f"[Collection notes]({first['collection_notes']})")
+        if first.get("collection_source_url"):
+            refs.append(f"[Collection source]({first['collection_source_url']})")
+        if refs:
+            lines += [" · ".join(refs), ""]
+        for item in items:
+            lines += _catalog_entry(item)
+        lines += ["", "</details>", ""]
+    if not records:
+        lines += ["No labs adopted yet. The practice atlas can help choose the first one.", ""]
     return "\n".join(lines).rstrip() + "\n"
 
 
-def _collection_display(items: list[dict[str, Any]], sources: dict[str, Any]) -> tuple[str, str]:
-    first = items[0]
-    title = " / ".join([*(display_name(group, sources) for group in first["groups"]), first["collection_title"]])
-    relative_path = Path(first["path"]).parent
-    breadcrumb = " / ".join(relative_path.parts[1:])
-    collection_path = ROOT / relative_path
-    readme = collection_path / "README.md"
-    source_url = first.get("collection_source_url")
-    # Markdown links and backticks stay literal inside summary; use their HTML forms.
-    heading = f"{html.escape(title)} · {html.escape(display_name(first['niche']))}"
-    count = f"{len(items)} lab{'s' if len(items) != 1 else ''}"
-    path_line = f"<small><code>{html.escape(breadcrumb)}</code> · {count}"
-    if readme.is_file():
-        path_line += f' · <a href="{html.escape(display_path(readme))}">notes</a>'
-    if source_url:
-        path_line += f' · <a href="{html.escape(source_url)}">ref</a>'
-    return heading, path_line + "</small>"
-
-
 def _catalog_entry(item: dict[str, Any], *, show_order: bool = True, anchor: bool = True) -> list[str]:
-    base = item["path"]
-    source = item["source"]
     marker = f"{item['order']}." if show_order and item["order"] is not None else "-"
-    summary = item.get("summary", "Open the source brief and work through the exercise.")
-    readme = ROOT / base / "README.md"
-    exercise = f"[{_escape(item['title'])}]({base}/README.md#exercise-definition)" if readme.is_file() else _escape(item["title"])
-    links = item.get("links", {})
-    solution = links.get("solution")
-    if solution:
-        solution_link = f" · [Solution]({solution})"
-    elif item["tracking"]["status"] != "not-started" and readme.is_file() and _readme_has_solution(readme):
-        solution_link = f" · [Solution]({base}/README.md#solution)"
-    else:
-        solution_link = ""
-    details = [_label(item["type"]), _label(item["tracking"]["status"])]
-    details.append(f"Updated {item['tracking']['dates']['updated']}")
-    if item["skills"]:
-        details.append(" ".join(f"`{skill}`" for skill in item["skills"]))
-    if item["goals_effective"]:
-        details.append("Goals: " + ", ".join(item["goals_effective"]))
-    if source.get("url"):
-        details.append(f"[ref]({source['url']})")
+    exercise = f"[{_escape(item['title'])}]({item['exercise_link']})" if item["exercise_link"] else _escape(item["title"])
+    links = []
+    if item["solution_link"]:
+        links.append(f"[Solution]({item['solution_link']})")
+    if item.get("links", {}).get("demo"):
+        links.append(f"[Demo]({item['links']['demo']})")
+    if item["source"].get("url"):
+        links.append(f"[Source: {_escape(item['source_display']['name'])}]({item['source']['url']})")
+    details = [_label(item["type"]), _label(item["tracking"]["status"]), f"Updated {item['tracking']['dates']['updated']}"]
+    for field, label in (("skills", "Skills"), ("tools_effective", "Tools"), ("goals_effective", "Goals")):
+        if item[field]:
+            details.append(label + ": " + ", ".join(f"`{value}`" for value in item[field]))
+    if "question_count" in item:
+        details.append(f"{item['question_count']} source questions (one lab)")
     indent = " " * (len(marker) + 1)
     anchor_tag = f'<a id="{_anchor(item)}"></a>' if anchor else ""
-    return [
-        f"{marker} {anchor_tag}{exercise}{solution_link} — {_escape(summary)}",
-        f"{indent}<br/><small>{' · '.join(details)}</small>",
-    ]
+    summary = f" — {_escape(item['summary'])}" if item.get("summary") else ""
+    return [f"{marker} {anchor_tag}{exercise}{summary}", "", f"{indent}{' · '.join(details)}", "", f"{indent}{' · '.join(links)}", ""]
 
 
 def _readme_has_solution(readme: Path) -> bool:
@@ -495,7 +473,9 @@ def validate_local_links(include_catalog: bool = True) -> None:
     documents = [ROOT / "README.md"]
     if include_catalog:
         documents.append(CATALOG_PATH)
-    documents += list((ROOT / ".meta").rglob("README.md"))
+    if include_catalog and (ROOT / "PRACTICE-ATLAS.md").exists():
+        documents.append(ROOT / "PRACTICE-ATLAS.md")
+    documents += [path for path in (ROOT / ".meta").rglob("README.md") if not path.is_relative_to(ROOT / ".meta/build")]
     documents += list(NICHES.rglob("README.md"))
     for document in documents:
         if not document.is_file():
@@ -535,7 +515,11 @@ def write_text_atomic(path: Path, content: str) -> None:
 
 
 def expected_catalogs(records: list[dict[str, Any]], sources: dict[str, Any]) -> dict[Path, str]:
-    return {LABS_PATH: render_labs(records), CATALOG_PATH: render_catalog(records, sources)}
+    outputs = {LABS_PATH: render_labs(records), CATALOG_PATH: render_catalog(records, sources)}
+    if (ROOT / ".meta/catalog/atlas.json").exists():
+        import atlas
+        outputs[ROOT / "PRACTICE-ATLAS.md"] = atlas.render_atlas(atlas.load_atlas(records, sources), records)
+    return outputs
 
 
 def write_catalog(records: list[dict[str, Any]], sources: dict[str, Any]) -> None:

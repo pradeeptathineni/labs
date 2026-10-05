@@ -242,5 +242,200 @@
     "reuse": {
       "policy": "review"
     }
+  },
+  "architectural-katas": {
+    "type": "external",
+    "name": "Architectural Katas",
+    "url": "https://nealford.com/katas/",
+    "reuse": {
+      "notes": "Public briefs; inspect per-item permissions before copying. Solo work is an adaptation of the small-group format.",
+      "policy": "review"
+    }
+  },
+  "google-technical-writing": {
+    "type": "external",
+    "name": "Google Technical Writing",
+    "url": "https://developers.google.com/tech-writing/overview",
+    "reuse": {
+      "policy_url": "https://developers.google.com/terms/site-policies",
+      "license": "CC-BY-4.0",
+      "license_url": "https://developers.google.com/terms/site-policies",
+      "notes": "Page content is CC BY 4.0 except as noted; code samples use Apache 2.0. Retain attribution; review exclusions on selected pages.",
+      "policy": "review"
+    }
+  },
+  "digital-inquiry-group": {
+    "type": "external",
+    "name": "Digital Inquiry Group: Civic Online Reasoning",
+    "url": "https://cor.inquirygroup.org/",
+    "reuse": {
+      "notes": "Public activity descriptions inspected. Free account is required for full materials; inspect their Creative Commons terms before copying.",
+      "policy": "review"
+    }
+  },
+  "markkula-ethics": {
+    "type": "external",
+    "name": "Markkula Center for Applied Ethics",
+    "url": "https://www.scu.edu/ethics/",
+    "reuse": {
+      "notes": "Public university case studies and teaching modules. Review case-specific reuse rights; do not infer unrestricted copying from public access.",
+      "policy": "review"
+    }
+  },
+  "carpentries-instructor-training": {
+    "type": "external",
+    "name": "The Carpentries: Instructor Training",
+    "url": "https://carpentries.github.io/instructor-training/",
+    "reuse": {
+      "license": "CC-BY-4.0",
+      "notes": "Materials are identified as CC BY 4.0; credit authors. Self-study is not certification or independently evaluated teaching.",
+      "policy": "review"
+    }
+  },
+  "cs-unplugged": {
+    "type": "external",
+    "name": "CS Unplugged",
+    "url": "https://www.csunplugged.org/en/",
+    "reuse": {
+      "license": "CC-BY-SA-4.0",
+      "notes": "Website material is identified as CC BY-SA 4.0. Retain attribution/share-alike conditions; distinguish an adapted lesson from a delivered lesson.",
+      "policy": "review"
+    }
+  },
+  "stanford-dschool": {
+    "type": "external",
+    "name": "Stanford d.school",
+    "url": "https://dschool.stanford.edu/",
+    "reuse": {
+      "license": "CC-BY-NC-SA-4.0",
+      "notes": "The Starter Kit specifically states CC BY-NC-SA 4.0; do not generalize that permission to every d.school asset. Some activities need partners.",
+      "policy": "review"
+    }
+  },
+  "google-sre": {
+    "type": "external",
+    "name": "Google SRE Books",
+    "url": "https://sre.google/books/",
+    "reuse": {
+      "notes": "Free-to-read guidance and case studies. Review publication rights before copying; create and label local adaptations instead of claiming the cases are original exercises.",
+      "policy": "review"
+    }
+  },
+  "metaculus": {
+    "type": "external",
+    "name": "Metaculus",
+    "url": "https://www.metaculus.com/",
+    "reuse": {
+      "notes": "Public forecasting guidance; account and platform rules apply to submissions. Link questions and keep personal forecasts; no auto-submission or scraped question mirror.",
+      "policy": "review"
+    }
+  },
+  "harvard-cs50": {
+    "type": "external",
+    "name": "Harvard CS50",
+    "url": "https://cs50.harvard.edu/",
+    "reuse": {
+      "notes": "Problem sets are public. Before adoption review both the content license and the course rules on publishing solutions; a public practice repo is not blanket permission.",
+      "policy": "review"
+    }
+  },
+  "kubernetes-docs": {
+    "type": "external",
+    "name": "Kubernetes Documentation",
+    "url": "https://kubernetes.io/docs/",
+    "reuse": {
+      "notes": "Tutorials and task documentation are source material, not official certification questions. Inspect the relevant content license and version before importing.",
+      "policy": "review"
+    }
+  },
+  "cncf-certification": {
+    "type": "external",
+    "name": "CNCF Certification",
+    "url": "https://www.cncf.io/training/certification/",
+    "reuse": {
+      "notes": "Official goal/curriculum references. Not a public exam-question bank. Link objectives; review the curriculum license separately before copying assets.",
+      "policy": "review"
+    }
+  },
+  "aws-certification": {
+    "type": "external",
+    "name": "AWS Certification",
+    "url": "https://aws.amazon.com/certification/",
+    "reuse": {
+      "notes": "Official goals and exam guides. Do not infer a question-bank license or certification attainment. Public AWS learning material can still incur cloud charges when executed.",
+      "policy": "review"
+    }
+  },
+  "qgis-training": {
+    "type": "external",
+    "name": "QGIS Training Manual",
+    "url": "https://docs.qgis.org/3.44/en/docs/training_manual/",
+    "reuse": {
+      "notes": "Versioned exercises and guided tasks. Review documentation and example-data licenses separately before copying.",
+      "policy": "review"
+    }
+  },
+  "quantecon": {
+    "type": "external",
+    "name": "QuantEcon",
+    "url": "https://quantecon.org/",
+    "reuse": {
+      "notes": "Computational economics lectures and exercises; review notebook/content licenses before materializing selected work.",
+      "policy": "review"
+    }
+  },
+  "fastai-course": {
+    "type": "external",
+    "name": "fast.ai Practical Deep Learning",
+    "url": "https://course.fast.ai/",
+    "reuse": {
+      "notes": "Public course and coding activities, not permission to copy every linked asset. Pin course/code versions; account or compute costs may apply to execution.",
+      "policy": "review"
+    }
+  },
+  "full-stack-deep-learning": {
+    "type": "external",
+    "name": "Full Stack Deep Learning",
+    "url": "https://fullstackdeeplearning.com/",
+    "reuse": {
+      "notes": "The 2022 course publishes practical labs; inspect repository licenses separately. Old APIs and paid services can need adaptation.",
+      "policy": "review"
+    }
+  },
+  "nasa-arset": {
+    "type": "external",
+    "name": "NASA ARSET",
+    "url": "https://www.earthdata.nasa.gov/data/projects/arset",
+    "reuse": {
+      "notes": "Official search/index evidence found; full Earthdata page returned HTTP 403 in this review. Recheck selected course and data rights before adopting.",
+      "policy": "review"
+    }
+  },
+  "dgkanatsios-ckad": {
+    "type": "external",
+    "name": "Dimitris Gkanatsios: CKAD Exercises",
+    "url": "https://github.com/dgkanatsios/CKAD-exercises",
+    "reuse": {
+      "notes": "README declares MIT; inspect LICENSE at the adopted commit. Its historical domain weights differ from the current official curriculum, so use exercises without copying old alignment claims.",
+      "policy": "review"
+    }
+  },
+  "nature-of-code": {
+    "type": "external",
+    "name": "The Nature of Code",
+    "url": "https://natureofcode.com/",
+    "reuse": {
+      "notes": "Book exposes an exercise index and Creative Commons availability; verify the exact text/code license before copying. A simulation is not automatically a validated scientific model.",
+      "policy": "review"
+    }
+  },
+  "genuary": {
+    "type": "external",
+    "name": "GENUARY",
+    "url": "https://genuary.art/",
+    "reuse": {
+      "notes": "Public creative prompts; record the actual prompt year and named prompt author. Inspect reuse terms before copying; do not infer the year from today.",
+      "policy": "review"
+    }
   }
 }

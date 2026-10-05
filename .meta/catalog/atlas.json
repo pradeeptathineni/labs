@@ -1,0 +1,1152 @@
+{
+  "goals": {
+    "cka": {
+      "type": "certification",
+      "title": "Certified Kubernetes Administrator (CKA)",
+      "issuer": "CNCF / Linux Foundation",
+      "url": "https://www.cncf.io/training/certification/cka/"
+    },
+    "ckad": {
+      "type": "certification",
+      "title": "Certified Kubernetes Application Developer (CKAD)",
+      "issuer": "CNCF / Linux Foundation",
+      "url": "https://www.cncf.io/training/certification/ckad/"
+    },
+    "cks": {
+      "type": "certification",
+      "title": "Certified Kubernetes Security Specialist (CKS)",
+      "issuer": "CNCF / Linux Foundation",
+      "url": "https://www.cncf.io/training/certification/cks/"
+    },
+    "aws-dop-c02": {
+      "type": "certification",
+      "title": "AWS Certified DevOps Engineer – Professional (DOP-C02)",
+      "issuer": "AWS",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/devops-engineer-professional-02/devops-engineer-professional-02.html"
+    },
+    "aws-clf-c02": {
+      "type": "certification",
+      "title": "AWS Certified Cloud Practitioner (CLF-C02)",
+      "issuer": "AWS",
+      "url": "https://aws.amazon.com/certification/certified-cloud-practitioner/",
+      "note": "Recheck current official page before claiming version alignment."
+    },
+    "aws-saa-c03": {
+      "type": "certification",
+      "title": "AWS Certified Solutions Architect – Associate (SAA-C03)",
+      "issuer": "AWS",
+      "url": "https://aws.amazon.com/certification/certified-solutions-architect-associate/",
+      "note": "Recheck current official page before claiming version alignment."
+    },
+    "aws-dva-c02": {
+      "type": "certification",
+      "title": "AWS Certified Developer – Associate (DVA-C02)",
+      "issuer": "AWS",
+      "url": "https://aws.amazon.com/certification/certified-developer-associate/",
+      "note": "Recheck current official page before claiming version alignment."
+    }
+  },
+  "niche_guidance": [
+    {
+      "niche": "architecture",
+      "reason": "Defend a system design: requirements, alternatives, constraints and failure analysis. A close complement to infrastructure and customer-facing architecture work. Solo critique is not independent peer review."
+    },
+    {
+      "niche": "research",
+      "reason": "Answer a bounded question with corroboration, provenance, contradictions and limits. Scripts may support the investigation; the evidence-backed answer is the result."
+    },
+    {
+      "niche": "writing",
+      "reason": "Improve clarity or an argument deliberately. Compare drafts and explain revisions. A README that supports a code lab does not need a second physical home."
+    },
+    {
+      "niche": "teaching",
+      "reason": "Design an explanation, activity and assessment that support understanding. Connect STEM teaching and mentoring to actual learner feedback when available; rehearsal alone does not prove delivery."
+    },
+    {
+      "niche": "design",
+      "reason": "Explore human-facing experiences later. Distinguish a solo prototype from user research with real participants."
+    },
+    {
+      "niche": "decisions",
+      "reason": "Explore defended choices and forecasting later. Calibration requires resolved outcomes, and thoughtful decisions already belong throughout the repository."
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "platformlab-cka-exercises",
+      "title": "ThePlatformLab CKA practical exercises",
+      "provider": "platformlab-cka",
+      "materials_url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/tree/main/exercises",
+      "target": {
+        "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+        "has_subdomain": true,
+        "tools": [
+          "kubernetes"
+        ],
+        "goals": [
+          "cka"
+        ],
+        "ordered": true
+      },
+      "unit": "One complete upstream exercise directory",
+      "lab_type": "exercise",
+      "priority": "next",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: README and one full exercise inspected",
+      "checked_on": "2026-10-04",
+      "notes": "README lists 31 exercises. Recount committed directories at the selected revision. Some setup assumes a different environment; do not execute it. Keep author anecdotes and reference solutions out of the user Solution.",
+      "deliverable": "Manifests or commands, verification output, and an explanation of the failure modes."
+    },
+    {
+      "id": "platformlab-cka-mocks",
+      "title": "ThePlatformLab CKA mock exams",
+      "provider": "platformlab-cka",
+      "materials_url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/tree/main/mock-exams",
+      "target": {
+        "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-mock-exams",
+        "has_subdomain": true,
+        "tools": [
+          "kubernetes"
+        ],
+        "goals": [
+          "cka"
+        ]
+      },
+      "unit": "One full mock exam, not one directory per subquestion",
+      "lab_type": "problem-set",
+      "priority": "next",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: repository README/index inspected",
+      "checked_on": "2026-10-04",
+      "notes": "The source lists two mocks with separate solutions. Preserve that separation; do not report source answers as personal work.",
+      "deliverable": "A complete independently attempted practical set, with results and corrections."
+    },
+    {
+      "id": "ckx-cka",
+      "title": "CK-X CKA assessment sets",
+      "provider": "ck-x",
+      "materials_url": "https://github.com/sailor-sh/CK-X/blob/master/facilitator/assets/exams/labs.json",
+      "target": {
+        "collection_path": "niches/code/devops/orchestration/kubernetes/cka/ck-x",
+        "has_subdomain": true,
+        "tools": [
+          "kubernetes"
+        ],
+        "goals": [
+          "cka"
+        ]
+      },
+      "unit": "One complete assessment identified by an upstream assessment ID",
+      "lab_type": "problem-set",
+      "priority": "next",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: full JSON index and license read",
+      "checked_on": "2026-10-04",
+      "notes": "The inspected index contains 2 CKA assessments. Registry currently says review; initialize source-linked work without copying restricted bodies unless scoped permission is verified. No Docker/simulator launch. Exclude Docker/Helm Other tracks from this first pass.",
+      "deliverable": "A reproducible practical attempt; commands, verification and lessons without claiming official exam status."
+    },
+    {
+      "id": "ckx-ckad",
+      "title": "CK-X CKAD assessment sets",
+      "provider": "ck-x",
+      "materials_url": "https://github.com/sailor-sh/CK-X/blob/master/facilitator/assets/exams/labs.json",
+      "target": {
+        "collection_path": "niches/code/devops/orchestration/kubernetes/ckad/ck-x",
+        "has_subdomain": true,
+        "tools": [
+          "kubernetes"
+        ],
+        "goals": [
+          "ckad"
+        ]
+      },
+      "unit": "One complete assessment identified by an upstream assessment ID",
+      "lab_type": "problem-set",
+      "priority": "next",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: full JSON index and license read",
+      "checked_on": "2026-10-04",
+      "notes": "The inspected index contains 2 CKAD assessments. Registry currently says review; initialize source-linked work without copying restricted bodies unless scoped permission is verified. No Docker/simulator launch. Exclude Docker/Helm Other tracks from this first pass.",
+      "deliverable": "A reproducible practical attempt; commands, verification and lessons without claiming official exam status."
+    },
+    {
+      "id": "ckx-cks",
+      "title": "CK-X CKS assessment sets",
+      "provider": "ck-x",
+      "materials_url": "https://github.com/sailor-sh/CK-X/blob/master/facilitator/assets/exams/labs.json",
+      "target": {
+        "collection_path": "niches/code/devops/orchestration/kubernetes/cks/ck-x",
+        "has_subdomain": true,
+        "tools": [
+          "kubernetes"
+        ],
+        "goals": [
+          "cks"
+        ]
+      },
+      "unit": "One complete assessment identified by an upstream assessment ID",
+      "lab_type": "problem-set",
+      "priority": "next",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: full JSON index and license read",
+      "checked_on": "2026-10-04",
+      "notes": "The inspected index contains 1 CKS assessments. Registry currently says review; initialize source-linked work without copying restricted bodies unless scoped permission is verified. No Docker/simulator launch. Exclude Docker/Helm Other tracks from this first pass.",
+      "deliverable": "A reproducible practical attempt; commands, verification and lessons without claiming official exam status."
+    },
+    {
+      "id": "cka-objectives-review",
+      "title": "CKA bounded objectives review",
+      "provider": "cncf-certification",
+      "materials_url": "https://www.cncf.io/training/certification/cka/",
+      "target": {
+        "collection_path": "niches/study/devops/orchestration/kubernetes/cka",
+        "has_subdomain": true,
+        "tools": [
+          "kubernetes"
+        ],
+        "goals": [
+          "cka"
+        ]
+      },
+      "unit": "One local review set covering a frozen set of official objectives",
+      "lab_type": "problem-set",
+      "priority": "next",
+      "adoption": "adaptation",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: page-read",
+      "checked_on": "2026-10-04",
+      "notes": "Create exactly one objectives-review lab for this track. State the local task is adapted from official objectives. Preserve reference URLs; no claims of syllabus completion or exam readiness.",
+      "deliverable": "Personal explanations, distinctions and a record of gaps; not a fabricated official question bank."
+    },
+    {
+      "id": "ckad-objectives-review",
+      "title": "CKAD bounded objectives review",
+      "provider": "cncf-certification",
+      "materials_url": "https://www.cncf.io/training/certification/ckad/",
+      "target": {
+        "collection_path": "niches/study/devops/orchestration/kubernetes/ckad",
+        "has_subdomain": true,
+        "tools": [
+          "kubernetes"
+        ],
+        "goals": [
+          "ckad"
+        ]
+      },
+      "unit": "One local review set covering a frozen set of official objectives",
+      "lab_type": "problem-set",
+      "priority": "next",
+      "adoption": "adaptation",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: page-read",
+      "checked_on": "2026-10-04",
+      "notes": "Create exactly one objectives-review lab for this track. State the local task is adapted from official objectives. Preserve reference URLs; no claims of syllabus completion or exam readiness.",
+      "deliverable": "Personal explanations, distinctions and a record of gaps; not a fabricated official question bank."
+    },
+    {
+      "id": "cks-objectives-review",
+      "title": "CKS bounded objectives review",
+      "provider": "cncf-certification",
+      "materials_url": "https://www.cncf.io/training/certification/cks/",
+      "target": {
+        "collection_path": "niches/study/devops/orchestration/kubernetes/cks",
+        "has_subdomain": true,
+        "tools": [
+          "kubernetes"
+        ],
+        "goals": [
+          "cks"
+        ]
+      },
+      "unit": "One local review set covering a frozen set of official objectives",
+      "lab_type": "problem-set",
+      "priority": "next",
+      "adoption": "adaptation",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: page-read",
+      "checked_on": "2026-10-04",
+      "notes": "Create exactly one objectives-review lab for this track. State the local task is adapted from official objectives. Preserve reference URLs; no claims of syllabus completion or exam readiness.",
+      "deliverable": "Personal explanations, distinctions and a record of gaps; not a fabricated official question bank."
+    },
+    {
+      "id": "dgkanatsios-ckad-sets",
+      "title": "CKAD exercises by curriculum topic",
+      "provider": "dgkanatsios-ckad",
+      "materials_url": "https://github.com/dgkanatsios/CKAD-exercises",
+      "target": {
+        "collection_path": "niches/code/devops/orchestration/kubernetes/ckad/dgkanatsios",
+        "has_subdomain": true,
+        "tools": [
+          "kubernetes"
+        ],
+        "goals": [
+          "ckad"
+        ]
+      },
+      "unit": "A coherent topic set or substantial individual task",
+      "lab_type": "problem-set",
+      "priority": "later",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: repository README read",
+      "checked_on": "2026-10-04",
+      "notes": "Do not inherit the historical percentage weights as current. Review selected LICENSE and source answers.",
+      "deliverable": "Manifest-writing fluency and explained troubleshooting."
+    },
+    {
+      "id": "kubernetes-basics",
+      "title": "Kubernetes Basics",
+      "provider": "kubernetes-docs",
+      "materials_url": "https://kubernetes.io/docs/tutorials/kubernetes-basics/",
+      "target": {
+        "collection_path": "niches/code/devops/orchestration/kubernetes/basics",
+        "has_subdomain": true,
+        "tools": [
+          "kubernetes"
+        ]
+      },
+      "unit": "A bounded tutorial objective turned into an independent attempt",
+      "lab_type": "exercise",
+      "priority": "later",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: page-read",
+      "checked_on": "2026-10-04",
+      "notes": "Tutorial activity, not an official exam item. Pin the documentation version.",
+      "deliverable": "Deployment, scaling, inspection and update behavior with evidence."
+    },
+    {
+      "id": "roadmap-current",
+      "title": "roadmap.sh DevOps curriculum",
+      "provider": "roadmap-sh",
+      "materials_url": "https://roadmap.sh/devops/projects",
+      "target": {
+        "collection_path": "niches/code/devops/roadmap-sh",
+        "has_subdomain": false
+      },
+      "unit": "One existing project",
+      "lab_type": "project",
+      "priority": "later",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: current repository and registry reviewed",
+      "checked_on": "2026-10-04",
+      "notes": "Retain the 26 current labs and existing source policy; do not recreate them.",
+      "deliverable": "A tested implementation with operational reasoning."
+    },
+    {
+      "id": "devroadmaps-devops",
+      "title": "DevRoadmaps DevOps projects",
+      "provider": "devroadmaps",
+      "materials_url": "https://github.com/rudra496/devroadmaps/blob/master/js/project-ideas.js",
+      "target": {
+        "collection_path": "niches/code/devops/devroadmaps",
+        "has_subdomain": false
+      },
+      "unit": "One actual project definition",
+      "lab_type": "project",
+      "priority": "later",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: current importer guide reviewed",
+      "checked_on": "2026-10-04",
+      "notes": "Preserve the working static-data importer and existing five initialized projects. Topic graph nodes are not automatically exercises.",
+      "deliverable": "A defined delivery/infrastructure project with personal verification."
+    },
+    {
+      "id": "devroadmaps-cloud",
+      "title": "DevRoadmaps cloud architecture projects",
+      "provider": "devroadmaps",
+      "materials_url": "https://github.com/rudra496/devroadmaps/blob/master/js/project-ideas.js",
+      "target": {
+        "collection_path": "niches/code/cloud/aws/devroadmaps",
+        "has_subdomain": true,
+        "tools": [
+          "aws"
+        ]
+      },
+      "unit": "One implementation-led cloud project",
+      "lab_type": "project",
+      "priority": "later",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: current importer guide reviewed",
+      "checked_on": "2026-10-04",
+      "notes": "Keep the existing two projects. Supporting design does not require duplicating them under architecture.",
+      "deliverable": "Architecture implemented and tested under explicit assumptions."
+    },
+    {
+      "id": "ccp-bank",
+      "title": "CloudCertPrep CLF-C02 bank",
+      "provider": "cloudcertprep",
+      "materials_url": "https://github.com/nastaso/cloudcertprep/tree/main/src/data/clf-c02",
+      "target": {
+        "collection_path": "niches/study/cloud/aws/clf-c02",
+        "has_subdomain": true,
+        "tools": [
+          "aws"
+        ],
+        "goals": [
+          "aws-clf-c02"
+        ]
+      },
+      "unit": "One whole adopted bank with question IDs inside it",
+      "lab_type": "question-bank",
+      "priority": "later",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: current repository and importer guide reviewed",
+      "checked_on": "2026-10-04",
+      "notes": "Keep the existing bank. Question count is not solved-work count.",
+      "deliverable": "Personal answers and review coverage, only when actually recorded."
+    },
+    {
+      "id": "ccp-review",
+      "title": "Kananinirav CLF-C02 review",
+      "provider": "kananinirav-aws-ccp",
+      "materials_url": "https://github.com/kananinirav/AWS-Certified-Cloud-Practitioner-Notes",
+      "target": {
+        "collection_path": "niches/study/cloud/aws/clf-c02",
+        "has_subdomain": true,
+        "tools": [
+          "aws"
+        ],
+        "goals": [
+          "aws-clf-c02"
+        ]
+      },
+      "unit": "One bounded study-and-review set",
+      "lab_type": "problem-set",
+      "priority": "later",
+      "adoption": "adaptation",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: current repository and registry reviewed",
+      "checked_on": "2026-10-04",
+      "notes": "Keep the existing review; practice-exam provenance remains a separate check.",
+      "deliverable": "Explained concepts and comparisons, not just saved reference links."
+    },
+    {
+      "id": "saa-workshop",
+      "title": "SAA-C03 hands-on workshop",
+      "provider": "ihatesea69-saa-workshop",
+      "materials_url": "https://github.com/ihatesea69/AWS-SAA-C03-Workshop-Study-Guide",
+      "target": {
+        "collection_path": "niches/code/cloud/aws/saa-c03/workshop",
+        "has_subdomain": true,
+        "tools": [
+          "aws"
+        ],
+        "goals": [
+          "aws-saa-c03"
+        ]
+      },
+      "unit": "One complete hands-on lab",
+      "lab_type": "exercise",
+      "priority": "later",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: registry/prior reviewed source retained",
+      "checked_on": "2026-10-04",
+      "notes": "Existing registry records MIT. Verify the selected task, source notices and execution cost before adoption.",
+      "deliverable": "An implemented design decision linked to its requirements."
+    },
+    {
+      "id": "saa-question-samples",
+      "title": "SAA-C03 original practice samples",
+      "provider": "cloud-cert-practice-questions",
+      "materials_url": "https://github.com/fabricio852/cloud-certification-practice-questions/tree/main/aws/saa-c03",
+      "target": {
+        "collection_path": "niches/study/cloud/aws/saa-c03",
+        "has_subdomain": true,
+        "tools": [
+          "aws"
+        ],
+        "goals": [
+          "aws-saa-c03"
+        ]
+      },
+      "unit": "One bounded sample bank, not one lab per option/question",
+      "lab_type": "question-bank",
+      "priority": "later",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: registry/prior reviewed source retained",
+      "checked_on": "2026-10-04",
+      "notes": "Existing registry records CC BY 4.0. Verify current sample scope; do not imply access to the paid full bank.",
+      "deliverable": "Reasoned responses and reviewed misconceptions."
+    },
+    {
+      "id": "dva-practical",
+      "title": "DVA-C02 practical study plan",
+      "provider": "ihatesea69-dva-study-plan",
+      "materials_url": "https://github.com/ihatesea69/aws-dva-c02-study-plan",
+      "target": {
+        "collection_path": "niches/code/cloud/aws/dva-c02/study-plan",
+        "has_subdomain": true,
+        "tools": [
+          "aws"
+        ],
+        "goals": [
+          "aws-dva-c02"
+        ]
+      },
+      "unit": "One verified hands-on task",
+      "lab_type": "exercise",
+      "priority": "later",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: registry/prior reviewed source retained",
+      "checked_on": "2026-10-04",
+      "notes": "Reuse remains review. Some practice question sections are placeholders; do not initialize placeholders as sourced exercises.",
+      "deliverable": "Service integration, secure deployment and debugging evidence."
+    },
+    {
+      "id": "dop-study",
+      "title": "AWS DevOps Professional objective review",
+      "provider": "aws-certification",
+      "materials_url": "https://docs.aws.amazon.com/aws-certification/latest/devops-engineer-professional-02/devops-engineer-professional-02.html",
+      "target": {
+        "collection_path": "niches/study/cloud/aws/dop-c02",
+        "has_subdomain": true,
+        "tools": [
+          "aws"
+        ],
+        "goals": [
+          "aws-dop-c02"
+        ]
+      },
+      "unit": "A local review set mapped to a frozen official objective list",
+      "lab_type": "problem-set",
+      "priority": "later",
+      "adoption": "adaptation",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: page-read",
+      "checked_on": "2026-10-04",
+      "notes": "DOP-C02 is an AWS-cloud goal despite DevOps in its title. Do not synthesize purported official exam questions.",
+      "deliverable": "Explained AWS delivery, reliability, security and operational choices."
+    },
+    {
+      "id": "dop-build",
+      "title": "AWS DevOps Professional implementation practice",
+      "provider": "aws-certification",
+      "materials_url": "https://docs.aws.amazon.com/aws-certification/latest/devops-engineer-professional-02/devops-engineer-professional-02.html",
+      "target": {
+        "collection_path": "niches/code/cloud/aws/dop-c02",
+        "has_subdomain": true,
+        "tools": [
+          "aws"
+        ],
+        "goals": [
+          "aws-dop-c02"
+        ]
+      },
+      "unit": "A deliberately authored practical project tied to selected objectives",
+      "lab_type": "project",
+      "priority": "later",
+      "adoption": "adaptation",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: page-read",
+      "checked_on": "2026-10-04",
+      "notes": "Official guide is supporting evidence, not the author of a newly synthesized project. Record original/adapted provenance honestly.",
+      "deliverable": "An auditable delivery or recovery workflow."
+    },
+    {
+      "id": "python-exercism",
+      "title": "Python language fluency",
+      "provider": "exercism",
+      "materials_url": "https://exercism.org/tracks/python/exercises",
+      "target": {
+        "collection_path": "niches/code/programming/python/exercism",
+        "has_subdomain": true,
+        "tools": [
+          "python"
+        ]
+      },
+      "unit": "One substantial exercise or intentionally bounded practice set",
+      "lab_type": "exercise",
+      "priority": "later",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: page-read",
+      "checked_on": "2026-10-04",
+      "notes": "Use programming/python for language study; scripting is one practice, not the whole language.",
+      "deliverable": "Correct idiomatic Python with concise reasoning."
+    },
+    {
+      "id": "python-cs50",
+      "title": "CS50 Python problem sets",
+      "provider": "harvard-cs50",
+      "materials_url": "https://cs50.harvard.edu/python/psets/",
+      "target": {
+        "collection_path": "niches/code/programming/python/cs50p",
+        "has_subdomain": true,
+        "tools": [
+          "python"
+        ]
+      },
+      "unit": "One official problem set",
+      "lab_type": "problem-set",
+      "priority": "explore",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: page-read",
+      "checked_on": "2026-10-04",
+      "notes": "Check academic-honesty/public-solution rules before choosing a public solution workflow.",
+      "deliverable": "A solved problem set and explicit review of language concepts."
+    },
+    {
+      "id": "fastai-ml",
+      "title": "Practical machine learning",
+      "provider": "fastai-course",
+      "materials_url": "https://course.fast.ai/",
+      "target": {
+        "collection_path": "niches/code/ai/machine-learning/fastai/practical-deep-learning",
+        "has_subdomain": true,
+        "tools": [
+          "python",
+          "pytorch"
+        ]
+      },
+      "unit": "One bounded model-building or deployment exercise",
+      "lab_type": "project",
+      "priority": "later",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: page-read",
+      "checked_on": "2026-10-04",
+      "notes": "Python is tooling here, not the domain. Prefer small datasets and bounded compute.",
+      "deliverable": "A reproducible baseline with honest evaluation and limitations."
+    },
+    {
+      "id": "fsdl-mlops",
+      "title": "Full Stack Deep Learning labs",
+      "provider": "full-stack-deep-learning",
+      "materials_url": "https://fullstackdeeplearning.com/course/2022/",
+      "target": {
+        "collection_path": "niches/code/ai/mlops/fsdl/2022",
+        "has_subdomain": true,
+        "tools": [
+          "python"
+        ]
+      },
+      "unit": "One practical lab such as testing or deployment",
+      "lab_type": "exercise",
+      "priority": "later",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: page-read",
+      "checked_on": "2026-10-04",
+      "notes": "Historical course: pin environment and report changes rather than silently claiming present-day APIs.",
+      "deliverable": "Reproducible experiment management, serving or monitoring."
+    },
+    {
+      "id": "sadservers-debugging",
+      "title": "Linux/DevOps troubleshooting",
+      "provider": "sadservers",
+      "materials_url": "https://sadservers.com/scenarios",
+      "target": {
+        "collection_path": "niches/code/devops/troubleshooting/sadservers",
+        "has_subdomain": true
+      },
+      "unit": "One authorized scenario attempt",
+      "lab_type": "challenge",
+      "priority": "later",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: existing registry retained",
+      "checked_on": "2026-10-04",
+      "notes": "Registry is link-only; availability and paid/free tiers need rechecking. No public reproduction of restricted scenarios.",
+      "deliverable": "Hypothesis, diagnosis, fix, verification and prevention."
+    },
+    {
+      "id": "web-security",
+      "title": "Web security practice",
+      "provider": "portswigger-web-security-academy",
+      "materials_url": "https://portswigger.net/web-security",
+      "target": {
+        "collection_path": "niches/code/security/web/portswigger",
+        "has_subdomain": true
+      },
+      "unit": "One authorized interactive lab",
+      "lab_type": "exercise",
+      "priority": "later",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: existing registry retained",
+      "checked_on": "2026-10-04",
+      "notes": "Keep link-only handling and a strictly authorized scope.",
+      "deliverable": "Reproduction and remediation reasoning within the lab environment."
+    },
+    {
+      "id": "pwn-systems",
+      "title": "Systems security dojos",
+      "provider": "pwn-college",
+      "materials_url": "https://pwn.college/dojos",
+      "target": {
+        "collection_path": "niches/code/security/systems/pwn-college",
+        "has_subdomain": true
+      },
+      "unit": "A bounded challenge or module",
+      "lab_type": "challenge",
+      "priority": "explore",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: existing registry retained",
+      "checked_on": "2026-10-04",
+      "notes": "Verify exact dojo and solution-sharing policy; existing broad source policy does not license all sub-repositories.",
+      "deliverable": "A technical explanation of an authorized lab solution."
+    },
+    {
+      "id": "data-story",
+      "title": "TidyTuesday data investigation",
+      "provider": "tidytuesday",
+      "materials_url": "https://github.com/rfordatascience/tidytuesday",
+      "target": {
+        "collection_path": "niches/code/data/tidytuesday",
+        "has_subdomain": false,
+        "tools": [
+          "python"
+        ]
+      },
+      "unit": "One dated dataset investigation",
+      "lab_type": "experiment",
+      "priority": "later",
+      "adoption": "adaptation",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: existing registry retained",
+      "checked_on": "2026-10-04",
+      "notes": "Dataset invitation is not a prewritten problem. Review original dataset rights separately.",
+      "deliverable": "A focused question, reproducible analysis, visualization and caveats."
+    },
+    {
+      "id": "digital-humanities",
+      "title": "Computational evidence in public text",
+      "provider": "programming-historian",
+      "materials_url": "https://programminghistorian.org/en/lessons/",
+      "target": {
+        "collection_path": "niches/research/digital-humanities/programming-historian",
+        "has_subdomain": false
+      },
+      "unit": "One bounded investigation adapted from a method lesson",
+      "lab_type": "experiment",
+      "priority": "explore",
+      "adoption": "adaptation",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: existing registry retained",
+      "checked_on": "2026-10-04",
+      "notes": "Research is the main deliverable even if scripts support the analysis.",
+      "deliverable": "An evidence-backed finding, corpus provenance and limitations."
+    },
+    {
+      "id": "euler-problems",
+      "title": "Computational mathematics",
+      "provider": "project-euler",
+      "materials_url": "https://projecteuler.net/archives",
+      "target": {
+        "collection_path": "niches/code/mathematics/project-euler",
+        "has_subdomain": false
+      },
+      "unit": "One substantial problem",
+      "lab_type": "exercise",
+      "priority": "explore",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: existing registry retained",
+      "checked_on": "2026-10-04",
+      "notes": "Review problem/solution-sharing policy; do not copy all puzzles or answers by default.",
+      "deliverable": "Derivation, correctness and computational trade-offs."
+    },
+    {
+      "id": "architecture-katas",
+      "title": "Architectural Katas",
+      "provider": "architectural-katas",
+      "materials_url": "https://nealford.com/katas/",
+      "target": {
+        "collection_path": "niches/architecture/systems/architectural-katas",
+        "has_subdomain": false
+      },
+      "unit": "One design brief",
+      "lab_type": "exercise",
+      "priority": "later",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: page-read",
+      "checked_on": "2026-10-04",
+      "notes": "Highest-priority new niche for customer-facing architecture work. Solo or AI critique is not independent peer review.",
+      "deliverable": "Requirements, alternatives, diagrams and defended trade-offs."
+    },
+    {
+      "id": "mit-systems-design",
+      "title": "MIT ESD.34 Opportunity Sets",
+      "provider": "mit-ocw",
+      "materials_url": "https://ocw.mit.edu/courses/esd-34-system-architecture-january-iap-2007/pages/assignments/",
+      "target": {
+        "collection_path": "niches/architecture/systems/mit/esd-34",
+        "has_subdomain": false
+      },
+      "unit": "One course opportunity set",
+      "lab_type": "problem-set",
+      "priority": "later",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: page-read",
+      "checked_on": "2026-10-04",
+      "notes": "MIT is a grouping, not a subject subdomain. The five-set index was inspected, not all linked PDFs. Course dates and third-party rights matter.",
+      "deliverable": "A system model and explicit design reasoning."
+    },
+    {
+      "id": "cloud-design",
+      "title": "Cloud architecture trade-off exercise",
+      "provider": "aws-certification",
+      "materials_url": "https://docs.aws.amazon.com/aws-certification/latest/devops-engineer-professional-02/devops-engineer-professional-02.html",
+      "target": {
+        "collection_path": "niches/architecture/cloud/aws/resilient-systems",
+        "has_subdomain": true,
+        "tools": [
+          "aws"
+        ]
+      },
+      "unit": "One locally authored design case",
+      "lab_type": "exercise",
+      "priority": "later",
+      "adoption": "adaptation",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: page-read",
+      "checked_on": "2026-10-04",
+      "notes": "This is a proposed local exercise, not an existing AWS assignment.",
+      "deliverable": "A defended recovery/deployment design with assumptions and reversal conditions."
+    },
+    {
+      "id": "evidence-evaluation",
+      "title": "Lateral reading and source evaluation",
+      "provider": "digital-inquiry-group",
+      "materials_url": "https://cor.inquirygroup.org/curriculum/collections/teaching-lateral-reading/",
+      "target": {
+        "collection_path": "niches/research/methods/source-evaluation/dig/lateral-reading",
+        "has_subdomain": true
+      },
+      "unit": "One bounded source-evaluation activity",
+      "lab_type": "exercise",
+      "priority": "later",
+      "adoption": "direct",
+      "access": "Public descriptions; free account for full activities.",
+      "evidence_scope": "2026-10-04 research handoff: page-read",
+      "checked_on": "2026-10-04",
+      "notes": "Most direct evidence-methods complement to Maestro/PathAtlas. Full materials require a free account; no login bypass.",
+      "deliverable": "Claims, independent corroboration, provenance and justified uncertainty."
+    },
+    {
+      "id": "technical-writing",
+      "title": "Technical Writing One and Two",
+      "provider": "google-technical-writing",
+      "materials_url": "https://developers.google.com/tech-writing/overview",
+      "target": {
+        "collection_path": "niches/writing/software/technical-writing/google",
+        "has_subdomain": true
+      },
+      "unit": "One editing task or coherent exercise set",
+      "lab_type": "exercise",
+      "priority": "later",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: page-read",
+      "checked_on": "2026-10-04",
+      "notes": "Especially relevant to README clarity, runbooks and architecture explanations.",
+      "deliverable": "Before/after text with reasons for substantive changes."
+    },
+    {
+      "id": "error-messages",
+      "title": "Writing helpful error messages",
+      "provider": "google-technical-writing",
+      "materials_url": "https://developers.google.com/tech-writing/error-messages",
+      "target": {
+        "collection_path": "niches/writing/software/technical-writing/error-messages",
+        "has_subdomain": true
+      },
+      "unit": "One real error-message revision set",
+      "lab_type": "problem-set",
+      "priority": "later",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: official overview read",
+      "checked_on": "2026-10-04",
+      "notes": "Course existence confirmed through official overview; inspect individual exercise before adopting.",
+      "deliverable": "Plain language errors with a specific action the reader can take."
+    },
+    {
+      "id": "philosophy-papers",
+      "title": "MIT philosophy argument papers",
+      "provider": "mit-ocw",
+      "materials_url": "https://ocw.mit.edu/courses/24-00-problems-of-philosophy-fall-2019/pages/assignments/",
+      "target": {
+        "collection_path": "niches/writing/philosophy/mit/24-00",
+        "has_subdomain": false
+      },
+      "unit": "One paper assignment",
+      "lab_type": "exercise",
+      "priority": "later",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: page-read",
+      "checked_on": "2026-10-04",
+      "notes": "Course is a collection. Preserve course ID as a name; do not parse 24 as ordering. No instructor grading or enrollment claim.",
+      "deliverable": "Argument reconstruction, a thesis, objections and a reasoned reply."
+    },
+    {
+      "id": "incident-writing",
+      "title": "Incident communication practice",
+      "provider": "google-sre",
+      "materials_url": "https://sre.google/workbook/incident-response/",
+      "target": {
+        "collection_path": "niches/writing/devops/incident-response/google-sre",
+        "has_subdomain": true
+      },
+      "unit": "One locally scoped communication exercise",
+      "lab_type": "exercise",
+      "priority": "later",
+      "adoption": "adaptation",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: page-read",
+      "checked_on": "2026-10-04",
+      "notes": "The chapter offers case studies and practices, not a prepackaged assignment bank. Distinguish simulation from real incident experience.",
+      "deliverable": "Incident update, handoff or postmortem tailored to a clear audience."
+    },
+    {
+      "id": "unplugged-teaching",
+      "title": "CS Unplugged lesson adaptation",
+      "provider": "cs-unplugged",
+      "materials_url": "https://www.csunplugged.org/en/",
+      "target": {
+        "collection_path": "niches/teaching/programming/cs-unplugged",
+        "has_subdomain": false
+      },
+      "unit": "One adapted activity plus an assessment of understanding",
+      "lab_type": "exercise",
+      "priority": "later",
+      "adoption": "adaptation",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: page-read",
+      "checked_on": "2026-10-04",
+      "notes": "Strong fit with prior STEM teaching. Merely solving the pupil exercise would be study; designing/teaching it belongs here.",
+      "deliverable": "An original lesson adaptation, misconception checks and any actual feedback."
+    },
+    {
+      "id": "carpentries-teaching",
+      "title": "Short teaching demonstrations",
+      "provider": "carpentries-instructor-training",
+      "materials_url": "https://carpentries.github.io/instructor-training/",
+      "target": {
+        "collection_path": "niches/teaching/software/carpentries/instructor-training",
+        "has_subdomain": false
+      },
+      "unit": "One short teaching demonstration and revision",
+      "lab_type": "exercise",
+      "priority": "later",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: page-read",
+      "checked_on": "2026-10-04",
+      "notes": "Live coding here supports the teaching deliverable. Completion of local practice is not Carpentries Instructor certification.",
+      "deliverable": "Lesson segment, rehearsal, feedback and revision."
+    },
+    {
+      "id": "human-centered-design",
+      "title": "Stanford d.school Starter Kit",
+      "provider": "stanford-dschool",
+      "materials_url": "https://dschool.stanford.edu/tools/starter-kit",
+      "target": {
+        "collection_path": "niches/design/software/user-experience/stanford/starter-kit",
+        "has_subdomain": true
+      },
+      "unit": "One completed design activity or design challenge",
+      "lab_type": "exercise",
+      "priority": "explore",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: page-read",
+      "checked_on": "2026-10-04",
+      "notes": "Partner exercises require real partners for interaction evidence; label solo adaptations. Review NC/SA license conditions.",
+      "deliverable": "Problem framing, alternatives, prototype and actual evaluation."
+    },
+    {
+      "id": "ethics-decisions",
+      "title": "Technology ethics case analysis",
+      "provider": "markkula-ethics",
+      "materials_url": "https://www.scu.edu/ethics/focus-areas/technology-ethics/resources/",
+      "target": {
+        "collection_path": "niches/decisions/ethics/technology/markkula",
+        "has_subdomain": true
+      },
+      "unit": "One case with a defended recommendation",
+      "lab_type": "exercise",
+      "priority": "explore",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: page-read",
+      "checked_on": "2026-10-04",
+      "notes": "Decisions is optional later, not required now; many such skills already appear in architecture/research.",
+      "deliverable": "Stakeholders, trade-offs, alternatives and a reasoned position."
+    },
+    {
+      "id": "forecasts",
+      "title": "Calibration through forecasting",
+      "provider": "metaculus",
+      "materials_url": "https://www.metaculus.com/how-to-forecast/",
+      "target": {
+        "collection_path": "niches/decisions/forecasting/metaculus",
+        "has_subdomain": false
+      },
+      "unit": "A bounded set of explicit forecasts and later reviews",
+      "lab_type": "experiment",
+      "priority": "explore",
+      "adoption": "direct",
+      "access": "Public guidance; account needed for participation.",
+      "evidence_scope": "2026-10-04 research handoff: page-read",
+      "checked_on": "2026-10-04",
+      "notes": "No claim to resolution scores until outcomes exist. Do not automate account submissions.",
+      "deliverable": "Dated probabilities, assumptions, outcome review and calibration."
+    },
+    {
+      "id": "qgis-exercises",
+      "title": "QGIS training activities",
+      "provider": "qgis-training",
+      "materials_url": "https://docs.qgis.org/3.44/en/docs/training_manual/",
+      "target": {
+        "collection_path": "niches/study/geospatial/gis/qgis/training-manual",
+        "has_subdomain": true,
+        "tools": [
+          "qgis"
+        ]
+      },
+      "unit": "One guided GIS exercise",
+      "lab_type": "exercise",
+      "priority": "explore",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: page-read",
+      "checked_on": "2026-10-04",
+      "notes": "GUI-led work need not be mislabeled code. A cartographic-design brief could instead have a single home under design.",
+      "deliverable": "A saved project/map with an explanation of the spatial operation."
+    },
+    {
+      "id": "map-design",
+      "title": "30DayMapChallenge cartography",
+      "provider": "30-day-map-challenge",
+      "materials_url": "https://github.com/tjukanovt/30DayMapChallenge",
+      "target": {
+        "collection_path": "niches/design/geospatial/cartography/30-day-map-challenge",
+        "has_subdomain": true
+      },
+      "unit": "One prompt-driven map",
+      "lab_type": "exercise",
+      "priority": "explore",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: existing registry retained",
+      "checked_on": "2026-10-04",
+      "notes": "Pin prompt year; participant maps and source datasets have their own rights.",
+      "deliverable": "A map whose choices communicate a clear geographic claim."
+    },
+    {
+      "id": "quantecon-models",
+      "title": "QuantEcon model exercises",
+      "provider": "quantecon",
+      "materials_url": "https://python.quantecon.org/intro.html",
+      "target": {
+        "collection_path": "niches/code/economics/modeling/quantecon",
+        "has_subdomain": true,
+        "tools": [
+          "python"
+        ]
+      },
+      "unit": "One exercise or coherent model comparison",
+      "lab_type": "exercise",
+      "priority": "explore",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: page-read",
+      "checked_on": "2026-10-04",
+      "notes": "Educational modeling, not individualized financial advice.",
+      "deliverable": "A computational model, sensitivity analysis and explicit limits."
+    },
+    {
+      "id": "nature-simulation",
+      "title": "Nature-inspired computation",
+      "provider": "nature-of-code",
+      "materials_url": "https://natureofcode.com/",
+      "target": {
+        "collection_path": "niches/code/science/simulation/nature-of-code",
+        "has_subdomain": true,
+        "tools": [
+          "javascript",
+          "p5js"
+        ]
+      },
+      "unit": "One exercise or bounded simulation experiment",
+      "lab_type": "experiment",
+      "priority": "explore",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: page-read",
+      "checked_on": "2026-10-04",
+      "notes": "Exercises are indexed publicly; source/code licensing needs exact review.",
+      "deliverable": "Reproducible simulation, parameter effects and limitations."
+    },
+    {
+      "id": "generative-art",
+      "title": "GENUARY prompt-led creative coding",
+      "provider": "genuary",
+      "materials_url": "https://genuary.art/prompts",
+      "target": {
+        "collection_path": "niches/code/creative/generative-art/genuary",
+        "has_subdomain": true
+      },
+      "unit": "One dated creative prompt",
+      "lab_type": "exercise",
+      "priority": "explore",
+      "adoption": "direct",
+      "access": "Public material; review execution requirements before adoption.",
+      "evidence_scope": "2026-10-04 research handoff: page-read",
+      "checked_on": "2026-10-04",
+      "notes": "Record the actual year and creator attribution; do not turn every visual idea into a product.",
+      "deliverable": "An original visual output plus reproducible rules and parameters."
+    },
+    {
+      "id": "remote-sensing",
+      "title": "NASA ARSET remote-sensing practice",
+      "provider": "nasa-arset",
+      "materials_url": "https://www.earthdata.nasa.gov/learn/trainings/fundamentals-remote-sensing",
+      "target": {
+        "collection_path": "niches/study/geospatial/remote-sensing/nasa-arset/fundamentals",
+        "has_subdomain": true
+      },
+      "unit": "One verified training exercise after full-page review",
+      "lab_type": "exercise",
+      "priority": "explore",
+      "adoption": "direct",
+      "access": "Access needs recheck; full page fetch was blocked.",
+      "evidence_scope": "2026-10-04 research handoff: official search result only; full page unavailable",
+      "checked_on": "2026-10-04",
+      "notes": "Full page could not be fetched (403); official indexed description only. Recheck before adopting.",
+      "deliverable": "Interpretation of Earth-observation data with provenance and uncertainty."
+    }
+  ],
+  "unresolved_sources": [
+    {
+      "provider": "killercoda",
+      "url": "https://killercoda.com/killer-shell-cka",
+      "reason": "Only a JavaScript/moved page was returned. Find the current authoritative collection before adoption; do not invent scenario IDs."
+    },
+    {
+      "provider": "nasa-space-apps",
+      "url": "https://www.spaceappschallenge.org/2025/challenges/",
+      "reason": "Archive and root fetch returned 502 during this review. Useful lead for Earth/space interests, but not a verified challenge inventory."
+    }
+  ]
+}

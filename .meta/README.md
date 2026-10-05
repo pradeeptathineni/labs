@@ -57,3 +57,16 @@ python3 .meta/scripts/catalog.py --check
 `lab_sync.py` also accepts one or more lab paths. Its check mode is read-only. Untracked files enter the snapshot only after `git add`. A changed content snapshot updates `tracking.dates.updated`, which is a recording date, not time spent working; status and progress dates remain separate. The root `lab.json` is excluded from its own hash; nested fixtures, links, executable bits, and staged deletions count.
 
 Run the small suite with `python3 -m unittest discover -s .meta/tests`. Import commands and source-specific limits are in [the importer guide](importers/README.md).
+
+## Choose future practice
+
+`.meta/catalog/atlas.json` is the editable plan; `sources.json` owns provider and reuse facts. Proposed paths create no directories. Use the atlas to select a meaningful unit, review its exact source permissions and environment requirements, then adopt it deliberately. Current adoption is calculated from lab metadata, never from the plan's priority.
+
+```bash
+python3 .meta/scripts/atlas.py --list --priority next
+python3 .meta/scripts/atlas.py
+python3 .meta/scripts/atlas.py --check
+python3 .meta/scripts/catalog.py
+```
+
+Catalog generation refreshes all tracked views. `catalog.py --check` and `atlas.py --check` are offline and read-only. An opportunity's checked date changes only when that review actually happens again. An unknown personal goal remains valid and displays its slug.

@@ -2,7 +2,7 @@
 
 `labs` is my working collection of problems I take apart, decisions I make, and things I build. The point is to practice critical thinking and show the work and reasoning when I have actually done it. An imported exercise is a plan, not an accomplishment.
 
-The [catalog](CATALOG.md) shows the current work and the exercises waiting for me. The actual labs live under [`niches/`](niches/); [`.meta/`](.meta/README.md) holds the small tools that keep their metadata and index honest.
+The [visual workbench](https://pradeeptathineni.github.io/labs/) and [catalog](CATALOG.md) show the current work and the exercises waiting for me. The [practice atlas](PRACTICE-ATLAS.md) maps researched options I might adopt next. The actual labs live under [`niches/`](niches/); [`.meta/`](.meta/README.md) holds the small tools that keep their metadata and index honest.
 
 ## Why the breadth?
 
@@ -22,3 +22,5 @@ The path gives each lab one physical home. A collection descriptor marks whether
 
 > [!IMPORTANT]
 > I credit the people who created source material and keep required notices with copied content. Some sources are link-only, and linked third-party material can need its own review.
+
+Kubernetes practice and conceptual reviews share `devops/orchestration`, with `kubernetes` as a browsing group and tool. Python language practice belongs in `programming/python`; ML implemented in Python belongs in `ai/machine-learning`. AWS certification work uses `cloud/aws` with short collection names such as `dop-c02`. Goals connect related work across those homes.
