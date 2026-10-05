@@ -12,7 +12,7 @@ The generated records expose `subdomain` as a name or null and `groups` as an or
 
 Browse all groups collections by the exact domain/subdomain pair across niches. Plain subject headings, such as AWS Cloud and DevOps, sit above closed collection dropdowns. Each summary shows the collection hierarchy followed by the niche. Its next line uses `<small>` for the full path as inline code, the calculated lab count, and a notes link when a collection README exists. A final `ref` links to `source_url` when supplied. Each lab's title opens its local exercise and its final `ref` links to its exact source. Completed and In progress use the same collection labels and paths with counts for the displayed status.
 
-Every lab uses the same metadata line: type, status, update date, skills, optional goals, and a source `ref` when available. Question counts and resolved provider names remain available in `labs.json`; they do not add extra fields to individual catalog rows.
+Every lab uses the same metadata line: plain type, status, and Updated date; inline-code skills; optional goals; and a source `ref` link when available. Collection paths also use inline code. Question counts and resolved provider names remain available in `labs.json`; they do not add extra fields to individual catalog rows.
 
 Provider spelling comes from the existing source registry where a hierarchy label matches a registered ID; that lookup only formats a name. A few spelling and subject-title exceptions live in the generator, with readable slug-based fallbacks for new names. These labels never determine grouping. The generator keeps styles together and uses HTML links and `<code>` inside summaries because Markdown link syntax and backticks stay literal there.
 

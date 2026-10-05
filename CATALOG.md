@@ -8,32 +8,43 @@ summary, small {
 summary small {
     margin: 0 0 0 15px;
 }
+.catalog-section-title {
+    font-size: 1.25em;
+    font-weight: 600;
+}
+.catalog-all > h3, .catalog-all > details, .catalog-all > hr {
+    margin-left: 2.5rem;
+}
 </style>
 
 # Lab Catalog
 
-35 labs: 0 in progress, 0 complete, 0 paused, 0 abandoned, 35 planned.
+**35 labs** · 0 complete · 0 in progress · 35 planned · 0 paused · 0 abandoned
 
-Types: Problem set 1, Project 33, Question bank 1.
+**Types:** Project 33 · Problem set 1 · Question bank 1
 
-Imported material is planned practice until I record work. Skills are targets, and the update date records a content snapshot.
+---
 
 <details open>
-<summary>Completed</summary>
+<summary class="catalog-section-title">✅ Completed</summary>
 
 No completed labs yet.
 
 </details>
 
+---
+
 <details open>
-<summary>In progress</summary>
+<summary class="catalog-section-title">🛠️ In progress</summary>
 
 No labs in progress yet.
 
 </details>
 
+---
+
 <details>
-<summary>Browse by skill</summary>
+<summary class="catalog-section-title">🔎 Browse by skill</summary>
 
 - **linux** (9): [CI/CD Pipeline](#lab-niches-code-devops-devroadmaps-ci-cd-pipeline), [Server Performance Stats](#lab-niches-code-devops-roadmap-sh-01-server-performance-stats), [SSH Remote Server Setup](#lab-niches-code-devops-roadmap-sh-05-ssh-remote-server-setup), [Static Site Server](#lab-niches-code-devops-roadmap-sh-06-static-site-server), [Simple Monitoring](#lab-niches-code-devops-roadmap-sh-08-simple-monitoring), [Dummy Systemd Service](#lab-niches-code-devops-roadmap-sh-09-dummy-systemd-service), [Configuration Management](#lab-niches-code-devops-roadmap-sh-13-configuration-management), [Linux Server Setup](#lab-niches-code-devops-roadmap-sh-21-linux-server-setup), [VPN Server Setup](#lab-niches-code-devops-roadmap-sh-22-vpn-server-setup)
 - **docker** (6): [CI/CD Pipeline](#lab-niches-code-devops-devroadmaps-ci-cd-pipeline), [Monitoring Stack](#lab-niches-code-devops-devroadmaps-monitoring-stack), [Basic Dockerfile](#lab-niches-code-devops-roadmap-sh-10-basic-dockerfile), [Dockerized Service](#lab-niches-code-devops-roadmap-sh-16-dockerized-service), [Multi-Container Application](#lab-niches-code-devops-roadmap-sh-17-multi-container-application), [Multi-Service Application](#lab-niches-code-devops-roadmap-sh-25-multi-service-application)
@@ -145,18 +156,20 @@ No labs in progress yet.
 
 </details>
 
-<details>
-<summary>Browse all labs</summary>
+---
+
+<details class="catalog-all">
+<summary class="catalog-section-title">📚 Browse all labs</summary>
 
 ### AWS Cloud
 
 <details>
-<summary>DevRoadmaps · Code<br/><small><code>code / cloud / aws / devroadmaps</code> · 2 labs · <a href="https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js"><code>ref</code></a></small></summary>
+<summary>DevRoadmaps · Code<br/><small><code>code / cloud / aws / devroadmaps</code> · 2 labs · <a href="https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js">ref</a></small></summary>
 
 - <a id="lab-niches-code-cloud-aws-devroadmaps-multi-region-architecture"></a>[Multi-Region Architecture](niches/code/cloud/aws/devroadmaps/multi-region-architecture/README.md#exercise-definition) — Design and implement a highly available multi-region architecture with failover and data replication.
-  <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `aws` `dynamodb-streams` `route53` · [`ref`](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L64)</small>
+  <br/><small>Project · Not started · Updated 2026-10-04 · `aws` `dynamodb-streams` `route53` · [ref](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L64)</small>
 - <a id="lab-niches-code-cloud-aws-devroadmaps-serverless-api"></a>[Serverless API](niches/code/cloud/aws/devroadmaps/serverless-api/README.md#exercise-definition) — Build a serverless REST API using AWS Lambda, API Gateway, DynamoDB, and Cognito.
-  <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `api-gateway` `aws-lambda` `dynamodb` · [`ref`](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L63)</small>
+  <br/><small>Project · Not started · Updated 2026-10-04 · `api-gateway` `aws-lambda` `dynamodb` · [ref](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L63)</small>
 
 </details>
 
@@ -164,85 +177,87 @@ No labs in progress yet.
 <summary>CLF-C02 · Study<br/><small><code>study / cloud / aws / clf-c02</code> · 2 labs</small></summary>
 
 - <a id="lab-niches-study-cloud-aws-clf-c02-cloudcertprep"></a>[CloudCertPrep CLF-C02 Question Bank](niches/study/cloud/aws/clf-c02/cloudcertprep/README.md#exercise-definition) — Practice and review 1050 adopted CLF-C02 questions across 4 domains.
-  <br/><small>`Question bank` · `Not started` · `updated 2026-10-04` · `aws` `billing-pricing` `cloud-concepts` `security-compliance` · [`ref`](https://github.com/nastaso/cloudcertprep/tree/9367b00d9f5b39676f4ec3413304d91a7dccbbfb/src/data/clf-c02)</small>
+  <br/><small>Question bank · Not started · Updated 2026-10-04 · `aws` `billing-pricing` `cloud-concepts` `security-compliance` · [ref](https://github.com/nastaso/cloudcertprep/tree/9367b00d9f5b39676f4ec3413304d91a7dccbbfb/src/data/clf-c02)</small>
 - <a id="lab-niches-study-cloud-aws-clf-c02-kananinirav-aws-ccp"></a>[Kananinirav CLF-C02 Review](niches/study/cloud/aws/clf-c02/kananinirav-aws-ccp/README.md#exercise-definition) — Explain and compare cloud computing, IAM, EC2, S3, and VPC concepts from a bounded set of linked notes.
-  <br/><small>`Problem set` · `Not started` · `updated 2026-10-04` · `aws` `cloud-computing` `ec2` `iam` `s3` `vpc` · [`ref`](https://github.com/kananinirav/AWS-Certified-Cloud-Practitioner-Notes/tree/c508a2e5d3e8b20000715bc30bad52ed6d4798cf/sections)</small>
+  <br/><small>Problem set · Not started · Updated 2026-10-04 · `aws` `cloud-computing` `ec2` `iam` `s3` `vpc` · [ref](https://github.com/kananinirav/AWS-Certified-Cloud-Practitioner-Notes/tree/c508a2e5d3e8b20000715bc30bad52ed6d4798cf/sections)</small>
 
 </details>
+
+---
 
 ### DevOps
 
 <details>
-<summary>DevRoadmaps · Code<br/><small><code>code / devops / devroadmaps</code> · 5 labs · <a href="https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js"><code>ref</code></a></small></summary>
+<summary>DevRoadmaps · Code<br/><small><code>code / devops / devroadmaps</code> · 5 labs · <a href="https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js">ref</a></small></summary>
 
 - <a id="lab-niches-code-devops-devroadmaps-ci-cd-pipeline"></a>[CI/CD Pipeline](niches/code/devops/devroadmaps/ci-cd-pipeline/README.md#exercise-definition) — Set up a GitHub Actions pipeline that tests, builds, and deploys a Node.js app to a cloud server.
-  <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `docker` `github-actions` `linux` · [`ref`](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L29)</small>
+  <br/><small>Project · Not started · Updated 2026-10-04 · `docker` `github-actions` `linux` · [ref](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L29)</small>
 - <a id="lab-niches-code-devops-devroadmaps-gitops-deployment"></a>[GitOps Deployment](niches/code/devops/devroadmaps/gitops-deployment/README.md#exercise-definition) — Implement GitOps with ArgoCD for automated deployments from Git to Kubernetes.
-  <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `argocd` `helm` `kubernetes` · [`ref`](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L33)</small>
+  <br/><small>Project · Not started · Updated 2026-10-04 · `argocd` `helm` `kubernetes` · [ref](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L33)</small>
 - <a id="lab-niches-code-devops-devroadmaps-infrastructure-as-code"></a>[Infrastructure as Code](niches/code/devops/devroadmaps/infrastructure-as-code/README.md#exercise-definition) — Provision a complete AWS environment (VPC, EC2, RDS) using Terraform modules.
-  <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `aws` `git` `terraform` · [`ref`](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L30)</small>
+  <br/><small>Project · Not started · Updated 2026-10-04 · `aws` `git` `terraform` · [ref](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L30)</small>
 - <a id="lab-niches-code-devops-devroadmaps-kubernetes-cluster"></a>[Kubernetes Cluster](niches/code/devops/devroadmaps/kubernetes-cluster/README.md#exercise-definition) — Set up a production-ready K8s cluster with ingress, autoscaling, secrets management, and backup.
-  <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `cert-manager` `helm` `kubernetes` · [`ref`](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L32)</small>
+  <br/><small>Project · Not started · Updated 2026-10-04 · `cert-manager` `helm` `kubernetes` · [ref](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L32)</small>
 - <a id="lab-niches-code-devops-devroadmaps-monitoring-stack"></a>[Monitoring Stack](niches/code/devops/devroadmaps/monitoring-stack/README.md#exercise-definition) — Deploy Prometheus, Grafana, and Alertmanager to monitor a microservices application.
-  <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `docker` `grafana` `prometheus` · [`ref`](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L31)</small>
+  <br/><small>Project · Not started · Updated 2026-10-04 · `docker` `grafana` `prometheus` · [ref](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L31)</small>
 
 </details>
 
 <details>
-<summary>roadmap.sh · Code<br/><small><code>code / devops / roadmap-sh</code> · 26 labs · <a href="niches/code/devops/roadmap-sh/README.md">notes</a> · <a href="https://roadmap.sh/devops/projects"><code>ref</code></a></small></summary>
+<summary>roadmap.sh · Code<br/><small><code>code / devops / roadmap-sh</code> · 26 labs · <a href="niches/code/devops/roadmap-sh/README.md">notes</a> · <a href="https://roadmap.sh/devops/projects">ref</a></small></summary>
 
 1. <a id="lab-niches-code-devops-roadmap-sh-01-server-performance-stats"></a>[Server Performance Stats](niches/code/devops/roadmap-sh/01-server-performance-stats/README.md#exercise-definition) — Write a script that reports basic Linux server performance statistics.
-   <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `bash` `filesystems` `linux` `performance-monitoring` `process-inspection` `resource-metrics` · [`ref`](https://roadmap.sh/projects/server-stats)</small>
+   <br/><small>Project · Not started · Updated 2026-10-04 · `bash` `filesystems` `linux` `performance-monitoring` `process-inspection` `resource-metrics` · [ref](https://roadmap.sh/projects/server-stats)</small>
 2. <a id="lab-niches-code-devops-roadmap-sh-02-log-archive-tool"></a>[Log Archive Tool](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition) — Build a command-line tool that archives logs with a dated filename.
-   <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `archiving` `command-line` `compression` `log-management` `timestamps` · [`ref`](https://roadmap.sh/projects/log-archive-tool)</small>
+   <br/><small>Project · Not started · Updated 2026-10-04 · `archiving` `command-line` `compression` `log-management` `timestamps` · [ref](https://roadmap.sh/projects/log-archive-tool)</small>
 3. <a id="lab-niches-code-devops-roadmap-sh-03-nginx-log-analyser"></a>[Nginx Log Analyser](niches/code/devops/roadmap-sh/03-nginx-log-analyser/README.md#exercise-definition) — Analyze Nginx logs from the command line.
-   <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `awk` `bash` `command-line` `log-analysis` `shell-scripting` `text-processing` · [`ref`](https://roadmap.sh/projects/nginx-log-analyser)</small>
+   <br/><small>Project · Not started · Updated 2026-10-04 · `awk` `bash` `command-line` `log-analysis` `shell-scripting` `text-processing` · [ref](https://roadmap.sh/projects/nginx-log-analyser)</small>
 4. <a id="lab-niches-code-devops-roadmap-sh-04-github-pages-deployment"></a>[GitHub Pages Deployment](niches/code/devops/roadmap-sh/04-github-pages-deployment/README.md#exercise-definition) — Create a GitHub Actions workflow that deploys a static site to GitHub Pages.
-   <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `ci-cd` `deployment` `git` `github-actions` `github-pages` · [`ref`](https://roadmap.sh/projects/github-actions-deployment-workflow)</small>
+   <br/><small>Project · Not started · Updated 2026-10-04 · `ci-cd` `deployment` `git` `github-actions` `github-pages` · [ref](https://roadmap.sh/projects/github-actions-deployment-workflow)</small>
 5. <a id="lab-niches-code-devops-roadmap-sh-05-ssh-remote-server-setup"></a>[SSH Remote Server Setup](niches/code/devops/roadmap-sh/05-ssh-remote-server-setup/README.md#exercise-definition) — Configure a Linux server for remote SSH access.
-   <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `linux` `remote-access` `ssh` `ssh-keys` · [`ref`](https://roadmap.sh/projects/ssh-remote-server-setup)</small>
+   <br/><small>Project · Not started · Updated 2026-10-04 · `linux` `remote-access` `ssh` `ssh-keys` · [ref](https://roadmap.sh/projects/ssh-remote-server-setup)</small>
 6. <a id="lab-niches-code-devops-roadmap-sh-06-static-site-server"></a>[Static Site Server](niches/code/devops/roadmap-sh/06-static-site-server/README.md#exercise-definition) — Configure a Linux server to serve a static website.
-   <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `deployment` `linux` `nginx` `rsync` `ssh` `static-sites` · [`ref`](https://roadmap.sh/projects/static-site-server)</small>
+   <br/><small>Project · Not started · Updated 2026-10-04 · `deployment` `linux` `nginx` `rsync` `ssh` `static-sites` · [ref](https://roadmap.sh/projects/static-site-server)</small>
 7. <a id="lab-niches-code-devops-roadmap-sh-07-basic-dns-setup"></a>[Basic DNS Setup](niches/code/devops/roadmap-sh/07-basic-dns-setup/README.md#exercise-definition) — Set up a custom domain and its basic DNS records.
-   <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `cloud-hosting` `dns` `domain-names` `networking` · [`ref`](https://roadmap.sh/projects/basic-dns)</small>
+   <br/><small>Project · Not started · Updated 2026-10-04 · `cloud-hosting` `dns` `domain-names` `networking` · [ref](https://roadmap.sh/projects/basic-dns)</small>
 8. <a id="lab-niches-code-devops-roadmap-sh-08-simple-monitoring"></a>[Simple Monitoring](niches/code/devops/roadmap-sh/08-simple-monitoring/README.md#exercise-definition) — Set up a basic Netdata monitoring dashboard.
-   <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `alerting` `dashboarding` `linux` `metrics` `monitoring` `netdata` `observability` `shell-scripting` · [`ref`](https://roadmap.sh/projects/simple-monitoring-dashboard)</small>
+   <br/><small>Project · Not started · Updated 2026-10-04 · `alerting` `dashboarding` `linux` `metrics` `monitoring` `netdata` `observability` `shell-scripting` · [ref](https://roadmap.sh/projects/simple-monitoring-dashboard)</small>
 9. <a id="lab-niches-code-devops-roadmap-sh-09-dummy-systemd-service"></a>[Dummy Systemd Service](niches/code/devops/roadmap-sh/09-dummy-systemd-service/README.md#exercise-definition) — Create a long-running systemd service that writes to a log file.
-   <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `journald` `linux` `process-management` `services` `systemd` · [`ref`](https://roadmap.sh/projects/dummy-systemd-service)</small>
+   <br/><small>Project · Not started · Updated 2026-10-04 · `journald` `linux` `process-management` `services` `systemd` · [ref](https://roadmap.sh/projects/dummy-systemd-service)</small>
 10. <a id="lab-niches-code-devops-roadmap-sh-10-basic-dockerfile"></a>[Basic Dockerfile](niches/code/devops/roadmap-sh/10-basic-dockerfile/README.md#exercise-definition) — Build a Dockerfile for a basic application image.
-    <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `containers` `docker` `dockerfile` `image-building` · [`ref`](https://roadmap.sh/projects/basic-dockerfile)</small>
+    <br/><small>Project · Not started · Updated 2026-10-04 · `containers` `docker` `dockerfile` `image-building` · [ref](https://roadmap.sh/projects/basic-dockerfile)</small>
 11. <a id="lab-niches-code-devops-roadmap-sh-11-ec2-instance"></a>[EC2 Instance](niches/code/devops/roadmap-sh/11-ec2-instance/README.md#exercise-definition) — Create an EC2 instance and connect to it over SSH.
-    <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `aws` `cloud-computing` `ec2` `networking` `ssh` · [`ref`](https://roadmap.sh/projects/ec2-instance)</small>
+    <br/><small>Project · Not started · Updated 2026-10-04 · `aws` `cloud-computing` `ec2` `networking` `ssh` · [ref](https://roadmap.sh/projects/ec2-instance)</small>
 12. <a id="lab-niches-code-devops-roadmap-sh-12-pomodoro-timer"></a>[Pomodoro Timer](niches/code/devops/roadmap-sh/12-pomodoro-timer/README.md#exercise-definition) — Build a Pomodoro tracker application.
-    <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `accessibility` `css` `frontend-development` `html` `javascript` `state-management` `timer-logic` · [`ref`](https://roadmap.sh/projects/pomodoro-timer)</small>
+    <br/><small>Project · Not started · Updated 2026-10-04 · `accessibility` `css` `frontend-development` `html` `javascript` `state-management` `timer-logic` · [ref](https://roadmap.sh/projects/pomodoro-timer)</small>
 13. <a id="lab-niches-code-devops-roadmap-sh-13-configuration-management"></a>[Configuration Management](niches/code/devops/roadmap-sh/13-configuration-management/README.md#exercise-definition) — Write an Ansible playbook that configures a Linux server.
-    <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `ansible` `automation` `configuration-management` `idempotency` `linux` · [`ref`](https://roadmap.sh/projects/configuration-management)</small>
+    <br/><small>Project · Not started · Updated 2026-10-04 · `ansible` `automation` `configuration-management` `idempotency` `linux` · [ref](https://roadmap.sh/projects/configuration-management)</small>
 14. <a id="lab-niches-code-devops-roadmap-sh-14-iac-digitalocean"></a>[IaC on DigitalOcean](niches/code/devops/roadmap-sh/14-iac-digitalocean/README.md#exercise-definition) — Provision a DigitalOcean Droplet with Terraform.
-    <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `cloud-computing` `digitalocean` `infrastructure-as-code` `terraform` · [`ref`](https://roadmap.sh/projects/iac-digitalocean)</small>
+    <br/><small>Project · Not started · Updated 2026-10-04 · `cloud-computing` `digitalocean` `infrastructure-as-code` `terraform` · [ref](https://roadmap.sh/projects/iac-digitalocean)</small>
 15. <a id="lab-niches-code-devops-roadmap-sh-15-nodejs-service-deployment"></a>[Node.js Service Deployment](niches/code/devops/roadmap-sh/15-nodejs-service-deployment/README.md#exercise-definition) — Deploy a Node.js service to a remote server with GitHub Actions.
-    <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `ci-cd` `deployment` `github-actions` `nodejs` `ssh` · [`ref`](https://roadmap.sh/projects/nodejs-service-deployment)</small>
+    <br/><small>Project · Not started · Updated 2026-10-04 · `ci-cd` `deployment` `github-actions` `nodejs` `ssh` · [ref](https://roadmap.sh/projects/nodejs-service-deployment)</small>
 16. <a id="lab-niches-code-devops-roadmap-sh-16-dockerized-service"></a>[Dockerized Service](niches/code/devops/roadmap-sh/16-dockerized-service/README.md#exercise-definition) — Deploy a Dockerized Node.js service with GitHub Actions.
-    <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `ci-cd` `deployment` `docker` `github-actions` `nodejs` · [`ref`](https://roadmap.sh/projects/dockerized-service-deployment)</small>
+    <br/><small>Project · Not started · Updated 2026-10-04 · `ci-cd` `deployment` `docker` `github-actions` `nodejs` · [ref](https://roadmap.sh/projects/dockerized-service-deployment)</small>
 17. <a id="lab-niches-code-devops-roadmap-sh-17-multi-container-application"></a>[Multi-Container Application](niches/code/devops/roadmap-sh/17-multi-container-application/README.md#exercise-definition) — Run a multi-container application with Docker Compose.
-    <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `containers` `docker` `docker-compose` `service-networking` · [`ref`](https://roadmap.sh/projects/multi-container-service)</small>
+    <br/><small>Project · Not started · Updated 2026-10-04 · `containers` `docker` `docker-compose` `service-networking` · [ref](https://roadmap.sh/projects/multi-container-service)</small>
 18. <a id="lab-niches-code-devops-roadmap-sh-18-automated-db-backups"></a>[Automated DB Backups](niches/code/devops/roadmap-sh/18-automated-db-backups/README.md#exercise-definition) — Schedule database backups every twelve hours.
-    <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `automation` `backup-and-recovery` `database-backups` `mongodb` `object-storage` `scheduling` `workflow-automation` · [`ref`](https://roadmap.sh/projects/automated-backups)</small>
+    <br/><small>Project · Not started · Updated 2026-10-04 · `automation` `backup-and-recovery` `database-backups` `mongodb` `object-storage` `scheduling` `workflow-automation` · [ref](https://roadmap.sh/projects/automated-backups)</small>
 19. <a id="lab-niches-code-devops-roadmap-sh-19-bastion-host"></a>[Bastion Host](niches/code/devops/roadmap-sh/19-bastion-host/README.md#exercise-definition) — Set up a bastion host for access to private infrastructure.
-    <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `access-control` `bastion-hosts` `networking` `security` `ssh` · [`ref`](https://roadmap.sh/projects/bastion-host)</small>
+    <br/><small>Project · Not started · Updated 2026-10-04 · `access-control` `bastion-hosts` `networking` `security` `ssh` · [ref](https://roadmap.sh/projects/bastion-host)</small>
 20. <a id="lab-niches-code-devops-roadmap-sh-20-file-integrity-checker"></a>[File Integrity Checker](niches/code/devops/roadmap-sh/20-file-integrity-checker/README.md#exercise-definition) — Check application log files for tampering.
-    <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `cryptographic-hashing` `file-integrity` `filesystems` `monitoring` `security` · [`ref`](https://roadmap.sh/projects/file-integrity-checker)</small>
+    <br/><small>Project · Not started · Updated 2026-10-04 · `cryptographic-hashing` `file-integrity` `filesystems` `monitoring` `security` · [ref](https://roadmap.sh/projects/file-integrity-checker)</small>
 21. <a id="lab-niches-code-devops-roadmap-sh-21-linux-server-setup"></a>[Linux Server Setup](niches/code/devops/roadmap-sh/21-linux-server-setup/README.md#exercise-definition) — Set up and secure a Linux server from scratch.
-    <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `firewalls` `hardening` `linux` `system-administration` `user-management` · [`ref`](https://roadmap.sh/projects/linux-server-setup)</small>
+    <br/><small>Project · Not started · Updated 2026-10-04 · `firewalls` `hardening` `linux` `system-administration` `user-management` · [ref](https://roadmap.sh/projects/linux-server-setup)</small>
 22. <a id="lab-niches-code-devops-roadmap-sh-22-vpn-server-setup"></a>[VPN Server Setup](niches/code/devops/roadmap-sh/22-vpn-server-setup/README.md#exercise-definition) — Configure a WireGuard or OpenVPN server for remote access.
-    <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `cryptography` `linux` `networking` `openvpn` `vpn` `wireguard` · [`ref`](https://roadmap.sh/projects/vpn-server-setup)</small>
+    <br/><small>Project · Not started · Updated 2026-10-04 · `cryptography` `linux` `networking` `openvpn` `vpn` `wireguard` · [ref](https://roadmap.sh/projects/vpn-server-setup)</small>
 23. <a id="lab-niches-code-devops-roadmap-sh-23-blue-green-deployment"></a>[Blue-Green Deployment](niches/code/devops/roadmap-sh/23-blue-green-deployment/README.md#exercise-definition) — Set up a blue-green deployment for an application.
-    <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `ci-cd` `deployment-strategies` `load-balancing` `rollback` · [`ref`](https://roadmap.sh/projects/blue-green-deployment)</small>
+    <br/><small>Project · Not started · Updated 2026-10-04 · `ci-cd` `deployment-strategies` `load-balancing` `rollback` · [ref](https://roadmap.sh/projects/blue-green-deployment)</small>
 24. <a id="lab-niches-code-devops-roadmap-sh-24-prometheus-and-grafana"></a>[Prometheus and Grafana](niches/code/devops/roadmap-sh/24-prometheus-and-grafana/README.md#exercise-definition) — Collect metrics with Prometheus and visualize them in Grafana.
-    <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `grafana` `metrics` `monitoring` `observability` `prometheus` · [`ref`](https://roadmap.sh/projects/monitoring)</small>
+    <br/><small>Project · Not started · Updated 2026-10-04 · `grafana` `metrics` `monitoring` `observability` `prometheus` · [ref](https://roadmap.sh/projects/monitoring)</small>
 25. <a id="lab-niches-code-devops-roadmap-sh-25-multi-service-application"></a>[Multi-Service Application](niches/code/devops/roadmap-sh/25-multi-service-application/README.md#exercise-definition) — Set up an optimized multi-service Docker application.
-    <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `docker` `docker-compose` `multi-service-architecture` `optimization` `service-networking` · [`ref`](https://roadmap.sh/projects/multiservice-docker)</small>
+    <br/><small>Project · Not started · Updated 2026-10-04 · `docker` `docker-compose` `multi-service-architecture` `optimization` `service-networking` · [ref](https://roadmap.sh/projects/multiservice-docker)</small>
 26. <a id="lab-niches-code-devops-roadmap-sh-26-service-discovery"></a>[Service Discovery](niches/code/devops/roadmap-sh/26-service-discovery/README.md#exercise-definition) — Set up service discovery for dummy services with Consul.
-    <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `consul` `dns` `networking` `service-discovery` · [`ref`](https://roadmap.sh/projects/service-discovery)</small>
+    <br/><small>Project · Not started · Updated 2026-10-04 · `consul` `dns` `networking` `service-discovery` · [ref](https://roadmap.sh/projects/service-discovery)</small>
 
 </details>
 

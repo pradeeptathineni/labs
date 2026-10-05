@@ -340,15 +340,20 @@ def render_catalog(records: list[dict[str, Any]], sources: dict[str, Any]) -> st
         "summary small {",
         "    margin: 0 0 0 15px;",
         "}",
+        ".catalog-section-title {",
+        "    font-size: 1.25em;",
+        "    font-weight: 600;",
+        "}",
+        ".catalog-all > h3, .catalog-all > details, .catalog-all > hr {",
+        "    margin-left: 2.5rem;",
+        "}",
         "</style>",
         "",
         "# Lab Catalog",
         "",
-        f"{len(records)} labs: {statuses['in-progress']} in progress, {statuses['complete']} complete, {statuses['paused']} paused, {statuses['abandoned']} abandoned, {statuses['not-started']} planned.",
+        f"**{len(records)} labs** · {statuses['complete']} complete · {statuses['in-progress']} in progress · {statuses['not-started']} planned · {statuses['paused']} paused · {statuses['abandoned']} abandoned",
         "",
-        "Types: " + ", ".join(f"{_label(key)} {value}" for key, value in sorted(types.items())) + ".",
-        "",
-        "Imported material is planned practice until I record work. Skills are targets, and the update date records a content snapshot.",
+        "**Types:** " + " · ".join(f"{_label(key)} {value}" for key, value in sorted(types.items(), key=lambda pair: (-pair[1], _label(pair[0])))),
         "",
     ]
     groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
@@ -359,10 +364,10 @@ def render_catalog(records: list[dict[str, Any]], sources: dict[str, Any]) -> st
         items[0]["domain"], items[0]["subdomain"] or "", items[0]["path"],
     ))
     for status, title, empty_message in (
-        ("complete", "Completed", "No completed labs yet."),
-        ("in-progress", "In progress", "No labs in progress yet."),
+        ("complete", "✅ Completed", "No completed labs yet."),
+        ("in-progress", "🛠️ In progress", "No labs in progress yet."),
     ):
-        lines += ["<details open>", f"<summary>{title}</summary>", ""]
+        lines += ["---", "", "<details open>", f'<summary class="catalog-section-title">{title}</summary>', ""]
         found = False
         for items in ranked:
             matches = [item for item in items if item["tracking"]["status"] == status]
@@ -378,7 +383,7 @@ def render_catalog(records: list[dict[str, Any]], sources: dict[str, Any]) -> st
             lines.append(empty_message)
         lines += ["", "</details>", ""]
     skills = Counter(skill for item in records for skill in item["skills"])
-    lines += ["<details>", "<summary>Browse by skill</summary>", ""]
+    lines += ["---", "", "<details>", '<summary class="catalog-section-title">🔎 Browse by skill</summary>', ""]
     if skills:
         for skill, count in skills.most_common():
             matches = [item for item in records if skill in item["skills"]]
@@ -394,12 +399,14 @@ def render_catalog(records: list[dict[str, Any]], sources: dict[str, Any]) -> st
             links = ", ".join(f"[{_escape(item['title'])}](#{_anchor(item)})" for item in matches)
             lines.append(f"- **{goal}** ({count}): {links}")
     lines += ["", "</details>", ""]
-    lines += ["<details>", "<summary>Browse all labs</summary>", ""]
+    lines += ["---", "", '<details class="catalog-all">', '<summary class="catalog-section-title">📚 Browse all labs</summary>', ""]
     subjects: dict[tuple[str, str | None], list[list[dict[str, Any]]]] = defaultdict(list)
     for items in ranked:
         subjects[items[0]["domain"], items[0]["subdomain"]].append(items)
     # Ranking collections first also puts subjects with recorded work first.
-    for subject, collections in subjects.items():
+    for index, (subject, collections) in enumerate(subjects.items()):
+        if index:
+            lines += ["---", ""]
         lines += [f"### {_escape(subject_title(*subject))}", ""]
         for items in collections:
             heading, path_line = _collection_display(items, sources)
@@ -426,7 +433,7 @@ def _collection_display(items: list[dict[str, Any]], sources: dict[str, Any]) ->
     if readme.is_file():
         path_line += f' · <a href="{html.escape(display_path(readme))}">notes</a>'
     if source_url:
-        path_line += f' · <a href="{html.escape(source_url)}"><code>ref</code></a>'
+        path_line += f' · <a href="{html.escape(source_url)}">ref</a>'
     return heading, path_line + "</small>"
 
 
@@ -445,14 +452,14 @@ def _catalog_entry(item: dict[str, Any], *, show_order: bool = True, anchor: boo
         solution_link = f" · [Solution]({base}/README.md#solution)"
     else:
         solution_link = ""
-    details = [f"`{_label(item['type'])}`", f"`{_label(item['tracking']['status'])}`"]
-    details.append(f"`updated {item['tracking']['dates']['updated']}`")
+    details = [_label(item["type"]), _label(item["tracking"]["status"])]
+    details.append(f"Updated {item['tracking']['dates']['updated']}")
     if item["skills"]:
         details.append(" ".join(f"`{skill}`" for skill in item["skills"]))
     if item["goals_effective"]:
-        details.append(" ".join(f"`goal: {goal}`" for goal in item["goals_effective"]))
+        details.append("Goals: " + ", ".join(item["goals_effective"]))
     if source.get("url"):
-        details.append(f"[`ref`]({source['url']})")
+        details.append(f"[ref]({source['url']})")
     indent = " " * (len(marker) + 1)
     anchor_tag = f'<a id="{_anchor(item)}"></a>' if anchor else ""
     return [
