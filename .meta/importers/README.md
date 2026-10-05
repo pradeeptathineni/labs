@@ -25,3 +25,19 @@ Both importers use the initializer's destination parser: `niches/<niche>/<domain
 Both importers preview the exact plan, including new collection descriptors, and require `--yes` for flag writes. Interactive writes always ask for confirmation. Rerunning the same selection and revision is a no-op. A changed source needs an explicit `--refresh` with the same selection and a reviewed preview. Importer-owned snapshots are checked for local edits before refresh. My README Solution, responses, status, history, and manual metadata are preserved. If a source definition changes, the importer reports that the README definition needs manual review; it does not rewrite that section automatically.
 
 TidyTuesday datasets and other registered sources remain selective future choices. Kananinirav study notes are linked in an active problem set; its linked practice-exam content is deferred pending specific provenance and permission review.
+
+## Kubernetes
+
+`platformlab.py` adopts a whole exercise or mock as one lab. It copies the MIT notice and an attributed upstream snapshot, pins relative links, and leaves the root Solution empty. Missing upstream dependencies are recorded rather than linked to nonexistent files. `ckx.py` adopts whole CKA/CKAD/CKS assessments using their original IDs. Its bodies, answers and simulator assets stay upstream; the registry remains `review` under the source's BSL terms.
+
+Acquire the upstream checkouts separately. List and preview before writing:
+
+```bash
+python3 .meta/importers/platformlab.py --checkout /path/to/platformlab --list
+python3 .meta/importers/platformlab.py --checkout /path/to/platformlab --track exercises --all-track --destination niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises --subdomain orchestration --dry-run
+python3 .meta/importers/ckx.py --checkout /path/to/ck-x --track cka --all-track --destination niches/code/devops/orchestration/kubernetes/cka/ck-x --subdomain orchestration --dry-run
+```
+
+Replace `--dry-run` with `--yes` to apply the reviewed selection. Use `--track mocks` for ThePlatformLab mocks with their separate collection, or `ckad`/`cks` for the corresponding CK-X track and destination. `--item` selects an individual source ID; `--interactive` offers the same selection and confirmation.
+
+Repeat imports are no-ops. A changed revision requires `--refresh`; it updates owned source files and provenance while preserving the root README, manual metadata and lifecycle. Review README source links after a refresh. No adapter provisions a cluster or runs upstream code.

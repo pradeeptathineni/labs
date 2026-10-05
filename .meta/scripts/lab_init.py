@@ -91,7 +91,9 @@ def plan_lab(data: dict[str, Any], sources: dict[str, Any], *, files: dict[str, 
     if not catalog.SLUG_PATTERN.fullmatch(slug):
         raise catalog.CatalogError(f"Invalid lab slug: {slug!r}")
     descriptor = catalog.collection_info(parent)
-    proposed_descriptor = dict(descriptor)
+    proposed_descriptor = dict(data.get("collection_descriptor", {}))
+    proposed_descriptor.update(catalog.collection_info(parent, collection_updates(existing_plans or [])))
+    catalog.validate_document(proposed_descriptor, catalog.load_schema(catalog.COLLECTION_SCHEMA_PATH), "proposed collection")
     has_subdomain = bool(data.get("subdomain"))
     if descriptor.get("has_subdomain", False) != has_subdomain:
         if "has_subdomain" in descriptor or (parent.exists() and any(parent.glob("*/lab.json"))):
@@ -102,10 +104,10 @@ def plan_lab(data: dict[str, Any], sources: dict[str, Any], *, files: dict[str, 
     all_siblings = siblings + planned_siblings
     for sibling in all_siblings:
         name = sibling.name
-        existing_slug = catalog.ORDER_PATTERN.fullmatch(name).group(2) if descriptor.get("ordered") and catalog.ORDER_PATTERN.fullmatch(name) else name
+        existing_slug = catalog.ORDER_PATTERN.fullmatch(name).group(2) if proposed_descriptor.get("ordered") and catalog.ORDER_PATTERN.fullmatch(name) else name
         if existing_slug == slug:
             raise catalog.CatalogError(f"Lab slug already exists in collection: {slug}")
-    if descriptor.get("ordered"):
+    if proposed_descriptor.get("ordered"):
         numbers = [int(match.group(1)) for child in all_siblings if (match := catalog.ORDER_PATTERN.fullmatch(child.name))]
         folder = f"{max(numbers, default=0) + 1:02d}-{slug}"
     else:
