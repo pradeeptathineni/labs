@@ -1,14 +1,12 @@
 <style>
 small {
   display: inline-block;
-  margin: 0 0 6px 15px;
 }
-summary {
+summary, small {
     margin: 0 0 15px 0;
 }
-.catalog-path {
-  display: inline-block;
-  margin-left: 15px;
+summary small {
+    margin-left: 15px;
 }
 </style>
 
@@ -153,7 +151,7 @@ No labs in progress yet.
 ### AWS Cloud
 
 <details>
-<summary><a href="https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js">DevRoadmaps</a> · Code<br/><span class="catalog-path"><code>code / cloud / aws / devroadmaps</code> · 2 labs</span></summary>
+<summary>DevRoadmaps · Code<br/><small><code>code / cloud / aws / devroadmaps</code> · 2 labs · <a href="https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js"><code>ref</code></a></small></summary>
 
 - <a id="lab-niches-code-cloud-aws-devroadmaps-multi-region-architecture"></a>[Multi-Region Architecture](niches/code/cloud/aws/devroadmaps/multi-region-architecture/README.md#exercise-definition) — Design and implement a highly available multi-region architecture with failover and data replication.
   <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `aws` `dynamodb-streams` `route53` · [`ref`](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L64)</small>
@@ -163,7 +161,7 @@ No labs in progress yet.
 </details>
 
 <details>
-<summary>CLF-C02 · Study<br/><span class="catalog-path"><code>study / cloud / aws / clf-c02</code> · 2 labs</span></summary>
+<summary>CLF-C02 · Study<br/><small><code>study / cloud / aws / clf-c02</code> · 2 labs</small></summary>
 
 - <a id="lab-niches-study-cloud-aws-clf-c02-cloudcertprep"></a>[CloudCertPrep CLF-C02 Question Bank](niches/study/cloud/aws/clf-c02/cloudcertprep/README.md#exercise-definition) — Practice and review 1050 adopted CLF-C02 questions across 4 domains.
   <br/><small>`Question bank` · `Not started` · `1050 materialized questions` · `updated 2026-10-04` · `aws` `billing-pricing` `cloud-concepts` `security-compliance` · `CloudCertPrep` · [`ref`](https://github.com/nastaso/cloudcertprep/tree/9367b00d9f5b39676f4ec3413304d91a7dccbbfb/src/data/clf-c02)</small>
@@ -175,7 +173,7 @@ No labs in progress yet.
 ### DevOps
 
 <details>
-<summary><a href="https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js">DevRoadmaps</a> · Code<br/><span class="catalog-path"><code>code / devops / devroadmaps</code> · 5 labs</span></summary>
+<summary>DevRoadmaps · Code<br/><small><code>code / devops / devroadmaps</code> · 5 labs · <a href="https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js"><code>ref</code></a></small></summary>
 
 - <a id="lab-niches-code-devops-devroadmaps-ci-cd-pipeline"></a>[CI/CD Pipeline](niches/code/devops/devroadmaps/ci-cd-pipeline/README.md#exercise-definition) — Set up a GitHub Actions pipeline that tests, builds, and deploys a Node.js app to a cloud server.
   <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `docker` `github-actions` `linux` · [`ref`](https://github.com/rudra496/devroadmaps/blob/104d7bc31f3ade603c13ba7efa79968aca42cd15/js/project-ideas.js#L29)</small>
@@ -191,7 +189,7 @@ No labs in progress yet.
 </details>
 
 <details>
-<summary><a href="https://roadmap.sh/devops/projects">roadmap.sh</a> · Code<br/><span class="catalog-path"><code>code / devops / roadmap-sh</code> · 26 labs · <a href="niches/code/devops/roadmap-sh/README.md">notes</a></span></summary>
+<summary>roadmap.sh · Code<br/><small><code>code / devops / roadmap-sh</code> · 26 labs · <a href="niches/code/devops/roadmap-sh/README.md">notes</a> · <a href="https://roadmap.sh/devops/projects"><code>ref</code></a></small></summary>
 
 1. <a id="lab-niches-code-devops-roadmap-sh-01-server-performance-stats"></a>[Server Performance Stats](niches/code/devops/roadmap-sh/01-server-performance-stats/README.md#exercise-definition) — Write a script that reports basic Linux server performance statistics.
    <br/><small>`Project` · `Not started` · `updated 2026-10-04` · `bash` `filesystems` `linux` `performance-monitoring` `process-inspection` `resource-metrics` · [`ref`](https://roadmap.sh/projects/server-stats)</small>

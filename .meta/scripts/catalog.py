@@ -333,14 +333,12 @@ def render_catalog(records: list[dict[str, Any]], sources: dict[str, Any]) -> st
         "<style>",
         "small {",
         "  display: inline-block;",
-        "  margin: 0 0 6px 15px;",
         "}",
-        "summary {",
+        "summary, small {",
         "    margin: 0 0 15px 0;",
         "}",
-        ".catalog-path {",
-        "  display: inline-block;",
-        "  margin-left: 15px;",
+        "summary small {",
+        "    margin-left: 15px;",
         "}",
         "</style>",
         "",
@@ -423,13 +421,14 @@ def _collection_display(items: list[dict[str, Any]], sources: dict[str, Any]) ->
     source_url = first.get("collection_source_url")
     show_source_name = not source_url or len({item["source"]["provider"] for item in items}) > 1
     # Markdown links and backticks stay literal inside summary; use their HTML forms.
-    heading = f'<a href="{html.escape(source_url)}">{html.escape(title)}</a>' if source_url else html.escape(title)
-    heading += f" · {html.escape(display_name(first['niche']))}"
+    heading = f"{html.escape(title)} · {html.escape(display_name(first['niche']))}"
     count = f"{len(items)} lab{'s' if len(items) != 1 else ''}"
-    path_line = f'<span class="catalog-path"><code>{html.escape(breadcrumb)}</code> · {count}'
+    path_line = f"<small><code>{html.escape(breadcrumb)}</code> · {count}"
     if readme.is_file():
         path_line += f' · <a href="{html.escape(display_path(readme))}">notes</a>'
-    return heading, path_line + "</span>", show_source_name
+    if source_url:
+        path_line += f' · <a href="{html.escape(source_url)}"><code>ref</code></a>'
+    return heading, path_line + "</small>", show_source_name
 
 
 def _catalog_entry(item: dict[str, Any], show_source_name: bool, *, show_order: bool = True, anchor: bool = True) -> list[str]:

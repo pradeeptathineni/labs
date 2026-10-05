@@ -161,9 +161,9 @@ class CoreTests(RepositoryCase):
         self.init("study", "systems", "course", "Course task", "--subdomain", "distributed", "--group", "mit")
         catalog = (self.root / "CATALOG.md").read_text().splitlines()
         style = "\n".join(catalog).split("</style>", 1)[0]
-        self.assertIn("small {\n  display: inline-block;\n  margin: 0 0 6px 15px;\n}", style)
-        self.assertIn("summary {\n    margin: 0 0 15px 0;\n}", style)
-        self.assertIn(".catalog-path {", style)
+        self.assertIn("small {\n  display: inline-block;\n}", style)
+        self.assertIn("summary, small {\n    margin: 0 0 15px 0;\n}", style)
+        self.assertIn("summary small {\n    margin-left: 15px;\n}", style)
         self.assertNotIn('style="', "\n".join(catalog))
         summaries = [line for line in catalog if line.startswith("<summary>")]
         self.assertEqual(summaries[:4], ["<summary>Completed</summary>", "<summary>In progress</summary>", "<summary>Browse by skill</summary>", "<summary>Browse all labs</summary>"])
@@ -174,10 +174,10 @@ class CoreTests(RepositoryCase):
         self.assertEqual(catalog.count("### AWS Cloud"), 1)
         self.assertFalse(any(line.startswith("### [") for line in catalog))
         aws_section = "\n".join(catalog).split("### AWS Cloud\n", 1)[1].split("\n### ", 1)[0]
-        self.assertIn('<summary><a href="https://example.com/projects">Example projects</a> · Code<br/><span class="catalog-path"><code>code / cloud / aws / projects</code> · 2 labs · <a href="niches/code/cloud/aws/projects/README.md">notes</a></span></summary>', aws_section)
-        self.assertIn('<summary>Practice · Study<br/><span class="catalog-path"><code>study / cloud / aws / practice</code> · 1 lab</span></summary>', aws_section)
+        self.assertIn('<summary>Example projects · Code<br/><small><code>code / cloud / aws / projects</code> · 2 labs · <a href="niches/code/cloud/aws/projects/README.md">notes</a> · <a href="https://example.com/projects"><code>ref</code></a></small></summary>', aws_section)
+        self.assertIn('<summary>Practice · Study<br/><small><code>study / cloud / aws / practice</code> · 1 lab</small></summary>', aws_section)
         self.assertNotIn("Unordered task", aws_section)
-        self.assertIn('<summary>MIT / Course · Study<br/><span class="catalog-path"><code>study / systems / distributed / mit / course</code> · 1 lab</span></summary>', catalog)
+        self.assertIn('<summary>MIT / Course · Study<br/><small><code>study / systems / distributed / mit / course</code> · 1 lab</small></summary>', catalog)
         first = next(index for index, line in enumerate(catalog) if "First summary" in line)
         self.assertTrue(catalog[first].startswith('1. <a id="lab-niches-code-cloud-aws-projects-01-first-task"></a>'))
         self.assertIn("<br/><small>`Exercise` · `Not started` · `updated ", catalog[first + 1])
@@ -192,7 +192,7 @@ class CoreTests(RepositoryCase):
         updated = (self.root / "CATALOG.md").read_text()
         completed_section = updated.split("<summary>Completed</summary>", 1)[1].split("</details>", 1)[0]
         progress_section = updated.split("<summary>In progress</summary>", 1)[1].split("</details>", 1)[0]
-        self.assertIn('**<a href="https://example.com/projects">Example projects</a> · Code**<br/><span class="catalog-path"><code>code / cloud / aws / projects</code> · 1 lab', completed_section)
+        self.assertIn('**Example projects · Code**<br/><small><code>code / cloud / aws / projects</code> · 1 lab', completed_section)
         self.assertIn("First summary", completed_section)
         self.assertNotIn(" · [Solution]", completed_section)
         self.assertIn("Second task", progress_section)
