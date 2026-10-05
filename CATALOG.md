@@ -37,14 +37,14 @@ No labs in progress yet.
 
 - **linux** (9): [CI/CD Pipeline](#lab-niches-code-devops-devroadmaps-ci-cd-pipeline), [Server Performance Stats](#lab-niches-code-devops-roadmap-sh-01-server-performance-stats), [SSH Remote Server Setup](#lab-niches-code-devops-roadmap-sh-05-ssh-remote-server-setup), [Static Site Server](#lab-niches-code-devops-roadmap-sh-06-static-site-server), [Simple Monitoring](#lab-niches-code-devops-roadmap-sh-08-simple-monitoring), [Dummy Systemd Service](#lab-niches-code-devops-roadmap-sh-09-dummy-systemd-service), [Configuration Management](#lab-niches-code-devops-roadmap-sh-13-configuration-management), [Linux Server Setup](#lab-niches-code-devops-roadmap-sh-21-linux-server-setup), [VPN Server Setup](#lab-niches-code-devops-roadmap-sh-22-vpn-server-setup)
 - **docker** (6): [CI/CD Pipeline](#lab-niches-code-devops-devroadmaps-ci-cd-pipeline), [Monitoring Stack](#lab-niches-code-devops-devroadmaps-monitoring-stack), [Basic Dockerfile](#lab-niches-code-devops-roadmap-sh-10-basic-dockerfile), [Dockerized Service](#lab-niches-code-devops-roadmap-sh-16-dockerized-service), [Multi-Container Application](#lab-niches-code-devops-roadmap-sh-17-multi-container-application), [Multi-Service Application](#lab-niches-code-devops-roadmap-sh-25-multi-service-application)
-- **aws** (5): [Multi-Region Architecture](#lab-niches-code-cloud-aws-devroadmaps-multi-region-architecture), [Infrastructure as Code](#lab-niches-code-devops-devroadmaps-infrastructure-as-code), [EC2 Instance](#lab-niches-code-devops-roadmap-sh-11-ec2-instance), [CloudCertPrep CLF-C02 Question Bank](#lab-niches-study-cloud-aws-clf-c02-cloudcertprep), [CLF-C02 Cloud Foundations Review](#lab-niches-study-cloud-aws-clf-c02-kananinirav-aws-ccp)
+- **aws** (5): [Multi-Region Architecture](#lab-niches-code-cloud-aws-devroadmaps-multi-region-architecture), [Infrastructure as Code](#lab-niches-code-devops-devroadmaps-infrastructure-as-code), [EC2 Instance](#lab-niches-code-devops-roadmap-sh-11-ec2-instance), [CloudCertPrep CLF-C02 Question Bank](#lab-niches-study-cloud-aws-clf-c02-cloudcertprep), [Kananinirav CLF-C02 Review](#lab-niches-study-cloud-aws-clf-c02-kananinirav-aws-ccp)
 - **ssh** (5): [SSH Remote Server Setup](#lab-niches-code-devops-roadmap-sh-05-ssh-remote-server-setup), [Static Site Server](#lab-niches-code-devops-roadmap-sh-06-static-site-server), [EC2 Instance](#lab-niches-code-devops-roadmap-sh-11-ec2-instance), [Node.js Service Deployment](#lab-niches-code-devops-roadmap-sh-15-nodejs-service-deployment), [Bastion Host](#lab-niches-code-devops-roadmap-sh-19-bastion-host)
 - **networking** (5): [Basic DNS Setup](#lab-niches-code-devops-roadmap-sh-07-basic-dns-setup), [EC2 Instance](#lab-niches-code-devops-roadmap-sh-11-ec2-instance), [Bastion Host](#lab-niches-code-devops-roadmap-sh-19-bastion-host), [VPN Server Setup](#lab-niches-code-devops-roadmap-sh-22-vpn-server-setup), [Service Discovery](#lab-niches-code-devops-roadmap-sh-26-service-discovery)
 - **github-actions** (4): [CI/CD Pipeline](#lab-niches-code-devops-devroadmaps-ci-cd-pipeline), [GitHub Pages Deployment](#lab-niches-code-devops-roadmap-sh-04-github-pages-deployment), [Node.js Service Deployment](#lab-niches-code-devops-roadmap-sh-15-nodejs-service-deployment), [Dockerized Service](#lab-niches-code-devops-roadmap-sh-16-dockerized-service)
 - **ci-cd** (4): [GitHub Pages Deployment](#lab-niches-code-devops-roadmap-sh-04-github-pages-deployment), [Node.js Service Deployment](#lab-niches-code-devops-roadmap-sh-15-nodejs-service-deployment), [Dockerized Service](#lab-niches-code-devops-roadmap-sh-16-dockerized-service), [Blue-Green Deployment](#lab-niches-code-devops-roadmap-sh-23-blue-green-deployment)
 - **deployment** (4): [GitHub Pages Deployment](#lab-niches-code-devops-roadmap-sh-04-github-pages-deployment), [Static Site Server](#lab-niches-code-devops-roadmap-sh-06-static-site-server), [Node.js Service Deployment](#lab-niches-code-devops-roadmap-sh-15-nodejs-service-deployment), [Dockerized Service](#lab-niches-code-devops-roadmap-sh-16-dockerized-service)
 - **monitoring** (3): [Simple Monitoring](#lab-niches-code-devops-roadmap-sh-08-simple-monitoring), [File Integrity Checker](#lab-niches-code-devops-roadmap-sh-20-file-integrity-checker), [Prometheus and Grafana](#lab-niches-code-devops-roadmap-sh-24-prometheus-and-grafana)
-- **cloud-computing** (3): [EC2 Instance](#lab-niches-code-devops-roadmap-sh-11-ec2-instance), [IaC on DigitalOcean](#lab-niches-code-devops-roadmap-sh-14-iac-digitalocean), [CLF-C02 Cloud Foundations Review](#lab-niches-study-cloud-aws-clf-c02-kananinirav-aws-ccp)
+- **cloud-computing** (3): [EC2 Instance](#lab-niches-code-devops-roadmap-sh-11-ec2-instance), [IaC on DigitalOcean](#lab-niches-code-devops-roadmap-sh-14-iac-digitalocean), [Kananinirav CLF-C02 Review](#lab-niches-study-cloud-aws-clf-c02-kananinirav-aws-ccp)
 - **helm** (2): [GitOps Deployment](#lab-niches-code-devops-devroadmaps-gitops-deployment), [Kubernetes Cluster](#lab-niches-code-devops-devroadmaps-kubernetes-cluster)
 - **kubernetes** (2): [GitOps Deployment](#lab-niches-code-devops-devroadmaps-gitops-deployment), [Kubernetes Cluster](#lab-niches-code-devops-devroadmaps-kubernetes-cluster)
 - **git** (2): [Infrastructure as Code](#lab-niches-code-devops-devroadmaps-infrastructure-as-code), [GitHub Pages Deployment](#lab-niches-code-devops-roadmap-sh-04-github-pages-deployment)
@@ -59,7 +59,7 @@ No labs in progress yet.
 - **metrics** (2): [Simple Monitoring](#lab-niches-code-devops-roadmap-sh-08-simple-monitoring), [Prometheus and Grafana](#lab-niches-code-devops-roadmap-sh-24-prometheus-and-grafana)
 - **observability** (2): [Simple Monitoring](#lab-niches-code-devops-roadmap-sh-08-simple-monitoring), [Prometheus and Grafana](#lab-niches-code-devops-roadmap-sh-24-prometheus-and-grafana)
 - **containers** (2): [Basic Dockerfile](#lab-niches-code-devops-roadmap-sh-10-basic-dockerfile), [Multi-Container Application](#lab-niches-code-devops-roadmap-sh-17-multi-container-application)
-- **ec2** (2): [EC2 Instance](#lab-niches-code-devops-roadmap-sh-11-ec2-instance), [CLF-C02 Cloud Foundations Review](#lab-niches-study-cloud-aws-clf-c02-kananinirav-aws-ccp)
+- **ec2** (2): [EC2 Instance](#lab-niches-code-devops-roadmap-sh-11-ec2-instance), [Kananinirav CLF-C02 Review](#lab-niches-study-cloud-aws-clf-c02-kananinirav-aws-ccp)
 - **automation** (2): [Configuration Management](#lab-niches-code-devops-roadmap-sh-13-configuration-management), [Automated DB Backups](#lab-niches-code-devops-roadmap-sh-18-automated-db-backups)
 - **nodejs** (2): [Node.js Service Deployment](#lab-niches-code-devops-roadmap-sh-15-nodejs-service-deployment), [Dockerized Service](#lab-niches-code-devops-roadmap-sh-16-dockerized-service)
 - **docker-compose** (2): [Multi-Container Application](#lab-niches-code-devops-roadmap-sh-17-multi-container-application), [Multi-Service Application](#lab-niches-code-devops-roadmap-sh-25-multi-service-application)
@@ -139,9 +139,9 @@ No labs in progress yet.
 - **billing-pricing** (1): [CloudCertPrep CLF-C02 Question Bank](#lab-niches-study-cloud-aws-clf-c02-cloudcertprep)
 - **cloud-concepts** (1): [CloudCertPrep CLF-C02 Question Bank](#lab-niches-study-cloud-aws-clf-c02-cloudcertprep)
 - **security-compliance** (1): [CloudCertPrep CLF-C02 Question Bank](#lab-niches-study-cloud-aws-clf-c02-cloudcertprep)
-- **iam** (1): [CLF-C02 Cloud Foundations Review](#lab-niches-study-cloud-aws-clf-c02-kananinirav-aws-ccp)
-- **s3** (1): [CLF-C02 Cloud Foundations Review](#lab-niches-study-cloud-aws-clf-c02-kananinirav-aws-ccp)
-- **vpc** (1): [CLF-C02 Cloud Foundations Review](#lab-niches-study-cloud-aws-clf-c02-kananinirav-aws-ccp)
+- **iam** (1): [Kananinirav CLF-C02 Review](#lab-niches-study-cloud-aws-clf-c02-kananinirav-aws-ccp)
+- **s3** (1): [Kananinirav CLF-C02 Review](#lab-niches-study-cloud-aws-clf-c02-kananinirav-aws-ccp)
+- **vpc** (1): [Kananinirav CLF-C02 Review](#lab-niches-study-cloud-aws-clf-c02-kananinirav-aws-ccp)
 
 </details>
 
@@ -164,9 +164,9 @@ No labs in progress yet.
 <summary>CLF-C02 · Study<br/><small><code>study / cloud / aws / clf-c02</code> · 2 labs</small></summary>
 
 - <a id="lab-niches-study-cloud-aws-clf-c02-cloudcertprep"></a>[CloudCertPrep CLF-C02 Question Bank](niches/study/cloud/aws/clf-c02/cloudcertprep/README.md#exercise-definition) — Practice and review 1050 adopted CLF-C02 questions across 4 domains.
-  <br/><small>`Question bank` · `Not started` · `1050 materialized questions` · `updated 2026-10-04` · `aws` `billing-pricing` `cloud-concepts` `security-compliance` · `CloudCertPrep` · [`ref`](https://github.com/nastaso/cloudcertprep/tree/9367b00d9f5b39676f4ec3413304d91a7dccbbfb/src/data/clf-c02)</small>
-- <a id="lab-niches-study-cloud-aws-clf-c02-kananinirav-aws-ccp"></a>[CLF-C02 Cloud Foundations Review](niches/study/cloud/aws/clf-c02/kananinirav-aws-ccp/README.md#exercise-definition) — Explain and compare cloud computing, IAM, EC2, S3, and VPC concepts from a bounded set of linked notes.
-  <br/><small>`Problem set` · `Not started` · `updated 2026-10-04` · `aws` `cloud-computing` `ec2` `iam` `s3` `vpc` · `AWS Certified Cloud Practitioner Notes by Kananinirav` · [`ref`](https://github.com/kananinirav/AWS-Certified-Cloud-Practitioner-Notes/tree/c508a2e5d3e8b20000715bc30bad52ed6d4798cf/sections)</small>
+  <br/><small>`Question bank` · `Not started` · `updated 2026-10-04` · `aws` `billing-pricing` `cloud-concepts` `security-compliance` · [`ref`](https://github.com/nastaso/cloudcertprep/tree/9367b00d9f5b39676f4ec3413304d91a7dccbbfb/src/data/clf-c02)</small>
+- <a id="lab-niches-study-cloud-aws-clf-c02-kananinirav-aws-ccp"></a>[Kananinirav CLF-C02 Review](niches/study/cloud/aws/clf-c02/kananinirav-aws-ccp/README.md#exercise-definition) — Explain and compare cloud computing, IAM, EC2, S3, and VPC concepts from a bounded set of linked notes.
+  <br/><small>`Problem set` · `Not started` · `updated 2026-10-04` · `aws` `cloud-computing` `ec2` `iam` `s3` `vpc` · [`ref`](https://github.com/kananinirav/AWS-Certified-Cloud-Practitioner-Notes/tree/c508a2e5d3e8b20000715bc30bad52ed6d4798cf/sections)</small>
 
 </details>
 

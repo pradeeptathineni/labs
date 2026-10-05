@@ -369,10 +369,10 @@ def render_catalog(records: list[dict[str, Any]], sources: dict[str, Any]) -> st
             if not matches:
                 continue
             found = True
-            heading, path_line, show_source_name = _collection_display(matches, sources)
+            heading, path_line = _collection_display(matches, sources)
             lines += [f"**{heading}**<br/>{path_line}", ""]
             for item in matches:
-                lines += _catalog_entry(item, show_source_name, show_order=False, anchor=False)
+                lines += _catalog_entry(item, show_order=False, anchor=False)
             lines.append("")
         if not found:
             lines.append(empty_message)
@@ -402,16 +402,16 @@ def render_catalog(records: list[dict[str, Any]], sources: dict[str, Any]) -> st
     for subject, collections in subjects.items():
         lines += [f"### {_escape(subject_title(*subject))}", ""]
         for items in collections:
-            heading, path_line, show_source_name = _collection_display(items, sources)
+            heading, path_line = _collection_display(items, sources)
             lines += ["<details>", f"<summary>{heading}<br/>{path_line}</summary>", ""]
             for item in items:
-                lines += _catalog_entry(item, show_source_name)
+                lines += _catalog_entry(item)
             lines += ["", "</details>", ""]
     lines += ["</details>", ""]
     return "\n".join(lines).rstrip() + "\n"
 
 
-def _collection_display(items: list[dict[str, Any]], sources: dict[str, Any]) -> tuple[str, str, bool]:
+def _collection_display(items: list[dict[str, Any]], sources: dict[str, Any]) -> tuple[str, str]:
     first = items[0]
     title = " / ".join([*(display_name(group, sources) for group in first["groups"]), first["collection_title"]])
     relative_path = Path(first["path"]).parent
@@ -419,7 +419,6 @@ def _collection_display(items: list[dict[str, Any]], sources: dict[str, Any]) ->
     collection_path = ROOT / relative_path
     readme = collection_path / "README.md"
     source_url = first.get("collection_source_url")
-    show_source_name = not source_url or len({item["source"]["provider"] for item in items}) > 1
     # Markdown links and backticks stay literal inside summary; use their HTML forms.
     heading = f"{html.escape(title)} · {html.escape(display_name(first['niche']))}"
     count = f"{len(items)} lab{'s' if len(items) != 1 else ''}"
@@ -428,10 +427,10 @@ def _collection_display(items: list[dict[str, Any]], sources: dict[str, Any]) ->
         path_line += f' · <a href="{html.escape(display_path(readme))}">notes</a>'
     if source_url:
         path_line += f' · <a href="{html.escape(source_url)}"><code>ref</code></a>'
-    return heading, path_line + "</small>", show_source_name
+    return heading, path_line + "</small>"
 
 
-def _catalog_entry(item: dict[str, Any], show_source_name: bool, *, show_order: bool = True, anchor: bool = True) -> list[str]:
+def _catalog_entry(item: dict[str, Any], *, show_order: bool = True, anchor: bool = True) -> list[str]:
     base = item["path"]
     source = item["source"]
     marker = f"{item['order']}." if show_order and item["order"] is not None else "-"
@@ -447,15 +446,11 @@ def _catalog_entry(item: dict[str, Any], show_source_name: bool, *, show_order: 
     else:
         solution_link = ""
     details = [f"`{_label(item['type'])}`", f"`{_label(item['tracking']['status'])}`"]
-    if "question_count" in item:
-        details.append(f"`{item['question_count']} materialized questions`")
     details.append(f"`updated {item['tracking']['dates']['updated']}`")
     if item["skills"]:
         details.append(" ".join(f"`{skill}`" for skill in item["skills"]))
     if item["goals_effective"]:
         details.append(" ".join(f"`goal: {goal}`" for goal in item["goals_effective"]))
-    if show_source_name:
-        details.append(f"`{item['source_display']['name']}`")
     if source.get("url"):
         details.append(f"[`ref`]({source['url']})")
     indent = " " * (len(marker) + 1)

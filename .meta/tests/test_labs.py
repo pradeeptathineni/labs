@@ -165,6 +165,7 @@ class CoreTests(RepositoryCase):
         self.assertIn("summary, small {\n    margin: 0 0 15px 0;\n}", style)
         self.assertIn("summary small {\n    margin: 0 0 0 15px;\n}", style)
         self.assertNotIn('style="', "\n".join(catalog))
+        self.assertNotIn("`Created by me`", "\n".join(catalog))
         summaries = [line for line in catalog if line.startswith("<summary>")]
         self.assertEqual(summaries[:4], ["<summary>Completed</summary>", "<summary>In progress</summary>", "<summary>Browse by skill</summary>", "<summary>Browse all labs</summary>"])
         self.assertEqual(catalog[catalog.index(summaries[0]) - 1], "<details open>")
@@ -420,6 +421,13 @@ class ImporterTests(RepositoryCase):
         self.assertIn("No change", self.command("importers", "cloudcertprep.py", *args, "--yes").stdout)
         records = json.loads((self.root / ".meta/catalog/labs.json").read_text())
         self.assertEqual(records[0]["question_count"], 1)
+        catalog = (self.root / "CATALOG.md").read_text()
+        metadata_line = next(line for line in catalog.splitlines() if "<br/><small>`Question bank`" in line)
+        self.assertNotIn("materialized questions", metadata_line)
+        self.assertNotIn("`CloudCertPrep`", metadata_line)
+        self.assertIn("`Not started` · `updated ", metadata_line)
+        self.assertIn("`aws`", metadata_line)
+        self.assertTrue(metadata_line.endswith(f"[`ref`]({records[0]['source']['url']})</small>"))
 
 
 if __name__ == "__main__":

@@ -1,5 +1,5 @@
 {
-  "title": "CLF-C02 Cloud Foundations Review",
+  "title": "Kananinirav CLF-C02 Review",
   "summary": "Explain and compare cloud computing, IAM, EC2, S3, and VPC concepts from a bounded set of linked notes.",
   "type": "problem-set",
   "skills": [
@@ -23,6 +23,6 @@
       "updated": "2026-10-04",
       "completed": null
     },
-    "content_sha256": "4908e711b9312901e936e14e36d84911773b3206b9c51e1fa3001ad27cec39a7"
+    "content_sha256": "fadb8cb86d5941e2a70266d8dc2fdfa0c769014e9d3cc06d8b91e4cdaa702ae5"
   }
 }

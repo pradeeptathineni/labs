@@ -1,4 +1,4 @@
-# CLF-C02 Cloud Foundations Review
+# Kananinirav CLF-C02 Review
 
 Source: [Kananinirav AWS Cloud Practitioner Notes](https://github.com/kananinirav/AWS-Certified-Cloud-Practitioner-Notes/tree/c508a2e5d3e8b20000715bc30bad52ed6d4798cf/sections)
 
