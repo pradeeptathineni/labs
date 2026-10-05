@@ -13,11 +13,17 @@
 <a class="skip" href="#all-labs">Skip to all labs</a>
 <header><h1>Labs</h1><nav><a href="{{REPO}}">GitHub</a> · <a href="{{REPO}}/blob/{{COMMIT}}/CATALOG.md">Markdown catalog</a> · <a href="{{REPO}}/blob/{{COMMIT}}/PRACTICE-ATLAS.md">Practice atlas</a></nav></header>
 <main>
-<p class="totals">{{SUMMARY}}</p>
-<details class="section"><summary>Completed <span class="count">({{COMPLETE_COUNT}})</span></summary><div class="section-content">{{COMPLETE}}</div></details>
-<details class="section"><summary>In progress <span class="count">({{PROGRESS_COUNT}})</span></summary><div class="section-content">{{PROGRESS}}</div></details>
-<details class="section"><summary>Browse by skill</summary><p class="skill-index">{{SKILLS}}</p></details>
-<details class="section" id="all-labs" open><summary>All labs <span class="count">({{LAB_COUNT}})</span></summary><div class="section-content">
+<div class="totals"><p>{{LAB_COUNT}} labs: {{TYPES}}</p><p>{{SUMMARY}}</p></div>
+<details class="section"><summary>Completed <span class="count">· {{COMPLETE_COUNT}}</span></summary><div class="section-content">{{COMPLETE}}</div></details>
+<details class="section"><summary>In progress <span class="count">· {{PROGRESS_COUNT}}</span></summary><div class="section-content">{{PROGRESS}}</div></details>
+<details class="section" id="browse"><summary>Browse labs</summary><div class="section-content">
+<p id="browse-fallback"><a href="{{REPO}}/blob/{{COMMIT}}/CATALOG.md#browse-labs">Browse the Markdown catalog</a>.</p>
+<div id="browse-controls" hidden>
+<div class="browse-modes" role="group" aria-label="Browse labs by">By <button type="button" data-facet="skill" aria-pressed="true">skill</button> | <button type="button" data-facet="tool" aria-pressed="false">tool</button> | <button type="button" data-facet="goal" aria-pressed="false">goal</button> | <button type="button" data-facet="subject" aria-pressed="false">subject</button></div>
+<div class="browse-fields"><label><span id="browse-search-label">Find a skill</span><input id="browse-search" type="search" autocomplete="off"></label><label><span id="browse-value-label">Skill</span><select id="browse-value"></select></label></div>
+</div>
+</div></details>
+<details class="section" id="all-labs" open><summary>All labs <span class="count">· {{LAB_COUNT}} labs</span></summary><div class="section-content">
 <form id="controls" hidden><label class="search">Search<input id="search" type="search" placeholder="Title, skill, tool, goal, source…" autocomplete="off"></label><label>Filter<select id="filter"><option value="">All labs</option></select></label><label>Sort within collections<select id="sort"><option value="order">Order</option><option value="title">Title</option><option value="updated">Last update</option></select></label><button id="reset" type="button">Clear</button></form>
 <p id="result-count" class="meta" role="status" aria-live="polite" hidden></p>
 <p id="load-warning" role="status" hidden>Search could not load. All lab links are available below.</p>

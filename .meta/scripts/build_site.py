@@ -9,7 +9,7 @@ import re
 import shutil
 import sys
 import tempfile
-from collections import Counter, defaultdict
+from collections import Counter
 from pathlib import Path
 from urllib.parse import quote, urlsplit
 
@@ -50,8 +50,8 @@ def projection(records: list[dict], plan: dict, revision: str) -> dict:
                     status=record["tracking"]["status"], dates=record["tracking"]["dates"],
                     exercise_url=github_link(record["exercise_link"], revision), solution_url=github_link(record["solution_link"], revision),
                     demo_url=github_link(record.get("links", {}).get("demo"), revision))
-        if "question_count" in record:
-            item["question_count"] = record["question_count"]
+        item.update(tags=catalog.inline_tags(record), collection_ref_url=record.get("collection_source_url"),
+                    collection_notes_url=github_link(record["collection_notes"], revision))
         labs.append(item)
     labels = {key: catalog.display_name(key) for key in sorted({value for item in labs for value in [item["niche"], *item["tools"], *item["skills"]]})}
     return {"version": 1, "source_commit": revision, "labs": labs, "labels": labels,
@@ -67,37 +67,34 @@ def link(url: str | None, label: str) -> str:
 
 
 def lab_html(item: dict) -> str:
-    details = [STATUS_LABELS[item['status']], catalog.display_name(item['type']), 'Updated ' + item['dates']['updated']]
-    if item['tools']:
-        details.append('Tools: ' + ', '.join(item['tools']))
-    if item['goals']:
-        details.append('Goals: ' + ', '.join(item['goals']))
-    if 'question_count' in item:
-        details.append(f"{item['question_count']} source questions")
-    actions = [link(item['source_url'], item['source_name'])]
+    details = [e(STATUS_LABELS[item['status']]), e(catalog.display_name(item['type'])), 'Updated ' + e(item['dates']['updated'])]
+    details += [f'<code>{e(tag)}</code>' for tag in item['tags']]
     if item['solution_url']:
-        actions.append(link(item['solution_url'], 'Solution'))
+        details.append(link(item['solution_url'], 'Solution'))
     if item['demo_url']:
-        actions.append(link(item['demo_url'], 'Demo'))
-    actions.append(link('?lab=' + quote(item['path'], safe='') + '#all-labs', 'Link'))
-    summary = f'<p>{e(item["summary"])}</p>' if item['summary'] else ''
-    skills = f'<p class="meta">Skills: {e(", ".join(item["skills"]))}</p>' if item['skills'] else ''
-    return f'<li class="lab" data-path="{e(item["path"])}"><div class="lab-title">{link(item["exercise_url"], item["title"])}</div>{summary}<p class="meta">{e(" · ".join(details))}</p>{skills}<p class="meta">{" · ".join(actions)}</p></li>'
+        details.append(link(item['demo_url'], 'Demo'))
+    if item['source_url']:
+        details.append(f'<a href="{e(item["source_url"])}" title="{e(item["source_name"])}" aria-label="{e("Source for " + item["title"])}">ref</a>')
+    order = f' value="{item["order"]}"' if item['order'] is not None else ''
+    return f'<li class="lab" data-path="{e(item["path"])}"{order}><p class="lab-heading">{link(item["exercise_url"], item["title"])} — {e(item["summary"])}</p><p class="meta">{" · ".join(details)}</p></li>'
 
 
 def grouped_html(items: list[dict]) -> str:
-    collections = defaultdict(list)
-    for item in items:
-        collections[item['domain'], item['subdomain'] or '', item['collection_path']].append(item)
     lines, previous = [], None
-    for (domain, subdomain, _), group in sorted(collections.items()):
+    for group in catalog.grouped_collections(items):
         first = group[0]
-        subject = (domain, subdomain)
+        subject = (first['domain'], first['subdomain'])
         if subject != previous:
             lines.append(f'<h2>{e(first["subject_title"])}</h2>')
             previous = subject
-        lines.append(f'<h3>{e(" / ".join(first["collection_breadcrumb"]))} <span class="count">({len(group)})</span></h3>')
-        lines.append('<ul class="labs">' + ''.join(lab_html(item) for item in group) + '</ul>')
+        title = e(' · '.join(first['collection_breadcrumb']))
+        metadata = [f'<code class="path">{e(first["collection_path"])}</code>']
+        if first['collection_notes_url']:
+            metadata.append(link(first['collection_notes_url'], 'notes'))
+        if first['collection_ref_url']:
+            metadata.append(link(first['collection_ref_url'], 'ref'))
+        list_tag = 'ol' if first['order'] is not None else 'ul'
+        lines.append(f'<details class="collection" data-collection="{e(first["collection_path"])}"><summary>{title}<span class="count"> · {catalog.lab_count(len(group))}</span></summary><div class="collection-content"><p class="meta">{" · ".join(metadata)}</p><{list_tag} class="labs">' + ''.join(lab_html(item) for item in group) + f'</{list_tag}></div></details>')
     return '\n'.join(lines)
 
 
@@ -127,16 +124,14 @@ def build(output: Path, base_path: str = "/", release: bool = False) -> dict:
     counts = Counter(item['status'] for item in payload['labs'])
     completed = [item for item in payload['labs'] if item['status'] == 'complete']
     progress = [item for item in payload['labs'] if item['status'] == 'in-progress']
-    skills = Counter(skill for item in payload['labs'] for skill in item['skills'])
-    summary = f"{len(records)} labs · {counts['complete']} complete · {counts['in-progress']} in progress · {counts['not-started']} planned"
+    summary = f"{counts['complete']} complete · {counts['in-progress']} in progress · {counts['not-started']} planned"
     summary += ''.join(f" · {counts[status]} {status}" for status in ('paused', 'abandoned') if counts[status])
     substitutions = {"CSS": css_name, "JS": js_name, "DATA": data_name,
-                     "SUMMARY": summary,
+                     "SUMMARY": summary, "TYPES": e(catalog.type_counts(records)),
                      "COMPLETE": grouped_html(completed) or '<p>No completed labs yet.</p>',
                      "PROGRESS": grouped_html(progress) or '<p>No labs in progress yet.</p>',
-                     "COMPLETE_COUNT": str(len(completed)), "PROGRESS_COUNT": str(len(progress)),
+                     "COMPLETE_COUNT": catalog.lab_count(len(completed)), "PROGRESS_COUNT": catalog.lab_count(len(progress)),
                      "WORK": grouped_html(payload['labs']) or '<p>No labs adopted yet.</p>',
-                     "SKILLS": ' · '.join(link('?skill=' + quote(skill, safe='') + '#all-labs', f'{skill} ({count})') for skill, count in sorted(skills.items())) or 'No skills indexed yet.',
                      "LAB_COUNT": str(len(records)), "COMMIT": revision, "SHORT_COMMIT": revision[:7],
                      "BUILD_STATE": "Local preview with uncommitted changes" if dirty else "Published" if release else "Local preview",
                      "REPO": REPOSITORY}

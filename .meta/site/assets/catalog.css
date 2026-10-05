@@ -12,16 +12,10 @@ a:hover{text-decoration-thickness:2px}
 .count,.meta{color:var(--muted);font-weight:400}
 .section-content{padding:6px 0 8px 20px}
 .section-content>p{margin:8px 0}
-.skill-index{font-size:.9rem;padding-left:20px;line-height:2}
-.skill-index a{display:inline-block}
 h2{font-size:1.2rem;margin:28px 0 10px}
-h3{font-size:1rem;margin:20px 0 4px;font-weight:600}
 .labs{list-style:none;padding:0;margin:0}
 .lab{padding:12px 0;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
 .lab:last-child{border-bottom:0}
-.lab-title{font-weight:600}
-.lab-title a{text-decoration:none}
-.lab-title a:hover{text-decoration:underline}
 .lab p{margin:4px 0;font-size:.9rem;max-width:900px}
 .lab .meta{font-size:.875rem}
 .meta{font-size:.875rem}
@@ -50,3 +44,22 @@ select{max-width:100%}
 }
 @media(prefers-color-scheme:dark){:root{--bg:#0d1117;--text:#e6edf3;--muted:#9da7b3;--line:#30363d;--link:#79b8ff;--field:#161b22}
 }
+.totals p{margin:4px 0}
+.collection{border-top:1px solid var(--line);padding:10px 0}
+.collection>summary{cursor:pointer;font-weight:600;overflow-wrap:anywhere;padding:4px 0}
+.collection-content{padding:0 0 4px 8px}
+.collection-content>.meta{margin:8px 0}
+.collection .labs{padding-left:22px;list-style:disc}
+.collection ol.labs{list-style:decimal}
+.lab p{margin:0}
+.lab p+p{margin-top:5px}
+.lab-heading a{font-weight:600;text-decoration:none}
+.lab-heading a:hover{text-decoration:underline}
+code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.88em;background:var(--field);padding:2px 4px;border-radius:3px}
+.path{overflow-wrap:anywhere}
+.browse-modes{display:flex;align-items:center;gap:5px;flex-wrap:wrap;color:var(--muted)}
+.browse-modes button{border:0;background:transparent;color:var(--link);padding:4px;font-size:1rem}
+.browse-modes [aria-pressed=true]{font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.browse-fields{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 12px}
+.browse-fields label{flex:1;min-width:190px}
+.browse-fields select{max-width:100%}

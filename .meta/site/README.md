@@ -1,6 +1,6 @@
 # Web catalog
 
-One static page with four expandable sections: Completed, In progress, Browse by skill, and All labs. Search, filtering and sorting work in the browser. Exercises, solutions and the practice atlas link to GitHub. Aptos is used where installed, with system fallbacks; no external fonts or frontend framework.
+One static page with four expandable sections: Completed, In progress, Browse labs, and All labs. Browse offers skill, tool, goal and subject choices with a searchable selector. Collections start collapsed. Search, filtering and sorting work in the browser. Exercises, solutions and the practice atlas link to GitHub. Aptos is used where installed, with system fallbacks; no external fonts or frontend framework.
 
 ## Preview
 
@@ -10,7 +10,7 @@ python3 .meta/scripts/build_site.py
 python3 -m http.server 8000 --bind 127.0.0.1 --directory .meta/build/pages
 ```
 
-Open `http://127.0.0.1:8000`. Relative assets also work under `/labs/`. The complete catalog is in the HTML, so links remain usable without JavaScript. Query parameters preserve search, filter, sort and individual lab links. Sorting stays within collections.
+Open `http://127.0.0.1:8000`. Relative assets also work under `/labs/`. The complete catalog is in the HTML, so links remain usable without JavaScript. Query parameters preserve search, filter, sort and individual lab links. Collection order matches Markdown across niches; the sort control changes lab order within each collection. Tags share one compact line with the source `ref`.
 
 The builder reads the shared catalog records and recorded lab dates. It never updates metadata, fingerprints, tracked views or the Git index. Only `.meta/build/` is generated and ignored. Hashed assets prevent mixing old data with new code. `build-info.json` identifies the source commit; `--release` requires a clean, current snapshot.
 

@@ -31,10 +31,22 @@ def check(browser, url, labs, screenshots):
     page.goto(url, wait_until='networkidle')
     expect(page.locator('#result-count')).to_have_text(f'{len(labs)} of {len(labs)} labs')
     expect(page.locator('main > details')).to_have_count(4)
+    expect(page.locator("#work-results .collection[open]")).to_have_count(0)
     page.keyboard.press('Tab')
     assert page.evaluate('document.activeElement.tagName') == 'A'
     page.locator('h1').click()
     page.screenshot(path=str(screenshots / 'desktop.png'))
+    page.locator('#browse > summary').click()
+    for facet in ['skill', 'tool', 'goal', 'subject']:
+        key = {'skill': 'skills', 'tool': 'tools', 'goal': 'goals'}.get(facet)
+        values = lambda lab: lab[key] if key else [lab['domain'] + ('/' + lab['subdomain'] if lab['subdomain'] else '')]
+        value = next(values(lab)[0] for lab in labs if values(lab))
+        page.locator(f'[data-facet="{facet}"]').click()
+        page.locator('#browse-search').fill(value)
+        page.locator('#browse-value').select_option(value)
+        expect(page.locator('#work-results .lab')).to_have_count(sum(value in values(lab) for lab in labs))
+    page.locator('#reset').click()
+    page.locator('#browse > summary').click()
     first = labs[0]
     page.goto(url + '?lab=' + quote(first['path'], safe=''))
     expect(page.locator('#work-results .lab')).to_have_count(1)
@@ -54,6 +66,9 @@ def check(browser, url, labs, screenshots):
     page.evaluate('window.scrollTo(0, 0)')
     assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), 'Horizontal overflow'
     page.screenshot(path=str(screenshots / 'mobile.png'))
+    page.locator('#work-results .collection > summary').first.click()
+    expect(page.locator('#work-results .lab').first).to_be_visible()
+    page.screenshot(path=str(screenshots / 'mobile-expanded.png'))
     page.emulate_media(color_scheme='dark')
     page.screenshot(path=str(screenshots / 'mobile-dark.png'))
     assert not errors, errors
@@ -62,6 +77,8 @@ def check(browser, url, labs, screenshots):
     page = context.new_page()
     page.goto(url)
     expect(page.locator('#work-results .lab')).to_have_count(len(labs))
+    page.locator('#work-results .collection > summary').first.click()
+    expect(page.locator('#work-results .lab').first).to_be_visible()
     context.close()
 
 
