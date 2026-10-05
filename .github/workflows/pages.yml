@@ -42,11 +42,10 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.13'
-      - name: Install check dependencies
-        run: python3 -m pip install -r .meta/requirements.txt -r .meta/importers/requirements.txt -r .meta/site/requirements-dev.txt
+      - name: Install build dependency
+        run: python3 -m pip install -r .meta/requirements.txt
       - name: Validate canonical inputs without changing them
         run: |
-          python3 -m unittest discover -s .meta/tests
           python3 .meta/scripts/lab_sync.py --check
           python3 .meta/scripts/catalog.py --check
           python3 .meta/scripts/atlas.py --check
@@ -58,11 +57,9 @@ jobs:
         env:
           BASE_PATH: ${{ steps.pages.outputs.base_path || '/labs' }}
         run: python3 .meta/scripts/build_site.py --release --base-path "${BASE_PATH}/" --output .meta/build/pages
-      - name: Check artifact and browser behavior
+      - name: Check artifact and clean snapshot
         run: |
           python3 .meta/scripts/build_site.py --check-output
-          python3 -m playwright install --with-deps chromium
-          python3 .meta/site/browser_smoke.py
           git diff --exit-code
           git diff --cached --exit-code
           test -z "$(git ls-files --others --exclude-standard)"

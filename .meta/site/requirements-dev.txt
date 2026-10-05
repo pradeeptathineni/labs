@@ -1,2 +1,2 @@
-# Only for the local/CI browser smoke; not needed by the builder or website.
+# Only for a local browser check; not installed during deployment.
 playwright==1.63.0

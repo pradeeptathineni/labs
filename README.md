@@ -2,7 +2,7 @@
 
 `labs` is my working collection of problems I take apart, decisions I make, and things I build. The point is to practice critical thinking and show the work and reasoning when I have actually done it. An imported exercise is a plan, not an accomplishment.
 
-The [visual workbench](https://pradeeptathineni.github.io/labs/) and [catalog](CATALOG.md) show the current work and the exercises waiting for me. The [practice atlas](PRACTICE-ATLAS.md) maps researched options I might adopt next. The actual labs live under [`niches/`](niches/); [`.meta/`](.meta/README.md) holds the small tools that keep their metadata and index honest.
+The [web catalog](https://pradeeptathineni.github.io/labs/) and [Markdown catalog](CATALOG.md) show the current work and the exercises waiting for me. The [practice atlas](PRACTICE-ATLAS.md) maps researched options I might adopt next. The actual labs live under [`niches/`](niches/); [`.meta/`](.meta/README.md) holds the tools for creating, editing, and indexing labs.
 
 ## Why the breadth?
 
