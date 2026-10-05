@@ -1,0 +1,2 @@
+# Only for the local/CI browser smoke; not needed by the builder or website.
+playwright==1.63.0

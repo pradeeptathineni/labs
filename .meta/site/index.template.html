@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Pradeep's working collection of problems, decisions and things to build. Browse adopted labs and a source-backed practice atlas.">
+<title>Labs · Pradeep's working collection</title>
+<link rel="stylesheet" href="{{CSS}}">
+<script src="{{JS}}" defer></script>
+</head>
+<body data-catalog="{{DATA}}">
+<a class="skip-link" href="#browse">Skip to the collection</a>
+<header class="masthead"><a class="wordmark" href="?">labs<span aria-hidden="true">.</span></a><nav aria-label="Repository"><a href="{{REPO}}">GitHub ↗</a><a href="{{REPO}}/blob/{{COMMIT}}/README.md">About &amp; usage</a><a href="{{REPO}}/blob/{{COMMIT}}/CATALOG.md">Markdown catalog</a></nav></header>
+<main>
+<section class="intro"><p class="eyebrow">PRADEEP'S WORKING COLLECTION</p><h1>Practice, with the<br class="wide-only"> reasoning left in.</h1><p class="lede">Problems I take apart, decisions I make, and things I build. This is where I keep the work I’ve adopted, what I’m doing, and the directions I want to explore.</p><p class="principle">An imported exercise is a plan, not an accomplishment.</p></section>
+<section class="overview" aria-label="Recorded lab status">{{SUMMARY}}</section>
+<nav class="view-nav" aria-label="Collection views"><a href="?view=work" data-view="work" aria-current="page">Adopted work <span>{{LAB_COUNT}}</span></a><a href="?view=atlas" data-view="atlas">Practice atlas <span>{{ATLAS_COUNT}}</span></a></nav>
+<section id="browse" tabindex="-1">
+<div class="view-intro" id="view-intro"><h2 id="view-title">A place for each problem.</h2><p id="view-description">Browse by subject, with related kinds of work together. Open a collection to find its exercises. Skills are targets; goals describe preparation.</p></div>
+<div id="load-warning" class="notice" role="status" hidden></div>
+<noscript><p class="notice">The full catalog and atlas are available below. JavaScript adds search, filters and shared views.</p></noscript>
+<form id="controls" hidden><div class="search-row"><label class="search-label" for="search">Find work<input id="search" name="q" type="search" placeholder="Search titles, tools, skills, sources…" autocomplete="off"></label><label for="sort">Sort within collections<select id="sort" name="sort"><option value="order">Collection order</option><option value="updated">Last content update</option><option value="title">Title</option></select></label></div>
+<div id="primary-filters" class="filter-row"></div><details id="more-filters" class="more-filters"><summary>More filters <span class="muted">tools, goals, sources &amp; more</span></summary><div id="secondary-filters" class="filter-grid"></div></details>
+<p class="filter-help">Different filters narrow together. Multiple values in one filter match any selected value.</p>
+<div class="result-toolbar"><p id="result-count" role="status" aria-live="polite"></p><button id="reset" type="button">Clear all</button></div><div id="active-filters" class="active-filters" aria-label="Active filters"></div></form>
+<div id="work-results">{{WORK}}</div>
+<section id="atlas-fallback"><h2>Practice atlas</h2><p>Reviewed choices and proposed destinations. Opportunities are separate from adopted work, and adoption is separate from progress.</p><details class="guidance"><summary>Other forms of practice I want to explore</summary><ul>{{GUIDANCE}}</ul></details><div id="atlas-results">{{ATLAS}}</div><details class="guidance"><summary>Deferred or unverified leads</summary><ul>{{LEADS}}</ul></details></section>
+<div id="empty-state" class="empty" hidden><h2>No matches for this view.</h2><p>A shared link may refer to an older path, or these filters may not overlap.</p><a href="?">Reset to all work</a></div>
+</section>
+</main>
+<footer><p>One record, several ways to browse. <a href="{{REPO}}/blob/{{COMMIT}}/PRACTICE-ATLAS.md">Read the Markdown atlas</a>.</p><p class="muted">{{BUILD_STATE}} · <a href="{{REPO}}/commit/{{COMMIT}}">{{SHORT_COMMIT}}</a> · Content dates come from recorded lab changes.</p></footer>
+</body>
+</html>
