@@ -1,6 +1,6 @@
 # Catalog metadata
 
-`lab.json` keeps maintained facts beside each lab: title, optional summary, type, optional difficulty, skills, optional cross-cutting goals, source, optional solution/demo links, and tracking. Status and the four lifecycle dates live under `tracking`. Paths supply niche, domain, optional subdomain, a list of collection groupings, collection, and lab slug. There is no provider-derived path level.
+`lab.json` keeps maintained facts beside each lab: title, a required short summary, type, optional difficulty, skills, optional tools and cross-cutting goals, source, optional solution/demo links, and tracking. Status and the four lifecycle dates live under `tracking`. Paths supply niche, domain, optional subdomain, a list of collection groupings, collection, and lab slug. There is no provider-derived path level.
 
 A source record has a name and one of `external`, `organization`, or `local`. External sources have a canonical URL and reuse policy. An organizational source can omit its public URL; local sources need neither. `copy`, `link-only`, and `review` are operational policies for these tools, with evidence scoped to the source material reviewed. A registered provider name does not make every linked asset safe to copy.
 
@@ -10,7 +10,7 @@ A collection may have `collection.json` with a display title, a collection-level
 
 The generated records expose `subdomain` as a name or null and `groups` as an ordered list, alongside the other path-derived fields. No copy of a subject name is maintained in a lab or descriptor. Only the boundary is declared.
 
-The shared catalog model resolves collection identity, subject names, breadcrumbs, effective tools/goals, source names, question counts, and exercise/solution availability once. Markdown and Pages consume those same facts. Collections are grouped by the declared subject across niches; source or goal labels never determine placement. Unknown names use readable fallbacks.
+The shared catalog model resolves collection identity, subject names, breadcrumbs, effective tools/goals, source names and exercise/solution availability once. Markdown and Pages consume those same facts. Collections are grouped by the declared subject and ordered by their path after `niches/<niche>/`, with niche breaking ties; source or goal labels never determine placement. Unknown names use readable fallbacks.
 
 The Markdown catalog uses native headings, ordinary links and collection disclosures. It contains no stylesheets or CSS-dependent structure. The visual treatment belongs to the Pages assets. A nonempty personal Solution or an explicit solution link makes that link available; upstream reference answers do not.
 
@@ -23,4 +23,4 @@ Generated views are [`labs.json`](labs.json) and [the readable catalog](../../CA
 > [!WARNING]
 > Do not hand-edit generated views. Edit the neighboring metadata or source registry, then regenerate.
 
-Skills describe competencies; tools name concrete technologies; goals name intentions. New entries should use `troubleshooting` as a skill, `kubernetes` as a tool, and `cka` as a goal. Existing skill tags remain valid. Optional `tools` and `goals` on the actual collection descriptor combine with local values as sorted unions; group ancestors do not supply defaults. Certification goals mean preparation, never a credential earned.
+Skills describe competencies; tools name concrete technologies; goals name intentions. New entries should use `troubleshooting` as a skill, `kubernetes` as a tool, and `cka` as a goal. Named technologies belong only in tools; capability names belong in skills. The catalog rejects a tag used in both roles, including inherited tools. Inline display deduplicates the combined tags, while each browse view uses its own field. Optional `tools` and `goals` on the actual collection descriptor combine with local values as sorted unions; group ancestors do not supply defaults. Certification goals mean preparation, never a credential earned.

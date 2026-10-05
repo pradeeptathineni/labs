@@ -4,6 +4,10 @@
   "type": "project",
   "difficulty": "intermediate",
   "skills": [
+    "monitoring",
+    "observability"
+  ],
+  "tools": [
     "docker",
     "grafana",
     "prometheus"

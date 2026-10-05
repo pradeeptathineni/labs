@@ -1,5 +1,6 @@
 {
   "title": "Exercise 17 — kubectl debug: Pod and Node",
+  "summary": "Use debug containers to inspect running Pods and node-level resources.",
   "type": "exercise",
   "skills": [
     "orchestration",

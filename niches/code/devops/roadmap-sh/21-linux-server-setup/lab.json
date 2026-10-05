@@ -6,9 +6,11 @@
   "skills": [
     "firewalls",
     "hardening",
-    "linux",
     "system-administration",
     "user-management"
+  ],
+  "tools": [
+    "linux"
   ],
   "source": {
     "provider": "roadmap-sh",

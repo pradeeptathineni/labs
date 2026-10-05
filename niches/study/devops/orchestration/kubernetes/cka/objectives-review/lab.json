@@ -1,5 +1,6 @@
 {
   "title": "CKA objectives review",
+  "summary": "Explain cluster administration, workloads, networking, storage and diagnostic choices using pinned CKA objectives.",
   "type": "problem-set",
   "skills": [
     "conceptual-reasoning",

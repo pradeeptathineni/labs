@@ -4,10 +4,12 @@
   "type": "project",
   "difficulty": "beginner",
   "skills": [
+    "key-management",
+    "remote-access"
+  ],
+  "tools": [
     "linux",
-    "remote-access",
-    "ssh",
-    "ssh-keys"
+    "ssh"
   ],
   "source": {
     "provider": "roadmap-sh",

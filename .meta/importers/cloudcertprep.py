@@ -211,7 +211,7 @@ def main() -> int:
             catalog.update_catalog()
             print(f"Refreshed {catalog.display_path(path)}")
             return 0
-        fields = dict(destination, title="CloudCertPrep CLF-C02 Question Bank", slug=args.slug, summary=f"Practice and review {len(selected)} adopted CLF-C02 questions across {len(set(item['domain'] for item in selected))} domains.", type="question-bank", skills=["aws", "cloud-concepts", "security-compliance", "billing-pricing"], provider=PROVIDER, item_id=identity, source_url=source_url, revision=revision)
+        fields = dict(destination, title="CloudCertPrep CLF-C02 Question Bank", slug=args.slug, summary="Review selected AWS Cloud Practitioner questions and explain the reasoning behind each answer.", type="question-bank", skills=["cloud-concepts", "security-compliance", "billing-pricing"], tools=["aws"], provider=PROVIDER, item_id=identity, source_url=source_url, revision=revision)
         plan = lab_init.plan_lab(fields, sources, files={"README.md": readme, **owned})
         lab_init.preview_plan(plan)
         if args.dry_run:

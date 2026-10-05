@@ -5,9 +5,11 @@
   "difficulty": "intermediate",
   "skills": [
     "containers",
-    "docker",
-    "docker-compose",
     "service-networking"
+  ],
+  "tools": [
+    "docker",
+    "docker-compose"
   ],
   "source": {
     "provider": "roadmap-sh",

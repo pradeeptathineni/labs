@@ -5,7 +5,9 @@
   "difficulty": "intermediate",
   "skills": [
     "ci-cd",
-    "deployment",
+    "deployment"
+  ],
+  "tools": [
     "github-actions",
     "nodejs",
     "ssh"

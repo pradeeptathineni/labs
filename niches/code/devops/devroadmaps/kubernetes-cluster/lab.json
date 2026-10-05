@@ -4,6 +4,10 @@
   "type": "project",
   "difficulty": "advanced",
   "skills": [
+    "cluster-administration",
+    "orchestration"
+  ],
+  "tools": [
     "cert-manager",
     "helm",
     "kubernetes"

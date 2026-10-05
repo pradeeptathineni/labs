@@ -1,9 +1,11 @@
 {
   "title": "Exercise 08 — Node Drain and Cordon",
+  "summary": "Cordon and drain a worker node, then restore it to workload scheduling.",
   "type": "exercise",
   "skills": [
+    "cluster-maintenance",
     "orchestration",
-    "troubleshooting"
+    "scheduling"
   ],
   "source": {
     "provider": "platformlab-cka",

@@ -4,10 +4,12 @@
   "type": "project",
   "difficulty": "intermediate",
   "skills": [
-    "ansible",
     "automation",
     "configuration-management",
-    "idempotency",
+    "idempotency"
+  ],
+  "tools": [
+    "ansible",
     "linux"
   ],
   "source": {

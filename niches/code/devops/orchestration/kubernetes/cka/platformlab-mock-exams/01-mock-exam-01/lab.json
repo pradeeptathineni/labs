@@ -1,5 +1,6 @@
 {
   "title": "Mock Exam 01 — CKA Practice (Kubernetes 1.35)",
+  "summary": "Attempt a complete CKA mock covering cluster administration, workloads, networking, storage and troubleshooting.",
   "type": "problem-set",
   "skills": [
     "orchestration",

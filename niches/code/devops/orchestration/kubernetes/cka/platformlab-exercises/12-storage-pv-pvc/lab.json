@@ -1,9 +1,10 @@
 {
   "title": "Exercise 12 — Storage: PV, PVC, and StorageClass",
+  "summary": "Provision persistent storage, bind a claim and verify that a Pod can use the volume.",
   "type": "exercise",
   "skills": [
     "orchestration",
-    "troubleshooting"
+    "storage-management"
   ],
   "source": {
     "provider": "platformlab-cka",

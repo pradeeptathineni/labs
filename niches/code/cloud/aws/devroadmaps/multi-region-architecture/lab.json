@@ -4,6 +4,11 @@
   "type": "project",
   "difficulty": "advanced",
   "skills": [
+    "data-replication",
+    "disaster-recovery",
+    "high-availability"
+  ],
+  "tools": [
     "aws",
     "dynamodb-streams",
     "route53"

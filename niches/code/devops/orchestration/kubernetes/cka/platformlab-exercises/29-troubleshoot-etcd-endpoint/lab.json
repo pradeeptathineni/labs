@@ -1,7 +1,9 @@
 {
   "title": "Exercise 29 — Troubleshoot Broken Cluster (Incorrect etcd Endpoint)",
+  "summary": "Find and correct an API server configuration pointing to the wrong etcd endpoint.",
   "type": "exercise",
   "skills": [
+    "configuration-management",
     "orchestration",
     "troubleshooting"
   ],

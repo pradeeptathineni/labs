@@ -1,9 +1,10 @@
 {
   "title": "Exercise 01 — Pod Basics",
+  "summary": "Create a Pod with labels and resource limits, then inspect its state and network address.",
   "type": "exercise",
   "skills": [
     "orchestration",
-    "troubleshooting"
+    "resource-management"
   ],
   "source": {
     "provider": "platformlab-cka",

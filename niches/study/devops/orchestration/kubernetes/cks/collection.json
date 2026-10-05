@@ -1,5 +1,6 @@
 {
   "title": "CKS review",
+  "source_url": "https://github.com/cncf/curriculum/blob/88e610650e2edbe04325fcb992febe6838487d72/CKS_Curriculum%20v1.34.pdf",
   "has_subdomain": true,
   "tools": [
     "kubernetes"

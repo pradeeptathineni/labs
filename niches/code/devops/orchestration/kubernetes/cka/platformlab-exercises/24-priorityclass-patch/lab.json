@@ -1,9 +1,11 @@
 {
   "title": "Exercise 24 — PriorityClass and Patch Operations",
+  "summary": "Assign workload priority and patch the configuration of an existing Deployment.",
   "type": "exercise",
   "skills": [
+    "configuration-management",
     "orchestration",
-    "troubleshooting"
+    "scheduling"
   ],
   "source": {
     "provider": "platformlab-cka",

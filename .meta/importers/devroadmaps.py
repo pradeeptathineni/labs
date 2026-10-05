@@ -209,7 +209,8 @@ def main() -> int:
                 changes = {name: content for name, content in files.items() if name != "README.md" and (path / name).read_text(encoding="utf-8") != content}
                 updates.append((path, candidate, changes, old_snapshot != snapshot, item["desc"]))
             else:
-                data = dict(destination, title=item["title"], slug=catalog.slugify(item["title"]), summary=item["desc"], type="project", difficulty=item["difficulty"], skills=[catalog.slugify(value) for value in item["tech"]], provider=PROVIDER, item_id=key, source_url=url, revision=revision)
+                # Upstream calls this field tech; capabilities are curated separately.
+                data = dict(destination, title=item["title"], slug=catalog.slugify(item["title"]), summary=item["desc"], type="project", difficulty=item["difficulty"], skills=[], tools=[catalog.slugify(value) for value in item["tech"]], provider=PROVIDER, item_id=key, source_url=url, revision=revision)
                 plans.append(lab_init.plan_lab(data, sources, files=files, existing_plans=plans))
         overrides = {plan["path"] / "lab.json": plan["metadata"] for plan in plans}
         overrides.update({path / "lab.json": metadata for path, metadata, _, _, _ in updates})

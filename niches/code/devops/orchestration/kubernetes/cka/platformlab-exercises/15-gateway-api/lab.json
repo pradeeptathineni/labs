@@ -1,9 +1,10 @@
 {
   "title": "Exercise 15 — Gateway API: Gateway and HTTPRoute",
+  "summary": "Route HTTP traffic from a Gateway to a backend Service with an HTTPRoute.",
   "type": "exercise",
   "skills": [
     "orchestration",
-    "troubleshooting"
+    "service-networking"
   ],
   "source": {
     "provider": "platformlab-cka",

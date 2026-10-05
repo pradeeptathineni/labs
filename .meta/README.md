@@ -13,9 +13,9 @@ Keep upstream snapshots under `source/` separate from your work. Edit lab and co
 A write with flags needs `--yes`. `--dry-run` previews without writing or prompting. `--interactive` asks for every field and still ends with `Write these changes? [y/N]`; blank keeps the shown value and `-` clears an optional value.
 
 ```bash
-python3 .meta/scripts/lab_init.py code devops my-projects "Inspect a deployment" --type exercise --skill deployment --yes
-python3 .meta/scripts/lab_init.py code cloud my-projects "Inspect failover" --subdomain aws --yes
-python3 .meta/scripts/lab_init.py study systems course-abc "Problem set 1" --subdomain distributed --group mit --yes
+python3 .meta/scripts/lab_init.py code devops my-projects "Inspect a deployment" --summary "Check a deployment and explain its behavior." --type exercise --skill deployment --yes
+python3 .meta/scripts/lab_init.py code cloud my-projects "Inspect failover" --summary "Compare failover behavior across failure scenarios." --subdomain aws --yes
+python3 .meta/scripts/lab_init.py study systems course-abc "Problem set 1" --summary "Explain the concepts in the first problem set." --subdomain distributed --group mit --yes
 python3 .meta/scripts/lab_init.py --interactive
 python3 .meta/scripts/lab_meta.py niches/code/devops/roadmap-sh/01-server-performance-stats --status in-progress --yes
 python3 .meta/scripts/lab_meta.py niches/code/devops/roadmap-sh/01-server-performance-stats --interactive
@@ -27,7 +27,7 @@ python3 .meta/scripts/source_meta.py update my-source --interactive
 
 The six lab types are `exercise`, `challenge`, `problem-set`, `question-bank`, `project`, and `experiment`. `exercise` is the default. Status and dates live under `tracking`; entering progress or completion records the first date if unknown, while reopening keeps that history. Dates can be corrected explicitly. Content edits never change status.
 
-Use repeated `--tool` flags when creating or editing a lab; `--clear-tools` removes local tools. Collection tools still apply. Skills describe competencies, tools name technologies, and goals describe intentions.
+Use repeated `--tool` flags when creating or editing a lab; `--clear-tools` removes local tools. Collection tools still apply. A short `summary` is required. Skills describe capabilities such as `orchestration` or `log-analysis`; tools name products, services, languages and platforms such as `kubernetes`, `awk` or `aws`. A tool name belongs only in tools, even when learning that tool is the point of the lab. Goals describe intentions. The same tag cannot be a skill in one lab and a tool in another; metadata validation catches that conflict. Keep tags specific enough to help browsing, and reuse existing names.
 
 `--subdomain` adds the optional subject level immediately after the domain. Repeat `--group` for provider or collection groupings between that subject and the final collection. Interactive mode accepts the groupings as a slash-separated path. These examples show valid layouts; they are not imported course assignments.
 

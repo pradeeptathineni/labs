@@ -276,12 +276,6 @@ def lab_record(path: Path, metadata: Any, sources: dict[str, Any], schema: dict[
     if not record["solution_link"] and readme.is_file() and _readme_has_solution(readme):
         record["solution_link"] = record["path"] + "/README.md#solution"
     record["collection_notes"] = record["collection_path"] + "/README.md" if (path.parent.parent / "README.md").is_file() else None
-    question_file = path.parent / "questions.json"
-    if metadata["type"] == "question-bank" and question_file.is_file():
-        data = read_json(question_file)
-        if not isinstance(data, dict) or not isinstance(data.get("questions"), list):
-            raise CatalogError(f"Question bank needs a questions array: {display_path(question_file)}")
-        record["question_count"] = len(data["questions"])
     return record
 
 
@@ -336,8 +330,36 @@ def collect_labs(overrides: Mapping[Path, Any] | None = None, sources_override: 
     conflict = collection_paths & container_paths
     if conflict:
         raise CatalogError(f"Directory is both collection and container: {display_path(sorted(conflict)[0])}")
-    records.sort(key=lambda item: (item["niche"], item["domain"], item["subdomain"] or "", item["groups"], item["collection"], item["order"] or 0, item["slug"]))
+    overlap = {skill for item in records for skill in item["skills"]} & {tool for item in records for tool in item["tools_effective"]}
+    if overlap:
+        raise CatalogError("Tags cannot be both skills and tools: " + ", ".join(sorted(overlap)))
+    records.sort(key=lambda item: (collection_sort_key(item), item["order"] or 0, item["slug"]))
     return records, sources
+
+
+def collection_sort_key(item: dict[str, Any]) -> tuple:
+    """Keep the same subject and path siblings together across niches."""
+    return (item["domain"], item["subdomain"] or "", tuple(Path(item["collection_path"]).parts[2:]), item["niche"])
+
+
+def grouped_collections(records: list[dict[str, Any]]) -> list[list[dict[str, Any]]]:
+    groups = defaultdict(list)
+    for item in records:
+        groups[item["collection_path"]].append(item)
+    return sorted(groups.values(), key=lambda group: collection_sort_key(group[0]))
+
+
+def inline_tags(item: dict[str, Any]) -> list[str]:
+    return list(dict.fromkeys([*item["skills"], *item["tools_effective"], *item["goals_effective"]]))
+
+
+def lab_count(count: int) -> str:
+    return f"{count} lab" + ("s" if count != 1 else "")
+
+
+def type_counts(records: list[dict[str, Any]]) -> str:
+    counts = Counter(item["type"] for item in records)
+    return " · ".join(f"{count} {display_name(kind)}{'s' if count != 1 else ''}" for kind, count in sorted(counts.items(), key=lambda pair: (-pair[1], pair[0])))
 
 
 def render_labs(records: list[dict[str, Any]]) -> str:
@@ -362,18 +384,17 @@ def display_name(value: str, sources: dict[str, Any] | None = None) -> str:
 def subject_title(domain: str, subdomain: str | None) -> str:
     if (domain, subdomain) in SUBJECT_TITLES:
         return SUBJECT_TITLES[domain, subdomain]
-    return " / ".join(display_name(part) for part in (domain, subdomain) if part)
+    return " · ".join(display_name(part) for part in (domain, subdomain) if part)
 
 
 def render_catalog(records: list[dict[str, Any]], sources: dict[str, Any]) -> str:
     statuses = Counter(item["tracking"]["status"] for item in records)
-    types = Counter(item["type"] for item in records)
     atlas_path = ROOT / ".meta/catalog/atlas.json"
     goals = read_json(atlas_path).get("goals", {}) if atlas_path.exists() else {}
     lines = ["# Lab Catalog", "",
              "[Web catalog](https://pradeeptathineni.github.io/labs/) · [Practice atlas](PRACTICE-ATLAS.md) · [About this repo](README.md)" if atlas_path.exists() else "",
-             "", f"**{len(records)} labs** · {statuses['complete']} complete · {statuses['in-progress']} in progress · {statuses['not-started']} planned · {statuses['paused']} paused · {statuses['abandoned']} abandoned", "",
-             "**Types:** " + " · ".join(f"{_label(key)} {value}" for key, value in sorted(types.items(), key=lambda pair: (-pair[1], _label(pair[0])))), "",
+             "", f"**{lab_count(len(records))}:** {type_counts(records)}", "",
+             f"{statuses['complete']} complete · {statuses['in-progress']} in progress · {statuses['not-started']} planned · {statuses['paused']} paused · {statuses['abandoned']} abandoned", "",
              "> [!IMPORTANT]", "> Imported work is planned practice. Target skills are not demonstrated proficiency; certification goals are preparation, not credentials.", ""]
     for status, title, empty in (("complete", "Completed", "No completed labs yet."), ("in-progress", "In progress", "No labs in progress yet.")):
         lines += [f"## {title}", ""]
@@ -383,66 +404,54 @@ def render_catalog(records: list[dict[str, Any]], sources: dict[str, Any]) -> st
         if not matches:
             lines.append(empty)
         lines.append("")
-    for field, title in (("skills", "Browse by skill"), ("tools_effective", "Browse by tool"), ("goals_effective", "Browse by goal")):
+    lines += ["## [Browse labs](#browse-labs)", ""]
+    for field, title in (("skills", "by skill"), ("tools_effective", "by tool"), ("goals_effective", "by goal")):
         lines += ["<details>", f"<summary>{title}</summary>", ""]
-        facets = sorted({value for item in records for value in item[field]})
-        for value in facets:
+        for value in sorted({value for item in records for value in item[field]}):
             matches = [item for item in records if value in item[field]]
             label = goals.get(value, {}).get("title", value) if field == "goals_effective" else display_name(value)
-            # Direct README links work even when the destination disclosure is closed.
             links = ", ".join(f"[{_escape(item['title'])}]({item['exercise_link']})" for item in matches if item["exercise_link"])
-            lines.append(f"- **{_escape(label)}** ({len(matches)}): {links}")
-        if not facets:
-            lines.append("No explicit associations yet.")
+            lines.append(f"- **{_escape(label)}** · {lab_count(len(matches))}: {links}")
         lines += ["", "</details>", ""]
-    lines += ["## Browse by subject", ""]
-    groups: dict[tuple[str, str, str], list[dict[str, Any]]] = defaultdict(list)
-    for item in records:
-        groups[item["domain"], item["subdomain"] or "", item["collection_path"]].append(item)
+    lines += ["<details>", "<summary>by subject</summary>", ""]
     prior_subject = None
-    for (domain, subdomain, _), items in sorted(groups.items()):
-        subject = (domain, subdomain)
-        if subject != prior_subject:
-            lines += [f"### {_escape(subject_title(domain, subdomain or None))}", ""]
-            prior_subject = subject
+    for items in grouped_collections(records):
         first = items[0]
-        title = " / ".join(first["collection_breadcrumb"])
-        lines += ["<details>", f"<summary>{html.escape(title)} · {len(items)} labs</summary>", "", f"`{first['collection_path']}`", ""]
-        refs = []
+        subject = (first['domain'], first['subdomain'])
+        if subject != prior_subject:
+            lines += [f"### {_escape(first['subject_title'])}", ""]
+            prior_subject = subject
+        title = " · ".join(first["collection_breadcrumb"])
+        lines += ["<details>", f"<summary>{html.escape(title)} · {lab_count(len(items))}</summary>", ""]
+        metadata = [f"`{first['collection_path']}`"]
         if first["collection_notes"]:
-            refs.append(f"[Collection notes]({first['collection_notes']})")
+            metadata.append(f"[notes]({first['collection_notes']})")
         if first.get("collection_source_url"):
-            refs.append(f"[Collection source]({first['collection_source_url']})")
-        if refs:
-            lines += [" · ".join(refs), ""]
+            metadata.append(f"[ref]({first['collection_source_url']})")
+        lines += [" · ".join(metadata), ""]
         for item in items:
             lines += _catalog_entry(item)
-        lines += ["", "</details>", ""]
+        lines += ["</details>", ""]
     if not records:
-        lines += ["No labs adopted yet. The practice atlas can help choose the first one.", ""]
+        lines += ["No labs adopted yet.", ""]
+    lines += ["</details>", ""]
     return "\n".join(lines).rstrip() + "\n"
 
 
 def _catalog_entry(item: dict[str, Any], *, show_order: bool = True, anchor: bool = True) -> list[str]:
     marker = f"{item['order']}." if show_order and item["order"] is not None else "-"
     exercise = f"[{_escape(item['title'])}]({item['exercise_link']})" if item["exercise_link"] else _escape(item["title"])
-    links = []
+    details = [_label(item["type"]), 'Planned' if item['tracking']['status'] == 'not-started' else _label(item["tracking"]["status"]), f"Updated {item['tracking']['dates']['updated']}"]
+    details += [f"`{value}`" for value in inline_tags(item)]
     if item["solution_link"]:
-        links.append(f"[Solution]({item['solution_link']})")
+        details.append(f"[Solution]({item['solution_link']})")
     if item.get("links", {}).get("demo"):
-        links.append(f"[Demo]({item['links']['demo']})")
+        details.append(f"[Demo]({item['links']['demo']})")
     if item["source"].get("url"):
-        links.append(f"[Source: {_escape(item['source_display']['name'])}]({item['source']['url']})")
-    details = [_label(item["type"]), _label(item["tracking"]["status"]), f"Updated {item['tracking']['dates']['updated']}"]
-    for field, label in (("skills", "Skills"), ("tools_effective", "Tools"), ("goals_effective", "Goals")):
-        if item[field]:
-            details.append(label + ": " + ", ".join(f"`{value}`" for value in item[field]))
-    if "question_count" in item:
-        details.append(f"{item['question_count']} source questions (one lab)")
-    indent = " " * (len(marker) + 1)
+        details.append(f"[ref]({item['source']['url']})")
     anchor_tag = f'<a id="{_anchor(item)}"></a>' if anchor else ""
-    summary = f" — {_escape(item['summary'])}" if item.get("summary") else ""
-    return [f"{marker} {anchor_tag}{exercise}{summary}", "", f"{indent}{' · '.join(details)}", "", f"{indent}{' · '.join(links)}", ""]
+    # A single paragraph keeps GitHub's list marker beside the title on mobile.
+    return [f"{marker} {exercise}{anchor_tag} — {_escape(item['summary'])}<br>{' · '.join(details)}", ""]
 
 
 def _readme_has_solution(readme: Path) -> bool:

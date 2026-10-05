@@ -1,9 +1,11 @@
 {
   "title": "Exercise 22 — PriorityClass",
+  "summary": "Compare workload scheduling and preemption under different PriorityClasses.",
   "type": "exercise",
   "skills": [
     "orchestration",
-    "troubleshooting"
+    "resource-management",
+    "scheduling"
   ],
   "source": {
     "provider": "platformlab-cka",

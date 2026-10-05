@@ -1,5 +1,6 @@
 {
   "title": "CKAD Comprehensive Lab - 1",
+  "summary": "Practice application configuration, deployment and maintenance across a linked assessment.",
   "type": "problem-set",
   "skills": [
     "orchestration",

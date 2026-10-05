@@ -4,12 +4,14 @@
   "type": "project",
   "difficulty": "beginner",
   "skills": [
-    "bash",
     "filesystems",
-    "linux",
     "performance-monitoring",
     "process-inspection",
     "resource-metrics"
+  ],
+  "tools": [
+    "bash",
+    "linux"
   ],
   "source": {
     "provider": "roadmap-sh",

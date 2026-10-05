@@ -1,5 +1,6 @@
 {
   "title": "CKA Practice Lab - Core Concepts",
+  "summary": "Practice core Kubernetes administration across a complete linked assessment.",
   "type": "problem-set",
   "skills": [
     "orchestration",

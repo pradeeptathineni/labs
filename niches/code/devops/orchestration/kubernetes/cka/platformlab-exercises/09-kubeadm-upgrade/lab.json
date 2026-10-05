@@ -1,9 +1,13 @@
 {
   "title": "Exercise 09 — kubeadm Cluster Upgrade",
+  "summary": "Plan a minor-version cluster upgrade and work through control-plane and worker-node updates.",
   "type": "exercise",
   "skills": [
-    "orchestration",
-    "troubleshooting"
+    "cluster-maintenance",
+    "orchestration"
+  ],
+  "tools": [
+    "kubeadm"
   ],
   "source": {
     "provider": "platformlab-cka",

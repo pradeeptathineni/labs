@@ -1,9 +1,11 @@
 {
   "title": "Exercise 07 — StatefulSet Deployment",
+  "summary": "Deploy a StatefulSet and check stable identities, persistent storage and scaling behavior.",
   "type": "exercise",
   "skills": [
+    "deployment",
     "orchestration",
-    "troubleshooting"
+    "storage-management"
   ],
   "source": {
     "provider": "platformlab-cka",

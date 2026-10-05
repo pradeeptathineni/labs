@@ -97,10 +97,12 @@ def inventory(checkout, sources):
         if warnings:
             caution += '\n\nSource link limits: ' + '; '.join(warnings) + '. The snapshot labels these as unavailable.'
         readme = f'# {title}\n\nSource: [ThePlatformLab]({url})\n\n## Exercise Definition\n\n{definition}\n\nThe [upstream snapshot](source/UPSTREAM.md) includes the author’s hints, anecdotes and reference material, separately from my work. Its execution prerequisites and exam-alignment claims need review before an attempt.{caution}\n\n## Solution\n'
-        descriptor = {'title': 'ThePlatformLab exercises' if exercise else 'ThePlatformLab mock exams', 'has_subdomain': True, 'ordered': True, 'tools': ['kubernetes'], 'goals': ['cka']}
+        source_folder = 'exercises' if exercise else 'mock-exams'
+        descriptor = {'title': 'ThePlatformLab exercises' if exercise else 'ThePlatformLab mock exams', 'source_url': f'https://github.com/{REPO}/tree/{revision}/{source_folder}', 'has_subdomain': True, 'ordered': True, 'tools': ['kubernetes'], 'goals': ['cka']}
         files = {'README.md': readme, 'source/UPSTREAM.md': copied, 'source/LICENSE.txt': license_text,
                  'source/item.json': catalog.json_text({'path': path, 'revision': revision, 'sha256': hashlib.sha256(content[path]).hexdigest(), 'handling': 'attributed upstream snapshot with pinned links', 'warnings': warnings})}
-        items.append({'id': path, 'track': 'exercises' if exercise else 'mocks', 'data': {'title': title, 'slug': slug, 'type': 'exercise' if exercise else 'problem-set', 'skills': ['orchestration', 'troubleshooting'], 'source_url': url, 'revision': revision, 'collection_descriptor': descriptor}, 'files': files})
+        summary = f"Practice {title.split(' — ', 1)[-1]} using the supplied Kubernetes tasks." if exercise else 'Attempt a complete CKA practice assessment covering cluster operations and troubleshooting.'
+        items.append({'id': path, 'track': 'exercises' if exercise else 'mocks', 'data': {'title': title, 'summary': summary, 'slug': slug, 'type': 'exercise' if exercise else 'problem-set', 'skills': ['orchestration', 'troubleshooting'], 'source_url': url, 'revision': revision, 'collection_descriptor': descriptor}, 'files': files})
     return items
 
 

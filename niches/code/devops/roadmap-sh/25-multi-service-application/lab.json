@@ -4,11 +4,13 @@
   "type": "project",
   "difficulty": "advanced",
   "skills": [
-    "docker",
-    "docker-compose",
     "multi-service-architecture",
     "optimization",
     "service-networking"
+  ],
+  "tools": [
+    "docker",
+    "docker-compose"
   ],
   "source": {
     "provider": "roadmap-sh",

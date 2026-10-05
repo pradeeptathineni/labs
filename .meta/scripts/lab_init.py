@@ -87,6 +87,8 @@ def plan_lab(data: dict[str, Any], sources: dict[str, Any], *, files: dict[str, 
     title = data["title"].strip()
     if not title:
         raise catalog.CatalogError("Title cannot be empty")
+    if not (data.get("summary") or "").strip():
+        raise catalog.CatalogError("A short summary is required; use --summary to describe the task")
     slug = data.get("slug") or catalog.slugify(title)
     if not catalog.SLUG_PATTERN.fullmatch(slug):
         raise catalog.CatalogError(f"Invalid lab slug: {slug!r}")
@@ -230,14 +232,14 @@ def _interactive(data: dict[str, Any], sources: dict[str, Any]) -> dict[str, Any
             data[key] = workflow.prompt(key.capitalize(), default, suggestions=suggestions, optional=key in ("subdomain", "slug"))
         if key not in ("title", "slug"):
             parents.append(key)
-    data["summary"] = workflow.prompt("Summary", data.get("summary"), optional=True)
+    data["summary"] = workflow.prompt("Summary", data.get("summary"))
     data["type"] = workflow.prompt("Type", data.get("type", "exercise"), choices=schema["properties"]["type"]["enum"])
     data["source"] = workflow.prompt("Source provider", data.get("source", "created"), choices=sorted(sources))
     provider = sources[data["source"]]
     data["difficulty"] = workflow.prompt("Difficulty", data.get("difficulty"), choices=schema["properties"]["difficulty"]["enum"] + list(provider.get("difficulty_map", {})), optional=True)
     data["skills"] = workflow.prompt_list("Skills", data.get("skills", []), suggestions=sorted({skill for item in records for skill in item["skills"]}))
     data["goals"] = workflow.prompt_list("Goals", data.get("goals", []))
-    data["tools"] = workflow.prompt_list("Tools", data.get("tools", []))
+    data["tools"] = workflow.prompt_list("Tools", data.get("tools", []), suggestions=sorted({tool for item in records for tool in item["tools_effective"]}))
     if provider["type"] != "local":
         for key in ("item_id", "source_url", "revision"):
             data[key] = workflow.prompt(key.replace("_", " ").capitalize(), data.get(key), optional=True)

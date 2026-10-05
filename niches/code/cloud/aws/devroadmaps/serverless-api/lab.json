@@ -4,6 +4,10 @@
   "type": "project",
   "difficulty": "intermediate",
   "skills": [
+    "api-development",
+    "serverless-computing"
+  ],
+  "tools": [
     "api-gateway",
     "aws-lambda",
     "dynamodb"

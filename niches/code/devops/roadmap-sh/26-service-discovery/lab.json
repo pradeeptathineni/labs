@@ -4,10 +4,12 @@
   "type": "project",
   "difficulty": "advanced",
   "skills": [
-    "consul",
     "dns",
     "networking",
     "service-discovery"
+  ],
+  "tools": [
+    "consul"
   ],
   "source": {
     "provider": "roadmap-sh",

@@ -5,10 +5,12 @@
   "difficulty": "intermediate",
   "skills": [
     "cryptography",
-    "linux",
     "networking",
+    "vpn"
+  ],
+  "tools": [
+    "linux",
     "openvpn",
-    "vpn",
     "wireguard"
   ],
   "source": {

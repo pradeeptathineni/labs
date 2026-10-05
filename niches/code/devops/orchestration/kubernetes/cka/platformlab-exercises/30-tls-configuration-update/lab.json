@@ -1,9 +1,11 @@
 {
   "title": "Exercise 30 — TLS Configuration Update (Cipher Support)",
+  "summary": "Change a service’s TLS configuration and check the supported protocol versions.",
   "type": "exercise",
   "skills": [
+    "configuration-management",
     "orchestration",
-    "troubleshooting"
+    "security"
   ],
   "source": {
     "provider": "platformlab-cka",

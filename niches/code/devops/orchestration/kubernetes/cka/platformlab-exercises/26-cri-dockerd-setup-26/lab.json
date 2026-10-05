@@ -1,9 +1,14 @@
 {
   "title": "Exercise 26 — CRI-dockerd Installation and Configuration",
+  "summary": "Install cri-dockerd, configure node networking prerequisites and verify the runtime socket.",
   "type": "exercise",
   "skills": [
     "orchestration",
-    "troubleshooting"
+    "system-administration"
+  ],
+  "tools": [
+    "cri-dockerd",
+    "docker"
   ],
   "source": {
     "provider": "platformlab-cka",

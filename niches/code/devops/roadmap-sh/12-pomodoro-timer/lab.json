@@ -5,12 +5,14 @@
   "difficulty": "intermediate",
   "skills": [
     "accessibility",
-    "css",
     "frontend-development",
-    "html",
-    "javascript",
     "state-management",
     "timer-logic"
+  ],
+  "tools": [
+    "css",
+    "html",
+    "javascript"
   ],
   "source": {
     "provider": "roadmap-sh",

@@ -5,11 +5,13 @@
   "difficulty": "beginner",
   "skills": [
     "deployment",
+    "static-sites"
+  ],
+  "tools": [
     "linux",
     "nginx",
     "rsync",
-    "ssh",
-    "static-sites"
+    "ssh"
   ],
   "source": {
     "provider": "roadmap-sh",

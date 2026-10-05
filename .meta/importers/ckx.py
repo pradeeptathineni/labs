@@ -65,8 +65,11 @@ This is a source-linked assessment. Its body, answers and executable assets are 
         snapshot = {'id': row['id'], 'name': row['name'], 'assessment_path': paths[0], 'revision': revision,
                     'question_ids': question_ids, 'assessment_sha256': hashlib.sha256(assets[paths[0]]).hexdigest(),
                     'config_sha256': hashlib.sha256(assets[paths[1]]).hexdigest(), 'handling': 'linked; bodies, answers and executable assets not copied'}
-        data = {'title': row['name'], 'slug': row['id'], 'type': 'problem-set', 'skills': ['orchestration', 'troubleshooting'],
-                'source_url': url, 'revision': revision, 'collection_descriptor': {'title': 'CK-X assessments', 'has_subdomain': True, 'tools': ['kubernetes'], 'goals': [track]}}
+        summaries = {'cka': 'Practice Kubernetes administration and diagnose cluster problems in a complete assessment.',
+                     'ckad': 'Build, configure and troubleshoot Kubernetes applications in a complete assessment.',
+                     'cks': 'Review and apply Kubernetes security controls in a complete assessment.'}
+        data = {'title': row['name'], 'summary': summaries[track], 'slug': row['id'], 'type': 'problem-set', 'skills': ['orchestration', 'troubleshooting'],
+                'source_url': url, 'revision': revision, 'collection_descriptor': {'title': 'CK-X assessments', 'source_url': f'https://github.com/{REPO}/tree/{revision}/facilitator/assets/exams/{track}', 'has_subdomain': True, 'tools': ['kubernetes'], 'goals': [track]}}
         items.append({'id': row['id'], 'track': track, 'data': data, 'files': {'README.md': readme, 'source/item.json': catalog.json_text(snapshot)}})
     return items
 

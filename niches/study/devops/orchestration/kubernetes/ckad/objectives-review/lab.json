@@ -1,5 +1,6 @@
 {
   "title": "CKAD objectives review",
+  "summary": "Compare application design, deployment, configuration and troubleshooting choices using pinned CKAD objectives.",
   "type": "problem-set",
   "skills": [
     "conceptual-reasoning",

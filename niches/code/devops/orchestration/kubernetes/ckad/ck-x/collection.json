@@ -1,5 +1,6 @@
 {
   "title": "CK-X assessments",
+  "source_url": "https://github.com/sailor-sh/CK-X/tree/76a78943556af64a774a1c22b283efc22906ff1c/facilitator/assets/exams/ckad",
   "has_subdomain": true,
   "tools": [
     "kubernetes"

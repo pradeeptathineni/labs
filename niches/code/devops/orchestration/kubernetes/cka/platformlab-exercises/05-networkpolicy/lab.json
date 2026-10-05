@@ -1,9 +1,11 @@
 {
   "title": "Exercise 05 — NetworkPolicy",
+  "summary": "Restrict Pod traffic with network policies while preserving required DNS access.",
   "type": "exercise",
   "skills": [
-    "orchestration",
-    "troubleshooting"
+    "access-control",
+    "networking",
+    "orchestration"
   ],
   "source": {
     "provider": "platformlab-cka",

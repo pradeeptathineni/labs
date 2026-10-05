@@ -7,10 +7,12 @@
     "automation",
     "backup-and-recovery",
     "database-backups",
-    "mongodb",
     "object-storage",
     "scheduling",
     "workflow-automation"
+  ],
+  "tools": [
+    "mongodb"
   ],
   "source": {
     "provider": "roadmap-sh",

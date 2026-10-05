@@ -1,12 +1,14 @@
 {
   "title": "CloudCertPrep CLF-C02 Question Bank",
-  "summary": "Practice and review 1050 adopted CLF-C02 questions across 4 domains.",
+  "summary": "Review selected AWS Cloud Practitioner questions and explain the reasoning behind each answer.",
   "type": "question-bank",
   "skills": [
-    "aws",
     "billing-pricing",
     "cloud-concepts",
     "security-compliance"
+  ],
+  "tools": [
+    "aws"
   ],
   "source": {
     "provider": "cloudcertprep",

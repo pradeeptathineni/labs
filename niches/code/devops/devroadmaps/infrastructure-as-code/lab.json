@@ -4,6 +4,10 @@
   "type": "project",
   "difficulty": "intermediate",
   "skills": [
+    "configuration-management",
+    "infrastructure-as-code"
+  ],
+  "tools": [
     "aws",
     "git",
     "terraform"

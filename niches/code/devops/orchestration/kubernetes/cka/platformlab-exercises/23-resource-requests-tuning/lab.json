@@ -1,8 +1,10 @@
 {
   "title": "Exercise 23 — Resource Requests Tuning (Pods Won't Schedule)",
+  "summary": "Diagnose Pending Pods and adjust resource requests to fit node capacity.",
   "type": "exercise",
   "skills": [
     "orchestration",
+    "resource-management",
     "troubleshooting"
   ],
   "source": {

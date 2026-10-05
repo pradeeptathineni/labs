@@ -1,9 +1,11 @@
 {
   "title": "Exercise 25 — Storage with WaitForFirstConsumer Binding",
+  "summary": "Trace delayed volume binding until a consuming Pod can be scheduled.",
   "type": "exercise",
   "skills": [
     "orchestration",
-    "troubleshooting"
+    "scheduling",
+    "storage-management"
   ],
   "source": {
     "provider": "platformlab-cka",

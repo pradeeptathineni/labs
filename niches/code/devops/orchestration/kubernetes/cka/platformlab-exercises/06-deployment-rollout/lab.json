@@ -1,9 +1,11 @@
 {
   "title": "Exercise 06 — Deployment Rolling Update and Rollback",
+  "summary": "Update a Deployment, inspect its rollout history and roll back to an earlier revision.",
   "type": "exercise",
   "skills": [
+    "deployment",
     "orchestration",
-    "troubleshooting"
+    "rollback"
   ],
   "source": {
     "provider": "platformlab-cka",

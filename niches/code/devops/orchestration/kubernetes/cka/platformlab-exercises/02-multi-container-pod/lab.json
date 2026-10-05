@@ -1,9 +1,11 @@
 {
   "title": "Exercise 02 — Multi-Container Pod (Sidecar Logging)",
+  "summary": "Run an application and a logging sidecar with a shared volume.",
   "type": "exercise",
   "skills": [
-    "orchestration",
-    "troubleshooting"
+    "containers",
+    "log-management",
+    "orchestration"
   ],
   "source": {
     "provider": "platformlab-cka",

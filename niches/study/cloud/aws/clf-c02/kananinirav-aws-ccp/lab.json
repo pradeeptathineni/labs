@@ -3,8 +3,10 @@
   "summary": "Explain and compare cloud computing, IAM, EC2, S3, and VPC concepts from a bounded set of linked notes.",
   "type": "problem-set",
   "skills": [
+    "cloud-computing"
+  ],
+  "tools": [
     "aws",
-    "cloud-computing",
     "ec2",
     "iam",
     "s3",

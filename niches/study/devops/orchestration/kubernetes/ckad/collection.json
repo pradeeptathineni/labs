@@ -1,5 +1,6 @@
 {
   "title": "CKAD review",
+  "source_url": "https://github.com/cncf/curriculum/blob/88e610650e2edbe04325fcb992febe6838487d72/CKAD_Curriculum_v1.37.pdf",
   "has_subdomain": true,
   "tools": [
     "kubernetes"

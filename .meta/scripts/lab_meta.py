@@ -20,7 +20,6 @@ def _parser() -> argparse.ArgumentParser:
     parser.add_argument("lab", nargs="?", help="lab folder or lab.json")
     parser.add_argument("--title")
     parser.add_argument("--summary")
-    parser.add_argument("--clear-summary", action="store_true")
     parser.add_argument("--type", choices=schema["properties"]["type"]["enum"])
     parser.add_argument("--difficulty")
     parser.add_argument("--clear-difficulty", action="store_true")
@@ -77,7 +76,7 @@ def _flag_changes(args: argparse.Namespace, current: dict[str, Any]) -> dict[str
         value = getattr(args, key)
         if value is not None:
             changes[key] = value
-    for key in ("summary", "difficulty", "started", "completed"):
+    for key in ("difficulty", "started", "completed"):
         if getattr(args, "clear_" + key):
             if key in changes:
                 raise catalog.CatalogError(f"Cannot set and clear {key} together")
@@ -123,14 +122,14 @@ def _interactive_changes(current: dict[str, Any], sources: dict[str, Any]) -> di
     schema = catalog.load_schema(catalog.LAB_SCHEMA_PATH)
     changes: dict[str, Any] = {}
     changes["title"] = workflow.prompt("Title", current["title"])
-    changes["summary"] = workflow.prompt("Summary", current.get("summary"), optional=True)
+    changes["summary"] = workflow.prompt("Summary", current["summary"])
     changes["type"] = workflow.prompt("Type", current["type"], choices=schema["properties"]["type"]["enum"])
     changes["difficulty"] = workflow.prompt("Difficulty", current.get("difficulty"), choices=schema["properties"]["difficulty"]["enum"], optional=True)
     records, _ = catalog.collect_labs()
     used_skills = sorted({skill for record in records for skill in record["skills"]})
     changes["skills"] = workflow.prompt_list("Skills", current["skills"], suggestions=used_skills)
     changes["goals"] = workflow.prompt_list("Goals", current.get("goals", [])) or None
-    changes["tools"] = workflow.prompt_list("Tools", current.get("tools", [])) or None
+    changes["tools"] = workflow.prompt_list("Tools", current.get("tools", []), suggestions=sorted({tool for record in records for tool in record["tools_effective"]})) or None
     provider = workflow.prompt("Source provider", current["source"]["provider"], choices=sorted(sources))
     prior = current["source"] if provider == current["source"]["provider"] else {}
     source = {"provider": provider}

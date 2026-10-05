@@ -4,6 +4,10 @@
   "type": "project",
   "difficulty": "advanced",
   "skills": [
+    "deployment",
+    "gitops"
+  ],
+  "tools": [
     "argocd",
     "helm",
     "kubernetes"

@@ -4,6 +4,10 @@
   "type": "project",
   "difficulty": "beginner",
   "skills": [
+    "ci-cd",
+    "deployment"
+  ],
+  "tools": [
     "docker",
     "github-actions",
     "linux"

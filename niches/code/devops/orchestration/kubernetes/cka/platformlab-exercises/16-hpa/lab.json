@@ -1,9 +1,10 @@
 {
   "title": "Exercise 16 — Horizontal Pod Autoscaler",
+  "summary": "Configure CPU-based Pod autoscaling and observe its response to load.",
   "type": "exercise",
   "skills": [
     "orchestration",
-    "troubleshooting"
+    "resource-management"
   ],
   "source": {
     "provider": "platformlab-cka",

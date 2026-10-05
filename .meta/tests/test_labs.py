@@ -40,6 +40,8 @@ class RepositoryCase(unittest.TestCase):
         return subprocess.run([PYTHON, str(self.root / ".meta" / section / name), *args], cwd=self.root, input=stdin, capture_output=True, text=True)
 
     def init(self, *args: str) -> Path:
+        if "--summary" not in args:
+            args = (*args, "--summary", "Inspect the fixture and record the result.")
         result = self.command("scripts", "lab_init.py", *args, "--yes")
         self.assertEqual(result.returncode, 0, result.stderr)
         path = next(line.removeprefix("Created ") for line in result.stdout.splitlines() if line.startswith("Created "))
@@ -73,6 +75,8 @@ class CoreTests(RepositoryCase):
         record = json.loads((self.root / ".meta/catalog/labs.json").read_text())[0]
         self.assertEqual(record["tools_effective"], ["kubernetes", "python"])
         self.assertEqual(record["goals_effective"], ["cka", "personal-goal"])
+        duplicate = self.command("scripts", "lab_meta.py", str(lab), "--skill", "kubernetes", "--yes")
+        self.assertIn("both skills and tools", duplicate.stderr)
         tracking = self.metadata(lab)["tracking"]
         result = self.command("scripts", "lab_meta.py", str(lab), "--clear-tools", "--yes")
         self.assertEqual(result.returncode, 0, result.stderr)
@@ -110,14 +114,14 @@ class CoreTests(RepositoryCase):
         self.assertIn("### Distributed Systems\n", catalog)
         self.assertEqual(catalog.count("### AWS Cloud\n"), 1)
         self.assertNotIn("### Systems / MIT", catalog)
-        conflict = self.command("scripts", "lab_init.py", "writing", "cloud", "notes", "Ambiguous", "--group", "aws", "--yes")
+        conflict = self.command("scripts", "lab_init.py", "writing", "cloud", "notes", "Ambiguous", "--summary", "Compare the subject boundary.", "--group", "aws", "--yes")
         self.assertIn("Subject boundary conflicts", conflict.stderr)
         self.assertFalse((self.root / "niches/writing").exists())
         nested_lab = self.command("scripts", "lab_init.py", "code", "cloud", "nested", "Hidden lab", "--subdomain", "aws", "--group", "projects", "--group", "fourth-task", "--yes")
         self.assertIn("inside a lab", nested_lab.stderr)
 
     def test_subdomain_creation_preview_and_prompt_share_one_plan(self) -> None:
-        args = ["code", "systems", "course", "Task", "--subdomain", "distributed", "--group", "mit"]
+        args = ["code", "systems", "course", "Task", "--summary", "Review a distributed system.", "--subdomain", "distributed", "--group", "mit"]
         target = self.root / "niches/code/systems/distributed/mit/course"
         preview = self.command("scripts", "lab_init.py", *args, "--dry-run")
         self.assertEqual(preview.returncode, 0, preview.stderr)
@@ -130,7 +134,7 @@ class CoreTests(RepositoryCase):
         self.assertEqual(created.returncode, 0, created.stderr)
         self.assertTrue((target / "task/lab.json").exists())
         self.assertTrue(json.loads((target / "collection.json").read_text())["has_subdomain"])
-        mismatch = self.command("scripts", "lab_init.py", "code", "systems", "course", "Another task", "--group", "distributed", "--group", "mit", "--yes")
+        mismatch = self.command("scripts", "lab_init.py", "code", "systems", "course", "Another task", "--summary", "Compare the subject boundary.", "--group", "distributed", "--group", "mit", "--yes")
         self.assertIn("Subject boundary disagrees", mismatch.stderr)
         self.assertFalse((target / "another-task").exists())
 
@@ -170,7 +174,7 @@ class CoreTests(RepositoryCase):
             "ordered": True,
         }))
         (collection / "README.md").write_text("# Example projects\n")
-        first_lab = self.init("code", "cloud", "projects", "First task", "--subdomain", "aws", "--summary", "First summary", "--source", "roadmap-sh", "--source-url", "https://example.com/first", "--skill", "aws", "--skill", "route53")
+        first_lab = self.init("code", "cloud", "projects", "First task", "--subdomain", "aws", "--summary", "First summary", "--source", "roadmap-sh", "--source-url", "https://example.com/first", "--skill", "cloud-computing", "--tool", "route53")
         second_lab = self.init("code", "cloud", "projects", "Second task", "--subdomain", "aws", "--type", "project", "--source", "roadmap-sh", "--source-url", "https://example.com/second")
         self.init("code", "cloud", "other", "Unordered task", "--type", "project")
         self.init("study", "cloud", "practice", "Study task", "--subdomain", "aws", "--type", "project")
@@ -179,12 +183,14 @@ class CoreTests(RepositoryCase):
         text = "\n".join(catalog)
         self.assertNotIn("<style>", text)
         self.assertNotIn("class=", text)
-        self.assertIn("**5 labs** · 0 complete · 0 in progress · 5 planned", text)
+        self.assertIn("**5 labs:** 3 Projects · 2 Exercises", text)
+        self.assertIn("0 complete · 0 in progress · 5 planned", text)
+        self.assertLess(text.index("<summary>Study · Practice"), text.index("<summary>Code · Example projects"))
         self.assertEqual(text.count("### AWS Cloud\n"), 1)
         self.assertIn("Example projects", text)
-        self.assertIn("MIT / Course", text)
+        self.assertIn("MIT · Course", text)
         self.assertIn("#exercise-definition", text)
-        self.assertIn("Collection notes", text)
+        self.assertIn("[notes]", text)
         self.assertIn("First summary", text)
         self.assertNotIn("[Solution]", text)
         completed = self.command("scripts", "lab_meta.py", str(first_lab), "--status", "complete", "--yes")
@@ -259,21 +265,27 @@ class CoreTests(RepositoryCase):
         self.assertIn("An unstaged draft.", readme.read_text())
 
     def test_collision_cancellation_clearing_and_lifecycle(self) -> None:
+        missing = self.command("scripts", "lab_init.py", "code", "devops", "tasks", "Missing summary", "--yes")
+        self.assertNotEqual(missing.returncode, 0)
+        self.assertIn("A short summary is required", missing.stderr)
+        self.assertFalse((self.root / "niches/code").exists())
         one = self.init("code", "devops", "tasks", "One", "--summary", "Original summary")
         two = self.init("code", "devops", "tasks", "Two")
-        collision = self.command("scripts", "lab_init.py", "code", "devops", "tasks", "One", "--yes")
+        collision = self.command("scripts", "lab_init.py", "code", "devops", "tasks", "One", "--summary", "Check duplicate identity.", "--yes")
         self.assertNotEqual(collision.returncode, 0)
         before = (one / "lab.json").read_bytes()
         cancelled = self.command("scripts", "lab_meta.py", str(one), "--interactive", stdin="\n" * 14 + "n\n")
         self.assertEqual(cancelled.returncode, 0, cancelled.stderr)
         self.assertEqual((one / "lab.json").read_bytes(), before)
-        flagged = self.command("scripts", "lab_meta.py", str(one), "--status", "in-progress", "--clear-summary", "--yes")
+        flagged = self.command("scripts", "lab_meta.py", str(one), "--status", "in-progress", "--summary", "A revised summary", "--yes")
         self.assertEqual(flagged.returncode, 0, flagged.stderr)
         answers = ["", "", "", "", "", "", "", "", "", "", "in-progress", "", "", "", "y"]
         prompted = self.command("scripts", "lab_meta.py", str(two), "--interactive", stdin="\n".join(answers) + "\n")
         self.assertEqual(prompted.returncode, 0, prompted.stderr)
         self.assertEqual(self.metadata(one)["tracking"]["dates"]["started"], self.metadata(two)["tracking"]["dates"]["started"])
-        self.assertNotIn("summary", self.metadata(one))
+        self.assertEqual(self.metadata(one)["summary"], "A revised summary")
+        rejected = self.command("scripts", "lab_meta.py", str(one), "--summary", "", "--yes")
+        self.assertNotEqual(rejected.returncode, 0)
         direct = self.command("scripts", "lab_meta.py", str(one), "--status", "complete", "--yes")
         self.assertEqual(direct.returncode, 0, direct.stderr)
         self.assertIsNotNone(self.metadata(one)["tracking"]["dates"]["completed"])
@@ -414,11 +426,11 @@ class ImporterTests(RepositoryCase):
         self.assertNotIn("Answer: ", (lab / "README.md").read_text())
         self.assertIn("No change", self.command("importers", "cloudcertprep.py", *args, "--yes").stdout)
         records = json.loads((self.root / ".meta/catalog/labs.json").read_text())
-        self.assertEqual(records[0]["question_count"], 1)
+        self.assertNotIn("question_count", records[0])
         catalog = (self.root / "CATALOG.md").read_text()
-        self.assertIn("1 source questions (one lab)", catalog)
-        self.assertIn("Not started · Updated ", catalog)
-        self.assertIn("Source: CloudCertPrep", catalog)
+        self.assertNotIn("source questions", catalog)
+        self.assertIn("Planned · Updated ", catalog)
+        self.assertIn("[ref]", catalog)
 
 
 

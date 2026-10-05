@@ -5,7 +5,9 @@
   "difficulty": "beginner",
   "skills": [
     "ci-cd",
-    "deployment",
+    "deployment"
+  ],
+  "tools": [
     "git",
     "github-actions",
     "github-pages"

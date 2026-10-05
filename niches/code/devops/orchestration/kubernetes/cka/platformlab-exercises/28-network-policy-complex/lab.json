@@ -1,7 +1,9 @@
 {
   "title": "Exercise 28 — Complex NetworkPolicy (Multi-Namespace, Traffic Control)",
+  "summary": "Build and diagnose ingress and egress policies spanning multiple namespaces.",
   "type": "exercise",
   "skills": [
+    "networking",
     "orchestration",
     "troubleshooting"
   ],

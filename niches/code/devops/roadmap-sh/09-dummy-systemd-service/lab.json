@@ -4,10 +4,12 @@
   "type": "project",
   "difficulty": "beginner",
   "skills": [
+    "process-management",
+    "services"
+  ],
+  "tools": [
     "journald",
     "linux",
-    "process-management",
-    "services",
     "systemd"
   ],
   "source": {

@@ -4,10 +4,12 @@
   "type": "project",
   "difficulty": "beginner",
   "skills": [
-    "aws",
     "cloud-computing",
+    "networking"
+  ],
+  "tools": [
+    "aws",
     "ec2",
-    "networking",
     "ssh"
   ],
   "source": {

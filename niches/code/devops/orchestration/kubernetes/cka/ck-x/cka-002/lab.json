@@ -1,5 +1,6 @@
 {
   "title": "CKA Practice Lab - Advanced Administration",
+  "summary": "Work through advanced Kubernetes administration and troubleshooting scenarios.",
   "type": "problem-set",
   "skills": [
     "orchestration",

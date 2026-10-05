@@ -1,5 +1,6 @@
 {
   "title": "CKS Practice Lab - Kubernetes Security Essentials",
+  "summary": "Practice Kubernetes hardening, access control and workload security across a linked assessment.",
   "type": "problem-set",
   "skills": [
     "orchestration",

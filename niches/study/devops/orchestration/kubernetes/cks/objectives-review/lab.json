@@ -1,5 +1,6 @@
 {
   "title": "CKS objectives review",
+  "summary": "Explain Kubernetes access, hardening, supply-chain and runtime security choices using pinned CKS objectives.",
   "type": "problem-set",
   "skills": [
     "conceptual-reasoning",

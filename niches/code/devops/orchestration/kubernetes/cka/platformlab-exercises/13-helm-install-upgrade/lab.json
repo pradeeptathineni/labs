@@ -1,9 +1,14 @@
 {
   "title": "Exercise 13 — Helm Install, Upgrade, and Rollback",
+  "summary": "Install a Helm chart, change release values, upgrade it and roll back.",
   "type": "exercise",
   "skills": [
+    "deployment",
     "orchestration",
-    "troubleshooting"
+    "rollback"
+  ],
+  "tools": [
+    "helm"
   ],
   "source": {
     "provider": "platformlab-cka",

@@ -1,9 +1,10 @@
 {
   "title": "Exercise 03 — ConfigMap and Secret",
+  "summary": "Supply application settings and credentials through ConfigMaps, Secrets and mounted files.",
   "type": "exercise",
   "skills": [
-    "orchestration",
-    "troubleshooting"
+    "configuration-management",
+    "orchestration"
   ],
   "source": {
     "provider": "platformlab-cka",

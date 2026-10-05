@@ -1,5 +1,6 @@
 {
   "title": "CKAD Comprehensive Lab - 2",
+  "summary": "Work through a second set of Kubernetes application development and troubleshooting tasks.",
   "type": "problem-set",
   "skills": [
     "orchestration",

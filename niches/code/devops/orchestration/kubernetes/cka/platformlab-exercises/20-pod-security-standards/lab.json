@@ -1,9 +1,11 @@
 {
   "title": "Exercise 20 — Pod Security Standards",
+  "summary": "Apply namespace Pod Security Standards and inspect which workloads are admitted.",
   "type": "exercise",
   "skills": [
+    "access-control",
     "orchestration",
-    "troubleshooting"
+    "security"
   ],
   "source": {
     "provider": "platformlab-cka",

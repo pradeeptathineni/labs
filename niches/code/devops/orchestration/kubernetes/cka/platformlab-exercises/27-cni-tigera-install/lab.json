@@ -1,9 +1,14 @@
 {
   "title": "Exercise 27 — CNI Installation (Calico/Tigera Operator)",
+  "summary": "Install Calico with the Tigera Operator and verify networking between nodes.",
   "type": "exercise",
   "skills": [
-    "orchestration",
-    "troubleshooting"
+    "networking",
+    "orchestration"
+  ],
+  "tools": [
+    "calico",
+    "tigera-operator"
   ],
   "source": {
     "provider": "platformlab-cka",

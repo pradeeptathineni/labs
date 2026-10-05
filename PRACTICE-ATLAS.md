@@ -32,11 +32,11 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 
 ## Browse by subject
 
-### AI / MLOps
+### AI · MLOps
 
 - Code: [Full Stack Deep Learning labs](#fsdl-mlops) · later
 
-### AI / Machine Learning
+### AI · Machine Learning
 
 - Code: [Practical machine learning](#fastai-ml) · later
 
@@ -52,7 +52,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 - Code: [AWS DevOps Professional implementation practice](#dop-build) · later
 - Architecture: [Cloud architecture trade-off exercise](#cloud-design) · later
 
-### Creative / Generative Art
+### Creative · Generative Art
 
 - Code: [GENUARY prompt-led creative coding](#generative-art) · explore
 
@@ -65,11 +65,11 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 - Code: [roadmap.sh DevOps curriculum](#roadmap-current) · later
 - Code: [DevRoadmaps DevOps projects](#devroadmaps-devops) · later
 
-### DevOps / Incident Response
+### DevOps · Incident Response
 
 - Writing: [Incident communication practice](#incident-writing) · later
 
-### DevOps / Orchestration
+### DevOps · Orchestration
 
 - Code: [ThePlatformLab CKA practical exercises](#platformlab-cka-exercises) · next
 - Code: [ThePlatformLab CKA mock exams](#platformlab-cka-mocks) · next
@@ -82,7 +82,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 - Code: [CKAD exercises by curriculum topic](#dgkanatsios-ckad-sets) · later
 - Code: [Kubernetes Basics](#kubernetes-basics) · later
 
-### DevOps / Troubleshooting
+### DevOps · Troubleshooting
 
 - Code: [Linux/DevOps troubleshooting](#sadservers-debugging) · later
 
@@ -90,11 +90,11 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 
 - Research: [Computational evidence in public text](#digital-humanities) · explore
 
-### Economics / Modeling
+### Economics · Modeling
 
 - Code: [QuantEcon model exercises](#quantecon-models) · explore
 
-### Ethics / Technology
+### Ethics · Technology
 
 - Decisions: [Technology ethics case analysis](#ethics-decisions) · explore
 
@@ -102,15 +102,15 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 
 - Decisions: [Calibration through forecasting](#forecasts) · explore
 
-### Geospatial / Cartography
+### Geospatial · Cartography
 
 - Design: [30DayMapChallenge cartography](#map-design) · explore
 
-### Geospatial / Gis
+### Geospatial · Gis
 
 - Study: [QGIS training activities](#qgis-exercises) · explore
 
-### Geospatial / Remote Sensing
+### Geospatial · Remote Sensing
 
 - Study: [NASA ARSET remote-sensing practice](#remote-sensing) · explore
 
@@ -118,7 +118,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 
 - Code: [Computational mathematics](#euler-problems) · explore
 
-### Methods / Source Evaluation
+### Methods · Source Evaluation
 
 - Research: [Lateral reading and source evaluation](#evidence-evaluation) · later
 
@@ -130,20 +130,20 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 
 - Teaching: [CS Unplugged lesson adaptation](#unplugged-teaching) · later
 
-### Programming / Python
+### Programming · Python
 
 - Code: [Python language fluency](#python-exercism) · later
 - Code: [CS50 Python problem sets](#python-cs50) · explore
 
-### Science / Simulation
+### Science · Simulation
 
 - Code: [Nature-inspired computation](#nature-simulation) · explore
 
-### Security / Systems
+### Security · Systems
 
 - Code: [Systems security dojos](#pwn-systems) · explore
 
-### Security / Web
+### Security · Web
 
 - Code: [Web security practice](#web-security) · later
 
@@ -151,12 +151,12 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 
 - Teaching: [Short teaching demonstrations](#carpentries-teaching) · later
 
-### Software / Technical Writing
+### Software · Technical Writing
 
 - Writing: [Technical Writing One and Two](#technical-writing) · later
 - Writing: [Writing helpful error messages](#error-messages) · later
 
-### Software / User Experience
+### Software · User Experience
 
 - Design: [Stanford d.school Starter Kit](#human-centered-design) · explore
 
@@ -170,7 +170,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="platformlab-cka-exercises"></a>
 ### ThePlatformLab CKA practical exercises
 
-**Next** · Code · DevOps / Orchestration · direct · exercise
+**Next** · Code · DevOps · Orchestration · direct · exercise
 
 [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/tree/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises) · reuse policy: copy
 
@@ -227,7 +227,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="platformlab-cka-mocks"></a>
 ### ThePlatformLab CKA mock exams
 
-**Next** · Code · DevOps / Orchestration · direct · problem-set
+**Next** · Code · DevOps · Orchestration · direct · problem-set
 
 [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/tree/802ee2f35412242b7c64be9861f0a7feac367b9e/mock-exams) · reuse policy: copy
 
@@ -255,7 +255,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="ckx-cka"></a>
 ### CK-X CKA assessment sets
 
-**Next** · Code · DevOps / Orchestration · direct · problem-set
+**Next** · Code · DevOps · Orchestration · direct · problem-set
 
 [Source: CK-X](https://github.com/sailor-sh/CK-X/blob/76a78943556af64a774a1c22b283efc22906ff1c/facilitator/assets/exams/labs.json) · reuse policy: review
 
@@ -283,7 +283,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="ckx-ckad"></a>
 ### CK-X CKAD assessment sets
 
-**Next** · Code · DevOps / Orchestration · direct · problem-set
+**Next** · Code · DevOps · Orchestration · direct · problem-set
 
 [Source: CK-X](https://github.com/sailor-sh/CK-X/blob/76a78943556af64a774a1c22b283efc22906ff1c/facilitator/assets/exams/labs.json) · reuse policy: review
 
@@ -311,7 +311,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="ckx-cks"></a>
 ### CK-X CKS assessment sets
 
-**Next** · Code · DevOps / Orchestration · direct · problem-set
+**Next** · Code · DevOps · Orchestration · direct · problem-set
 
 [Source: CK-X](https://github.com/sailor-sh/CK-X/blob/76a78943556af64a774a1c22b283efc22906ff1c/facilitator/assets/exams/labs.json) · reuse policy: review
 
@@ -338,7 +338,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="cka-objectives-review"></a>
 ### CKA bounded objectives review
 
-**Next** · Study · DevOps / Orchestration · adaptation · problem-set
+**Next** · Study · DevOps · Orchestration · adaptation · problem-set
 
 [Source: CNCF Certification](https://www.cncf.io/training/certification/cka/) · reuse policy: review
 
@@ -365,7 +365,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="ckad-objectives-review"></a>
 ### CKAD bounded objectives review
 
-**Next** · Study · DevOps / Orchestration · adaptation · problem-set
+**Next** · Study · DevOps · Orchestration · adaptation · problem-set
 
 [Source: CNCF Certification](https://www.cncf.io/training/certification/ckad/) · reuse policy: review
 
@@ -392,7 +392,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="cks-objectives-review"></a>
 ### CKS bounded objectives review
 
-**Next** · Study · DevOps / Orchestration · adaptation · problem-set
+**Next** · Study · DevOps · Orchestration · adaptation · problem-set
 
 [Source: CNCF Certification](https://www.cncf.io/training/certification/cks/) · reuse policy: review
 
@@ -419,7 +419,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="dgkanatsios-ckad-sets"></a>
 ### CKAD exercises by curriculum topic
 
-**Later** · Code · DevOps / Orchestration · direct · problem-set
+**Later** · Code · DevOps · Orchestration · direct · problem-set
 
 [Source: Dimitris Gkanatsios: CKAD Exercises](https://github.com/dgkanatsios/CKAD-exercises) · reuse policy: review
 
@@ -444,7 +444,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="kubernetes-basics"></a>
 ### Kubernetes Basics
 
-**Later** · Code · DevOps / Orchestration · direct · exercise
+**Later** · Code · DevOps · Orchestration · direct · exercise
 
 [Source: Kubernetes Documentation](https://kubernetes.io/docs/tutorials/kubernetes-basics/) · reuse policy: review
 
@@ -747,7 +747,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="python-exercism"></a>
 ### Python language fluency
 
-**Later** · Code · Programming / Python · direct · exercise
+**Later** · Code · Programming · Python · direct · exercise
 
 [Source: Exercism](https://exercism.org/tracks/python/exercises) · reuse policy: review
 
@@ -770,7 +770,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="python-cs50"></a>
 ### CS50 Python problem sets
 
-**Explore** · Code · Programming / Python · direct · problem-set
+**Explore** · Code · Programming · Python · direct · problem-set
 
 [Source: Harvard CS50](https://cs50.harvard.edu/python/psets/) · reuse policy: review
 
@@ -793,7 +793,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="fastai-ml"></a>
 ### Practical machine learning
 
-**Later** · Code · AI / Machine Learning · direct · project
+**Later** · Code · AI · Machine Learning · direct · project
 
 [Source: fast.ai Practical Deep Learning](https://course.fast.ai/) · reuse policy: review
 
@@ -816,7 +816,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="fsdl-mlops"></a>
 ### Full Stack Deep Learning labs
 
-**Later** · Code · AI / MLOps · direct · exercise
+**Later** · Code · AI · MLOps · direct · exercise
 
 [Source: Full Stack Deep Learning](https://fullstackdeeplearning.com/course/2022/) · reuse policy: review
 
@@ -839,7 +839,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="sadservers-debugging"></a>
 ### Linux/DevOps troubleshooting
 
-**Later** · Code · DevOps / Troubleshooting · direct · challenge
+**Later** · Code · DevOps · Troubleshooting · direct · challenge
 
 [Source: SadServers](https://sadservers.com/scenarios) · reuse policy: link-only
 
@@ -860,7 +860,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="web-security"></a>
 ### Web security practice
 
-**Later** · Code · Security / Web · direct · exercise
+**Later** · Code · Security · Web · direct · exercise
 
 [Source: PortSwigger Web Security Academy](https://portswigger.net/web-security) · reuse policy: link-only
 
@@ -881,7 +881,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="pwn-systems"></a>
 ### Systems security dojos
 
-**Explore** · Code · Security / Systems · direct · challenge
+**Explore** · Code · Security · Systems · direct · challenge
 
 [Source: pwn.college](https://pwn.college/dojos) · reuse policy: link-only
 
@@ -1032,7 +1032,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="evidence-evaluation"></a>
 ### Lateral reading and source evaluation
 
-**Later** · Research · Methods / Source Evaluation · direct · exercise
+**Later** · Research · Methods · Source Evaluation · direct · exercise
 
 [Source: Digital Inquiry Group: Civic Online Reasoning](https://cor.inquirygroup.org/curriculum/collections/teaching-lateral-reading/) · reuse policy: review
 
@@ -1053,7 +1053,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="technical-writing"></a>
 ### Technical Writing One and Two
 
-**Later** · Writing · Software / Technical Writing · direct · exercise
+**Later** · Writing · Software · Technical Writing · direct · exercise
 
 [Source: Google Technical Writing](https://developers.google.com/tech-writing/overview) · reuse policy: review
 
@@ -1074,7 +1074,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="error-messages"></a>
 ### Writing helpful error messages
 
-**Later** · Writing · Software / Technical Writing · direct · problem-set
+**Later** · Writing · Software · Technical Writing · direct · problem-set
 
 [Source: Google Technical Writing](https://developers.google.com/tech-writing/error-messages) · reuse policy: review
 
@@ -1116,7 +1116,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="incident-writing"></a>
 ### Incident communication practice
 
-**Later** · Writing · DevOps / Incident Response · adaptation · exercise
+**Later** · Writing · DevOps · Incident Response · adaptation · exercise
 
 [Source: Google SRE Books](https://sre.google/workbook/incident-response/) · reuse policy: review
 
@@ -1179,7 +1179,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="human-centered-design"></a>
 ### Stanford d.school Starter Kit
 
-**Explore** · Design · Software / User Experience · direct · exercise
+**Explore** · Design · Software · User Experience · direct · exercise
 
 [Source: Stanford d.school](https://dschool.stanford.edu/tools/starter-kit) · reuse policy: review
 
@@ -1200,7 +1200,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="ethics-decisions"></a>
 ### Technology ethics case analysis
 
-**Explore** · Decisions · Ethics / Technology · direct · exercise
+**Explore** · Decisions · Ethics · Technology · direct · exercise
 
 [Source: Markkula Center for Applied Ethics](https://www.scu.edu/ethics/focus-areas/technology-ethics/resources/) · reuse policy: review
 
@@ -1242,7 +1242,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="qgis-exercises"></a>
 ### QGIS training activities
 
-**Explore** · Study · Geospatial / Gis · direct · exercise
+**Explore** · Study · Geospatial · Gis · direct · exercise
 
 [Source: QGIS Training Manual](https://docs.qgis.org/3.44/en/docs/training_manual/) · reuse policy: review
 
@@ -1265,7 +1265,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="map-design"></a>
 ### 30DayMapChallenge cartography
 
-**Explore** · Design · Geospatial / Cartography · direct · exercise
+**Explore** · Design · Geospatial · Cartography · direct · exercise
 
 [Source: 30 Day Map Challenge](https://github.com/tjukanovt/30DayMapChallenge) · reuse policy: copy
 
@@ -1286,7 +1286,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="quantecon-models"></a>
 ### QuantEcon model exercises
 
-**Explore** · Code · Economics / Modeling · direct · exercise
+**Explore** · Code · Economics · Modeling · direct · exercise
 
 [Source: QuantEcon](https://python.quantecon.org/intro.html) · reuse policy: review
 
@@ -1309,7 +1309,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="nature-simulation"></a>
 ### Nature-inspired computation
 
-**Explore** · Code · Science / Simulation · direct · experiment
+**Explore** · Code · Science · Simulation · direct · experiment
 
 [Source: The Nature of Code](https://natureofcode.com/) · reuse policy: review
 
@@ -1332,7 +1332,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="generative-art"></a>
 ### GENUARY prompt-led creative coding
 
-**Explore** · Code · Creative / Generative Art · direct · exercise
+**Explore** · Code · Creative · Generative Art · direct · exercise
 
 [Source: GENUARY](https://genuary.art/prompts) · reuse policy: review
 
@@ -1353,7 +1353,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 <a id="remote-sensing"></a>
 ### NASA ARSET remote-sensing practice
 
-**Explore** · Study · Geospatial / Remote Sensing · direct · exercise
+**Explore** · Study · Geospatial · Remote Sensing · direct · exercise
 
 [Source: NASA ARSET](https://www.earthdata.nasa.gov/learn/trainings/fundamentals-remote-sensing) · reuse policy: review
 

@@ -1,9 +1,10 @@
 {
   "title": "Exercise 21 — Jobs and CronJobs",
+  "summary": "Run batch work with a Job and configure a recurring CronJob with history limits.",
   "type": "exercise",
   "skills": [
     "orchestration",
-    "troubleshooting"
+    "scheduling"
   ],
   "source": {
     "provider": "platformlab-cka",

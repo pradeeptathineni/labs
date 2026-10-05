@@ -4,12 +4,14 @@
   "type": "project",
   "difficulty": "beginner",
   "skills": [
-    "awk",
-    "bash",
     "command-line",
     "log-analysis",
     "shell-scripting",
     "text-processing"
+  ],
+  "tools": [
+    "awk",
+    "bash"
   ],
   "source": {
     "provider": "roadmap-sh",

@@ -5,8 +5,10 @@
   "difficulty": "intermediate",
   "skills": [
     "cloud-computing",
+    "infrastructure-as-code"
+  ],
+  "tools": [
     "digitalocean",
-    "infrastructure-as-code",
     "terraform"
   ],
   "source": {

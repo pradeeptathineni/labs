@@ -5,9 +5,10 @@
   "difficulty": "beginner",
   "skills": [
     "containers",
-    "docker",
-    "dockerfile",
     "image-building"
+  ],
+  "tools": [
+    "docker"
   ],
   "source": {
     "provider": "roadmap-sh",

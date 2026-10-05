@@ -1,9 +1,15 @@
 {
   "title": "Exercise 31 — Argo CD Setup (GitOps Deployment)",
+  "summary": "Configure Argo CD to deploy an application from a Git repository.",
   "type": "exercise",
   "skills": [
-    "orchestration",
-    "troubleshooting"
+    "deployment",
+    "gitops",
+    "orchestration"
+  ],
+  "tools": [
+    "argocd",
+    "git"
   ],
   "source": {
     "provider": "platformlab-cka",

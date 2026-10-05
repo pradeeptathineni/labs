@@ -4,10 +4,12 @@
   "type": "project",
   "difficulty": "advanced",
   "skills": [
-    "grafana",
     "metrics",
     "monitoring",
-    "observability",
+    "observability"
+  ],
+  "tools": [
+    "grafana",
     "prometheus"
   ],
   "source": {

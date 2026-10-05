@@ -1,9 +1,14 @@
 {
   "title": "Exercise 18 — CRI-dockerd Installation & Configuration",
+  "summary": "Prepare a node and configure cri-dockerd as its container runtime.",
   "type": "exercise",
   "skills": [
     "orchestration",
-    "troubleshooting"
+    "system-administration"
+  ],
+  "tools": [
+    "cri-dockerd",
+    "docker"
   ],
   "source": {
     "provider": "platformlab-cka",
