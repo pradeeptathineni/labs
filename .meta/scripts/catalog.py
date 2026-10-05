@@ -404,10 +404,8 @@ def render_catalog(records: list[dict[str, Any]], sources: dict[str, Any]) -> st
     for items in ranked:
         subjects[items[0]["domain"], items[0]["subdomain"]].append(items)
     # Ranking collections first also puts subjects with recorded work first.
-    for index, (subject, collections) in enumerate(subjects.items()):
-        if index:
-            lines += ["---", ""]
-        lines += [f"### {_escape(subject_title(*subject))}", ""]
+    for subject, collections in subjects.items():
+        lines += ["---", "", f"### {_escape(subject_title(*subject))}", ""]
         for items in collections:
             heading, path_line = _collection_display(items, sources)
             lines += ["<details>", f"<summary>{heading}<br/>{path_line}</summary>", ""]

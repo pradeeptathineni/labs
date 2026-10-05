@@ -161,6 +161,8 @@ No labs in progress yet.
 <details class="catalog-all">
 <summary class="catalog-section-title">📚 Browse all labs</summary>
 
+---
+
 ### AWS Cloud
 
 <details>

@@ -172,7 +172,8 @@ class CoreTests(RepositoryCase):
         self.assertIn("**Types:** Project 3 · Exercise 2", catalog)
         self.assertNotIn("Imported material is planned practice", "\n".join(catalog))
         domains = [index for index, line in enumerate(catalog) if line.startswith("### ")]
-        self.assertEqual(catalog.count("---"), 4 + len(domains) - 1)
+        self.assertEqual(catalog.count("---"), 4 + len(domains))
+        self.assertEqual(catalog[domains[0] - 2], "---")
         self.assertTrue(all("---" in catalog[start + 1:end] for start, end in zip(domains, domains[1:])))
         summaries = [line for line in catalog if line.startswith('<summary class="catalog-section-title">')]
         self.assertEqual(summaries[:4], ['<summary class="catalog-section-title">✅ Completed</summary>', '<summary class="catalog-section-title">🛠️ In progress</summary>', '<summary class="catalog-section-title">🔎 Browse by skill</summary>', '<summary class="catalog-section-title">📚 Browse all labs</summary>'])
