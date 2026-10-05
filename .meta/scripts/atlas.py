@@ -63,7 +63,7 @@ def render_atlas(plan: dict, records: list[dict]) -> str:
     escape = catalog._escape
     opportunities = plan["opportunities"]
     adopted = {path for item in opportunities for path in item["adopted_paths"]}
-    lines = ["# Practice Atlas", "", "[Lab catalog](CATALOG.md) · [Visual workbench](https://pradeeptathineni.github.io/labs/) · [How I use this repo](README.md)", "",
+    lines = ["# Practice Atlas", "", "[Lab catalog](CATALOG.md) · [Web catalog](https://pradeeptathineni.github.io/labs/) · [How I use this repo](README.md)", "",
              f"**{len(opportunities)} reviewed opportunities** · {len(adopted)} matching adopted labs · {len(records)} labs in the whole repository", "",
              "A registered source is something I know about. An opportunity is a reviewed choice; an adopted lab is a concrete plan. Starting and completing it are separate, explicit decisions. Counts here never measure proficiency or a source's completion.", "",
              "Subjects bring related niches together. A path supplies one home: `niches/<niche>/<domain>/[<subdomain>/][<group>/...]<collection>/<lab>/`. Tools name technologies; goals name intentions, including certification preparation.", "",

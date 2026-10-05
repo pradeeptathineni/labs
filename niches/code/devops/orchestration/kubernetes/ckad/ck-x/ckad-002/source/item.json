@@ -1,0 +1,31 @@
+{
+  "id": "ckad-002",
+  "name": "CKAD Comprehensive Lab - 2",
+  "assessment_path": "facilitator/assets/exams/ckad/002/assessment.json",
+  "revision": "76a78943556af64a774a1c22b283efc22906ff1c",
+  "question_ids": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20"
+  ],
+  "assessment_sha256": "eb109c428ccb054d7f3356fd14760859f23bb84dc205e84af597d9d70a4ae587",
+  "config_sha256": "9a6bc998c6e4e846f6c538609ba34b694e5351cea0161a9e5a2bb46c35ccbedb",
+  "handling": "linked; bodies, answers and executable assets not copied"
+}

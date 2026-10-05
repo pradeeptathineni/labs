@@ -1,0 +1,10 @@
+{
+  "title": "CKS review",
+  "has_subdomain": true,
+  "tools": [
+    "kubernetes"
+  ],
+  "goals": [
+    "cks"
+  ]
+}

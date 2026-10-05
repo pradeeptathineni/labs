@@ -1,0 +1,11 @@
+{
+  "title": "ThePlatformLab mock exams",
+  "has_subdomain": true,
+  "ordered": true,
+  "tools": [
+    "kubernetes"
+  ],
+  "goals": [
+    "cka"
+  ]
+}

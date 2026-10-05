@@ -1,0 +1,25 @@
+{
+  "title": "CKS objectives review",
+  "type": "problem-set",
+  "skills": [
+    "conceptual-reasoning",
+    "orchestration",
+    "troubleshooting"
+  ],
+  "source": {
+    "provider": "cncf-certification",
+    "item_id": "cks/objectives-review",
+    "url": "https://github.com/cncf/curriculum/blob/88e610650e2edbe04325fcb992febe6838487d72/CKS_Curriculum%20v1.34.pdf",
+    "revision": "88e610650e2edbe04325fcb992febe6838487d72"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-05",
+      "started": null,
+      "updated": "2026-10-05",
+      "completed": null
+    },
+    "content_sha256": "792574920e518a3a8ae86be94f54e6e242a9c721b1e33ac22f1a3183faa52082"
+  }
+}

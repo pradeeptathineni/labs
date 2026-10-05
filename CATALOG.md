@@ -1,10 +1,10 @@
 # Lab Catalog
 
-[Visual workbench](https://pradeeptathineni.github.io/labs/) · [Practice atlas](PRACTICE-ATLAS.md) · [About this repo](README.md)
+[Web catalog](https://pradeeptathineni.github.io/labs/) · [Practice atlas](PRACTICE-ATLAS.md) · [About this repo](README.md)
 
-**35 labs** · 0 complete · 0 in progress · 35 planned · 0 paused · 0 abandoned
+**76 labs** · 0 complete · 0 in progress · 76 planned · 0 paused · 0 abandoned
 
-**Types:** Project 33 · Problem set 1 · Question bank 1
+**Types:** Project 33 · Exercise 31 · Problem set 11 · Question bank 1
 
 > [!IMPORTANT]
 > Imported work is planned practice. Target skills are not demonstrated proficiency; certification goals are preparation, not credentials.
@@ -42,6 +42,7 @@ No labs in progress yet.
 - **Cloud Hosting** (1): [Basic DNS Setup](niches/code/devops/roadmap-sh/07-basic-dns-setup/README.md#exercise-definition)
 - **Command Line** (2): [Log Archive Tool](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition), [Nginx Log Analyser](niches/code/devops/roadmap-sh/03-nginx-log-analyser/README.md#exercise-definition)
 - **Compression** (1): [Log Archive Tool](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition)
+- **Conceptual Reasoning** (3): [CKA objectives review](niches/study/devops/orchestration/kubernetes/cka/objectives-review/README.md#exercise-definition), [CKAD objectives review](niches/study/devops/orchestration/kubernetes/ckad/objectives-review/README.md#exercise-definition), [CKS objectives review](niches/study/devops/orchestration/kubernetes/cks/objectives-review/README.md#exercise-definition)
 - **Configuration Management** (1): [Configuration Management](niches/code/devops/roadmap-sh/13-configuration-management/README.md#exercise-definition)
 - **Consul** (1): [Service Discovery](niches/code/devops/roadmap-sh/26-service-discovery/README.md#exercise-definition)
 - **Containers** (2): [Basic Dockerfile](niches/code/devops/roadmap-sh/10-basic-dockerfile/README.md#exercise-definition), [Multi-Container Application](niches/code/devops/roadmap-sh/17-multi-container-application/README.md#exercise-definition)
@@ -95,6 +96,7 @@ No labs in progress yet.
 - **Observability** (2): [Simple Monitoring](niches/code/devops/roadmap-sh/08-simple-monitoring/README.md#exercise-definition), [Prometheus and Grafana](niches/code/devops/roadmap-sh/24-prometheus-and-grafana/README.md#exercise-definition)
 - **Openvpn** (1): [VPN Server Setup](niches/code/devops/roadmap-sh/22-vpn-server-setup/README.md#exercise-definition)
 - **Optimization** (1): [Multi-Service Application](niches/code/devops/roadmap-sh/25-multi-service-application/README.md#exercise-definition)
+- **Orchestration** (41): [CKA Practice Lab - Core Concepts](niches/code/devops/orchestration/kubernetes/cka/ck-x/cka-001/README.md#exercise-definition), [CKA Practice Lab - Advanced Administration](niches/code/devops/orchestration/kubernetes/cka/ck-x/cka-002/README.md#exercise-definition), [Exercise 01 — Pod Basics](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/01-pod-basics/README.md#exercise-definition), [Exercise 02 — Multi-Container Pod (Sidecar Logging)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/02-multi-container-pod/README.md#exercise-definition), [Exercise 03 — ConfigMap and Secret](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/03-configmap-secret/README.md#exercise-definition), [Exercise 04 — RBAC](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/04-rbac/README.md#exercise-definition), [Exercise 05 — NetworkPolicy](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/05-networkpolicy/README.md#exercise-definition), [Exercise 06 — Deployment Rolling Update and Rollback](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/06-deployment-rollout/README.md#exercise-definition), [Exercise 07 — StatefulSet Deployment](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/07-statefulset/README.md#exercise-definition), [Exercise 08 — Node Drain and Cordon](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/08-node-drain-cordon/README.md#exercise-definition), [Exercise 09 — kubeadm Cluster Upgrade](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/09-kubeadm-upgrade/README.md#exercise-definition), [Exercise 10 — Static Pod](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/10-static-pod/README.md#exercise-definition), [Exercise 11 — Troubleshoot Cluster Components](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/11-troubleshoot-cluster/README.md#exercise-definition), [Exercise 12 — Storage: PV, PVC, and StorageClass](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/12-storage-pv-pvc/README.md#exercise-definition), [Exercise 13 — Helm Install, Upgrade, and Rollback](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/13-helm-install-upgrade/README.md#exercise-definition), [Exercise 14 — Kustomize: Base and Overlay](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/14-kustomize-overlays/README.md#exercise-definition), [Exercise 15 — Gateway API: Gateway and HTTPRoute](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/15-gateway-api/README.md#exercise-definition), [Exercise 16 — Horizontal Pod Autoscaler](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/16-hpa/README.md#exercise-definition), [Exercise 17 — kubectl debug: Pod and Node](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/17-kubectl-debug/README.md#exercise-definition), [Exercise 18 — CRI-dockerd Installation & Configuration](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/18-cri-dockerd-setup-18/README.md#exercise-definition), [Exercise 19 — Classic Ingress](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/19-ingress-classic/README.md#exercise-definition), [Exercise 20 — Pod Security Standards](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/20-pod-security-standards/README.md#exercise-definition), [Exercise 21 — Jobs and CronJobs](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/21-jobs-cronjobs/README.md#exercise-definition), [Exercise 22 — PriorityClass](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/22-priorityclass/README.md#exercise-definition), [Exercise 23 — Resource Requests Tuning (Pods Won't Schedule)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/23-resource-requests-tuning/README.md#exercise-definition), [Exercise 24 — PriorityClass and Patch Operations](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/24-priorityclass-patch/README.md#exercise-definition), [Exercise 25 — Storage with WaitForFirstConsumer Binding](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/25-storage-waitforfirstconsumer/README.md#exercise-definition), [Exercise 26 — CRI-dockerd Installation and Configuration](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/26-cri-dockerd-setup-26/README.md#exercise-definition), [Exercise 27 — CNI Installation (Calico/Tigera Operator)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/27-cni-tigera-install/README.md#exercise-definition), [Exercise 28 — Complex NetworkPolicy (Multi-Namespace, Traffic Control)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/28-network-policy-complex/README.md#exercise-definition), [Exercise 29 — Troubleshoot Broken Cluster (Incorrect etcd Endpoint)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/29-troubleshoot-etcd-endpoint/README.md#exercise-definition), [Exercise 30 — TLS Configuration Update (Cipher Support)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/30-tls-configuration-update/README.md#exercise-definition), [Exercise 31 — Argo CD Setup (GitOps Deployment)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/31-argocd-gitops-setup/README.md#exercise-definition), [Mock Exam 01 — CKA Practice (Kubernetes 1.35)](niches/code/devops/orchestration/kubernetes/cka/platformlab-mock-exams/01-mock-exam-01/README.md#exercise-definition), [Mock Exam 02 — CKA Practice (Kubernetes 1.35)](niches/code/devops/orchestration/kubernetes/cka/platformlab-mock-exams/02-mock-exam-02/README.md#exercise-definition), [CKAD Comprehensive Lab - 1](niches/code/devops/orchestration/kubernetes/ckad/ck-x/ckad-001/README.md#exercise-definition), [CKAD Comprehensive Lab - 2](niches/code/devops/orchestration/kubernetes/ckad/ck-x/ckad-002/README.md#exercise-definition), [CKS Practice Lab - Kubernetes Security Essentials](niches/code/devops/orchestration/kubernetes/cks/ck-x/cks-001/README.md#exercise-definition), [CKA objectives review](niches/study/devops/orchestration/kubernetes/cka/objectives-review/README.md#exercise-definition), [CKAD objectives review](niches/study/devops/orchestration/kubernetes/ckad/objectives-review/README.md#exercise-definition), [CKS objectives review](niches/study/devops/orchestration/kubernetes/cks/objectives-review/README.md#exercise-definition)
 - **Performance Monitoring** (1): [Server Performance Stats](niches/code/devops/roadmap-sh/01-server-performance-stats/README.md#exercise-definition)
 - **Process Inspection** (1): [Server Performance Stats](niches/code/devops/roadmap-sh/01-server-performance-stats/README.md#exercise-definition)
 - **Process Management** (1): [Dummy Systemd Service](niches/code/devops/roadmap-sh/09-dummy-systemd-service/README.md#exercise-definition)
@@ -122,6 +124,7 @@ No labs in progress yet.
 - **Text Processing** (1): [Nginx Log Analyser](niches/code/devops/roadmap-sh/03-nginx-log-analyser/README.md#exercise-definition)
 - **Timer Logic** (1): [Pomodoro Timer](niches/code/devops/roadmap-sh/12-pomodoro-timer/README.md#exercise-definition)
 - **Timestamps** (1): [Log Archive Tool](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition)
+- **Troubleshooting** (41): [CKA Practice Lab - Core Concepts](niches/code/devops/orchestration/kubernetes/cka/ck-x/cka-001/README.md#exercise-definition), [CKA Practice Lab - Advanced Administration](niches/code/devops/orchestration/kubernetes/cka/ck-x/cka-002/README.md#exercise-definition), [Exercise 01 — Pod Basics](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/01-pod-basics/README.md#exercise-definition), [Exercise 02 — Multi-Container Pod (Sidecar Logging)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/02-multi-container-pod/README.md#exercise-definition), [Exercise 03 — ConfigMap and Secret](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/03-configmap-secret/README.md#exercise-definition), [Exercise 04 — RBAC](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/04-rbac/README.md#exercise-definition), [Exercise 05 — NetworkPolicy](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/05-networkpolicy/README.md#exercise-definition), [Exercise 06 — Deployment Rolling Update and Rollback](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/06-deployment-rollout/README.md#exercise-definition), [Exercise 07 — StatefulSet Deployment](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/07-statefulset/README.md#exercise-definition), [Exercise 08 — Node Drain and Cordon](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/08-node-drain-cordon/README.md#exercise-definition), [Exercise 09 — kubeadm Cluster Upgrade](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/09-kubeadm-upgrade/README.md#exercise-definition), [Exercise 10 — Static Pod](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/10-static-pod/README.md#exercise-definition), [Exercise 11 — Troubleshoot Cluster Components](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/11-troubleshoot-cluster/README.md#exercise-definition), [Exercise 12 — Storage: PV, PVC, and StorageClass](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/12-storage-pv-pvc/README.md#exercise-definition), [Exercise 13 — Helm Install, Upgrade, and Rollback](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/13-helm-install-upgrade/README.md#exercise-definition), [Exercise 14 — Kustomize: Base and Overlay](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/14-kustomize-overlays/README.md#exercise-definition), [Exercise 15 — Gateway API: Gateway and HTTPRoute](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/15-gateway-api/README.md#exercise-definition), [Exercise 16 — Horizontal Pod Autoscaler](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/16-hpa/README.md#exercise-definition), [Exercise 17 — kubectl debug: Pod and Node](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/17-kubectl-debug/README.md#exercise-definition), [Exercise 18 — CRI-dockerd Installation & Configuration](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/18-cri-dockerd-setup-18/README.md#exercise-definition), [Exercise 19 — Classic Ingress](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/19-ingress-classic/README.md#exercise-definition), [Exercise 20 — Pod Security Standards](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/20-pod-security-standards/README.md#exercise-definition), [Exercise 21 — Jobs and CronJobs](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/21-jobs-cronjobs/README.md#exercise-definition), [Exercise 22 — PriorityClass](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/22-priorityclass/README.md#exercise-definition), [Exercise 23 — Resource Requests Tuning (Pods Won't Schedule)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/23-resource-requests-tuning/README.md#exercise-definition), [Exercise 24 — PriorityClass and Patch Operations](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/24-priorityclass-patch/README.md#exercise-definition), [Exercise 25 — Storage with WaitForFirstConsumer Binding](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/25-storage-waitforfirstconsumer/README.md#exercise-definition), [Exercise 26 — CRI-dockerd Installation and Configuration](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/26-cri-dockerd-setup-26/README.md#exercise-definition), [Exercise 27 — CNI Installation (Calico/Tigera Operator)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/27-cni-tigera-install/README.md#exercise-definition), [Exercise 28 — Complex NetworkPolicy (Multi-Namespace, Traffic Control)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/28-network-policy-complex/README.md#exercise-definition), [Exercise 29 — Troubleshoot Broken Cluster (Incorrect etcd Endpoint)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/29-troubleshoot-etcd-endpoint/README.md#exercise-definition), [Exercise 30 — TLS Configuration Update (Cipher Support)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/30-tls-configuration-update/README.md#exercise-definition), [Exercise 31 — Argo CD Setup (GitOps Deployment)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/31-argocd-gitops-setup/README.md#exercise-definition), [Mock Exam 01 — CKA Practice (Kubernetes 1.35)](niches/code/devops/orchestration/kubernetes/cka/platformlab-mock-exams/01-mock-exam-01/README.md#exercise-definition), [Mock Exam 02 — CKA Practice (Kubernetes 1.35)](niches/code/devops/orchestration/kubernetes/cka/platformlab-mock-exams/02-mock-exam-02/README.md#exercise-definition), [CKAD Comprehensive Lab - 1](niches/code/devops/orchestration/kubernetes/ckad/ck-x/ckad-001/README.md#exercise-definition), [CKAD Comprehensive Lab - 2](niches/code/devops/orchestration/kubernetes/ckad/ck-x/ckad-002/README.md#exercise-definition), [CKS Practice Lab - Kubernetes Security Essentials](niches/code/devops/orchestration/kubernetes/cks/ck-x/cks-001/README.md#exercise-definition), [CKA objectives review](niches/study/devops/orchestration/kubernetes/cka/objectives-review/README.md#exercise-definition), [CKAD objectives review](niches/study/devops/orchestration/kubernetes/ckad/objectives-review/README.md#exercise-definition), [CKS objectives review](niches/study/devops/orchestration/kubernetes/cks/objectives-review/README.md#exercise-definition)
 - **User Management** (1): [Linux Server Setup](niches/code/devops/roadmap-sh/21-linux-server-setup/README.md#exercise-definition)
 - **Vpc** (1): [Kananinirav CLF-C02 Review](niches/study/cloud/aws/clf-c02/kananinirav-aws-ccp/README.md#exercise-definition)
 - **Vpn** (1): [VPN Server Setup](niches/code/devops/roadmap-sh/22-vpn-server-setup/README.md#exercise-definition)
@@ -133,14 +136,16 @@ No labs in progress yet.
 <details>
 <summary>Browse by tool</summary>
 
-No explicit associations yet.
+- **Kubernetes** (41): [CKA Practice Lab - Core Concepts](niches/code/devops/orchestration/kubernetes/cka/ck-x/cka-001/README.md#exercise-definition), [CKA Practice Lab - Advanced Administration](niches/code/devops/orchestration/kubernetes/cka/ck-x/cka-002/README.md#exercise-definition), [Exercise 01 — Pod Basics](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/01-pod-basics/README.md#exercise-definition), [Exercise 02 — Multi-Container Pod (Sidecar Logging)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/02-multi-container-pod/README.md#exercise-definition), [Exercise 03 — ConfigMap and Secret](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/03-configmap-secret/README.md#exercise-definition), [Exercise 04 — RBAC](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/04-rbac/README.md#exercise-definition), [Exercise 05 — NetworkPolicy](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/05-networkpolicy/README.md#exercise-definition), [Exercise 06 — Deployment Rolling Update and Rollback](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/06-deployment-rollout/README.md#exercise-definition), [Exercise 07 — StatefulSet Deployment](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/07-statefulset/README.md#exercise-definition), [Exercise 08 — Node Drain and Cordon](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/08-node-drain-cordon/README.md#exercise-definition), [Exercise 09 — kubeadm Cluster Upgrade](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/09-kubeadm-upgrade/README.md#exercise-definition), [Exercise 10 — Static Pod](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/10-static-pod/README.md#exercise-definition), [Exercise 11 — Troubleshoot Cluster Components](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/11-troubleshoot-cluster/README.md#exercise-definition), [Exercise 12 — Storage: PV, PVC, and StorageClass](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/12-storage-pv-pvc/README.md#exercise-definition), [Exercise 13 — Helm Install, Upgrade, and Rollback](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/13-helm-install-upgrade/README.md#exercise-definition), [Exercise 14 — Kustomize: Base and Overlay](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/14-kustomize-overlays/README.md#exercise-definition), [Exercise 15 — Gateway API: Gateway and HTTPRoute](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/15-gateway-api/README.md#exercise-definition), [Exercise 16 — Horizontal Pod Autoscaler](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/16-hpa/README.md#exercise-definition), [Exercise 17 — kubectl debug: Pod and Node](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/17-kubectl-debug/README.md#exercise-definition), [Exercise 18 — CRI-dockerd Installation & Configuration](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/18-cri-dockerd-setup-18/README.md#exercise-definition), [Exercise 19 — Classic Ingress](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/19-ingress-classic/README.md#exercise-definition), [Exercise 20 — Pod Security Standards](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/20-pod-security-standards/README.md#exercise-definition), [Exercise 21 — Jobs and CronJobs](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/21-jobs-cronjobs/README.md#exercise-definition), [Exercise 22 — PriorityClass](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/22-priorityclass/README.md#exercise-definition), [Exercise 23 — Resource Requests Tuning (Pods Won't Schedule)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/23-resource-requests-tuning/README.md#exercise-definition), [Exercise 24 — PriorityClass and Patch Operations](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/24-priorityclass-patch/README.md#exercise-definition), [Exercise 25 — Storage with WaitForFirstConsumer Binding](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/25-storage-waitforfirstconsumer/README.md#exercise-definition), [Exercise 26 — CRI-dockerd Installation and Configuration](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/26-cri-dockerd-setup-26/README.md#exercise-definition), [Exercise 27 — CNI Installation (Calico/Tigera Operator)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/27-cni-tigera-install/README.md#exercise-definition), [Exercise 28 — Complex NetworkPolicy (Multi-Namespace, Traffic Control)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/28-network-policy-complex/README.md#exercise-definition), [Exercise 29 — Troubleshoot Broken Cluster (Incorrect etcd Endpoint)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/29-troubleshoot-etcd-endpoint/README.md#exercise-definition), [Exercise 30 — TLS Configuration Update (Cipher Support)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/30-tls-configuration-update/README.md#exercise-definition), [Exercise 31 — Argo CD Setup (GitOps Deployment)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/31-argocd-gitops-setup/README.md#exercise-definition), [Mock Exam 01 — CKA Practice (Kubernetes 1.35)](niches/code/devops/orchestration/kubernetes/cka/platformlab-mock-exams/01-mock-exam-01/README.md#exercise-definition), [Mock Exam 02 — CKA Practice (Kubernetes 1.35)](niches/code/devops/orchestration/kubernetes/cka/platformlab-mock-exams/02-mock-exam-02/README.md#exercise-definition), [CKAD Comprehensive Lab - 1](niches/code/devops/orchestration/kubernetes/ckad/ck-x/ckad-001/README.md#exercise-definition), [CKAD Comprehensive Lab - 2](niches/code/devops/orchestration/kubernetes/ckad/ck-x/ckad-002/README.md#exercise-definition), [CKS Practice Lab - Kubernetes Security Essentials](niches/code/devops/orchestration/kubernetes/cks/ck-x/cks-001/README.md#exercise-definition), [CKA objectives review](niches/study/devops/orchestration/kubernetes/cka/objectives-review/README.md#exercise-definition), [CKAD objectives review](niches/study/devops/orchestration/kubernetes/ckad/objectives-review/README.md#exercise-definition), [CKS objectives review](niches/study/devops/orchestration/kubernetes/cks/objectives-review/README.md#exercise-definition)
 
 </details>
 
 <details>
 <summary>Browse by goal</summary>
 
-No explicit associations yet.
+- **Certified Kubernetes Administrator (CKA)** (36): [CKA Practice Lab - Core Concepts](niches/code/devops/orchestration/kubernetes/cka/ck-x/cka-001/README.md#exercise-definition), [CKA Practice Lab - Advanced Administration](niches/code/devops/orchestration/kubernetes/cka/ck-x/cka-002/README.md#exercise-definition), [Exercise 01 — Pod Basics](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/01-pod-basics/README.md#exercise-definition), [Exercise 02 — Multi-Container Pod (Sidecar Logging)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/02-multi-container-pod/README.md#exercise-definition), [Exercise 03 — ConfigMap and Secret](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/03-configmap-secret/README.md#exercise-definition), [Exercise 04 — RBAC](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/04-rbac/README.md#exercise-definition), [Exercise 05 — NetworkPolicy](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/05-networkpolicy/README.md#exercise-definition), [Exercise 06 — Deployment Rolling Update and Rollback](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/06-deployment-rollout/README.md#exercise-definition), [Exercise 07 — StatefulSet Deployment](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/07-statefulset/README.md#exercise-definition), [Exercise 08 — Node Drain and Cordon](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/08-node-drain-cordon/README.md#exercise-definition), [Exercise 09 — kubeadm Cluster Upgrade](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/09-kubeadm-upgrade/README.md#exercise-definition), [Exercise 10 — Static Pod](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/10-static-pod/README.md#exercise-definition), [Exercise 11 — Troubleshoot Cluster Components](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/11-troubleshoot-cluster/README.md#exercise-definition), [Exercise 12 — Storage: PV, PVC, and StorageClass](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/12-storage-pv-pvc/README.md#exercise-definition), [Exercise 13 — Helm Install, Upgrade, and Rollback](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/13-helm-install-upgrade/README.md#exercise-definition), [Exercise 14 — Kustomize: Base and Overlay](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/14-kustomize-overlays/README.md#exercise-definition), [Exercise 15 — Gateway API: Gateway and HTTPRoute](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/15-gateway-api/README.md#exercise-definition), [Exercise 16 — Horizontal Pod Autoscaler](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/16-hpa/README.md#exercise-definition), [Exercise 17 — kubectl debug: Pod and Node](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/17-kubectl-debug/README.md#exercise-definition), [Exercise 18 — CRI-dockerd Installation & Configuration](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/18-cri-dockerd-setup-18/README.md#exercise-definition), [Exercise 19 — Classic Ingress](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/19-ingress-classic/README.md#exercise-definition), [Exercise 20 — Pod Security Standards](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/20-pod-security-standards/README.md#exercise-definition), [Exercise 21 — Jobs and CronJobs](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/21-jobs-cronjobs/README.md#exercise-definition), [Exercise 22 — PriorityClass](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/22-priorityclass/README.md#exercise-definition), [Exercise 23 — Resource Requests Tuning (Pods Won't Schedule)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/23-resource-requests-tuning/README.md#exercise-definition), [Exercise 24 — PriorityClass and Patch Operations](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/24-priorityclass-patch/README.md#exercise-definition), [Exercise 25 — Storage with WaitForFirstConsumer Binding](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/25-storage-waitforfirstconsumer/README.md#exercise-definition), [Exercise 26 — CRI-dockerd Installation and Configuration](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/26-cri-dockerd-setup-26/README.md#exercise-definition), [Exercise 27 — CNI Installation (Calico/Tigera Operator)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/27-cni-tigera-install/README.md#exercise-definition), [Exercise 28 — Complex NetworkPolicy (Multi-Namespace, Traffic Control)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/28-network-policy-complex/README.md#exercise-definition), [Exercise 29 — Troubleshoot Broken Cluster (Incorrect etcd Endpoint)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/29-troubleshoot-etcd-endpoint/README.md#exercise-definition), [Exercise 30 — TLS Configuration Update (Cipher Support)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/30-tls-configuration-update/README.md#exercise-definition), [Exercise 31 — Argo CD Setup (GitOps Deployment)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/31-argocd-gitops-setup/README.md#exercise-definition), [Mock Exam 01 — CKA Practice (Kubernetes 1.35)](niches/code/devops/orchestration/kubernetes/cka/platformlab-mock-exams/01-mock-exam-01/README.md#exercise-definition), [Mock Exam 02 — CKA Practice (Kubernetes 1.35)](niches/code/devops/orchestration/kubernetes/cka/platformlab-mock-exams/02-mock-exam-02/README.md#exercise-definition), [CKA objectives review](niches/study/devops/orchestration/kubernetes/cka/objectives-review/README.md#exercise-definition)
+- **Certified Kubernetes Application Developer (CKAD)** (3): [CKAD Comprehensive Lab - 1](niches/code/devops/orchestration/kubernetes/ckad/ck-x/ckad-001/README.md#exercise-definition), [CKAD Comprehensive Lab - 2](niches/code/devops/orchestration/kubernetes/ckad/ck-x/ckad-002/README.md#exercise-definition), [CKAD objectives review](niches/study/devops/orchestration/kubernetes/ckad/objectives-review/README.md#exercise-definition)
+- **Certified Kubernetes Security Specialist (CKS)** (2): [CKS Practice Lab - Kubernetes Security Essentials](niches/code/devops/orchestration/kubernetes/cks/ck-x/cks-001/README.md#exercise-definition), [CKS objectives review](niches/study/devops/orchestration/kubernetes/cks/objectives-review/README.md#exercise-definition)
 
 </details>
 
@@ -394,6 +399,318 @@ No explicit associations yet.
     Project · Not started · Updated 2026-10-04 · Skills: `consul`, `dns`, `networking`, `service-discovery`
 
     [Source: roadmap.sh](https://roadmap.sh/projects/service-discovery)
+
+
+</details>
+
+### DevOps / Orchestration
+
+<details>
+<summary>Code / Kubernetes / CKA / CK-X assessments · 2 labs</summary>
+
+`niches/code/devops/orchestration/kubernetes/cka/ck-x`
+
+- <a id="lab-niches-code-devops-orchestration-kubernetes-cka-ck-x-cka-001"></a>[CKA Practice Lab - Core Concepts](niches/code/devops/orchestration/kubernetes/cka/ck-x/cka-001/README.md#exercise-definition)
+
+  Problem set · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+  [Source: CK-X](https://github.com/sailor-sh/CK-X/blob/76a78943556af64a774a1c22b283efc22906ff1c/facilitator/assets/exams/cka/001/assessment.json)
+
+- <a id="lab-niches-code-devops-orchestration-kubernetes-cka-ck-x-cka-002"></a>[CKA Practice Lab - Advanced Administration](niches/code/devops/orchestration/kubernetes/cka/ck-x/cka-002/README.md#exercise-definition)
+
+  Problem set · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+  [Source: CK-X](https://github.com/sailor-sh/CK-X/blob/76a78943556af64a774a1c22b283efc22906ff1c/facilitator/assets/exams/cka/002/assessment.json)
+
+
+</details>
+
+<details>
+<summary>Code / Kubernetes / CKA / ThePlatformLab exercises · 31 labs</summary>
+
+`niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises`
+
+1. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-01-pod-basics"></a>[Exercise 01 — Pod Basics](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/01-pod-basics/README.md#exercise-definition)
+
+   Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+   [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/01-pod-basics/README.md#tasks)
+
+2. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-02-multi-container-pod"></a>[Exercise 02 — Multi-Container Pod (Sidecar Logging)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/02-multi-container-pod/README.md#exercise-definition)
+
+   Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+   [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/02-multi-container-pod/README.md#tasks)
+
+3. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-03-configmap-secret"></a>[Exercise 03 — ConfigMap and Secret](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/03-configmap-secret/README.md#exercise-definition)
+
+   Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+   [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/03-configmap-secret/README.md#tasks)
+
+4. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-04-rbac"></a>[Exercise 04 — RBAC](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/04-rbac/README.md#exercise-definition)
+
+   Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+   [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/04-rbac/README.md#tasks)
+
+5. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-05-networkpolicy"></a>[Exercise 05 — NetworkPolicy](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/05-networkpolicy/README.md#exercise-definition)
+
+   Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+   [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/05-networkpolicy/README.md#tasks)
+
+6. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-06-deployment-rollout"></a>[Exercise 06 — Deployment Rolling Update and Rollback](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/06-deployment-rollout/README.md#exercise-definition)
+
+   Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+   [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/06-deployment-rollout/README.md#tasks)
+
+7. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-07-statefulset"></a>[Exercise 07 — StatefulSet Deployment](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/07-statefulset/README.md#exercise-definition)
+
+   Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+   [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/07-statefulset/README.md#tasks)
+
+8. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-08-node-drain-cordon"></a>[Exercise 08 — Node Drain and Cordon](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/08-node-drain-cordon/README.md#exercise-definition)
+
+   Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+   [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/08-node-drain-cordon/README.md#tasks)
+
+9. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-09-kubeadm-upgrade"></a>[Exercise 09 — kubeadm Cluster Upgrade](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/09-kubeadm-upgrade/README.md#exercise-definition)
+
+   Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+   [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/09-kubeadm-upgrade/README.md#tasks)
+
+10. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-10-static-pod"></a>[Exercise 10 — Static Pod](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/10-static-pod/README.md#exercise-definition)
+
+    Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+    [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/10-static-pod/README.md#tasks)
+
+11. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-11-troubleshoot-cluster"></a>[Exercise 11 — Troubleshoot Cluster Components](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/11-troubleshoot-cluster/README.md#exercise-definition)
+
+    Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+    [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/11-troubleshoot-cluster/README.md#tasks)
+
+12. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-12-storage-pv-pvc"></a>[Exercise 12 — Storage: PV, PVC, and StorageClass](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/12-storage-pv-pvc/README.md#exercise-definition)
+
+    Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+    [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/12-storage-pv-pvc/README.md#tasks)
+
+13. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-13-helm-install-upgrade"></a>[Exercise 13 — Helm Install, Upgrade, and Rollback](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/13-helm-install-upgrade/README.md#exercise-definition)
+
+    Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+    [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/13-helm-install-upgrade/README.md#tasks)
+
+14. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-14-kustomize-overlays"></a>[Exercise 14 — Kustomize: Base and Overlay](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/14-kustomize-overlays/README.md#exercise-definition)
+
+    Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+    [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/14-kustomize-overlays/README.md#tasks)
+
+15. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-15-gateway-api"></a>[Exercise 15 — Gateway API: Gateway and HTTPRoute](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/15-gateway-api/README.md#exercise-definition)
+
+    Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+    [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/15-gateway-api/README.md#tasks)
+
+16. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-16-hpa"></a>[Exercise 16 — Horizontal Pod Autoscaler](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/16-hpa/README.md#exercise-definition)
+
+    Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+    [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/16-hpa/README.md#tasks-hpa)
+
+17. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-17-kubectl-debug"></a>[Exercise 17 — kubectl debug: Pod and Node](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/17-kubectl-debug/README.md#exercise-definition)
+
+    Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+    [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/17-kubectl-debug/README.md#tasks)
+
+18. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-18-cri-dockerd-setup-18"></a>[Exercise 18 — CRI-dockerd Installation & Configuration](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/18-cri-dockerd-setup-18/README.md#exercise-definition)
+
+    Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+    [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/18-cri-dockerd-setup/README.md#tasks)
+
+19. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-19-ingress-classic"></a>[Exercise 19 — Classic Ingress](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/19-ingress-classic/README.md#exercise-definition)
+
+    Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+    [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/19-ingress-classic/README.md#tasks)
+
+20. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-20-pod-security-standards"></a>[Exercise 20 — Pod Security Standards](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/20-pod-security-standards/README.md#exercise-definition)
+
+    Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+    [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/20-pod-security-standards/README.md#tasks)
+
+21. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-21-jobs-cronjobs"></a>[Exercise 21 — Jobs and CronJobs](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/21-jobs-cronjobs/README.md#exercise-definition)
+
+    Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+    [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/21-jobs-cronjobs/README.md#tasks)
+
+22. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-22-priorityclass"></a>[Exercise 22 — PriorityClass](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/22-priorityclass/README.md#exercise-definition)
+
+    Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+    [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/22-priorityclass/README.md#tasks)
+
+23. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-23-resource-requests-tuning"></a>[Exercise 23 — Resource Requests Tuning (Pods Won't Schedule)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/23-resource-requests-tuning/README.md#exercise-definition)
+
+    Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+    [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/23-resource-requests-tuning/README.md#tasks)
+
+24. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-24-priorityclass-patch"></a>[Exercise 24 — PriorityClass and Patch Operations](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/24-priorityclass-patch/README.md#exercise-definition)
+
+    Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+    [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/24-priorityclass-patch/README.md#tasks)
+
+25. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-25-storage-waitforfirstconsumer"></a>[Exercise 25 — Storage with WaitForFirstConsumer Binding](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/25-storage-waitforfirstconsumer/README.md#exercise-definition)
+
+    Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+    [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/25-storage-waitforfirstconsumer/README.md#tasks)
+
+26. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-26-cri-dockerd-setup-26"></a>[Exercise 26 — CRI-dockerd Installation and Configuration](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/26-cri-dockerd-setup-26/README.md#exercise-definition)
+
+    Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+    [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/26-cri-dockerd-setup/README.md#tasks)
+
+27. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-27-cni-tigera-install"></a>[Exercise 27 — CNI Installation (Calico/Tigera Operator)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/27-cni-tigera-install/README.md#exercise-definition)
+
+    Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+    [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/27-cni-tigera-install/README.md#tasks)
+
+28. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-28-network-policy-complex"></a>[Exercise 28 — Complex NetworkPolicy (Multi-Namespace, Traffic Control)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/28-network-policy-complex/README.md#exercise-definition)
+
+    Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+    [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/28-network-policy-complex/README.md#tasks)
+
+29. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-29-troubleshoot-etcd-endpoint"></a>[Exercise 29 — Troubleshoot Broken Cluster (Incorrect etcd Endpoint)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/29-troubleshoot-etcd-endpoint/README.md#exercise-definition)
+
+    Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+    [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/29-troubleshoot-etcd-endpoint/README.md#tasks)
+
+30. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-30-tls-configuration-update"></a>[Exercise 30 — TLS Configuration Update (Cipher Support)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/30-tls-configuration-update/README.md#exercise-definition)
+
+    Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+    [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/30-tls-configuration-update/README.md#tasks)
+
+31. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-31-argocd-gitops-setup"></a>[Exercise 31 — Argo CD Setup (GitOps Deployment)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/31-argocd-gitops-setup/README.md#exercise-definition)
+
+    Exercise · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+    [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/31-argocd-gitops-setup/README.md#tasks)
+
+
+</details>
+
+<details>
+<summary>Code / Kubernetes / CKA / ThePlatformLab mock exams · 2 labs</summary>
+
+`niches/code/devops/orchestration/kubernetes/cka/platformlab-mock-exams`
+
+1. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-mock-exams-01-mock-exam-01"></a>[Mock Exam 01 — CKA Practice (Kubernetes 1.35)](niches/code/devops/orchestration/kubernetes/cka/platformlab-mock-exams/01-mock-exam-01/README.md#exercise-definition)
+
+   Problem set · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+   [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/mock-exams/MOCK-EXAM-01.md)
+
+2. <a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-mock-exams-02-mock-exam-02"></a>[Mock Exam 02 — CKA Practice (Kubernetes 1.35)](niches/code/devops/orchestration/kubernetes/cka/platformlab-mock-exams/02-mock-exam-02/README.md#exercise-definition)
+
+   Problem set · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+   [Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/mock-exams/MOCK-EXAM-02.md)
+
+
+</details>
+
+<details>
+<summary>Code / Kubernetes / CKAD / CK-X assessments · 2 labs</summary>
+
+`niches/code/devops/orchestration/kubernetes/ckad/ck-x`
+
+- <a id="lab-niches-code-devops-orchestration-kubernetes-ckad-ck-x-ckad-001"></a>[CKAD Comprehensive Lab - 1](niches/code/devops/orchestration/kubernetes/ckad/ck-x/ckad-001/README.md#exercise-definition)
+
+  Problem set · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `ckad`
+
+  [Source: CK-X](https://github.com/sailor-sh/CK-X/blob/76a78943556af64a774a1c22b283efc22906ff1c/facilitator/assets/exams/ckad/001/assessment.json)
+
+- <a id="lab-niches-code-devops-orchestration-kubernetes-ckad-ck-x-ckad-002"></a>[CKAD Comprehensive Lab - 2](niches/code/devops/orchestration/kubernetes/ckad/ck-x/ckad-002/README.md#exercise-definition)
+
+  Problem set · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `ckad`
+
+  [Source: CK-X](https://github.com/sailor-sh/CK-X/blob/76a78943556af64a774a1c22b283efc22906ff1c/facilitator/assets/exams/ckad/002/assessment.json)
+
+
+</details>
+
+<details>
+<summary>Code / Kubernetes / CKS / CK-X assessments · 1 labs</summary>
+
+`niches/code/devops/orchestration/kubernetes/cks/ck-x`
+
+- <a id="lab-niches-code-devops-orchestration-kubernetes-cks-ck-x-cks-001"></a>[CKS Practice Lab - Kubernetes Security Essentials](niches/code/devops/orchestration/kubernetes/cks/ck-x/cks-001/README.md#exercise-definition)
+
+  Problem set · Not started · Updated 2026-10-05 · Skills: `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cks`
+
+  [Source: CK-X](https://github.com/sailor-sh/CK-X/blob/76a78943556af64a774a1c22b283efc22906ff1c/facilitator/assets/exams/cks/001/assessment.json)
+
+
+</details>
+
+<details>
+<summary>Study / Kubernetes / CKA review · 1 labs</summary>
+
+`niches/study/devops/orchestration/kubernetes/cka`
+
+- <a id="lab-niches-study-devops-orchestration-kubernetes-cka-objectives-review"></a>[CKA objectives review](niches/study/devops/orchestration/kubernetes/cka/objectives-review/README.md#exercise-definition)
+
+  Problem set · Not started · Updated 2026-10-05 · Skills: `conceptual-reasoning`, `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cka`
+
+  [Source: CNCF Certification](https://github.com/cncf/curriculum/blob/88e610650e2edbe04325fcb992febe6838487d72/CKA_Curriculum_v1.35.pdf)
+
+
+</details>
+
+<details>
+<summary>Study / Kubernetes / CKAD review · 1 labs</summary>
+
+`niches/study/devops/orchestration/kubernetes/ckad`
+
+- <a id="lab-niches-study-devops-orchestration-kubernetes-ckad-objectives-review"></a>[CKAD objectives review](niches/study/devops/orchestration/kubernetes/ckad/objectives-review/README.md#exercise-definition)
+
+  Problem set · Not started · Updated 2026-10-05 · Skills: `conceptual-reasoning`, `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `ckad`
+
+  [Source: CNCF Certification](https://github.com/cncf/curriculum/blob/88e610650e2edbe04325fcb992febe6838487d72/CKAD_Curriculum_v1.37.pdf)
+
+
+</details>
+
+<details>
+<summary>Study / Kubernetes / CKS review · 1 labs</summary>
+
+`niches/study/devops/orchestration/kubernetes/cks`
+
+- <a id="lab-niches-study-devops-orchestration-kubernetes-cks-objectives-review"></a>[CKS objectives review](niches/study/devops/orchestration/kubernetes/cks/objectives-review/README.md#exercise-definition)
+
+  Problem set · Not started · Updated 2026-10-05 · Skills: `conceptual-reasoning`, `orchestration`, `troubleshooting` · Tools: `kubernetes` · Goals: `cks`
+
+  [Source: CNCF Certification](https://github.com/cncf/curriculum/blob/88e610650e2edbe04325fcb992febe6838487d72/CKS_Curriculum%20v1.34.pdf)
 
 
 </details>

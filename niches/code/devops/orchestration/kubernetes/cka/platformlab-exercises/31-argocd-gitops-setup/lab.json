@@ -1,0 +1,24 @@
+{
+  "title": "Exercise 31 — Argo CD Setup (GitOps Deployment)",
+  "type": "exercise",
+  "skills": [
+    "orchestration",
+    "troubleshooting"
+  ],
+  "source": {
+    "provider": "platformlab-cka",
+    "item_id": "exercises/31-argocd-gitops-setup/README.md",
+    "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/31-argocd-gitops-setup/README.md#tasks",
+    "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-05",
+      "started": null,
+      "updated": "2026-10-05",
+      "completed": null
+    },
+    "content_sha256": "93d03f75742e4affeb493e22d601b4f43b2dc3a3616e588352d589433309fcf0"
+  }
+}

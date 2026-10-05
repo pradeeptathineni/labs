@@ -1,0 +1,24 @@
+{
+  "title": "CKS Practice Lab - Kubernetes Security Essentials",
+  "type": "problem-set",
+  "skills": [
+    "orchestration",
+    "troubleshooting"
+  ],
+  "source": {
+    "provider": "ck-x",
+    "item_id": "cks-001",
+    "url": "https://github.com/sailor-sh/CK-X/blob/76a78943556af64a774a1c22b283efc22906ff1c/facilitator/assets/exams/cks/001/assessment.json",
+    "revision": "76a78943556af64a774a1c22b283efc22906ff1c"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-05",
+      "started": null,
+      "updated": "2026-10-05",
+      "completed": null
+    },
+    "content_sha256": "a5b7d24902b429a42e8eeb925f5738594b6ba8e0299a966a6509d98a6c57e51d"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "title": "CKA Practice Lab - Core Concepts",
+  "type": "problem-set",
+  "skills": [
+    "orchestration",
+    "troubleshooting"
+  ],
+  "source": {
+    "provider": "ck-x",
+    "item_id": "cka-001",
+    "url": "https://github.com/sailor-sh/CK-X/blob/76a78943556af64a774a1c22b283efc22906ff1c/facilitator/assets/exams/cka/001/assessment.json",
+    "revision": "76a78943556af64a774a1c22b283efc22906ff1c"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-05",
+      "started": null,
+      "updated": "2026-10-05",
+      "completed": null
+    },
+    "content_sha256": "a8630580ea3f716b260da8b8968c92b864f2b1d78181303549ad759b3e604d81"
+  }
+}

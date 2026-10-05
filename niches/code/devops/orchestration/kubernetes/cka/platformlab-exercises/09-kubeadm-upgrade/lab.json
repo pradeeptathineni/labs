@@ -1,0 +1,24 @@
+{
+  "title": "Exercise 09 — kubeadm Cluster Upgrade",
+  "type": "exercise",
+  "skills": [
+    "orchestration",
+    "troubleshooting"
+  ],
+  "source": {
+    "provider": "platformlab-cka",
+    "item_id": "exercises/09-kubeadm-upgrade/README.md",
+    "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/09-kubeadm-upgrade/README.md#tasks",
+    "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-05",
+      "started": null,
+      "updated": "2026-10-05",
+      "completed": null
+    },
+    "content_sha256": "f080abe484db2e1733b8de491c492ce701cc7f93832f6094820f36f77ee91636"
+  }
+}

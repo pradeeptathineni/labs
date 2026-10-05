@@ -1,0 +1,24 @@
+{
+  "title": "Exercise 01 — Pod Basics",
+  "type": "exercise",
+  "skills": [
+    "orchestration",
+    "troubleshooting"
+  ],
+  "source": {
+    "provider": "platformlab-cka",
+    "item_id": "exercises/01-pod-basics/README.md",
+    "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/01-pod-basics/README.md#tasks",
+    "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-05",
+      "started": null,
+      "updated": "2026-10-05",
+      "completed": null
+    },
+    "content_sha256": "2255aa9c968a616ce29ae47ad22175c679d1a2697fb199bd11e6f94a8e6d7909"
+  }
+}

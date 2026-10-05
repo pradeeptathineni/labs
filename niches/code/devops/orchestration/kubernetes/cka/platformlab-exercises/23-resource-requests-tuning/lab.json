@@ -1,0 +1,24 @@
+{
+  "title": "Exercise 23 — Resource Requests Tuning (Pods Won't Schedule)",
+  "type": "exercise",
+  "skills": [
+    "orchestration",
+    "troubleshooting"
+  ],
+  "source": {
+    "provider": "platformlab-cka",
+    "item_id": "exercises/23-resource-requests-tuning/README.md",
+    "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/23-resource-requests-tuning/README.md#tasks",
+    "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-05",
+      "started": null,
+      "updated": "2026-10-05",
+      "completed": null
+    },
+    "content_sha256": "96049c96a290fb32e301478e12b730312b8d6bb012d8ed8a87f0516fdf99e001"
+  }
+}

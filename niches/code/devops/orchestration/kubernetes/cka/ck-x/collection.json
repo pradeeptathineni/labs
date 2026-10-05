@@ -1,0 +1,10 @@
+{
+  "title": "CK-X assessments",
+  "has_subdomain": true,
+  "tools": [
+    "kubernetes"
+  ],
+  "goals": [
+    "cka"
+  ]
+}

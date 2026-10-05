@@ -1,0 +1,24 @@
+{
+  "title": "CKA Practice Lab - Advanced Administration",
+  "type": "problem-set",
+  "skills": [
+    "orchestration",
+    "troubleshooting"
+  ],
+  "source": {
+    "provider": "ck-x",
+    "item_id": "cka-002",
+    "url": "https://github.com/sailor-sh/CK-X/blob/76a78943556af64a774a1c22b283efc22906ff1c/facilitator/assets/exams/cka/002/assessment.json",
+    "revision": "76a78943556af64a774a1c22b283efc22906ff1c"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-05",
+      "started": null,
+      "updated": "2026-10-05",
+      "completed": null
+    },
+    "content_sha256": "f0757f6c1a661ee7efddf00ca5126421062aaa520b060935e92807b16a0ffd1f"
+  }
+}

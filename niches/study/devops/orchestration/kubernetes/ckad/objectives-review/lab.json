@@ -1,0 +1,25 @@
+{
+  "title": "CKAD objectives review",
+  "type": "problem-set",
+  "skills": [
+    "conceptual-reasoning",
+    "orchestration",
+    "troubleshooting"
+  ],
+  "source": {
+    "provider": "cncf-certification",
+    "item_id": "ckad/objectives-review",
+    "url": "https://github.com/cncf/curriculum/blob/88e610650e2edbe04325fcb992febe6838487d72/CKAD_Curriculum_v1.37.pdf",
+    "revision": "88e610650e2edbe04325fcb992febe6838487d72"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-05",
+      "started": null,
+      "updated": "2026-10-05",
+      "completed": null
+    },
+    "content_sha256": "722cbe61d834dacb104c79e224f8de0b7824cbc36898c1d1210e516f548bf80d"
+  }
+}

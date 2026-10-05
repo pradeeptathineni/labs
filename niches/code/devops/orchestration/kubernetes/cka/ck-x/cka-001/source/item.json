@@ -1,0 +1,21 @@
+{
+  "id": "cka-001",
+  "name": "CKA Practice Lab - Core Concepts",
+  "assessment_path": "facilitator/assets/exams/cka/001/assessment.json",
+  "revision": "76a78943556af64a774a1c22b283efc22906ff1c",
+  "question_ids": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10"
+  ],
+  "assessment_sha256": "7941115fb1c102cbffb1c4e19023ab4474c1495c6147092d6f786b8844e16f9d",
+  "config_sha256": "4bd683cef989ed486a7708274f9ed5c06054ff43052e95794868209fa22ded03",
+  "handling": "linked; bodies, answers and executable assets not copied"
+}

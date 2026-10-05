@@ -1,0 +1,31 @@
+{
+  "id": "cka-002",
+  "name": "CKA Practice Lab - Advanced Administration",
+  "assessment_path": "facilitator/assets/exams/cka/002/assessment.json",
+  "revision": "76a78943556af64a774a1c22b283efc22906ff1c",
+  "question_ids": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20"
+  ],
+  "assessment_sha256": "536bba9238e375ce7234d22cc193295719de0741a18941c3c68cc8ea421d5da5",
+  "config_sha256": "2102e6ffd5db514676ffcf190875042b75e1e7984dcd1e45105eb626d14bd072",
+  "handling": "linked; bodies, answers and executable assets not copied"
+}

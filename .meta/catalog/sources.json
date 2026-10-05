@@ -99,9 +99,9 @@
       "policy_url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/main/LICENSE",
       "license": "MIT",
       "license_url": "https://opensource.org/license/mit/",
-      "notes": "Preserve the MIT copyright and permission notice with copied content.",
+      "notes": "MIT notice inspected at 802ee2f35412242b7c64be9861f0a7feac367b9e. Preserve its copyright and permission notice with copied content. Snapshots label upstream hints, answers and author anecdotes separately from personal work.",
       "policy": "copy",
-      "verified": "2026-10-04"
+      "verified": "2026-10-05"
     }
   },
   "ck-x": {
@@ -112,9 +112,9 @@
       "policy_url": "https://github.com/sailor-sh/CK-X/blob/master/LICENSE",
       "license": "BSL 1.1",
       "license_url": "https://mariadb.com/bsl11/",
-      "notes": "The license permits some personal, educational, research, and non-production uses with additional restrictions; review each intended use before copying.",
+      "notes": "BSL 1.1 and additional conditions inspected at 76a78943556af64a774a1c22b283efc22906ff1c. The selected assessments are source-linked: no bodies, answers or simulator assets copied. Review intended use before copying or execution.",
       "policy": "review",
-      "verified": "2026-10-04"
+      "verified": "2026-10-05"
     }
   },
   "mit-ocw": {

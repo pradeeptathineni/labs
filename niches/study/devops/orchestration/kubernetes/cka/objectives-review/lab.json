@@ -1,0 +1,25 @@
+{
+  "title": "CKA objectives review",
+  "type": "problem-set",
+  "skills": [
+    "conceptual-reasoning",
+    "orchestration",
+    "troubleshooting"
+  ],
+  "source": {
+    "provider": "cncf-certification",
+    "item_id": "cka/objectives-review",
+    "url": "https://github.com/cncf/curriculum/blob/88e610650e2edbe04325fcb992febe6838487d72/CKA_Curriculum_v1.35.pdf",
+    "revision": "88e610650e2edbe04325fcb992febe6838487d72"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-05",
+      "started": null,
+      "updated": "2026-10-05",
+      "completed": null
+    },
+    "content_sha256": "f627b52beb88620dce82aeac94b670c76c7e6c95a4e619a5767d5fec07a5e6f3"
+  }
+}

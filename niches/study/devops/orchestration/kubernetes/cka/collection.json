@@ -1,0 +1,10 @@
+{
+  "title": "CKA review",
+  "has_subdomain": true,
+  "tools": [
+    "kubernetes"
+  ],
+  "goals": [
+    "cka"
+  ]
+}

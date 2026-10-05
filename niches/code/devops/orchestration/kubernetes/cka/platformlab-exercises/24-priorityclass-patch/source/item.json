@@ -1,0 +1,9 @@
+{
+  "path": "exercises/24-priorityclass-patch/README.md",
+  "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e",
+  "sha256": "df8779a2ee945188183d9022bd9aa9933c1f82d1cf4e5cc2e4c8fd3aec79edd4",
+  "handling": "attributed upstream snapshot with pinned links",
+  "warnings": [
+    "Missing upstream target: ../../skeletons/priorityclass.yaml"
+  ]
+}

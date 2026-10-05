@@ -1,0 +1,24 @@
+{
+  "title": "Exercise 26 — CRI-dockerd Installation and Configuration",
+  "type": "exercise",
+  "skills": [
+    "orchestration",
+    "troubleshooting"
+  ],
+  "source": {
+    "provider": "platformlab-cka",
+    "item_id": "exercises/26-cri-dockerd-setup/README.md",
+    "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/26-cri-dockerd-setup/README.md#tasks",
+    "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-05",
+      "started": null,
+      "updated": "2026-10-05",
+      "completed": null
+    },
+    "content_sha256": "cadc84f19fe367e05a45f1e871acb3fa0fab9b5f45a6f491da2590f3ff81a38a"
+  }
+}

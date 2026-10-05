@@ -1,0 +1,24 @@
+{
+  "title": "Exercise 28 — Complex NetworkPolicy (Multi-Namespace, Traffic Control)",
+  "type": "exercise",
+  "skills": [
+    "orchestration",
+    "troubleshooting"
+  ],
+  "source": {
+    "provider": "platformlab-cka",
+    "item_id": "exercises/28-network-policy-complex/README.md",
+    "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/28-network-policy-complex/README.md#tasks",
+    "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-05",
+      "started": null,
+      "updated": "2026-10-05",
+      "completed": null
+    },
+    "content_sha256": "07de6c50847437fac9282fd7debe575fb61d18374d4244a5478cf8e505ad563e"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "cks-001",
+  "name": "CKS Practice Lab - Kubernetes Security Essentials",
+  "assessment_path": "facilitator/assets/exams/cks/001/assessment.json",
+  "revision": "76a78943556af64a774a1c22b283efc22906ff1c",
+  "question_ids": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12"
+  ],
+  "assessment_sha256": "a31a852e44f1f01741750faaa1c83ae47bd48f195431024f4bf40f4a4e8169b4",
+  "config_sha256": "2c39f3e191833b8b621f474f4dc9046ac9ff86ba56523017e6f1c8323c113e9b",
+  "handling": "linked; bodies, answers and executable assets not copied"
+}

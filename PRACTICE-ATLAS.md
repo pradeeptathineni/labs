@@ -1,8 +1,8 @@
 # Practice Atlas
 
-[Lab catalog](CATALOG.md) · [Visual workbench](https://pradeeptathineni.github.io/labs/) · [How I use this repo](README.md)
+[Lab catalog](CATALOG.md) · [Web catalog](https://pradeeptathineni.github.io/labs/) · [How I use this repo](README.md)
 
-**49 reviewed opportunities** · 35 matching adopted labs · 35 labs in the whole repository
+**49 reviewed opportunities** · 76 matching adopted labs · 76 labs in the whole repository
 
 A registered source is something I know about. An opportunity is a reviewed choice; an adopted lab is a concrete plan. Starting and completing it are separate, explicit decisions. Counts here never measure proficiency or a source's completion.
 
@@ -12,14 +12,14 @@ Subjects bring related niches together. A path supplies one home: `niches/<niche
 
 Practical work lives in Code; explanation and objective review live in Study. Both share DevOps / Orchestration. Adopted sets remain planned until I start them.
 
-- [ThePlatformLab CKA practical exercises](#platformlab-cka-exercises) — not adopted
-- [ThePlatformLab CKA mock exams](#platformlab-cka-mocks) — not adopted
-- [CK-X CKA assessment sets](#ckx-cka) — not adopted
-- [CK-X CKAD assessment sets](#ckx-ckad) — not adopted
-- [CK-X CKS assessment sets](#ckx-cks) — not adopted
-- [CKA bounded objectives review](#cka-objectives-review) — not adopted
-- [CKAD bounded objectives review](#ckad-objectives-review) — not adopted
-- [CKS bounded objectives review](#cks-objectives-review) — not adopted
+- [ThePlatformLab CKA practical exercises](#platformlab-cka-exercises) — 31 matching labs adopted
+- [ThePlatformLab CKA mock exams](#platformlab-cka-mocks) — 2 matching labs adopted
+- [CK-X CKA assessment sets](#ckx-cka) — 2 matching labs adopted
+- [CK-X CKAD assessment sets](#ckx-ckad) — 2 matching labs adopted
+- [CK-X CKS assessment sets](#ckx-cks) — 1 matching labs adopted
+- [CKA bounded objectives review](#cka-objectives-review) — 1 matching labs adopted
+- [CKAD bounded objectives review](#ckad-objectives-review) — 1 matching labs adopted
+- [CKS bounded objectives review](#cks-objectives-review) — 1 matching labs adopted
 
 ## Other forms of practice
 
@@ -172,9 +172,9 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 
 **Next** · Code · DevOps / Orchestration · direct · exercise
 
-[Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/tree/main/exercises) · reuse policy: copy
+[Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/tree/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises) · reuse policy: copy
 
-**Destination:** `niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises` (proposed)
+**Destination:** [`niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises`](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/)
 
 **Unit:** One complete upstream exercise directory
 
@@ -184,22 +184,54 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 
 **Preparation goals:** Certified Kubernetes Administrator (CKA)
 
-**Evidence (2026-10-04):** 2026-10-04 research handoff: README and one full exercise inspected
+**Evidence (2026-10-05):** Committed inventory and Markdown snapshots parsed; license and source separation reviewed at 802ee2f35412242b7c64be9861f0a7feac367b9e. No execution.
 
 **Access:** Public material; review execution requirements before adoption.
 
-**Adoption limits:** README lists 31 exercises. Recount committed directories at the selected revision. Some setup assumes a different environment; do not execute it. Keep author anecdotes and reference solutions out of the user Solution.
+**Adoption limits:** 31 whole exercises and 2 whole mocks adopted in their separate collections. Upstream hints and anecdotes remain attributed source material. Pod Basics has inconsistent nginx versions; the PriorityClass exercise references a missing skeleton.
 
-**Not adopted.** Review the selected material and reuse policy, then initialize one meaningful unit.
+**31 matching labs adopted**; this does not exhaust the source.
+
+- [Exercise 01 — Pod Basics](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/01-pod-basics/README.md)
+- [Exercise 02 — Multi-Container Pod (Sidecar Logging)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/02-multi-container-pod/README.md)
+- [Exercise 03 — ConfigMap and Secret](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/03-configmap-secret/README.md)
+- [Exercise 04 — RBAC](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/04-rbac/README.md)
+- [Exercise 05 — NetworkPolicy](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/05-networkpolicy/README.md)
+- [Exercise 06 — Deployment Rolling Update and Rollback](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/06-deployment-rollout/README.md)
+- [Exercise 07 — StatefulSet Deployment](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/07-statefulset/README.md)
+- [Exercise 08 — Node Drain and Cordon](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/08-node-drain-cordon/README.md)
+- [Exercise 09 — kubeadm Cluster Upgrade](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/09-kubeadm-upgrade/README.md)
+- [Exercise 10 — Static Pod](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/10-static-pod/README.md)
+- [Exercise 11 — Troubleshoot Cluster Components](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/11-troubleshoot-cluster/README.md)
+- [Exercise 12 — Storage: PV, PVC, and StorageClass](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/12-storage-pv-pvc/README.md)
+- [Exercise 13 — Helm Install, Upgrade, and Rollback](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/13-helm-install-upgrade/README.md)
+- [Exercise 14 — Kustomize: Base and Overlay](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/14-kustomize-overlays/README.md)
+- [Exercise 15 — Gateway API: Gateway and HTTPRoute](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/15-gateway-api/README.md)
+- [Exercise 16 — Horizontal Pod Autoscaler](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/16-hpa/README.md)
+- [Exercise 17 — kubectl debug: Pod and Node](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/17-kubectl-debug/README.md)
+- [Exercise 18 — CRI-dockerd Installation & Configuration](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/18-cri-dockerd-setup-18/README.md)
+- [Exercise 19 — Classic Ingress](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/19-ingress-classic/README.md)
+- [Exercise 20 — Pod Security Standards](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/20-pod-security-standards/README.md)
+- [Exercise 21 — Jobs and CronJobs](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/21-jobs-cronjobs/README.md)
+- [Exercise 22 — PriorityClass](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/22-priorityclass/README.md)
+- [Exercise 23 — Resource Requests Tuning (Pods Won't Schedule)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/23-resource-requests-tuning/README.md)
+- [Exercise 24 — PriorityClass and Patch Operations](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/24-priorityclass-patch/README.md)
+- [Exercise 25 — Storage with WaitForFirstConsumer Binding](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/25-storage-waitforfirstconsumer/README.md)
+- [Exercise 26 — CRI-dockerd Installation and Configuration](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/26-cri-dockerd-setup-26/README.md)
+- [Exercise 27 — CNI Installation (Calico/Tigera Operator)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/27-cni-tigera-install/README.md)
+- [Exercise 28 — Complex NetworkPolicy (Multi-Namespace, Traffic Control)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/28-network-policy-complex/README.md)
+- [Exercise 29 — Troubleshoot Broken Cluster (Incorrect etcd Endpoint)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/29-troubleshoot-etcd-endpoint/README.md)
+- [Exercise 30 — TLS Configuration Update (Cipher Support)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/30-tls-configuration-update/README.md)
+- [Exercise 31 — Argo CD Setup (GitOps Deployment)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/31-argocd-gitops-setup/README.md)
 
 <a id="platformlab-cka-mocks"></a>
 ### ThePlatformLab CKA mock exams
 
 **Next** · Code · DevOps / Orchestration · direct · problem-set
 
-[Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/tree/main/mock-exams) · reuse policy: copy
+[Source: ThePlatformLab CKA Study Repository](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/tree/802ee2f35412242b7c64be9861f0a7feac367b9e/mock-exams) · reuse policy: copy
 
-**Destination:** `niches/code/devops/orchestration/kubernetes/cka/platformlab-mock-exams` (proposed)
+**Destination:** [`niches/code/devops/orchestration/kubernetes/cka/platformlab-mock-exams`](niches/code/devops/orchestration/kubernetes/cka/platformlab-mock-exams/)
 
 **Unit:** One full mock exam, not one directory per subquestion
 
@@ -209,22 +241,25 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 
 **Preparation goals:** Certified Kubernetes Administrator (CKA)
 
-**Evidence (2026-10-04):** 2026-10-04 research handoff: repository README/index inspected
+**Evidence (2026-10-05):** Committed inventory and Markdown snapshots parsed; license and source separation reviewed at 802ee2f35412242b7c64be9861f0a7feac367b9e. No execution.
 
 **Access:** Public material; review execution requirements before adoption.
 
-**Adoption limits:** The source lists two mocks with separate solutions. Preserve that separation; do not report source answers as personal work.
+**Adoption limits:** 31 whole exercises and 2 whole mocks adopted in their separate collections. Upstream hints and anecdotes remain attributed source material. Pod Basics has inconsistent nginx versions; the PriorityClass exercise references a missing skeleton.
 
-**Not adopted.** Review the selected material and reuse policy, then initialize one meaningful unit.
+**2 matching labs adopted**; this does not exhaust the source.
+
+- [Mock Exam 01 — CKA Practice (Kubernetes 1.35)](niches/code/devops/orchestration/kubernetes/cka/platformlab-mock-exams/01-mock-exam-01/README.md)
+- [Mock Exam 02 — CKA Practice (Kubernetes 1.35)](niches/code/devops/orchestration/kubernetes/cka/platformlab-mock-exams/02-mock-exam-02/README.md)
 
 <a id="ckx-cka"></a>
 ### CK-X CKA assessment sets
 
 **Next** · Code · DevOps / Orchestration · direct · problem-set
 
-[Source: CK-X](https://github.com/sailor-sh/CK-X/blob/master/facilitator/assets/exams/labs.json) · reuse policy: review
+[Source: CK-X](https://github.com/sailor-sh/CK-X/blob/76a78943556af64a774a1c22b283efc22906ff1c/facilitator/assets/exams/labs.json) · reuse policy: review
 
-**Destination:** `niches/code/devops/orchestration/kubernetes/cka/ck-x` (proposed)
+**Destination:** [`niches/code/devops/orchestration/kubernetes/cka/ck-x`](niches/code/devops/orchestration/kubernetes/cka/ck-x/)
 
 **Unit:** One complete assessment identified by an upstream assessment ID
 
@@ -234,22 +269,25 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 
 **Preparation goals:** Certified Kubernetes Administrator (CKA)
 
-**Evidence (2026-10-04):** 2026-10-04 research handoff: full JSON index and license read
+**Evidence (2026-10-05):** Full index, license and selected assessment/config metadata inspected at 76a78943556af64a774a1c22b283efc22906ff1c. No simulator execution.
 
 **Access:** Public material; review execution requirements before adoption.
 
-**Adoption limits:** The inspected index contains 2 CKA assessments. Registry currently says review; initialize source-linked work without copying restricted bodies unless scoped permission is verified. No Docker/simulator launch. Exclude Docker/Helm Other tracks from this first pass.
+**Adoption limits:** Five whole assessments adopted across CKA (2), CKAD (2) and CKS (1). Bodies, answers and executable assets remain upstream; reuse policy stays review. Docker and Helm Other tracks are excluded.
 
-**Not adopted.** Review the selected material and reuse policy, then initialize one meaningful unit.
+**2 matching labs adopted**; this does not exhaust the source.
+
+- [CKA Practice Lab - Core Concepts](niches/code/devops/orchestration/kubernetes/cka/ck-x/cka-001/README.md)
+- [CKA Practice Lab - Advanced Administration](niches/code/devops/orchestration/kubernetes/cka/ck-x/cka-002/README.md)
 
 <a id="ckx-ckad"></a>
 ### CK-X CKAD assessment sets
 
 **Next** · Code · DevOps / Orchestration · direct · problem-set
 
-[Source: CK-X](https://github.com/sailor-sh/CK-X/blob/master/facilitator/assets/exams/labs.json) · reuse policy: review
+[Source: CK-X](https://github.com/sailor-sh/CK-X/blob/76a78943556af64a774a1c22b283efc22906ff1c/facilitator/assets/exams/labs.json) · reuse policy: review
 
-**Destination:** `niches/code/devops/orchestration/kubernetes/ckad/ck-x` (proposed)
+**Destination:** [`niches/code/devops/orchestration/kubernetes/ckad/ck-x`](niches/code/devops/orchestration/kubernetes/ckad/ck-x/)
 
 **Unit:** One complete assessment identified by an upstream assessment ID
 
@@ -259,22 +297,25 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 
 **Preparation goals:** Certified Kubernetes Application Developer (CKAD)
 
-**Evidence (2026-10-04):** 2026-10-04 research handoff: full JSON index and license read
+**Evidence (2026-10-05):** Full index, license and selected assessment/config metadata inspected at 76a78943556af64a774a1c22b283efc22906ff1c. No simulator execution.
 
 **Access:** Public material; review execution requirements before adoption.
 
-**Adoption limits:** The inspected index contains 2 CKAD assessments. Registry currently says review; initialize source-linked work without copying restricted bodies unless scoped permission is verified. No Docker/simulator launch. Exclude Docker/Helm Other tracks from this first pass.
+**Adoption limits:** Five whole assessments adopted across CKA (2), CKAD (2) and CKS (1). Bodies, answers and executable assets remain upstream; reuse policy stays review. Docker and Helm Other tracks are excluded.
 
-**Not adopted.** Review the selected material and reuse policy, then initialize one meaningful unit.
+**2 matching labs adopted**; this does not exhaust the source.
+
+- [CKAD Comprehensive Lab - 1](niches/code/devops/orchestration/kubernetes/ckad/ck-x/ckad-001/README.md)
+- [CKAD Comprehensive Lab - 2](niches/code/devops/orchestration/kubernetes/ckad/ck-x/ckad-002/README.md)
 
 <a id="ckx-cks"></a>
 ### CK-X CKS assessment sets
 
 **Next** · Code · DevOps / Orchestration · direct · problem-set
 
-[Source: CK-X](https://github.com/sailor-sh/CK-X/blob/master/facilitator/assets/exams/labs.json) · reuse policy: review
+[Source: CK-X](https://github.com/sailor-sh/CK-X/blob/76a78943556af64a774a1c22b283efc22906ff1c/facilitator/assets/exams/labs.json) · reuse policy: review
 
-**Destination:** `niches/code/devops/orchestration/kubernetes/cks/ck-x` (proposed)
+**Destination:** [`niches/code/devops/orchestration/kubernetes/cks/ck-x`](niches/code/devops/orchestration/kubernetes/cks/ck-x/)
 
 **Unit:** One complete assessment identified by an upstream assessment ID
 
@@ -284,13 +325,15 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 
 **Preparation goals:** Certified Kubernetes Security Specialist (CKS)
 
-**Evidence (2026-10-04):** 2026-10-04 research handoff: full JSON index and license read
+**Evidence (2026-10-05):** Full index, license and selected assessment/config metadata inspected at 76a78943556af64a774a1c22b283efc22906ff1c. No simulator execution.
 
 **Access:** Public material; review execution requirements before adoption.
 
-**Adoption limits:** The inspected index contains 1 CKS assessments. Registry currently says review; initialize source-linked work without copying restricted bodies unless scoped permission is verified. No Docker/simulator launch. Exclude Docker/Helm Other tracks from this first pass.
+**Adoption limits:** Five whole assessments adopted across CKA (2), CKAD (2) and CKS (1). Bodies, answers and executable assets remain upstream; reuse policy stays review. Docker and Helm Other tracks are excluded.
 
-**Not adopted.** Review the selected material and reuse policy, then initialize one meaningful unit.
+**1 matching labs adopted**; this does not exhaust the source.
+
+- [CKS Practice Lab - Kubernetes Security Essentials](niches/code/devops/orchestration/kubernetes/cks/ck-x/cks-001/README.md)
 
 <a id="cka-objectives-review"></a>
 ### CKA bounded objectives review
@@ -299,7 +342,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 
 [Source: CNCF Certification](https://www.cncf.io/training/certification/cka/) · reuse policy: review
 
-**Destination:** `niches/study/devops/orchestration/kubernetes/cka` (proposed)
+**Destination:** [`niches/study/devops/orchestration/kubernetes/cka`](niches/study/devops/orchestration/kubernetes/cka/)
 
 **Unit:** One local review set covering a frozen set of official objectives
 
@@ -309,13 +352,15 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 
 **Preparation goals:** Certified Kubernetes Administrator (CKA)
 
-**Evidence (2026-10-04):** 2026-10-04 research handoff: page-read
+**Evidence (2026-10-05):** Official certification page, curriculum README and linked objective PDF inspected at 88e610650e2edbe04325fcb992febe6838487d72.
 
 **Access:** Public material; review execution requirements before adoption.
 
-**Adoption limits:** Create exactly one objectives-review lab for this track. State the local task is adapted from official objectives. Preserve reference URLs; no claims of syllabus completion or exam readiness.
+**Adoption limits:** One locally designed objectives-review set adopted for this track, with pinned official references and empty answers. The CKS PDF and README differ on domain weights; no scoring or exam-readiness claim.
 
-**Not adopted.** Review the selected material and reuse policy, then initialize one meaningful unit.
+**1 matching labs adopted**; this does not exhaust the source.
+
+- [CKA objectives review](niches/study/devops/orchestration/kubernetes/cka/objectives-review/README.md)
 
 <a id="ckad-objectives-review"></a>
 ### CKAD bounded objectives review
@@ -324,7 +369,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 
 [Source: CNCF Certification](https://www.cncf.io/training/certification/ckad/) · reuse policy: review
 
-**Destination:** `niches/study/devops/orchestration/kubernetes/ckad` (proposed)
+**Destination:** [`niches/study/devops/orchestration/kubernetes/ckad`](niches/study/devops/orchestration/kubernetes/ckad/)
 
 **Unit:** One local review set covering a frozen set of official objectives
 
@@ -334,13 +379,15 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 
 **Preparation goals:** Certified Kubernetes Application Developer (CKAD)
 
-**Evidence (2026-10-04):** 2026-10-04 research handoff: page-read
+**Evidence (2026-10-05):** Official certification page, curriculum README and linked objective PDF inspected at 88e610650e2edbe04325fcb992febe6838487d72.
 
 **Access:** Public material; review execution requirements before adoption.
 
-**Adoption limits:** Create exactly one objectives-review lab for this track. State the local task is adapted from official objectives. Preserve reference URLs; no claims of syllabus completion or exam readiness.
+**Adoption limits:** One locally designed objectives-review set adopted for this track, with pinned official references and empty answers. The CKS PDF and README differ on domain weights; no scoring or exam-readiness claim.
 
-**Not adopted.** Review the selected material and reuse policy, then initialize one meaningful unit.
+**1 matching labs adopted**; this does not exhaust the source.
+
+- [CKAD objectives review](niches/study/devops/orchestration/kubernetes/ckad/objectives-review/README.md)
 
 <a id="cks-objectives-review"></a>
 ### CKS bounded objectives review
@@ -349,7 +396,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 
 [Source: CNCF Certification](https://www.cncf.io/training/certification/cks/) · reuse policy: review
 
-**Destination:** `niches/study/devops/orchestration/kubernetes/cks` (proposed)
+**Destination:** [`niches/study/devops/orchestration/kubernetes/cks`](niches/study/devops/orchestration/kubernetes/cks/)
 
 **Unit:** One local review set covering a frozen set of official objectives
 
@@ -359,13 +406,15 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 
 **Preparation goals:** Certified Kubernetes Security Specialist (CKS)
 
-**Evidence (2026-10-04):** 2026-10-04 research handoff: page-read
+**Evidence (2026-10-05):** Official certification page, curriculum README and linked objective PDF inspected at 88e610650e2edbe04325fcb992febe6838487d72.
 
 **Access:** Public material; review execution requirements before adoption.
 
-**Adoption limits:** Create exactly one objectives-review lab for this track. State the local task is adapted from official objectives. Preserve reference URLs; no claims of syllabus completion or exam readiness.
+**Adoption limits:** One locally designed objectives-review set adopted for this track, with pinned official references and empty answers. The CKS PDF and README differ on domain weights; no scoring or exam-readiness claim.
 
-**Not adopted.** Review the selected material and reuse policy, then initialize one meaningful unit.
+**1 matching labs adopted**; this does not exhaust the source.
+
+- [CKS objectives review](niches/study/devops/orchestration/kubernetes/cks/objectives-review/README.md)
 
 <a id="dgkanatsios-ckad-sets"></a>
 ### CKAD exercises by curriculum topic

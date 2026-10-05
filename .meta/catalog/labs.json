@@ -1779,6 +1779,2210 @@
     "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
+    "title": "CKA Practice Lab - Core Concepts",
+    "type": "problem-set",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "ck-x",
+      "item_id": "cka-001",
+      "url": "https://github.com/sailor-sh/CK-X/blob/76a78943556af64a774a1c22b283efc22906ff1c/facilitator/assets/exams/cka/001/assessment.json",
+      "revision": "76a78943556af64a774a1c22b283efc22906ff1c"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "a8630580ea3f716b260da8b8968c92b864f2b1d78181303549ad759b3e604d81"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "ck-x",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/ck-x/cka-001",
+    "slug": "cka-001",
+    "order": null,
+    "source_display": {
+      "name": "CK-X",
+      "type": "external",
+      "url": "https://github.com/sailor-sh/CK-X"
+    },
+    "collection_title": "CK-X assessments",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/ck-x",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "CK-X assessments"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/ck-x/cka-001/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "CKA Practice Lab - Advanced Administration",
+    "type": "problem-set",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "ck-x",
+      "item_id": "cka-002",
+      "url": "https://github.com/sailor-sh/CK-X/blob/76a78943556af64a774a1c22b283efc22906ff1c/facilitator/assets/exams/cka/002/assessment.json",
+      "revision": "76a78943556af64a774a1c22b283efc22906ff1c"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "f0757f6c1a661ee7efddf00ca5126421062aaa520b060935e92807b16a0ffd1f"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "ck-x",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/ck-x/cka-002",
+    "slug": "cka-002",
+    "order": null,
+    "source_display": {
+      "name": "CK-X",
+      "type": "external",
+      "url": "https://github.com/sailor-sh/CK-X"
+    },
+    "collection_title": "CK-X assessments",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/ck-x",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "CK-X assessments"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/ck-x/cka-002/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 01 — Pod Basics",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/01-pod-basics/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/01-pod-basics/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "2255aa9c968a616ce29ae47ad22175c679d1a2697fb199bd11e6f94a8e6d7909"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/01-pod-basics",
+    "slug": "pod-basics",
+    "order": 1,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/01-pod-basics/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 02 — Multi-Container Pod (Sidecar Logging)",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/02-multi-container-pod/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/02-multi-container-pod/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "20e2d1953ce61b66b28040b816cd52d5e9f04bcedff5ffe476893e9477d3a525"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/02-multi-container-pod",
+    "slug": "multi-container-pod",
+    "order": 2,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/02-multi-container-pod/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 03 — ConfigMap and Secret",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/03-configmap-secret/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/03-configmap-secret/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "39dab714aaea2c23d41e1c7a50c8627142122f5cf9e8354f27d84c861a00e0e6"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/03-configmap-secret",
+    "slug": "configmap-secret",
+    "order": 3,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/03-configmap-secret/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 04 — RBAC",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/04-rbac/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/04-rbac/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "e48cf9d379c96f4a3d726e87f0e74629a8f3379e3796d63b37d718d3c61e8df4"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/04-rbac",
+    "slug": "rbac",
+    "order": 4,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/04-rbac/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 05 — NetworkPolicy",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/05-networkpolicy/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/05-networkpolicy/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "687f6101d78e018025f0f0809bb22072c5b79617eb271ab5dfa2cb253c1d1e06"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/05-networkpolicy",
+    "slug": "networkpolicy",
+    "order": 5,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/05-networkpolicy/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 06 — Deployment Rolling Update and Rollback",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/06-deployment-rollout/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/06-deployment-rollout/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "18189806258227a790c1ae2abf44e7f2e1efeff699c3e229bd13699aae1f2498"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/06-deployment-rollout",
+    "slug": "deployment-rollout",
+    "order": 6,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/06-deployment-rollout/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 07 — StatefulSet Deployment",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/07-statefulset/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/07-statefulset/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "1aaba154041db72b91a5fc87373577e268d4c762c039531a97572e5cdc0d0aec"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/07-statefulset",
+    "slug": "statefulset",
+    "order": 7,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/07-statefulset/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 08 — Node Drain and Cordon",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/08-node-drain-cordon/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/08-node-drain-cordon/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "861f8212f09c762ce7cbaf50a898395e07b736ef2bc5fff820404ba019f14db0"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/08-node-drain-cordon",
+    "slug": "node-drain-cordon",
+    "order": 8,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/08-node-drain-cordon/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 09 — kubeadm Cluster Upgrade",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/09-kubeadm-upgrade/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/09-kubeadm-upgrade/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "f080abe484db2e1733b8de491c492ce701cc7f93832f6094820f36f77ee91636"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/09-kubeadm-upgrade",
+    "slug": "kubeadm-upgrade",
+    "order": 9,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/09-kubeadm-upgrade/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 10 — Static Pod",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/10-static-pod/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/10-static-pod/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "2cf74fc551e2bfeea11642694d85a1e2ae45e74c5526feae045209960557a593"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/10-static-pod",
+    "slug": "static-pod",
+    "order": 10,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/10-static-pod/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 11 — Troubleshoot Cluster Components",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/11-troubleshoot-cluster/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/11-troubleshoot-cluster/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "a37a1e722638eecde6feb1cbbd925db292d2cfd1fe2ca5842e60c391f09fc012"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/11-troubleshoot-cluster",
+    "slug": "troubleshoot-cluster",
+    "order": 11,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/11-troubleshoot-cluster/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 12 — Storage: PV, PVC, and StorageClass",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/12-storage-pv-pvc/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/12-storage-pv-pvc/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "1de310df99aac75bdd137554656c18d8ab2e2da2d5436e55e267482980383839"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/12-storage-pv-pvc",
+    "slug": "storage-pv-pvc",
+    "order": 12,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/12-storage-pv-pvc/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 13 — Helm Install, Upgrade, and Rollback",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/13-helm-install-upgrade/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/13-helm-install-upgrade/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "87d18cf392a40b804237356cfffbdb16979fe86eec87fb9ff75036ec3a107ff9"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/13-helm-install-upgrade",
+    "slug": "helm-install-upgrade",
+    "order": 13,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/13-helm-install-upgrade/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 14 — Kustomize: Base and Overlay",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/14-kustomize-overlays/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/14-kustomize-overlays/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "a64886ca352b7f05f6ab890357b72dce07738451d342cf311152523ae8a21c7f"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/14-kustomize-overlays",
+    "slug": "kustomize-overlays",
+    "order": 14,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/14-kustomize-overlays/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 15 — Gateway API: Gateway and HTTPRoute",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/15-gateway-api/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/15-gateway-api/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "81cf7fd7a1291464c7e5000ff1289e96a8900463f5cdd27fcf55c79b98cb8e0e"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/15-gateway-api",
+    "slug": "gateway-api",
+    "order": 15,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/15-gateway-api/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 16 — Horizontal Pod Autoscaler",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/16-hpa/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/16-hpa/README.md#tasks-hpa",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "5d506e01492e9bf7eac85723476eb16cea1f831675ca5bf7fd75f43bc4ba9b94"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/16-hpa",
+    "slug": "hpa",
+    "order": 16,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/16-hpa/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 17 — kubectl debug: Pod and Node",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/17-kubectl-debug/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/17-kubectl-debug/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "5d0fad5e82e7040695e68417bd785181078fa8b6bc098060367b54c7dd0a0205"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/17-kubectl-debug",
+    "slug": "kubectl-debug",
+    "order": 17,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/17-kubectl-debug/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 18 — CRI-dockerd Installation & Configuration",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/18-cri-dockerd-setup/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/18-cri-dockerd-setup/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "7450b075dd795409b02e3bf19704192d6d93088c8abeee87f25944fbd5fcfaa7"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/18-cri-dockerd-setup-18",
+    "slug": "cri-dockerd-setup-18",
+    "order": 18,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/18-cri-dockerd-setup-18/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 19 — Classic Ingress",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/19-ingress-classic/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/19-ingress-classic/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "dd2f0b44da994e9530124ef63a5555c4d4b83f456a3023e89b8f0dddfdb4c03e"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/19-ingress-classic",
+    "slug": "ingress-classic",
+    "order": 19,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/19-ingress-classic/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 20 — Pod Security Standards",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/20-pod-security-standards/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/20-pod-security-standards/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "dc89977359a74df5bd80964014528801f9394bc74eaa03a2d3d0464477ed83e1"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/20-pod-security-standards",
+    "slug": "pod-security-standards",
+    "order": 20,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/20-pod-security-standards/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 21 — Jobs and CronJobs",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/21-jobs-cronjobs/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/21-jobs-cronjobs/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "ab692a72750339544708fffb51a8bb89bfcaf87918360ef91071034b43082f44"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/21-jobs-cronjobs",
+    "slug": "jobs-cronjobs",
+    "order": 21,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/21-jobs-cronjobs/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 22 — PriorityClass",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/22-priorityclass/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/22-priorityclass/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "13c09a00114f066f4e3416e4c0ccbdc522841efad8e5875092dd0935ceb10f3c"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/22-priorityclass",
+    "slug": "priorityclass",
+    "order": 22,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/22-priorityclass/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 23 — Resource Requests Tuning (Pods Won't Schedule)",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/23-resource-requests-tuning/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/23-resource-requests-tuning/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "96049c96a290fb32e301478e12b730312b8d6bb012d8ed8a87f0516fdf99e001"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/23-resource-requests-tuning",
+    "slug": "resource-requests-tuning",
+    "order": 23,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/23-resource-requests-tuning/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 24 — PriorityClass and Patch Operations",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/24-priorityclass-patch/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/24-priorityclass-patch/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "6b9ba1077fb24414ed7f8c08d62c1f0af5e7c27c096027b78d30992c4dba92a0"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/24-priorityclass-patch",
+    "slug": "priorityclass-patch",
+    "order": 24,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/24-priorityclass-patch/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 25 — Storage with WaitForFirstConsumer Binding",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/25-storage-waitforfirstconsumer/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/25-storage-waitforfirstconsumer/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "c503e6eff40085254863edd98b0855f6360b93497b73d84cb2a6414e3b2585ea"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/25-storage-waitforfirstconsumer",
+    "slug": "storage-waitforfirstconsumer",
+    "order": 25,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/25-storage-waitforfirstconsumer/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 26 — CRI-dockerd Installation and Configuration",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/26-cri-dockerd-setup/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/26-cri-dockerd-setup/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "cadc84f19fe367e05a45f1e871acb3fa0fab9b5f45a6f491da2590f3ff81a38a"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/26-cri-dockerd-setup-26",
+    "slug": "cri-dockerd-setup-26",
+    "order": 26,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/26-cri-dockerd-setup-26/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 27 — CNI Installation (Calico/Tigera Operator)",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/27-cni-tigera-install/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/27-cni-tigera-install/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "cab069cf166352baf4538e6471fd0b4a0ad68726243e73159f1804a69bb3d633"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/27-cni-tigera-install",
+    "slug": "cni-tigera-install",
+    "order": 27,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/27-cni-tigera-install/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 28 — Complex NetworkPolicy (Multi-Namespace, Traffic Control)",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/28-network-policy-complex/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/28-network-policy-complex/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "07de6c50847437fac9282fd7debe575fb61d18374d4244a5478cf8e505ad563e"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/28-network-policy-complex",
+    "slug": "network-policy-complex",
+    "order": 28,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/28-network-policy-complex/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 29 — Troubleshoot Broken Cluster (Incorrect etcd Endpoint)",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/29-troubleshoot-etcd-endpoint/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/29-troubleshoot-etcd-endpoint/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "c925389bec8308a6953b678e41443853472ad9946367b2a9d473c45ab31b4597"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/29-troubleshoot-etcd-endpoint",
+    "slug": "troubleshoot-etcd-endpoint",
+    "order": 29,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/29-troubleshoot-etcd-endpoint/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 30 — TLS Configuration Update (Cipher Support)",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/30-tls-configuration-update/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/30-tls-configuration-update/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "cd9bfa5e3a346bc95ab5a53d4b50ef75e2ae82ddce7e547883ba1faf2e52920c"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/30-tls-configuration-update",
+    "slug": "tls-configuration-update",
+    "order": 30,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/30-tls-configuration-update/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Exercise 31 — Argo CD Setup (GitOps Deployment)",
+    "type": "exercise",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "exercises/31-argocd-gitops-setup/README.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/31-argocd-gitops-setup/README.md#tasks",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "93d03f75742e4affeb493e22d601b4f43b2dc3a3616e588352d589433309fcf0"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-exercises",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/31-argocd-gitops-setup",
+    "slug": "argocd-gitops-setup",
+    "order": 31,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab exercises",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab exercises"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/31-argocd-gitops-setup/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Mock Exam 01 — CKA Practice (Kubernetes 1.35)",
+    "type": "problem-set",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "mock-exams/MOCK-EXAM-01.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/mock-exams/MOCK-EXAM-01.md",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "2ea083d5111c0146305120b12ca0f29c8f8caef0601a9cf02e3c70cec3dd1b44"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-mock-exams",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-mock-exams/01-mock-exam-01",
+    "slug": "mock-exam-01",
+    "order": 1,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab mock exams",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-mock-exams",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab mock exams"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-mock-exams/01-mock-exam-01/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Mock Exam 02 — CKA Practice (Kubernetes 1.35)",
+    "type": "problem-set",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "platformlab-cka",
+      "item_id": "mock-exams/MOCK-EXAM-02.md",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/mock-exams/MOCK-EXAM-02.md",
+      "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "d20e0eaeedddfba25a8637bb0765a5a6a968ab4c373177ab8fd3084a08af3c71"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cka"
+    ],
+    "collection": "platformlab-mock-exams",
+    "path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-mock-exams/02-mock-exam-02",
+    "slug": "mock-exam-02",
+    "order": 2,
+    "source_display": {
+      "name": "ThePlatformLab CKA Study Repository",
+      "type": "external",
+      "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator"
+    },
+    "collection_title": "ThePlatformLab mock exams",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-mock-exams",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKA",
+      "ThePlatformLab mock exams"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cka/platformlab-mock-exams/02-mock-exam-02/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "CKAD Comprehensive Lab - 1",
+    "type": "problem-set",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "ck-x",
+      "item_id": "ckad-001",
+      "url": "https://github.com/sailor-sh/CK-X/blob/76a78943556af64a774a1c22b283efc22906ff1c/facilitator/assets/exams/ckad/001/assessment.json",
+      "revision": "76a78943556af64a774a1c22b283efc22906ff1c"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "1978397e0d578f2ac10946aad1a6d74f4fdd61090a4c1fb8dec72850fbac1e4d"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "ckad"
+    ],
+    "collection": "ck-x",
+    "path": "niches/code/devops/orchestration/kubernetes/ckad/ck-x/ckad-001",
+    "slug": "ckad-001",
+    "order": null,
+    "source_display": {
+      "name": "CK-X",
+      "type": "external",
+      "url": "https://github.com/sailor-sh/CK-X"
+    },
+    "collection_title": "CK-X assessments",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "ckad"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/ckad/ck-x",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKAD",
+      "CK-X assessments"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/ckad/ck-x/ckad-001/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "CKAD Comprehensive Lab - 2",
+    "type": "problem-set",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "ck-x",
+      "item_id": "ckad-002",
+      "url": "https://github.com/sailor-sh/CK-X/blob/76a78943556af64a774a1c22b283efc22906ff1c/facilitator/assets/exams/ckad/002/assessment.json",
+      "revision": "76a78943556af64a774a1c22b283efc22906ff1c"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "16b4580fd4ea4dce15b97a52f00a319e886ce625ae932bf1390689d95a077558"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "ckad"
+    ],
+    "collection": "ck-x",
+    "path": "niches/code/devops/orchestration/kubernetes/ckad/ck-x/ckad-002",
+    "slug": "ckad-002",
+    "order": null,
+    "source_display": {
+      "name": "CK-X",
+      "type": "external",
+      "url": "https://github.com/sailor-sh/CK-X"
+    },
+    "collection_title": "CK-X assessments",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "ckad"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/ckad/ck-x",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKAD",
+      "CK-X assessments"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/ckad/ck-x/ckad-002/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "CKS Practice Lab - Kubernetes Security Essentials",
+    "type": "problem-set",
+    "skills": [
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "ck-x",
+      "item_id": "cks-001",
+      "url": "https://github.com/sailor-sh/CK-X/blob/76a78943556af64a774a1c22b283efc22906ff1c/facilitator/assets/exams/cks/001/assessment.json",
+      "revision": "76a78943556af64a774a1c22b283efc22906ff1c"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "a5b7d24902b429a42e8eeb925f5738594b6ba8e0299a966a6509d98a6c57e51d"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes",
+      "cks"
+    ],
+    "collection": "ck-x",
+    "path": "niches/code/devops/orchestration/kubernetes/cks/ck-x/cks-001",
+    "slug": "cks-001",
+    "order": null,
+    "source_display": {
+      "name": "CK-X",
+      "type": "external",
+      "url": "https://github.com/sailor-sh/CK-X"
+    },
+    "collection_title": "CK-X assessments",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cks"
+    ],
+    "collection_path": "niches/code/devops/orchestration/kubernetes/cks/ck-x",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Code",
+      "Kubernetes",
+      "CKS",
+      "CK-X assessments"
+    ],
+    "exercise_link": "niches/code/devops/orchestration/kubernetes/cks/ck-x/cks-001/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
     "title": "CloudCertPrep CLF-C02 Question Bank",
     "summary": "Practice and review 1050 adopted CLF-C02 questions across 4 domains.",
     "type": "question-bank",
@@ -1881,6 +4085,177 @@
       "CLF-C02"
     ],
     "exercise_link": "niches/study/cloud/aws/clf-c02/kananinirav-aws-ccp/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "CKA objectives review",
+    "type": "problem-set",
+    "skills": [
+      "conceptual-reasoning",
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "cncf-certification",
+      "item_id": "cka/objectives-review",
+      "url": "https://github.com/cncf/curriculum/blob/88e610650e2edbe04325fcb992febe6838487d72/CKA_Curriculum_v1.35.pdf",
+      "revision": "88e610650e2edbe04325fcb992febe6838487d72"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "f627b52beb88620dce82aeac94b670c76c7e6c95a4e619a5767d5fec07a5e6f3"
+    },
+    "niche": "study",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes"
+    ],
+    "collection": "cka",
+    "path": "niches/study/devops/orchestration/kubernetes/cka/objectives-review",
+    "slug": "objectives-review",
+    "order": null,
+    "source_display": {
+      "name": "CNCF Certification",
+      "type": "external",
+      "url": "https://www.cncf.io/training/certification/"
+    },
+    "collection_title": "CKA review",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cka"
+    ],
+    "collection_path": "niches/study/devops/orchestration/kubernetes/cka",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Study",
+      "Kubernetes",
+      "CKA review"
+    ],
+    "exercise_link": "niches/study/devops/orchestration/kubernetes/cka/objectives-review/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "CKAD objectives review",
+    "type": "problem-set",
+    "skills": [
+      "conceptual-reasoning",
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "cncf-certification",
+      "item_id": "ckad/objectives-review",
+      "url": "https://github.com/cncf/curriculum/blob/88e610650e2edbe04325fcb992febe6838487d72/CKAD_Curriculum_v1.37.pdf",
+      "revision": "88e610650e2edbe04325fcb992febe6838487d72"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "722cbe61d834dacb104c79e224f8de0b7824cbc36898c1d1210e516f548bf80d"
+    },
+    "niche": "study",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes"
+    ],
+    "collection": "ckad",
+    "path": "niches/study/devops/orchestration/kubernetes/ckad/objectives-review",
+    "slug": "objectives-review",
+    "order": null,
+    "source_display": {
+      "name": "CNCF Certification",
+      "type": "external",
+      "url": "https://www.cncf.io/training/certification/"
+    },
+    "collection_title": "CKAD review",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "ckad"
+    ],
+    "collection_path": "niches/study/devops/orchestration/kubernetes/ckad",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Study",
+      "Kubernetes",
+      "CKAD review"
+    ],
+    "exercise_link": "niches/study/devops/orchestration/kubernetes/ckad/objectives-review/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "CKS objectives review",
+    "type": "problem-set",
+    "skills": [
+      "conceptual-reasoning",
+      "orchestration",
+      "troubleshooting"
+    ],
+    "source": {
+      "provider": "cncf-certification",
+      "item_id": "cks/objectives-review",
+      "url": "https://github.com/cncf/curriculum/blob/88e610650e2edbe04325fcb992febe6838487d72/CKS_Curriculum%20v1.34.pdf",
+      "revision": "88e610650e2edbe04325fcb992febe6838487d72"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-05",
+        "started": null,
+        "updated": "2026-10-05",
+        "completed": null
+      },
+      "content_sha256": "792574920e518a3a8ae86be94f54e6e242a9c721b1e33ac22f1a3183faa52082"
+    },
+    "niche": "study",
+    "domain": "devops",
+    "subdomain": "orchestration",
+    "groups": [
+      "kubernetes"
+    ],
+    "collection": "cks",
+    "path": "niches/study/devops/orchestration/kubernetes/cks/objectives-review",
+    "slug": "objectives-review",
+    "order": null,
+    "source_display": {
+      "name": "CNCF Certification",
+      "type": "external",
+      "url": "https://www.cncf.io/training/certification/"
+    },
+    "collection_title": "CKS review",
+    "tools_effective": [
+      "kubernetes"
+    ],
+    "goals_effective": [
+      "cks"
+    ],
+    "collection_path": "niches/study/devops/orchestration/kubernetes/cks",
+    "subject_title": "DevOps / Orchestration",
+    "collection_breadcrumb": [
+      "Study",
+      "Kubernetes",
+      "CKS review"
+    ],
+    "exercise_link": "niches/study/devops/orchestration/kubernetes/cks/objectives-review/README.md#exercise-definition",
     "solution_link": null,
     "collection_notes": null
   }

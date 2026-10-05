@@ -77,7 +77,7 @@
       "id": "platformlab-cka-exercises",
       "title": "ThePlatformLab CKA practical exercises",
       "provider": "platformlab-cka",
-      "materials_url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/tree/main/exercises",
+      "materials_url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/tree/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises",
       "target": {
         "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises",
         "has_subdomain": true,
@@ -94,16 +94,16 @@
       "priority": "next",
       "adoption": "direct",
       "access": "Public material; review execution requirements before adoption.",
-      "evidence_scope": "2026-10-04 research handoff: README and one full exercise inspected",
-      "checked_on": "2026-10-04",
-      "notes": "README lists 31 exercises. Recount committed directories at the selected revision. Some setup assumes a different environment; do not execute it. Keep author anecdotes and reference solutions out of the user Solution.",
+      "evidence_scope": "Committed inventory and Markdown snapshots parsed; license and source separation reviewed at 802ee2f35412242b7c64be9861f0a7feac367b9e. No execution.",
+      "checked_on": "2026-10-05",
+      "notes": "31 whole exercises and 2 whole mocks adopted in their separate collections. Upstream hints and anecdotes remain attributed source material. Pod Basics has inconsistent nginx versions; the PriorityClass exercise references a missing skeleton.",
       "deliverable": "Manifests or commands, verification output, and an explanation of the failure modes."
     },
     {
       "id": "platformlab-cka-mocks",
       "title": "ThePlatformLab CKA mock exams",
       "provider": "platformlab-cka",
-      "materials_url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/tree/main/mock-exams",
+      "materials_url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/tree/802ee2f35412242b7c64be9861f0a7feac367b9e/mock-exams",
       "target": {
         "collection_path": "niches/code/devops/orchestration/kubernetes/cka/platformlab-mock-exams",
         "has_subdomain": true,
@@ -119,16 +119,16 @@
       "priority": "next",
       "adoption": "direct",
       "access": "Public material; review execution requirements before adoption.",
-      "evidence_scope": "2026-10-04 research handoff: repository README/index inspected",
-      "checked_on": "2026-10-04",
-      "notes": "The source lists two mocks with separate solutions. Preserve that separation; do not report source answers as personal work.",
+      "evidence_scope": "Committed inventory and Markdown snapshots parsed; license and source separation reviewed at 802ee2f35412242b7c64be9861f0a7feac367b9e. No execution.",
+      "checked_on": "2026-10-05",
+      "notes": "31 whole exercises and 2 whole mocks adopted in their separate collections. Upstream hints and anecdotes remain attributed source material. Pod Basics has inconsistent nginx versions; the PriorityClass exercise references a missing skeleton.",
       "deliverable": "A complete independently attempted practical set, with results and corrections."
     },
     {
       "id": "ckx-cka",
       "title": "CK-X CKA assessment sets",
       "provider": "ck-x",
-      "materials_url": "https://github.com/sailor-sh/CK-X/blob/master/facilitator/assets/exams/labs.json",
+      "materials_url": "https://github.com/sailor-sh/CK-X/blob/76a78943556af64a774a1c22b283efc22906ff1c/facilitator/assets/exams/labs.json",
       "target": {
         "collection_path": "niches/code/devops/orchestration/kubernetes/cka/ck-x",
         "has_subdomain": true,
@@ -144,16 +144,16 @@
       "priority": "next",
       "adoption": "direct",
       "access": "Public material; review execution requirements before adoption.",
-      "evidence_scope": "2026-10-04 research handoff: full JSON index and license read",
-      "checked_on": "2026-10-04",
-      "notes": "The inspected index contains 2 CKA assessments. Registry currently says review; initialize source-linked work without copying restricted bodies unless scoped permission is verified. No Docker/simulator launch. Exclude Docker/Helm Other tracks from this first pass.",
+      "evidence_scope": "Full index, license and selected assessment/config metadata inspected at 76a78943556af64a774a1c22b283efc22906ff1c. No simulator execution.",
+      "checked_on": "2026-10-05",
+      "notes": "Five whole assessments adopted across CKA (2), CKAD (2) and CKS (1). Bodies, answers and executable assets remain upstream; reuse policy stays review. Docker and Helm Other tracks are excluded.",
       "deliverable": "A reproducible practical attempt; commands, verification and lessons without claiming official exam status."
     },
     {
       "id": "ckx-ckad",
       "title": "CK-X CKAD assessment sets",
       "provider": "ck-x",
-      "materials_url": "https://github.com/sailor-sh/CK-X/blob/master/facilitator/assets/exams/labs.json",
+      "materials_url": "https://github.com/sailor-sh/CK-X/blob/76a78943556af64a774a1c22b283efc22906ff1c/facilitator/assets/exams/labs.json",
       "target": {
         "collection_path": "niches/code/devops/orchestration/kubernetes/ckad/ck-x",
         "has_subdomain": true,
@@ -169,16 +169,16 @@
       "priority": "next",
       "adoption": "direct",
       "access": "Public material; review execution requirements before adoption.",
-      "evidence_scope": "2026-10-04 research handoff: full JSON index and license read",
-      "checked_on": "2026-10-04",
-      "notes": "The inspected index contains 2 CKAD assessments. Registry currently says review; initialize source-linked work without copying restricted bodies unless scoped permission is verified. No Docker/simulator launch. Exclude Docker/Helm Other tracks from this first pass.",
+      "evidence_scope": "Full index, license and selected assessment/config metadata inspected at 76a78943556af64a774a1c22b283efc22906ff1c. No simulator execution.",
+      "checked_on": "2026-10-05",
+      "notes": "Five whole assessments adopted across CKA (2), CKAD (2) and CKS (1). Bodies, answers and executable assets remain upstream; reuse policy stays review. Docker and Helm Other tracks are excluded.",
       "deliverable": "A reproducible practical attempt; commands, verification and lessons without claiming official exam status."
     },
     {
       "id": "ckx-cks",
       "title": "CK-X CKS assessment sets",
       "provider": "ck-x",
-      "materials_url": "https://github.com/sailor-sh/CK-X/blob/master/facilitator/assets/exams/labs.json",
+      "materials_url": "https://github.com/sailor-sh/CK-X/blob/76a78943556af64a774a1c22b283efc22906ff1c/facilitator/assets/exams/labs.json",
       "target": {
         "collection_path": "niches/code/devops/orchestration/kubernetes/cks/ck-x",
         "has_subdomain": true,
@@ -194,9 +194,9 @@
       "priority": "next",
       "adoption": "direct",
       "access": "Public material; review execution requirements before adoption.",
-      "evidence_scope": "2026-10-04 research handoff: full JSON index and license read",
-      "checked_on": "2026-10-04",
-      "notes": "The inspected index contains 1 CKS assessments. Registry currently says review; initialize source-linked work without copying restricted bodies unless scoped permission is verified. No Docker/simulator launch. Exclude Docker/Helm Other tracks from this first pass.",
+      "evidence_scope": "Full index, license and selected assessment/config metadata inspected at 76a78943556af64a774a1c22b283efc22906ff1c. No simulator execution.",
+      "checked_on": "2026-10-05",
+      "notes": "Five whole assessments adopted across CKA (2), CKAD (2) and CKS (1). Bodies, answers and executable assets remain upstream; reuse policy stays review. Docker and Helm Other tracks are excluded.",
       "deliverable": "A reproducible practical attempt; commands, verification and lessons without claiming official exam status."
     },
     {
@@ -219,9 +219,9 @@
       "priority": "next",
       "adoption": "adaptation",
       "access": "Public material; review execution requirements before adoption.",
-      "evidence_scope": "2026-10-04 research handoff: page-read",
-      "checked_on": "2026-10-04",
-      "notes": "Create exactly one objectives-review lab for this track. State the local task is adapted from official objectives. Preserve reference URLs; no claims of syllabus completion or exam readiness.",
+      "evidence_scope": "Official certification page, curriculum README and linked objective PDF inspected at 88e610650e2edbe04325fcb992febe6838487d72.",
+      "checked_on": "2026-10-05",
+      "notes": "One locally designed objectives-review set adopted for this track, with pinned official references and empty answers. The CKS PDF and README differ on domain weights; no scoring or exam-readiness claim.",
       "deliverable": "Personal explanations, distinctions and a record of gaps; not a fabricated official question bank."
     },
     {
@@ -244,9 +244,9 @@
       "priority": "next",
       "adoption": "adaptation",
       "access": "Public material; review execution requirements before adoption.",
-      "evidence_scope": "2026-10-04 research handoff: page-read",
-      "checked_on": "2026-10-04",
-      "notes": "Create exactly one objectives-review lab for this track. State the local task is adapted from official objectives. Preserve reference URLs; no claims of syllabus completion or exam readiness.",
+      "evidence_scope": "Official certification page, curriculum README and linked objective PDF inspected at 88e610650e2edbe04325fcb992febe6838487d72.",
+      "checked_on": "2026-10-05",
+      "notes": "One locally designed objectives-review set adopted for this track, with pinned official references and empty answers. The CKS PDF and README differ on domain weights; no scoring or exam-readiness claim.",
       "deliverable": "Personal explanations, distinctions and a record of gaps; not a fabricated official question bank."
     },
     {
@@ -269,9 +269,9 @@
       "priority": "next",
       "adoption": "adaptation",
       "access": "Public material; review execution requirements before adoption.",
-      "evidence_scope": "2026-10-04 research handoff: page-read",
-      "checked_on": "2026-10-04",
-      "notes": "Create exactly one objectives-review lab for this track. State the local task is adapted from official objectives. Preserve reference URLs; no claims of syllabus completion or exam readiness.",
+      "evidence_scope": "Official certification page, curriculum README and linked objective PDF inspected at 88e610650e2edbe04325fcb992febe6838487d72.",
+      "checked_on": "2026-10-05",
+      "notes": "One locally designed objectives-review set adopted for this track, with pinned official references and empty answers. The CKS PDF and README differ on domain weights; no scoring or exam-readiness claim.",
       "deliverable": "Personal explanations, distinctions and a record of gaps; not a fabricated official question bank."
     },
     {

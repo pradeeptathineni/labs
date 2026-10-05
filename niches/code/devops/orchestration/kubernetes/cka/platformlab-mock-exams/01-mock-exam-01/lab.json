@@ -1,0 +1,24 @@
+{
+  "title": "Mock Exam 01 — CKA Practice (Kubernetes 1.35)",
+  "type": "problem-set",
+  "skills": [
+    "orchestration",
+    "troubleshooting"
+  ],
+  "source": {
+    "provider": "platformlab-cka",
+    "item_id": "mock-exams/MOCK-EXAM-01.md",
+    "url": "https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/mock-exams/MOCK-EXAM-01.md",
+    "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-05",
+      "started": null,
+      "updated": "2026-10-05",
+      "completed": null
+    },
+    "content_sha256": "2ea083d5111c0146305120b12ca0f29c8f8caef0601a9cf02e3c70cec3dd1b44"
+  }
+}

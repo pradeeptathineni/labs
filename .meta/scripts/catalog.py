@@ -371,7 +371,7 @@ def render_catalog(records: list[dict[str, Any]], sources: dict[str, Any]) -> st
     atlas_path = ROOT / ".meta/catalog/atlas.json"
     goals = read_json(atlas_path).get("goals", {}) if atlas_path.exists() else {}
     lines = ["# Lab Catalog", "",
-             "[Visual workbench](https://pradeeptathineni.github.io/labs/) · [Practice atlas](PRACTICE-ATLAS.md) · [About this repo](README.md)" if atlas_path.exists() else "",
+             "[Web catalog](https://pradeeptathineni.github.io/labs/) · [Practice atlas](PRACTICE-ATLAS.md) · [About this repo](README.md)" if atlas_path.exists() else "",
              "", f"**{len(records)} labs** · {statuses['complete']} complete · {statuses['in-progress']} in progress · {statuses['not-started']} planned · {statuses['paused']} paused · {statuses['abandoned']} abandoned", "",
              "**Types:** " + " · ".join(f"{_label(key)} {value}" for key, value in sorted(types.items(), key=lambda pair: (-pair[1], _label(pair[0])))), "",
              "> [!IMPORTANT]", "> Imported work is planned practice. Target skills are not demonstrated proficiency; certification goals are preparation, not credentials.", ""]
