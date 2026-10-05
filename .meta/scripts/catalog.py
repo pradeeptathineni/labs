@@ -338,7 +338,7 @@ def render_catalog(records: list[dict[str, Any]], sources: dict[str, Any]) -> st
         "    margin: 0 0 15px 0;",
         "}",
         "summary small {",
-        "    margin-left: 15px;",
+        "    margin: 0 0 0 15px;",
         "}",
         "</style>",
         "",

@@ -6,7 +6,7 @@ summary, small {
     margin: 0 0 15px 0;
 }
 summary small {
-    margin-left: 15px;
+    margin: 0 0 0 15px;
 }
 </style>
 

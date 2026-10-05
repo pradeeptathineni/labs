@@ -163,7 +163,7 @@ class CoreTests(RepositoryCase):
         style = "\n".join(catalog).split("</style>", 1)[0]
         self.assertIn("small {\n  display: inline-block;\n}", style)
         self.assertIn("summary, small {\n    margin: 0 0 15px 0;\n}", style)
-        self.assertIn("summary small {\n    margin-left: 15px;\n}", style)
+        self.assertIn("summary small {\n    margin: 0 0 0 15px;\n}", style)
         self.assertNotIn('style="', "\n".join(catalog))
         summaries = [line for line in catalog if line.startswith("<summary>")]
         self.assertEqual(summaries[:4], ["<summary>Completed</summary>", "<summary>In progress</summary>", "<summary>Browse by skill</summary>", "<summary>Browse all labs</summary>"])
