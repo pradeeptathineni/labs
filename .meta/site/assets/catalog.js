@@ -32,7 +32,12 @@
         const wanted = state.filters.filter(([facet]) => facet === key).map(([, value]) => value);
         return !wanted.length || wanted.some((value) => values(item, key).includes(value));
       }) && state.q.toLowerCase().split(/\s+/).every((word) => [item.title, item.summary, item.path, item.subject_title, item.source_name, ...item.collection_breadcrumb, ...item.skills, ...item.tools, ...item.goals, ...item.goals.map((goal) => data.goals[goal] || goal)].join(" ").toLowerCase().includes(word)));
-      $("result-count").textContent = `${selected.length} of ${data.labs.length} labs`;
+      const active = state.filters.map(([key, value]) => {
+        const item = data.labs.find((item) => values(item, key).includes(value));
+        return `${fields[key]}: ${item ? label(key, value, item) : value}`;
+      });
+      if (state.lab) active.push(data.labs.find((item) => item.path === state.lab)?.title || "Unknown lab");
+      $("result-count").textContent = `${selected.length} of ${data.labs.length} labs` + (active.length ? " · " + active.join("; ") : "");
       $("result-count").hidden = false; $("controls").hidden = false;
       $("empty-state").hidden = selected.length !== 0;
       const groups = new Map();
@@ -51,6 +56,7 @@
       }
     }
     function navigate() {
+      clearTimeout(timer);
       const params = new URLSearchParams();
       if (state.q) params.set("q", state.q);
       if (state.sort !== "order") params.set("sort", state.sort);
@@ -61,7 +67,7 @@
     render();
     let timer;
     $("controls").addEventListener("submit", (event) => { event.preventDefault(); clearTimeout(timer); state.q = $("search").value.trim(); navigate(); });
-    $("search").addEventListener("input", () => { clearTimeout(timer); timer = setTimeout(() => { state.q = $("search").value.trim(); navigate(); }, 200); });
+    $("search").addEventListener("input", () => { clearTimeout(timer); state.q = $("search").value.trim(); timer = setTimeout(navigate, 200); });
     $("filter").addEventListener("change", () => { state.filters = $("filter").value ? [JSON.parse($("filter").value)] : []; state.lab = null; navigate(); });
     $("sort").addEventListener("change", () => { state.sort = $("sort").value; navigate(); });
     $("reset").addEventListener("click", () => { clearTimeout(timer); state = {q: "", sort: "order", lab: null, filters: []}; navigate(); });

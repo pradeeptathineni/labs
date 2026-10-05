@@ -5,8 +5,6 @@ from __future__ import annotations
 import argparse
 import hashlib
 import html
-import json
-import os
 import re
 import shutil
 import sys
@@ -130,8 +128,10 @@ def build(output: Path, base_path: str = "/", release: bool = False) -> dict:
     completed = [item for item in payload['labs'] if item['status'] == 'complete']
     progress = [item for item in payload['labs'] if item['status'] == 'in-progress']
     skills = Counter(skill for item in payload['labs'] for skill in item['skills'])
+    summary = f"{len(records)} labs · {counts['complete']} complete · {counts['in-progress']} in progress · {counts['not-started']} planned"
+    summary += ''.join(f" · {counts[status]} {status}" for status in ('paused', 'abandoned') if counts[status])
     substitutions = {"CSS": css_name, "JS": js_name, "DATA": data_name,
-                     "SUMMARY": f"{len(records)} labs · {counts['complete']} complete · {counts['in-progress']} in progress · {counts['not-started']} planned · {counts['paused']} paused · {counts['abandoned']} abandoned",
+                     "SUMMARY": summary,
                      "COMPLETE": grouped_html(completed) or '<p>No completed labs yet.</p>',
                      "PROGRESS": grouped_html(progress) or '<p>No labs in progress yet.</p>',
                      "COMPLETE_COUNT": str(len(completed)), "PROGRESS_COUNT": str(len(progress)),

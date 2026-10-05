@@ -4,6 +4,10 @@ The schemas, source registry, generated views, and maintenance commands live her
 
 Install the generic dependency with `python3 -m pip install -r .meta/requirements.txt`. Importers also need `python3 -m pip install -r .meta/importers/requirements.txt`.
 
+For a normal lab session, choose an existing lab and explicitly mark it `in-progress`. Add your work and reasoning under its Solution or link to your implementation. Mark it `complete` when you consider the attempt finished; editing files alone never changes status. Stage the intended files, commit, then push. The hook records content changes and refreshes the catalog; relevant pushes to main update the [web catalog](https://pradeeptathineni.github.io/labs/).
+
+Keep upstream snapshots under `source/` separate from your work. Edit lab and collection metadata through the commands below; generated catalogs are outputs. The atlas lists options to adopt, while the catalog lists actual labs. [Site preview and publishing](site/README.md) are separate from doing a lab.
+
 ## Create and edit
 
 A write with flags needs `--yes`. `--dry-run` previews without writing or prompting. `--interactive` asks for every field and still ends with `Write these changes? [y/N]`; blank keeps the shown value and `-` clears an optional value.
