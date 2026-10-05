@@ -1,0 +1,105 @@
+name: Pages
+
+on:
+  push:
+    branches: [main]
+    paths: &site-paths
+      - 'niches/**'
+      - '.meta/**'
+      - '.githooks/**'
+      - '.github/workflows/pages.yml'
+      - '.github/workflows/catalog.yml'
+      - 'README.md'
+      - 'CATALOG.md'
+      - 'PRACTICE-ATLAS.md'
+      - '.gitignore'
+      - '.gitattributes'
+  pull_request:
+    paths: *site-paths
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Push and manual-main share production; PR checks cannot cancel a deployment.
+concurrency:
+  group: ${{ github.event_name == 'pull_request' && format('pages-pr-{0}', github.event.pull_request.number) || (github.ref == 'refs/heads/main' && 'pages-production' || format('pages-preview-{0}', github.ref)) }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
+    outputs:
+      eligible: ${{ steps.freshness.outputs.eligible }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - name: Install check dependencies
+        run: python3 -m pip install -r .meta/requirements.txt -r .meta/importers/requirements.txt -r .meta/site/requirements-dev.txt
+      - name: Validate canonical inputs without changing them
+        run: |
+          python3 -m unittest discover -s .meta/tests
+          python3 .meta/scripts/lab_sync.py --check
+          python3 .meta/scripts/catalog.py --check
+          python3 .meta/scripts/atlas.py --check
+      - name: Configure trusted Pages metadata
+        id: pages
+        if: github.repository == 'pradeeptathineni/labs' && github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+        uses: actions/configure-pages@v6.0.0
+      - name: Build the tested snapshot
+        env:
+          BASE_PATH: ${{ steps.pages.outputs.base_path || '/labs' }}
+        run: python3 .meta/scripts/build_site.py --release --base-path "${BASE_PATH}/" --output .meta/build/pages
+      - name: Check artifact and browser behavior
+        run: |
+          python3 .meta/scripts/build_site.py --check-output
+          python3 -m playwright install --with-deps chromium
+          python3 .meta/site/browser_smoke.py
+          git diff --exit-code
+          git diff --cached --exit-code
+          test -z "$(git ls-files --others --exclude-standard)"
+      - name: Check main input freshness before upload
+        id: freshness
+        if: github.repository == 'pradeeptathineni/labs' && github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+        run: python3 .meta/scripts/pages_freshness.py
+      - uses: actions/upload-pages-artifact@v5.0.0
+        if: steps.freshness.outputs.eligible == 'true'
+        with:
+          path: .meta/build/pages
+          retention-days: 1
+
+  deploy:
+    needs: build
+    if: needs.build.outputs.eligible == 'true' && github.repository == 'pradeeptathineni/labs' && github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - run: python3 -m pip install -r .meta/requirements.txt
+      - name: Recheck freshness after environment wait
+        id: freshness
+        run: python3 .meta/scripts/pages_freshness.py
+      - name: Publish this run's validated artifact
+        id: deployment
+        if: steps.freshness.outputs.eligible == 'true'
+        uses: actions/deploy-pages@v5.0.1

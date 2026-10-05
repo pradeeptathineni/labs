@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
       - uses: actions/setup-python@v7
         with:
           python-version: "3.13"
@@ -19,3 +22,4 @@ jobs:
       - run: python3 -m unittest discover -s .meta/tests
       - run: python3 .meta/scripts/lab_sync.py --check
       - run: python3 .meta/scripts/catalog.py --check
+      - run: python3 .meta/scripts/atlas.py --check

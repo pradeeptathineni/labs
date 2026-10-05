@@ -17,7 +17,7 @@ def _names(*arguments: str) -> set[str]:
 
 def _relevant(path: str) -> bool:
     return path.startswith("niches/") or path.startswith(".meta/catalog/") or path in {
-        "CATALOG.md", ".meta/scripts/catalog.py", ".meta/scripts/lab_sync.py",
+        "CATALOG.md", "PRACTICE-ATLAS.md", ".meta/scripts/catalog.py", ".meta/scripts/lab_sync.py", ".meta/scripts/atlas.py", ".meta/scripts/lab_init.py",
     }
 
 
@@ -35,16 +35,16 @@ def sync_for_commit() -> None:
     if not any(_relevant(path) for path in staged):
         return
 
-    inputs = ("niches/", ".meta/catalog/sources.json", ".meta/catalog/schema/", ".meta/scripts/catalog.py", ".meta/scripts/lab_sync.py", ".meta/scripts/commit_sync.py")
+    inputs = ("niches/", ".meta/catalog/sources.json", ".meta/catalog/atlas.json", ".meta/catalog/schema/", ".meta/scripts/catalog.py", ".meta/scripts/atlas.py", ".meta/scripts/lab_init.py", ".meta/scripts/lab_sync.py", ".meta/scripts/commit_sync.py")
     unstaged = _names("diff", "--name-only", "-z", "--", *inputs)
-    untracked = _names("ls-files", "--others", "--exclude-standard", "-z", "--", "niches/")
+    untracked = _names("ls-files", "--others", "--exclude-standard", "-z", "--", *inputs)
     if unstaged or untracked:
         pending = sorted(unstaged | untracked)
         raise catalog.CatalogError("Unstaged lab/catalog inputs could enter this commit: " + ", ".join(pending) + ". Stage intended work first.")
 
     records, sources = catalog.collect_labs()
     expected = catalog.expected_catalogs(records, sources)
-    unstaged_views = _names("diff", "--name-only", "-z", "--", "CATALOG.md", ".meta/catalog/labs.json")
+    unstaged_views = _names("diff", "--name-only", "-z", "--", "CATALOG.md", ".meta/catalog/labs.json", "PRACTICE-ATLAS.md")
     for path, content in expected.items():
         name = path.relative_to(catalog.ROOT).as_posix()
         if name in staged | unstaged_views and path.is_file() and path.read_text(encoding="utf-8") != content:
@@ -55,7 +55,7 @@ def sync_for_commit() -> None:
         lab_sync.sync_all(paths=[str(path) for path in touched])
     else:
         catalog.write_catalog(records, sources)
-    outputs = ["CATALOG.md", ".meta/catalog/labs.json"]
+    outputs = [str(path.relative_to(catalog.ROOT)) for path in expected]
     outputs += [str(path.relative_to(catalog.ROOT) / "lab.json") for path in touched]
     lab_sync._git("add", "--", *outputs)
     lab_sync.sync_all(check=True)
