@@ -22,3 +22,5 @@ Generated views are [`labs.json`](labs.json) and [the readable catalog](../../CA
 
 > [!WARNING]
 > Do not hand-edit generated views. Edit the neighboring metadata or source registry, then regenerate.
+
+Skills describe competencies; tools name concrete technologies; goals name intentions. New entries should use `troubleshooting` as a skill, `kubernetes` as a tool, and `cka` as a goal. Existing skill tags remain valid. Optional `tools` and `goals` on the actual collection descriptor combine with local values as sorted unions; group ancestors do not supply defaults. Certification goals mean preparation, never a credential earned.

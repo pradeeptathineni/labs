@@ -71,9 +71,9 @@ def valid_date(value: str | None) -> str | None:
 def apply_lab_changes(current: dict[str, Any], changes: dict[str, Any], sources: dict[str, Any]) -> dict[str, Any]:
     """Apply one candidate for flags, prompts, and adapters, then canonicalize it."""
     updated = copy.deepcopy(current)
-    for key in ("title", "summary", "type", "difficulty", "skills", "goals", "links"):
+    for key in ("title", "summary", "type", "difficulty", "skills", "tools", "goals", "links"):
         if key in changes:
-            if changes[key] is None and key in ("summary", "difficulty", "goals", "links"):
+            if changes[key] is None and key in ("summary", "difficulty", "tools", "goals", "links"):
                 updated.pop(key, None)
             else:
                 updated[key] = changes[key]
@@ -93,7 +93,7 @@ def apply_lab_changes(current: dict[str, Any], changes: dict[str, Any], sources:
             dates[key] = valid_date(changes[key])
     if "difficulty" in updated:
         updated["difficulty"] = catalog.normalize_difficulty(updated["difficulty"], updated["source"]["provider"], sources)
-    for key in ("skills", "goals"):
+    for key in ("skills", "tools", "goals"):
         if key in updated:
             updated[key] = sorted(set(updated[key]))
     return catalog.ordered_lab(updated)

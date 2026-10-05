@@ -23,6 +23,8 @@ python3 .meta/scripts/source_meta.py update my-source --interactive
 
 The six lab types are `exercise`, `challenge`, `problem-set`, `question-bank`, `project`, and `experiment`. `exercise` is the default. Status and dates live under `tracking`; entering progress or completion records the first date if unknown, while reopening keeps that history. Dates can be corrected explicitly. Content edits never change status.
 
+Use repeated `--tool` flags when creating or editing a lab; `--clear-tools` removes local tools. Collection tools still apply. Skills describe competencies, tools name technologies, and goals describe intentions.
+
 `--subdomain` adds the optional subject level immediately after the domain. Repeat `--group` for provider or collection groupings between that subject and the final collection. Interactive mode accepts the groupings as a slash-separated path. These examples show valid layouts; they are not imported course assignments.
 
 An optional `collection.json` can name a collection, link its source with `source_url`, mark `has_subdomain: true`, and set `ordered: true`. The initializer records `has_subdomain` automatically when `--subdomain` is used, including it in the preview before writing. Without that declaration, the domain is the whole subject and all intermediate folders are collection groupings. The same domain/subdomain boundary must be used consistently across niches. A directory cannot both contain labs as a collection and contain other collections.

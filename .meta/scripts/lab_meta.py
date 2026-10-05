@@ -29,6 +29,8 @@ def _parser() -> argparse.ArgumentParser:
     parser.add_argument("--remove-skill", action="append", default=[])
     parser.add_argument("--goal", action="append", help="replace goals; repeat")
     parser.add_argument("--clear-goals", action="store_true")
+    parser.add_argument("--tool", action="append", help="replace local tools; repeat")
+    parser.add_argument("--clear-tools", action="store_true")
     parser.add_argument("--link", action="append", default=[], metavar="solution=URL")
     parser.add_argument("--clear-link", action="append", default=[], choices=["solution", "demo"])
     parser.add_argument("--source")
@@ -90,6 +92,12 @@ def _flag_changes(args: argparse.Namespace, current: dict[str, Any]) -> dict[str
         if args.goal:
             raise catalog.CatalogError("Cannot set and clear goals together")
         changes["goals"] = None
+    if args.tool is not None:
+        changes["tools"] = args.tool
+    if args.clear_tools:
+        if args.tool:
+            raise catalog.CatalogError("Cannot set and clear tools together")
+        changes["tools"] = None
     links = copy.deepcopy(current.get("links", {}))
     links.update(workflow.parse_links(args.link))
     for key in args.clear_link:
@@ -122,6 +130,7 @@ def _interactive_changes(current: dict[str, Any], sources: dict[str, Any]) -> di
     used_skills = sorted({skill for record in records for skill in record["skills"]})
     changes["skills"] = workflow.prompt_list("Skills", current["skills"], suggestions=used_skills)
     changes["goals"] = workflow.prompt_list("Goals", current.get("goals", [])) or None
+    changes["tools"] = workflow.prompt_list("Tools", current.get("tools", [])) or None
     provider = workflow.prompt("Source provider", current["source"]["provider"], choices=sorted(sources))
     prior = current["source"] if provider == current["source"]["provider"] else {}
     source = {"provider": provider}

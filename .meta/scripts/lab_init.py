@@ -136,9 +136,9 @@ def plan_lab(data: dict[str, Any], sources: dict[str, Any], *, files: dict[str, 
             raise catalog.CatalogError(f"Unsafe lab file path: {relative}")
     entries = [(relative, text.encode("utf-8"), "100644") for relative, text in content.items()]
     metadata: dict[str, Any] = {"title": title, "type": data.get("type", "exercise"), "skills": sorted(set(data.get("skills", []))), "source": source, "tracking": {"status": status, "dates": dates, "content_sha256": lab_sync.fingerprint_entries(entries)}}
-    for key in ("summary", "difficulty", "goals", "links"):
+    for key in ("summary", "difficulty", "tools", "goals", "links"):
         if data.get(key):
-            metadata[key] = data[key]
+            metadata[key] = sorted(set(data[key])) if key in ("tools", "goals") else data[key]
     if "difficulty" in metadata:
         metadata["difficulty"] = catalog.normalize_difficulty(metadata["difficulty"], provider, sources)
     metadata = catalog.ordered_lab(metadata)
@@ -195,6 +195,7 @@ def _parser() -> argparse.ArgumentParser:
     parser.add_argument("--type", choices=schema["properties"]["type"]["enum"], default="exercise")
     parser.add_argument("--difficulty")
     parser.add_argument("--skill", action="append", default=[])
+    parser.add_argument("--tool", action="append", default=[])
     parser.add_argument("--goal", action="append", default=[])
     parser.add_argument("--link", action="append", default=[], metavar="solution=URL")
     parser.add_argument("--source", default="created")
@@ -234,6 +235,7 @@ def _interactive(data: dict[str, Any], sources: dict[str, Any]) -> dict[str, Any
     data["difficulty"] = workflow.prompt("Difficulty", data.get("difficulty"), choices=schema["properties"]["difficulty"]["enum"] + list(provider.get("difficulty_map", {})), optional=True)
     data["skills"] = workflow.prompt_list("Skills", data.get("skills", []), suggestions=sorted({skill for item in records for skill in item["skills"]}))
     data["goals"] = workflow.prompt_list("Goals", data.get("goals", []))
+    data["tools"] = workflow.prompt_list("Tools", data.get("tools", []))
     if provider["type"] != "local":
         for key in ("item_id", "source_url", "revision"):
             data[key] = workflow.prompt(key.replace("_", " ").capitalize(), data.get(key), optional=True)
@@ -259,6 +261,7 @@ def main() -> int:
         data = vars(args).copy()
         data["skills"] = args.skill
         data["goals"] = args.goal
+        data["tools"] = args.tool
         data["links"] = workflow.parse_links(args.link)
         if args.interactive:
             data = _interactive(data, sources)

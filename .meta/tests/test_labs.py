@@ -65,6 +65,22 @@ class RepositoryCase(unittest.TestCase):
 
 
 class CoreTests(RepositoryCase):
+    def test_explicit_tools_and_goals_share_collection_defaults(self) -> None:
+        parent = self.root / "niches/code/devops/tasks"
+        parent.mkdir(parents=True)
+        (parent / "collection.json").write_text(json.dumps({"tools": ["kubernetes"], "goals": ["cka"]}))
+        lab = self.init("code", "devops", "tasks", "Tool practice", "--tool", "python", "--tool", "python", "--goal", "personal-goal")
+        record = json.loads((self.root / ".meta/catalog/labs.json").read_text())[0]
+        self.assertEqual(record["tools_effective"], ["kubernetes", "python"])
+        self.assertEqual(record["goals_effective"], ["cka", "personal-goal"])
+        tracking = self.metadata(lab)["tracking"]
+        result = self.command("scripts", "lab_meta.py", str(lab), "--clear-tools", "--yes")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertNotIn("tools", self.metadata(lab))
+        self.assertEqual(self.metadata(lab)["tracking"], tracking)
+        invalid = self.command("scripts", "lab_meta.py", str(lab), "--tool", "Bad Tool", "--yes")
+        self.assertNotEqual(invalid.returncode, 0)
+
     def test_subjects_and_nested_collections_ignore_lab_fixtures(self) -> None:
         self.assertEqual(self.command("scripts", "catalog.py").returncode, 0)
         self.assertEqual(self.command("scripts", "catalog.py", "--check").returncode, 0)
@@ -107,10 +123,10 @@ class CoreTests(RepositoryCase):
         self.assertEqual(preview.returncode, 0, preview.stderr)
         self.assertIn('"has_subdomain": true', preview.stdout)
         self.assertFalse(target.exists())
-        cancelled = self.command("scripts", "lab_init.py", *args, "--interactive", stdin="\n" * 19 + "n\n")
+        cancelled = self.command("scripts", "lab_init.py", *args, "--interactive", stdin="\n" * 20 + "n\n")
         self.assertEqual(cancelled.returncode, 0, cancelled.stderr)
         self.assertFalse(target.exists())
-        created = self.command("scripts", "lab_init.py", *args, "--interactive", stdin="\n" * 19 + "y\n")
+        created = self.command("scripts", "lab_init.py", *args, "--interactive", stdin="\n" * 20 + "y\n")
         self.assertEqual(created.returncode, 0, created.stderr)
         self.assertTrue((target / "task/lab.json").exists())
         self.assertTrue(json.loads((target / "collection.json").read_text())["has_subdomain"])
@@ -280,12 +296,12 @@ class CoreTests(RepositoryCase):
         collision = self.command("scripts", "lab_init.py", "code", "devops", "tasks", "One", "--yes")
         self.assertNotEqual(collision.returncode, 0)
         before = (one / "lab.json").read_bytes()
-        cancelled = self.command("scripts", "lab_meta.py", str(one), "--interactive", stdin="\n" * 13 + "n\n")
+        cancelled = self.command("scripts", "lab_meta.py", str(one), "--interactive", stdin="\n" * 14 + "n\n")
         self.assertEqual(cancelled.returncode, 0, cancelled.stderr)
         self.assertEqual((one / "lab.json").read_bytes(), before)
         flagged = self.command("scripts", "lab_meta.py", str(one), "--status", "in-progress", "--clear-summary", "--yes")
         self.assertEqual(flagged.returncode, 0, flagged.stderr)
-        answers = ["", "", "", "", "", "", "", "", "", "in-progress", "", "", "", "y"]
+        answers = ["", "", "", "", "", "", "", "", "", "", "in-progress", "", "", "", "y"]
         prompted = self.command("scripts", "lab_meta.py", str(two), "--interactive", stdin="\n".join(answers) + "\n")
         self.assertEqual(prompted.returncode, 0, prompted.stderr)
         self.assertEqual(self.metadata(one)["tracking"]["dates"]["started"], self.metadata(two)["tracking"]["dates"]["started"])

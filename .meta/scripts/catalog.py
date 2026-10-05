@@ -186,7 +186,7 @@ def normalize_difficulty(value: str, provider: str, sources: dict[str, Any], sch
 def ordered_lab(metadata: dict[str, Any]) -> dict[str, Any]:
     """One serialization order for migration, commands, and importers."""
     result: dict[str, Any] = {"title": metadata["title"]}
-    for key in ("summary", "type", "difficulty", "skills", "goals"):
+    for key in ("summary", "type", "difficulty", "skills", "tools", "goals"):
         if key in metadata:
             result[key] = metadata[key]
     result["source"] = {key: metadata["source"][key] for key in ("provider", "item_id", "url", "revision") if key in metadata["source"]}
@@ -237,7 +237,8 @@ def lab_record(path: Path, metadata: Any, sources: dict[str, Any], schema: dict[
     record["collection_title"] = descriptor.get("title") or _readme_title(path.parent.parent) or display_name(hierarchy["collection"], sources)
     if "source_url" in descriptor:
         record["collection_source_url"] = descriptor["source_url"]
-    record["goals_effective"] = sorted(set(metadata.get("goals", [])) | set(descriptor.get("goals", [])))
+    for facet in ("tools", "goals"):
+        record[facet + "_effective"] = sorted(set(metadata.get(facet, [])) | set(descriptor.get(facet, [])))
     question_file = path.parent / "questions.json"
     if metadata["type"] == "question-bank" and question_file.is_file():
         data = read_json(question_file)
