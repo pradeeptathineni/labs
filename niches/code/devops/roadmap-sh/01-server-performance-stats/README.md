@@ -27,6 +27,12 @@ are lifetime averages, so they need not match the system sampling window.
 Memory used is total minus available, which accounts for reclaimable cache.
 Process memory is resident size, not an allocation limit.
 
+Disk rows describe mounted local filesystems, excluding `tmpfs` and `devtmpfs`.
+Each row shows used, available, and a percentage. There is no aggregate total:
+overlays and backing devices can describe the same storage. Reserved blocks
+can make used plus available smaller than filesystem size, and `df` calculates
+its percentage against used plus available. Human-readable sizes are rounded.
+
 ```sh
 make test   # Python 3 standard-library tests
 make check  # Also requires ShellCheck; checks Bash syntax and lint

@@ -52,7 +52,7 @@ class ReportTests(unittest.TestCase):
             "uname": {"stdout": "Linux\n"},
             "vmstat": {"stdout": CPU},
             "free": {"stdout": MEMORY},
-            "df": {"stdout": "Filesystem Size Used Avail Use% Mounted on\n/dev/root 10G 2G 8G 20% /\ntotal 10G 2G 8G 20% -\n"},
+            "df": {"stdout": "Filesystem Size Used Avail Use% Mounted on\n/dev/root 10G 2G 8G 20% /\n"},
             "ps": {"rows": 12},
         }
         for name in self.fixture:
@@ -85,7 +85,7 @@ class ReportTests(unittest.TestCase):
         calls = [json.loads(line) for line in self.calls.read_text().splitlines()]
         self.assertIn(["vmstat", "-n", "2", "2"], calls)
         self.assertIn(["free", "--bytes"], calls)
-        self.assertIn(["df", "-h", "--local", "--total", "--exclude-type=tmpfs", "--exclude-type=devtmpfs"], calls)
+        self.assertIn(["df", "-h", "--local", "--exclude-type=tmpfs", "--exclude-type=devtmpfs"], calls)
         self.assertIn(["ps", "-eo", "pid=PID,comm=COMMAND,pcpu=CPU%,pmem=MEM%,rss=RSS_KiB", "--sort=-rss,-pcpu,pid"], calls)
 
     def test_cpu_columns_can_move_and_include_guest(self):

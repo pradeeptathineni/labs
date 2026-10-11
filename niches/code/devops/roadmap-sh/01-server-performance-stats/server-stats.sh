@@ -85,7 +85,8 @@ process_report() {
 # Collect everything before printing so a failed collector cannot look complete.
 cpu=$(cpu_report) || fail 'Could not collect CPU statistics with vmstat'
 memory=$(memory_report) || fail 'Could not collect memory statistics with free'
-disk=$(df -h --local --total --exclude-type=tmpfs --exclude-type=devtmpfs) \
+# An overlay and its backing device can appear together. Do not sum them.
+disk=$(df -h --local --exclude-type=tmpfs --exclude-type=devtmpfs) \
     || fail 'Could not collect local filesystem statistics with df'
 cpu_processes=$(process_report '-pcpu,-rss,pid') || fail 'Could not list CPU processes with ps'
 memory_processes=$(process_report '-rss,-pcpu,pid') || fail 'Could not list memory processes with ps'

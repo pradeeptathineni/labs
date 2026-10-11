@@ -60,3 +60,18 @@ resource dashboard.
 The public lab will contain operation instructions, decisions, and evidence.
 Reusable autonomous-development guidance belongs in private Planning AI.
 Normal manual use of this script must not depend on that private repository.
+
+## 4. Remove a misleading disk total after running Linux — 2026-10-11
+
+The first implementation passed 11 fixture tests and ShellCheck. A live Debian
+12 run then showed an overlay mount, its backing device, and the host bind
+mount. `df --total` summed those rows and could count the same storage twice.
+
+Remove the aggregate rather than building a device-deduplication engine.
+Each filesystem still has size, used, available, and percentage columns.
+This satisfies the exercise's disk information and gives readers a useful
+mount-level view without pretending to measure unique physical storage.
+
+Revise the option assertion and add a real-Linux test that starts a bounded
+CPU and memory workload, finds its PID in both rankings, and cleans it up even
+when an assertion fails. Fixtures alone did not reveal the mount topology.
