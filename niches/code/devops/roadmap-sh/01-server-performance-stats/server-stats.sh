@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Compose Linux's collectors without installing a monitoring service
+# Use existing Linux tools without adding a service
 set -euo pipefail
 export LC_ALL=C
 
@@ -31,7 +31,7 @@ for tool in vmstat free df ps awk; do
 done
 
 cpu_report() {
-    # The first row is since boot. Only the second row covers our interval.
+    # The first row covers time since startup. The second covers the chosen seconds.
     vmstat -n "$interval" 2 | awk '
         $1 == "r" {
             for (i = 1; i <= NF; i++) column[$i] = i
@@ -60,7 +60,7 @@ cpu_report() {
 }
 
 memory_report() {
-    # Available includes reclaimable cache. The used column varies by version.
+    # Linux can free cached memory. The used column changes between tool versions.
     free --bytes | awk '
         $1 == "Mem:" {
             if (NF < 7) exit 1
@@ -77,7 +77,7 @@ memory_report() {
 }
 
 process_report() {
-    # Consume every row to avoid breaking ps with SIGPIPE under pipefail.
+    # Read all rows so stopping after five doesn't make ps fail
     ps -eo pid=PID,comm=COMMAND,pcpu=CPU%,pmem=MEM%,rss=RSS_KiB \
         --sort="$1" | awk 'NR <= 6'
 }
@@ -85,7 +85,7 @@ process_report() {
 # Collect everything before printing so a failed collector cannot look complete.
 cpu=$(cpu_report) || fail 'Could not collect CPU statistics with vmstat'
 memory=$(memory_report) || fail 'Could not collect memory statistics with free'
-# An overlay and its backing device can appear together. Do not sum them.
+# Docker can show the same disk space twice. Do not add the rows together.
 disk=$(df -h --local --exclude-type=tmpfs --exclude-type=devtmpfs) \
     || fail 'Could not collect local filesystem statistics with df'
 cpu_processes=$(process_report '-pcpu,-rss,pid') || fail 'Could not list CPU processes with ps'

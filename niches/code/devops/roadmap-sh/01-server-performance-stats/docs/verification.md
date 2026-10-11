@@ -1,123 +1,72 @@
-# Verification
+# Test results
 
-Observed on 2026-10-11. The reviewed implementation is
-[`9984e76`](https://github.com/pradeeptathineni/labs/commit/9984e76).
-Later commits refine the CI execution environment and document completion.
+## Checks on 2026-10-11
 
-## What passed
+- Checked the script at `9984e76`. Later changes covered the test setup, documents, and completion status.
+- Bash syntax and ShellCheck 0.11.0 passed.
+- On macOS, 12 tests passed. The Linux-only test was skipped.
+- On Debian Linux, all 13 tests passed.
+- The existing 20 repository tests passed. They cover lab records, catalogs, imports, commit checks, and site updates.
+- GitHub Actions and site deployment passed at `d16cf1a` and `3b14e10`.
+- Browser checks confirmed both site versions, lab status, solution links, small screens, and use with JavaScript turned off.
+- Code and comments were reviewed while developing. There was no separate reviewer or usability study.
 
-| Check | Result | What it establishes |
-| --- | --- | --- |
-| Bash syntax and ShellCheck 0.11.0 | Passed | Shell syntax and static lint |
-| macOS lab suite | 12 passed, 1 Linux test skipped | Fixture interpretation and failures, not live Linux collection |
-| Debian Linux lab suite | 13 passed, no skips | Fixtures plus actual collection and a known workload |
-| Repository lifecycle suite | 20 passed | Existing metadata, catalog, hook, import, and publication behavior |
-| Hosted metadata and Pages CI at `d16cf1a` | Passed | Pinned Linux checks and a successful deployment |
-| Local and public browser checks at `d16cf1a` | Passed | Matching snapshot, lifecycle sections, solution links, narrow screens, and no-JavaScript operation |
-| Diff and comment review | Completed | Author review; independent review was not performed |
+## What the tests cover
 
-One file, `tests/test_report.py`, contains the fixture and real-Linux classes.
-The fixtures distinguish since-boot CPU from the recent sample, exercise
-reordered CPU columns and invalid counters, and verify available-memory
-arithmetic including free greater than available. They check a 20,000-row
-process stream, fewer than five processes, missing tools, unsupported hosts,
-bad arguments, and collector failures without partial output.
+- `tests/test_report.py` contains all the tests.
+- Sample command output checks the recent CPU reading, changed CPU column order, memory calculations, and invalid numbers.
+- Other checks cover 20,000 process rows, fewer than five processes, missing tools, bad arguments, failed commands, and macOS refusing to run the Linux report.
+- The Linux test starts a process that briefly uses CPU and 32 MiB of memory. It checks the process ID in both rankings and always stops the process afterward.
+- The process also stops itself after a timeout. This test checks the report, not how fast the system is.
 
-The live test allocates and touches 32 MiB, spins briefly, and checks that its
-actual PID appears in both top-five lists with positive CPU use and the
-expected resident memory. It always terminates the worker. The worker also
-has its own timeout. This workload is bounded; it is not a benchmark.
+## Tools used
 
-## Tested environment
+- Mac: Intel macOS, Bash 5.3.3, Python 3.12.10, Docker Server 29.8.0.
+- Linux: Debian 12 bookworm, kernel `7.0.12-linuxkit`, Bash 5.2.15, Python 3.11.2, procps-ng 4.0.2, GNU coreutils 9.1.
+- Docker image: `node:24-bookworm`, already installed locally.
+- Image ID: `sha256:367d9464824bc2fc1c5303b522c01df3b7cf33afc63785f88449798566b5c254`.
+- Fixed image reference: `node@sha256:6dac556d980b7f0e5498d08f08cee0ca67798b4ad6c23964a9214920e67758d0`.
+- No new packages, cloud resources, or host services were installed. The home-lab VM stayed stopped. Test containers were removed afterward.
 
-- Host: Intel macOS, Bash 5.3.3, Python 3.12.10, Docker Server 29.8.0.
-- Linux: Debian 12 bookworm, kernel `7.0.12-linuxkit`, Bash 5.2.15,
-  Python 3.11.2, procps-ng 4.0.2, GNU coreutils 9.1.
-- Existing image: `node:24-bookworm`, image ID
-  `sha256:367d9464824bc2fc1c5303b522c01df3b7cf33afc63785f88449798566b5c254`.
-- Reproducible image reference:
-  `node@sha256:6dac556d980b7f0e5498d08f08cee0ca67798b4ad6c23964a9214920e67758d0`.
+## Run the checks
 
-The cached image already had the Linux utilities and Python. No packages,
-cloud resources, or host services were installed for this lab. The stopped
-home-lab VM remained stopped. Disposable containers were removed after use.
-
-## Reproduce the checks
-
-Inside this lab directory:
+From the lab folder:
 
 ```sh
+make test
 make check
+make test-linux
 ```
 
-`make test` needs Python 3. `make check` also needs Bash and ShellCheck.
-On macOS the real-collector test explicitly skips. For the complete Linux
-suite, run `make test-linux` from this lab directory with Docker. The target
-owns this same command for local use and CI:
+- `make test` needs Python 3. Its Linux test skips on macOS.
+- `make check` also needs Bash and ShellCheck.
+- `make test-linux` needs Docker and runs all tests in the image listed above. Docker downloads it if it's missing.
+- The Docker test has no network access. It limits CPU, memory, and processes, runs without root, and can't change the source files.
+- Its temporary folder allows the sample test commands to run, with `nosuid` and `nodev` still set.
+- Both GitHub Actions workflows run Bash syntax checks and `make test-linux` before the site can update. Other solved labs need their own workflow checks.
 
-```sh
-docker run --rm --network none --read-only \
-  --cap-drop ALL --security-opt no-new-privileges \
-  --pids-limit 64 --memory 256m --cpus 1 --user 65534:65534 \
-  --tmpfs /tmp:rw,nosuid,nodev,exec,size=16m \
-  --mount "type=bind,src=$PWD,dst=/lab,readonly" \
-  --workdir /lab --entrypoint python3 \
-  node@sha256:6dac556d980b7f0e5498d08f08cee0ca67798b4ad6c23964a9214920e67758d0 \
-  -B -m unittest discover -s tests -v
-```
+## Problems found
 
-Only the temporary fixture mount permits execution. Source is read-only,
-network is disabled, privileges are dropped, and CPU, memory, and processes
-are bounded. A missing local image will require a download before execution.
-
-Both the metadata and Pages workflows run Bash syntax and `make test-linux`
-before accepting or publishing a snapshot. The workflow checks name
-this solved lab explicitly; other lab solutions do not gain CI automatically.
-
-## Findings that changed the result
-
-1. Live Linux showed that an overlay and backing device can both appear in
-   `df`. Removed the aggregate total to avoid double counting storage.
-2. Source review showed that kernel reserves can make available memory lower
-   than free. Corrected the validation and added a regression test.
-3. The first full Docker fixture run failed because `/tmp` was not executable.
-   Corrected that disposable test configuration. The real-collector test had
-   passed during that failed suite; the whole suite then passed after correction.
-4. [Hosted CI](https://github.com/pradeeptathineni/labs/actions/runs/38171060367)
-   failed the memory-workload assertion: five runner services had larger
-   resident sizes than the worker. This was a valid ranking on a busy host.
-   Publication was blocked. Moved CI to the same bounded process namespace
-   through `make test-linux`, with the tested image pinned by digest.
-
-The [decision record](decisions.md) preserves the original choices and revisions.
+- Docker could show the same disk space twice. Removed the combined disk total.
+- Available memory can be lower than free memory. Fixed that check and added a test.
+- Temporary test commands couldn't run from `/tmp`. Changed that folder's Docker settings.
+- The [first GitHub Actions check](https://github.com/pradeeptathineni/labs/actions/runs/38171060367) failed because five runner services used more memory than the test process. Moved the test into Docker with its own process list.
 
 ## Limits
 
-The readings are collected in sequence and are not an atomic snapshot. CPU
-sampling and lifetime process CPU measure different periods. A short-lived
-process can disappear between rankings, and the collectors themselves can
-appear in small process lists.
+- Numbers are read one after another, so they don't all come from the same moment.
+- System CPU covers the chosen number of seconds. Process CPU covers time since each process started.
+- A process can stop between the two rankings. The tools collecting the report can also appear in the lists.
+- Docker's CPU and memory numbers can cover its whole Linux virtual machine. The process list and disk rows can cover only the container.
+- Memory percentages use the visible system total, not the container's memory limit.
+- Disk rows can show the same space more than once. Processes can share memory pages, so adding their memory sizes won't give system memory use.
+- The Linux test expects few other programs to be running. Use `make test-linux` on a busy machine.
+- Testing covered this Debian setup. It didn't cover a physical Linux server, every Linux version, or BusyBox.
 
-Container CPU and memory counters can describe the Docker VM. Process and
-filesystem views follow their namespaces and mounts. Memory percentages use
-the visible system total, not a cgroup limit. Filesystem rows can overlap,
-and shared process pages mean resident sizes cannot be summed into system use.
+## Site updates
 
-The workload test expects an otherwise quiet process namespace. A busy shared
-server can legitimately have five processes larger or busier than the test
-worker. Test in a disposable container in that situation. No bare-metal,
-every-distribution, BusyBox, or production-readiness claim is made.
-
-No independent review or usability study was part of this attempt.
-
-## Publication and completion
-
-The failed hosted checks left the site at `88c2b44`, where this exercise was
-planned. [Pages run 38171368719](https://github.com/pradeeptathineni/labs/actions/runs/38171368719)
-published `d16cf1a` with the lab in progress. A live browser check verified
-that exact source revision, its status, and the pinned solution link.
-
-The completion commit records a finished, runnable attempt with decisions,
-checks, operating instructions, and known limits. Completion does not happen
-automatically when code is added or tests pass. Its main push must still pass
-the existing publication gates before the public site shows Complete.
+- Failed checks left the site at `88c2b44`, where the lab was planned.
+- [This Pages run](https://github.com/pradeeptathineni/labs/actions/runs/38171368719) put `d16cf1a` on the site with the lab in progress.
+- [This Pages run](https://github.com/pradeeptathineni/labs/actions/runs/38171776776) put `3b14e10` on the site with the lab complete.
+- Browser checks confirmed the exact code versions, status, and solution links.
+- Completion is set explicitly. Adding code or passing tests doesn't set it. The site changes after a main push passes its checks and deploys.

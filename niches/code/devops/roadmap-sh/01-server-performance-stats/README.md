@@ -1,15 +1,13 @@
 # Server Performance Stats
 
-Source: [roadmap.sh](https://roadmap.sh/projects/server-stats)
+## Exercise definition
 
-## Exercise Definition
-
-Read the [original exercise definition](https://roadmap.sh/projects/server-stats).
+[Server Performance Stats on roadmap.sh](https://roadmap.sh/projects/server-stats)
 
 ## Solution
 
-Run on Linux with Bash, procps (`vmstat`, `free`, `ps`), GNU coreutils (`df`),
-and `awk`. No root privileges or background service are required.
+- Run on Linux with Bash, procps (`vmstat`, `free`, `ps`), GNU coreutils (`df`), and `awk`.
+- No root access or background service is needed.
 
 ```sh
 ./server-stats.sh
@@ -17,33 +15,23 @@ and `awk`. No root privileges or background service are required.
 ./server-stats.sh --help
 ```
 
-CPU sampling takes one second by default. `--interval` accepts an integer
-between 1 and 60 seconds. Invalid inputs and collection failures return a
-nonzero exit code. A failed collection prints an error instead of a partial
-report. The help command also works on macOS, but collection requires Linux.
-
-CPU non-idle time includes I/O wait and stolen time. Process CPU percentages
-are lifetime averages, so they need not match the system sampling window.
-Memory used is total minus available, which accounts for reclaimable cache.
-Process memory is resident size, not an allocation limit.
-
-Disk rows describe mounted local filesystems, excluding `tmpfs` and `devtmpfs`.
-Each row shows used, available, and a percentage. There is no aggregate total:
-overlays and backing devices can describe the same storage. Reserved blocks
-can make used plus available smaller than filesystem size, and `df` calculates
-its percentage against used plus available. Human-readable sizes are rounded.
+- CPU is measured over one second by default. `--interval` accepts whole seconds from 1 to 60.
+- Bad arguments or failed commands stop the script with an error. It won't print a half-finished report.
+- Help also works on macOS. The report itself needs Linux.
+- CPU time includes time waiting for disk work and time taken by other virtual machines.
+- Each process's CPU percentage is an average since it started. It covers a different period from the system CPU reading.
+- Memory used is total minus available. Available includes cached memory that Linux can free for programs.
+- Process memory shows what it currently holds in RAM, including shared pages.
+- Each disk row shows a storage location, such as `/`, with its size, used space, available space, and percentage used.
+- `tmpfs` and `devtmpfs` use memory, so they are left out. Docker can show the same disk space in more than one row, so there is no combined total.
+- Linux can keep some disk space aside. Used plus available may be less than the full size. `df` calculates the percentage from used plus available, and rounds the displayed sizes.
+- In Docker, CPU and memory readings can describe its Linux virtual machine. The process list and disk rows can describe only the container. The report isn't a measure of the container's own resource limits.
 
 ```sh
-make test   # Python 3 standard-library tests
-make check  # Also requires ShellCheck; checks Bash syntax and lint
-make test-linux  # Complete suite in a bounded Docker container
+make test        # Python 3 tests
+make check       # Also checks Bash syntax and runs ShellCheck
+make test-linux  # All tests in Docker, with CPU and memory limits
 ```
 
-The tests exercise controlled collector output and, on Linux, a bounded live
-CPU and memory workload. Linux containers can expose VM-wide CPU and memory counters
-alongside namespaced processes and filesystems; this is not a container-usage
-report.
-
-The [decision record](docs/decisions.md) explains the scope, metric choices,
-and evidence-backed revisions. The [verification record](docs/verification.md)
-has results, environment versions, the Docker command, and operating limits.
+- [Decisions](docs/decisions.md)
+- [Test results](docs/verification.md)

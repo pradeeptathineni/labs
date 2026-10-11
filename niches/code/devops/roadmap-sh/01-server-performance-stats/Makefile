@@ -6,7 +6,7 @@ run:
 test:
 	python3 -m unittest discover -s tests -v
 
-# Pin the tested tools and isolate process rankings from a busy shared host
+# Keep the tested Linux setup and leave out the host's other programs
 test-linux:
 	docker run --rm --network none --read-only \
 		--cap-drop ALL --security-opt no-new-privileges \

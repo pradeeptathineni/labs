@@ -1,134 +1,60 @@
 # Engineering decisions
 
-This record follows the development order. It explains choices and revisions
-that a reader can check against the code, tests, and Git history.
+1. **Started with the Linux tools already available (2026-10-11)**
+   - Picked the first roadmap.sh project. It could be tested on Linux without setting up a server.
+   - Used Bash with `vmstat`, `free`, `df`, and `ps`. These tools already collect the numbers and sort the processes.
+   - Kept Python for tests. A new monitoring library wasn't needed.
+   - Left out a dashboard, saved readings, login logs, and cloud setup. None was needed for the requested report.
 
-## 1. Start with the existing Linux tools — 2026-10-11
+1. **Chose what each number means (2026-10-11)**
+   - Used the second `vmstat` row. The first covers time since startup, while the second covers the chosen number of seconds.
+   - Included waiting and time taken by other virtual machines in the CPU total, and showed them separately.
+   - Calculated memory used as total minus available. Linux can free some cached memory for programs, so free memory alone would give the wrong impression.
+   - Didn't use the `free` tool's used column because its meaning has changed between versions.
+   - The first version used `df --total` to show each storage location and a combined total. It left out storage held in memory.
+   - Used `ps` to sort the top five processes. Its CPU percentage is an average since each process started.
+   - Sorted memory by how much each process holds in RAM. Small memory percentages can round to zero.
+   - Printed command names without their arguments. Arguments can contain passwords or other private values.
+   - Checked the [vmstat](https://gitlab.com/procps-ng/procps/-/raw/master/man/vmstat.8), [free](https://gitlab.com/procps-ng/procps/-/raw/master/man/free.1), and [ps](https://gitlab.com/procps-ng/procps/-/raw/master/man/ps.1) manuals, and the [Linux memory notes](https://www.kernel.org/doc/html/latest/filesystems/proc.html).
 
-The [exercise](https://roadmap.sh/projects/server-stats) asks for a script with
-CPU, memory, disk, and top-process statistics. I chose the first project in the
-roadmap.sh collection because its behavior can be checked on a real Linux
-runtime without provisioning a server.
+1. **Tested sample output, then real Linux commands (2026-10-11)**
+   - Used Python's built-in test tools with sample command output to check calculations and errors.
+   - Then ran the script on Linux. Sample output couldn't prove that the real commands worked.
+   - Used an existing Debian Docker image. No cloud resources or home-lab VM were needed.
+   - Docker's system numbers can cover its whole Linux virtual machine while its process list covers just the container. Kept that difference in the operating notes.
 
-Use Bash to compose `vmstat`, `free`, `df`, and `ps`. These utilities already
-own collection and sorting. Python is useful for the tests, but a Python
-collector or monitoring dependency would add little to this exercise.
+1. **Removed the combined disk total after running Linux (2026-10-11)**
+   - The first version passed 11 tests and ShellCheck.
+   - A Debian 12 run showed Docker's file storage, the disk underneath it, and the folder shared from the Mac.
+   - `df --total` could count the same space twice. Removed the total and kept each row's size, used space, available space, and percentage.
+   - Checking which rows share a disk would need more code and wasn't needed for this report.
+   - Added a Linux test that briefly uses CPU and 32 MiB of memory. It checks that the process appears in both top-five lists, then stops it even if the test fails.
 
-Keep the report to the required measurements. A dashboard, historical storage,
-privileged login-log access, and cloud deployment would make this harder to
-operate without improving the required behavior.
+1. **Fixed an incorrect memory check during review (2026-10-11)**
+   - The script assumed available memory couldn't be lower than free memory.
+   - Linux keeps some memory aside for its own needs. Available memory can therefore be lower than free memory.
+   - The [Linux notes](https://www.kernel.org/doc/html/v6.1/filesystems/proc.html) and an [Oracle Linux example](https://blogs.oracle.com/linux/memavailable-less-than-memfree) showed why.
+   - Changed the checks to compare both numbers with total memory. Added a test for free memory greater than available memory.
+   - This case came from source review. It wasn't seen in the Debian run.
+   - The first full Docker test run also failed because temporary test commands couldn't run from `/tmp`.
+   - Allowed those commands to run in the container's temporary folder. Kept the source folder read-only and the `nosuid` and `nodev` protections.
+   - All 12 tests then passed on Linux. The script itself didn't need a change for that folder problem.
 
-## 2. Explain what the numbers measure — 2026-10-11
+1. **Kept the Linux test separate from the runner's own programs (2026-10-11)**
+   - The first GitHub Actions run failed the memory test. Five runner services used about 50 to 128 MiB each, more than the test process.
+   - The script had ranked them correctly. The test had assumed it would be running with few other programs.
+   - Added `make test-linux` for local use and GitHub Actions. It runs all tests in Docker with its own process list.
+   - Fixed the image version by its full ID. Set limits on CPU, memory, and process count, and kept the source read-only.
+   - A new runner needs to download the image. It already has the tools needed, so no Dockerfile or install script was added.
+   - The failed checks left the public site unchanged. It updated after the corrected checks and deployment passed.
 
-Use the second `vmstat` report for a recent CPU interval. Its first report
-describes time since boot. Report non-idle time and show wait and stolen time
-separately so that the headline is not mistaken for time executing work.
+1. **Kept the tests in one file (2026-10-11)**
+   - The sample-output tests and Linux test fit together in `tests/test_report.py`.
+   - Separate classes are enough to keep the two kinds of tests apart.
+   - Kept checks for calculations and important errors. More files or repeated tests weren't needed once these passed.
 
-Calculate memory used as total minus available. Available includes memory the
-kernel can reclaim for applications. Also show literal free memory so that
-cache does not look like a leak. Calculate this explicitly because `free`
-versions have changed the meaning of their used column.
-
-Let `df` report mounted local filesystems and its total, excluding in-memory
-filesystems. Label that scope. Filesystem capacity is not raw-device capacity,
-and reserved space means used plus available can differ from total.
-
-Use `ps` sorting for the top five processes. Its CPU percentage is a lifetime
-average, not the CPU sampling interval above. Rank memory by resident size and
-show that size because small percentages can round to zero. Print command
-names, not full argument lists, which may contain credentials.
-
-These choices follow the upstream manuals for
-[vmstat](https://gitlab.com/procps-ng/procps/-/raw/master/man/vmstat.8),
-[free](https://gitlab.com/procps-ng/procps/-/raw/master/man/free.1), and
-[ps](https://gitlab.com/procps-ng/procps/-/raw/master/man/ps.1), and the kernel's
-[proc documentation](https://www.kernel.org/doc/html/latest/filesystems/proc.html).
-The verification record will distinguish the tested versions from current manuals.
-
-## 3. Keep evidence and operation separate — 2026-10-11
-
-Use standard-library Python tests with controlled command output for edge
-cases, then run the script against real Linux tools with a bounded workload.
-A fixture proves interpretation; it cannot prove Linux collection works.
-
-An existing Debian Docker image provides Linux without new cloud resources or
-starting the stopped home-lab VM. Its kernel-wide counters can describe the
-Docker VM while process and filesystem views depend on namespaces. This is
-Linux compatibility evidence, not a measurement of the Mac or a container
-resource dashboard.
-
-## 4. Remove a misleading disk total after running Linux — 2026-10-11
-
-The first implementation passed 11 fixture tests and ShellCheck. A live Debian
-12 run then showed an overlay mount, its backing device, and the host bind
-mount. `df --total` summed those rows and could count the same storage twice.
-
-Remove the aggregate rather than building a device-deduplication engine.
-Each filesystem still has size, used, available, and percentage columns.
-This satisfies the exercise's disk information and gives readers a useful
-mount-level view without pretending to measure unique physical storage.
-
-Revise the option assertion and add a real-Linux test that starts a bounded
-CPU and memory workload, finds its PID in both rankings, and cleans it up even
-when an assertion fails. Fixtures alone did not reveal the mount topology.
-
-## 5. Revise an overly strict memory assumption during review — 2026-10-11
-
-Reviewing the validation exposed an assumption that available memory must be
-at least free memory. The kernel's estimate accounts for reserves and zone
-watermarks. On a system with little reclaimable cache, available can be less
-than free. The [kernel documentation](https://www.kernel.org/doc/html/v6.1/filesystems/proc.html)
-explains the estimate, and an [Oracle Linux engineering example](https://blogs.oracle.com/linux/memavailable-less-than-memfree)
-demonstrates this case.
-
-Validate both quantities against total memory instead of comparing them to
-each other. Replace the incorrect failure fixture and add a regression test
-for free greater than available. This is a source-backed edge case, not a
-claim that the live Debian run reproduced that memory state.
-
-The Linux test attempt also failed because its disposable `/tmp` mount was
-not executable. The fixtures create command shims there. Allow execution only
-on that temporary container mount, retain `nosuid` and `nodev`, and keep the
-source mount read-only. With that correction, all 12 tests then passed on
-Linux. No product fix was needed for this test-environment failure.
-
-## 6. Make the workload test independent of runner services — 2026-10-11
-
-The first hosted CI attempt failed the known-worker memory assertion. Its
-top five correctly contained runner services with resident sizes from about
-50 to 128 MiB, all larger than the test's 32 MiB allocation. The locally
-tested container had an isolated process namespace; the CI host did not.
-
-Add `make test-linux` as the shared local and CI command. It runs the complete
-suite in the same Debian environment, pinned by image digest, with a bounded
-read-only container and an executable disposable fixture directory.
-
-This preserves a meaningful assertion without depending on which services
-the hosted runner starts. It costs a Docker image download on a fresh runner.
-Revisit the image choice if that cost becomes significant. The cached image
-already supplies all required tools, so no Dockerfile or installation script
-is needed today.
-
-The new CI gate prevented this failed attempt from replacing the public site.
-Local commits and pushes did not themselves establish successful publication.
-
-## 7. Keep the test organization proportionate — 2026-10-11
-
-The fixtures and live Linux check are small enough to read together, so
-consolidate them into `tests/test_report.py`. Separate test
-classes still distinguish controlled output from real collection.
-
-Retain the tests that discriminate metric meaning and failure behavior.
-Stop expanding or repeating checks once those pass unless a new change,
-failure, or unresolved concern justifies more work. A growing test structure
-would add navigation without helping this lab today.
-
-## 8. Finish the bounded attempt — 2026-10-11
-
-The required report runs, the meaningful fixture and live checks pass,
-the code and comments have been reviewed, and the README explains operation.
-Hosted CI and public in-progress publication are also verified. Mark this
-attempt complete, keeping its Linux and measurement limits visible.
-
-Further features, test structure, or documentation need a concrete reason.
-This is a completed exercise, not a claim of mastery or universal compatibility.
+1. **Finished the lab (2026-10-11)**
+   - The report ran, the tests passed, and the code and comments were reviewed.
+   - GitHub Actions passed, and the site showed the lab in progress with its solution link.
+   - Marked the lab complete. The operating notes keep the Linux and measurement limits clear.
+   - More features or tests need an actual reason. This work hasn't been tested on every Linux setup.

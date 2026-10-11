@@ -1,4 +1,4 @@
-"""Check report interpretation with fixtures and collection with a Linux workload."""
+"""Check report calculations with sample output, then run on Linux."""
 
 import json
 import os
@@ -23,7 +23,7 @@ Mem: 104857600 83886080 10485760 0 73400320 73400320
 Swap: 0 0 0
 """
 
-# Each executable reads its own fixture. The shim also records collector options.
+# Each test command reads sample output and records its arguments
 SHIM = r'''
 import json, os, sys
 from pathlib import Path
@@ -61,7 +61,7 @@ class ReportTests(unittest.TestCase):
             command = self.bin / name
             command.write_text(f"#!{sys.executable}\n" + SHIM)
             command.chmod(0o755)
-        # Keep only the real awk. Missing-tool tests must not find host substitutes.
+        # Keep only awk from the host so a missing tool stays missing
         (self.bin / "awk").symlink_to(shutil.which("awk"))
         self.calls = self.root / "calls.jsonl"
 
@@ -199,7 +199,7 @@ class LinuxSmokeTests(unittest.TestCase):
                 self.assertGreaterEqual(int(matching[0][-1]), 32 * 1024)
                 self.assertGreater(float(matching[0][-3]), 0)
         finally:
-            # Always release the bounded workload, including when assertions fail.
+            # Always stop the test process, even when a check fails
             worker.terminate()
             try:
                 worker.communicate(timeout=2)
