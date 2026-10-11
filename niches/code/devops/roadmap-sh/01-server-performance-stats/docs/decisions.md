@@ -115,3 +115,15 @@ is needed today.
 
 The new CI gate prevented this failed attempt from replacing the public site.
 Local commits and pushes did not themselves establish successful publication.
+
+## 7. Keep the test organization proportionate — 2026-10-11
+
+The human clarified that one test file is normally enough, until a real need
+justifies splitting it. The fixtures and live Linux check are small enough to
+read together, so consolidate them into `tests/test_report.py`. Separate test
+classes still distinguish controlled output from real collection.
+
+Retain the tests that discriminate metric meaning and failure behavior.
+Stop expanding or repeating checks once those pass unless a new change,
+failure, or unresolved concern justifies more work. A growing test structure
+would add navigation without helping this lab today.

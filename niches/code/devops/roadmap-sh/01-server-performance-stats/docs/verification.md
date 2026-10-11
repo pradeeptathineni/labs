@@ -14,6 +14,7 @@ Later commits refine the CI execution environment and document completion.
 | Repository lifecycle suite | 20 passed | Existing metadata, catalog, hook, import, and publication behavior |
 | Diff and comment review | Completed by the implementing agent | Same-context review, not independent review |
 
+One file, `tests/test_report.py`, contains the fixture and real-Linux classes.
 The fixtures distinguish since-boot CPU from the recent sample, exercise
 reordered CPU columns and invalid counters, and verify available-memory
 arithmetic including free greater than available. They check a 20,000-row
