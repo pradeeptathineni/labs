@@ -47,7 +47,7 @@ def check(browser, url, labs, screenshots, expected_commit, published=False):
     for lab in labs:
         row = page.locator('#work-results .lab').filter(has=page.locator(f'a[href="{lab["exercise_url"]}"]'))
         expect(row.locator('.meta')).to_contain_text(payload['status_labels'][lab['status']])
-        solutions = row.get_by_role('link', name='Solution', exact=True)
+        solutions = row.get_by_role('link', name='Solution', exact=True, include_hidden=True)
         expect(solutions).to_have_count(int(bool(lab['solution_url'])))
         if lab['solution_url']:
             expect(solutions).to_have_attribute('href', lab['solution_url'])
