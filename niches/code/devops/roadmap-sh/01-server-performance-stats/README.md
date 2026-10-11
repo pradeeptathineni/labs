@@ -18,7 +18,8 @@
 - CPU is measured over one second by default. `--interval` accepts whole seconds from 1 to 60.
 - Bad arguments or failed commands stop the script with an error. It won't print a half-finished report.
 - Help also works on macOS. The report itself needs Linux.
-- CPU time includes time waiting for disk work and time taken by other virtual machines.
+- CPU percentage includes I/O wait, which is time spent waiting for disk or other devices.
+- It also includes stolen time, when the virtual machine waits for CPU time from the machine running it.
 - Each process's CPU percentage is an average since it started. It covers a different period from the system CPU reading.
 - Memory used is total minus available. Available includes cached memory that Linux can free for programs.
 - Process memory shows what it currently holds in RAM, including shared pages.

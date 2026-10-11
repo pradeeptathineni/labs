@@ -8,7 +8,7 @@
 
 1. **Chose what each number means (2026-10-11)**
    - Used the second `vmstat` row. The first covers time since startup, while the second covers the chosen number of seconds.
-   - Included waiting and time taken by other virtual machines in the CPU total, and showed them separately.
+   - Included I/O wait and stolen time in the CPU total, and showed them separately.
    - Calculated memory used as total minus available. Linux can free some cached memory for programs, so free memory alone would give the wrong impression.
    - Didn't use the `free` tool's used column because its meaning has changed between versions.
    - The first version used `df --total` to show each storage location and a combined total. It left out storage held in memory.
