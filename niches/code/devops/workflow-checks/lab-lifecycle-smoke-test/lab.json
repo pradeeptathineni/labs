@@ -12,10 +12,10 @@
     "provider": "created"
   },
   "tracking": {
-    "status": "not-started",
+    "status": "in-progress",
     "dates": {
       "created": "2026-10-11",
-      "started": null,
+      "started": "2026-10-11",
       "updated": "2026-10-11",
       "completed": null
     },

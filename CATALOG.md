@@ -4,7 +4,7 @@
 
 **77 labs:** 33 Projects · 31 Exercises · 11 Problem Sets · 1 Experiment · 1 Question Bank
 
-0 complete · 0 in progress · 77 planned · 0 paused · 0 abandoned
+0 complete · 1 in progress · 76 planned · 0 paused · 0 abandoned
 
 > [!IMPORTANT]
 > Imported work is planned practice. Target skills are not demonstrated proficiency; certification goals are preparation, not credentials.
@@ -15,7 +15,8 @@ No completed labs yet.
 
 ## In progress
 
-No labs in progress yet.
+- [Lab lifecycle smoke test](niches/code/devops/workflow-checks/lab-lifecycle-smoke-test/README.md#exercise-definition) — Verify creation, explicit progress, completion, and public catalog deployment.<br>Experiment · In progress · Updated 2026-10-11 · `workflow-validation` · `git`
+
 
 ## [Browse labs](#browse-labs)
 
@@ -275,7 +276,7 @@ No labs in progress yet.
 
 `niches/code/devops/workflow-checks`
 
-- [Lab lifecycle smoke test](niches/code/devops/workflow-checks/lab-lifecycle-smoke-test/README.md#exercise-definition)<a id="lab-niches-code-devops-workflow-checks-lab-lifecycle-smoke-test"></a> — Verify creation, explicit progress, completion, and public catalog deployment.<br>Experiment · Planned · Updated 2026-10-11 · `workflow-validation` · `git`
+- [Lab lifecycle smoke test](niches/code/devops/workflow-checks/lab-lifecycle-smoke-test/README.md#exercise-definition)<a id="lab-niches-code-devops-workflow-checks-lab-lifecycle-smoke-test"></a> — Verify creation, explicit progress, completion, and public catalog deployment.<br>Experiment · In progress · Updated 2026-10-11 · `workflow-validation` · `git`
 
 </details>
 
