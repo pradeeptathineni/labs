@@ -18,9 +18,11 @@ I used the real initializer, metadata editor, pre-commit hook, main branch, GitH
 | --- | --- | --- |
 | Planned | The initializer added one experiment with `not-started` status, null start/completion dates, and an empty Solution section. The hook recorded the staged README. | Commit `f99a162`; [Pages run 38164955733](https://github.com/pradeeptathineni/labs/actions/runs/38164955733) succeeded. The live build and catalog payload matched that commit, showed Planned, and had no Solution link. |
 | In progress | The metadata command set `in-progress` and the first start date to 2026-10-11. The status-only commit kept the content fingerprint unchanged. | Commit `6647f42`; [Pages run 38165049526](https://github.com/pradeeptathineni/labs/actions/runs/38165049526) succeeded. The live build and payload matched, showed In progress, and still had no Solution link. |
-| Completed | I added these worked notes and explicitly selected `complete`. The hook records the new content fingerprint, and the completion command records the first completion date. | Final public verification is recorded below after deployment. |
+| Completed | I added these worked notes and explicitly selected `complete` in `e946b1f`. The hook recorded the new content fingerprint, and the completion command recorded the first completion date as 2026-10-11. | Snapshot `fefbd5d`, including the follow-up browser check correction, was published by [Pages run 38165800793](https://github.com/pradeeptathineni/labs/actions/runs/38165800793). The live build and payload matched, showed Complete, and included a Solution link pinned to that snapshot. The full live browser check passed. |
 
 At each local edit or metadata change, the public site retained its last published snapshot until the main deployment succeeded. The corpus grew from 76 to 77 labs; the original 76 labs and 49 atlas opportunities kept their existing lifecycle state. This completed experiment is distinct from those still-planned exercises.
+
+I specifically checked that the committed local completion still left the public site on `6647f42` before pushing. It also stayed on that in-progress snapshot while the new Pages tests ran after the push. For the completed snapshot, the build took 1m11s and deployment took 17s; that is one observed run, not a publication-time guarantee.
 
 ### Weaknesses found and fixed
 
@@ -37,5 +39,9 @@ At each local edit or metadata change, the public site retained its last publish
 The original 16 tests passed before changes. The expanded 20-test suite passed locally, including the full planned → in-progress → complete → reopened → complete workflow through real commit hooks and clean release builds in disposable repositories. Those checks also preserve manual generated-view edits, reject unstaged shared tooling without altering the index, reject invalid dates without writes, and prove release verification does not depend on local generator receipts.
 
 The browser check passed for the local catalog at both `/` and `/labs/`, covering status sections, Solution links, filtering, saved URLs, reload/back, desktop and narrow layouts, and usable links with JavaScript disabled. A deliberate mismatch in the expected commit made the live check fail as intended; the local artifact was restored afterward.
+
+Both the [metadata workflow](https://github.com/pradeeptathineni/labs/actions/runs/38165800743) and completed-stage Pages workflow passed the 20-test suite. The live browser check verified the actual deployed completed snapshot, including its new Solution link. That check required a small correction to inspect links inside collapsed collections; it did not require a change to the public page's layout.
+
+These final publication notes are a subsequent content update to an already-complete lab. They go through the same hook and deployment path, retain the original start/completion dates, and keep the lab Complete. Detailed local observations and screenshots are in ignored `.meta/build/lifecycle-evidence/` and `.meta/build/browser-smoke/`; the commits and linked successful Actions runs provide the public record.
 
 The [maintenance guide](../../../../../.meta/README.md) explains everyday creation, progress, completion, reopening, staged content, and first-date semantics. The [publishing guide](../../../../../.meta/site/README.md) explains deployment verification, stale snapshots, and recovery from failed checks.
