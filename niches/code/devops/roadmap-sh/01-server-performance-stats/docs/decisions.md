@@ -127,3 +127,13 @@ Retain the tests that discriminate metric meaning and failure behavior.
 Stop expanding or repeating checks once those pass unless a new change,
 failure, or unresolved concern justifies more work. A growing test structure
 would add navigation without helping this lab today.
+
+## 8. Finish the bounded attempt — 2026-10-11
+
+The required report runs, the meaningful fixture and live checks pass,
+the code and comments have been reviewed, and the README explains operation.
+Hosted CI and public in-progress publication are also verified. Mark this
+attempt complete, keeping its Linux and measurement limits visible.
+
+Further features, test structure, or documentation need a concrete reason.
+This is a completed exercise, not a claim of mastery or universal compatibility.

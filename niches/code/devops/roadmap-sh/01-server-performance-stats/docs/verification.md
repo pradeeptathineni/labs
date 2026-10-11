@@ -12,6 +12,8 @@ Later commits refine the CI execution environment and document completion.
 | macOS lab suite | 12 passed, 1 Linux test skipped | Fixture interpretation and failures, not live Linux collection |
 | Debian Linux lab suite | 13 passed, no skips | Fixtures plus actual collection and a known workload |
 | Repository lifecycle suite | 20 passed | Existing metadata, catalog, hook, import, and publication behavior |
+| Hosted metadata and Pages CI at `d16cf1a` | Passed | Pinned Linux checks and a successful deployment |
+| Local and public browser checks at `d16cf1a` | Passed | Matching snapshot, lifecycle sections, solution links, narrow screens, and no-JavaScript operation |
 | Diff and comment review | Completed by the implementing agent | Same-context review, not independent review |
 
 One file, `tests/test_report.py`, contains the fixture and real-Linux classes.
@@ -107,3 +109,15 @@ worker. Test in a disposable container in that situation. No bare-metal,
 every-distribution, BusyBox, or production-readiness claim is made.
 
 No independent reviewer or human usability study was part of this attempt.
+
+## Publication and completion
+
+The failed hosted checks left the site at `88c2b44`, where this exercise was
+planned. [Pages run 38171368719](https://github.com/pradeeptathineni/labs/actions/runs/38171368719)
+published `d16cf1a` with the lab in progress. A live browser check verified
+that exact source revision, its status, and the pinned solution link.
+
+The completion commit records a finished, runnable attempt with decisions,
+checks, operating instructions, and known limits. Completion does not happen
+automatically when code is added or tests pass. Its main push must still pass
+the existing publication gates before the public site shows Complete.

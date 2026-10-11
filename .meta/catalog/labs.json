@@ -565,14 +565,14 @@
       "url": "https://roadmap.sh/projects/server-stats"
     },
     "tracking": {
-      "status": "in-progress",
+      "status": "complete",
       "dates": {
         "created": "2026-10-03",
         "started": "2026-10-11",
         "updated": "2026-10-11",
-        "completed": null
+        "completed": "2026-10-11"
       },
-      "content_sha256": "c80ae7d44a07394f29b6cf49a89e75192b628d9956b17227465bb038f1a41838"
+      "content_sha256": "ea6cb85e1d3f1a4e6009ebf7c34dfc9bfd06588274d2c12261e10678c39ac17d"
     },
     "niche": "code",
     "domain": "devops",

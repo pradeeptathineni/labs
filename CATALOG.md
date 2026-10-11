@@ -4,20 +4,21 @@
 
 **77 labs:** 33 Projects · 31 Exercises · 11 Problem Sets · 1 Experiment · 1 Question Bank
 
-1 complete · 1 in progress · 75 planned · 0 paused · 0 abandoned
+2 complete · 0 in progress · 75 planned · 0 paused · 0 abandoned
 
 > [!IMPORTANT]
 > Imported work is planned practice. Target skills are not demonstrated proficiency; certification goals are preparation, not credentials.
 
 ## Completed
 
+- [Server Performance Stats](niches/code/devops/roadmap-sh/01-server-performance-stats/README.md#exercise-definition) — Write a script that reports basic Linux server performance statistics.<br>Project · Complete · Updated 2026-10-11 · `filesystems` · `performance-monitoring` · `process-inspection` · `resource-metrics` · `bash` · `linux` · [Solution](niches/code/devops/roadmap-sh/01-server-performance-stats/README.md#solution) · [ref](https://roadmap.sh/projects/server-stats)
+
 - [Lab lifecycle smoke test](niches/code/devops/workflow-checks/lab-lifecycle-smoke-test/README.md#exercise-definition) — Verify creation, explicit progress, completion, and public catalog deployment.<br>Experiment · Complete · Updated 2026-10-11 · `workflow-validation` · `git` · [Solution](niches/code/devops/workflow-checks/lab-lifecycle-smoke-test/README.md#solution)
 
 
 ## In progress
 
-- [Server Performance Stats](niches/code/devops/roadmap-sh/01-server-performance-stats/README.md#exercise-definition) — Write a script that reports basic Linux server performance statistics.<br>Project · In progress · Updated 2026-10-11 · `filesystems` · `performance-monitoring` · `process-inspection` · `resource-metrics` · `bash` · `linux` · [Solution](niches/code/devops/roadmap-sh/01-server-performance-stats/README.md#solution) · [ref](https://roadmap.sh/projects/server-stats)
-
+No labs in progress yet.
 
 ## [Browse labs](#browse-labs)
 
@@ -218,7 +219,7 @@
 
 `niches/code/devops/roadmap-sh` · [notes](niches/code/devops/roadmap-sh/README.md) · [ref](https://roadmap.sh/devops/projects)
 
-1. [Server Performance Stats](niches/code/devops/roadmap-sh/01-server-performance-stats/README.md#exercise-definition)<a id="lab-niches-code-devops-roadmap-sh-01-server-performance-stats"></a> — Write a script that reports basic Linux server performance statistics.<br>Project · In progress · Updated 2026-10-11 · `filesystems` · `performance-monitoring` · `process-inspection` · `resource-metrics` · `bash` · `linux` · [Solution](niches/code/devops/roadmap-sh/01-server-performance-stats/README.md#solution) · [ref](https://roadmap.sh/projects/server-stats)
+1. [Server Performance Stats](niches/code/devops/roadmap-sh/01-server-performance-stats/README.md#exercise-definition)<a id="lab-niches-code-devops-roadmap-sh-01-server-performance-stats"></a> — Write a script that reports basic Linux server performance statistics.<br>Project · Complete · Updated 2026-10-11 · `filesystems` · `performance-monitoring` · `process-inspection` · `resource-metrics` · `bash` · `linux` · [Solution](niches/code/devops/roadmap-sh/01-server-performance-stats/README.md#solution) · [ref](https://roadmap.sh/projects/server-stats)
 
 2. [Log Archive Tool](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition)<a id="lab-niches-code-devops-roadmap-sh-02-log-archive-tool"></a> — Build a command-line tool that archives logs with a dated filename.<br>Project · Planned · Updated 2026-10-04 · `archiving` · `command-line` · `compression` · `log-management` · `timestamps` · [ref](https://roadmap.sh/projects/log-archive-tool)
 
