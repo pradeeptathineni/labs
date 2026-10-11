@@ -14,7 +14,7 @@ Later commits refine the CI execution environment and document completion.
 | Repository lifecycle suite | 20 passed | Existing metadata, catalog, hook, import, and publication behavior |
 | Hosted metadata and Pages CI at `d16cf1a` | Passed | Pinned Linux checks and a successful deployment |
 | Local and public browser checks at `d16cf1a` | Passed | Matching snapshot, lifecycle sections, solution links, narrow screens, and no-JavaScript operation |
-| Diff and comment review | Completed by the implementing agent | Same-context review, not independent review |
+| Diff and comment review | Completed | Author review; independent review was not performed |
 
 One file, `tests/test_report.py`, contains the fixture and real-Linux classes.
 The fixtures distinguish since-boot CPU from the recent sample, exercise
@@ -108,7 +108,7 @@ server can legitimately have five processes larger or busier than the test
 worker. Test in a disposable container in that situation. No bare-metal,
 every-distribution, BusyBox, or production-readiness claim is made.
 
-No independent reviewer or human usability study was part of this attempt.
+No independent review or usability study was part of this attempt.
 
 ## Publication and completion
 

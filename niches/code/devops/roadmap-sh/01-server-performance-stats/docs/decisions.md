@@ -57,10 +57,6 @@ Docker VM while process and filesystem views depend on namespaces. This is
 Linux compatibility evidence, not a measurement of the Mac or a container
 resource dashboard.
 
-The public lab will contain operation instructions, decisions, and evidence.
-Reusable autonomous-development guidance belongs in private Planning AI.
-Normal manual use of this script must not depend on that private repository.
-
 ## 4. Remove a misleading disk total after running Linux — 2026-10-11
 
 The first implementation passed 11 fixture tests and ShellCheck. A live Debian
@@ -118,9 +114,8 @@ Local commits and pushes did not themselves establish successful publication.
 
 ## 7. Keep the test organization proportionate — 2026-10-11
 
-The human clarified that one test file is normally enough, until a real need
-justifies splitting it. The fixtures and live Linux check are small enough to
-read together, so consolidate them into `tests/test_report.py`. Separate test
+The fixtures and live Linux check are small enough to read together, so
+consolidate them into `tests/test_report.py`. Separate test
 classes still distinguish controlled output from real collection.
 
 Retain the tests that discriminate metric meaning and failure behavior.
