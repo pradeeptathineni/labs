@@ -23,7 +23,7 @@ jobs:
       - name: Check the server performance solution on Linux
         run: |
           bash -n niches/code/devops/roadmap-sh/01-server-performance-stats/server-stats.sh
-          python3 -m unittest discover -s niches/code/devops/roadmap-sh/01-server-performance-stats/tests -v
+          make -C niches/code/devops/roadmap-sh/01-server-performance-stats test-linux
       - run: python3 .meta/scripts/lab_sync.py --check
       - run: python3 .meta/scripts/catalog.py --check
       - run: python3 .meta/scripts/atlas.py --check

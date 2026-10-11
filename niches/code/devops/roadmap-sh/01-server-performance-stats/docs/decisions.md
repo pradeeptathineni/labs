@@ -95,3 +95,23 @@ not executable. The fixtures create command shims there. Allow execution only
 on that temporary container mount, retain `nosuid` and `nodev`, and keep the
 source mount read-only. With that correction, all 12 tests then passed on
 Linux. No product fix was needed for this test-environment failure.
+
+## 6. Make the workload test independent of runner services — 2026-10-11
+
+The first hosted CI attempt failed the known-worker memory assertion. Its
+top five correctly contained runner services with resident sizes from about
+50 to 128 MiB, all larger than the test's 32 MiB allocation. The locally
+tested container had an isolated process namespace; the CI host did not.
+
+Add `make test-linux` as the shared local and CI command. It runs the complete
+suite in the same Debian environment, pinned by image digest, with a bounded
+read-only container and an executable disposable fixture directory.
+
+This preserves a meaningful assertion without depending on which services
+the hosted runner starts. It costs a Docker image download on a fresh runner.
+Revisit the image choice if that cost becomes significant. The cached image
+already supplies all required tools, so no Dockerfile or installation script
+is needed today.
+
+The new CI gate prevented this failed attempt from replacing the public site.
+Local commits and pushes did not themselves establish successful publication.

@@ -36,11 +36,14 @@ its percentage against used plus available. Human-readable sizes are rounded.
 ```sh
 make test   # Python 3 standard-library tests
 make check  # Also requires ShellCheck; checks Bash syntax and lint
+make test-linux  # Complete suite in a bounded Docker container
 ```
 
-The tests exercise controlled collector output. Live Linux verification is
-still in progress. Linux containers can expose VM-wide CPU and memory counters
+The tests exercise controlled collector output and, on Linux, a bounded live
+CPU and memory workload. Linux containers can expose VM-wide CPU and memory counters
 alongside namespaced processes and filesystems; this is not a container-usage
 report.
 
-The [decision record](docs/decisions.md) explains the scope and metric choices.
+The [decision record](docs/decisions.md) explains the scope, metric choices,
+and evidence-backed revisions. The [verification record](docs/verification.md)
+has results, environment versions, the Docker command, and operating limits.
