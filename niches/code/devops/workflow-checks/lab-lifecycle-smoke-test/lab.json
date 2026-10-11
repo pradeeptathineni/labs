@@ -1,0 +1,24 @@
+{
+  "title": "Lab lifecycle smoke test",
+  "summary": "Verify creation, explicit progress, completion, and public catalog deployment.",
+  "type": "experiment",
+  "skills": [
+    "workflow-validation"
+  ],
+  "tools": [
+    "git"
+  ],
+  "source": {
+    "provider": "created"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-11",
+      "started": null,
+      "updated": "2026-10-11",
+      "completed": null
+    },
+    "content_sha256": "16846f117a8fdda5fd6070aa2ada2b1a0ac408a3e8da5d29df3ea7e488777be7"
+  }
+}
