@@ -4,19 +4,19 @@
 
 **77 labs:** 33 Projects · 31 Exercises · 11 Problem Sets · 1 Experiment · 1 Question Bank
 
-0 complete · 1 in progress · 76 planned · 0 paused · 0 abandoned
+1 complete · 0 in progress · 76 planned · 0 paused · 0 abandoned
 
 > [!IMPORTANT]
 > Imported work is planned practice. Target skills are not demonstrated proficiency; certification goals are preparation, not credentials.
 
 ## Completed
 
-No completed labs yet.
+- [Lab lifecycle smoke test](niches/code/devops/workflow-checks/lab-lifecycle-smoke-test/README.md#exercise-definition) — Verify creation, explicit progress, completion, and public catalog deployment.<br>Experiment · Complete · Updated 2026-10-11 · `workflow-validation` · `git` · [Solution](niches/code/devops/workflow-checks/lab-lifecycle-smoke-test/README.md#solution)
+
 
 ## In progress
 
-- [Lab lifecycle smoke test](niches/code/devops/workflow-checks/lab-lifecycle-smoke-test/README.md#exercise-definition) — Verify creation, explicit progress, completion, and public catalog deployment.<br>Experiment · In progress · Updated 2026-10-11 · `workflow-validation` · `git`
-
+No labs in progress yet.
 
 ## [Browse labs](#browse-labs)
 
@@ -276,7 +276,7 @@ No completed labs yet.
 
 `niches/code/devops/workflow-checks`
 
-- [Lab lifecycle smoke test](niches/code/devops/workflow-checks/lab-lifecycle-smoke-test/README.md#exercise-definition)<a id="lab-niches-code-devops-workflow-checks-lab-lifecycle-smoke-test"></a> — Verify creation, explicit progress, completion, and public catalog deployment.<br>Experiment · In progress · Updated 2026-10-11 · `workflow-validation` · `git`
+- [Lab lifecycle smoke test](niches/code/devops/workflow-checks/lab-lifecycle-smoke-test/README.md#exercise-definition)<a id="lab-niches-code-devops-workflow-checks-lab-lifecycle-smoke-test"></a> — Verify creation, explicit progress, completion, and public catalog deployment.<br>Experiment · Complete · Updated 2026-10-11 · `workflow-validation` · `git` · [Solution](niches/code/devops/workflow-checks/lab-lifecycle-smoke-test/README.md#solution)
 
 </details>
 

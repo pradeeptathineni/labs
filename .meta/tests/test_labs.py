@@ -29,6 +29,7 @@ class RepositoryCase(unittest.TestCase):
                 shutil.copy2(path, target / path.name)
         (self.root / ".meta/catalog/sources.json").write_bytes((HERE / ".meta/catalog/sources.json").read_bytes())
         (self.root / "niches").mkdir()
+        (self.root / ".gitignore").write_text("__pycache__/\n.meta/build/\n")
         self.git("init", "-q")
         self.git("config", "user.email", "test@example.com")
         self.git("config", "user.name", "Lab Tests")
@@ -67,6 +68,61 @@ class RepositoryCase(unittest.TestCase):
 
 
 class CoreTests(RepositoryCase):
+    def test_solution_discovery_ignores_comments_and_example_headings(self) -> None:
+        lab = self.init("code", "devops", "tasks", "Solution discovery")
+        for content, expected in [
+            ("## Solution\n<!-- TODO: record the result -->\n", False),
+            ("```markdown\n## Solution\nExample only\n```\n", False),
+            ("## Solution\n### Findings\n## Appendix\nOther notes\n", False),
+            ("## Solution\n```python\nprint('worked')\n```\n", True),
+            ("## Solution\nI compared the results and recorded a finding.\n", True),
+        ]:
+            with self.subTest(content=content):
+                (lab / "README.md").write_text("# Lab\n\n## Exercise Definition\n\nCheck it.\n\n" + content)
+                result = self.command("scripts", "catalog.py")
+                self.assertEqual(result.returncode, 0, result.stderr)
+                record = json.loads((self.root / ".meta/catalog/labs.json").read_text())[0]
+                self.assertEqual(bool(record["solution_link"]), expected)
+
+    def test_lifecycle_dates_before_creation_fail_without_writes(self) -> None:
+        lab = self.init("code", "devops", "tasks", "Dates", "--created", "2020-01-02")
+        before = {p: p.read_bytes() for p in [lab / "lab.json", self.root / "CATALOG.md", self.root / ".meta/catalog/labs.json"]}
+        for field in ("started", "completed"):
+            rejected = self.command("scripts", "lab_meta.py", str(lab), "--" + field, "2020-01-01", "--yes")
+            self.assertNotEqual(rejected.returncode, 0)
+            self.assertIn("precedes created date", rejected.stderr)
+            self.assertEqual({p: p.read_bytes() for p in before}, before)
+        result = self.command("scripts", "lab_meta.py", str(lab), "--status", "complete", "--yes")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("completion is self-declared; no Solution link", result.stdout)
+
+    def test_commit_guard_includes_shared_workflow_code(self) -> None:
+        lab = self.init("code", "devops", "tasks", "Commit guard")
+        self.git("add", ".")
+        self.git("commit", "-qm", "baseline")
+        workflow = self.root / ".meta/scripts/workflow.py"
+        workflow.write_text(workflow.read_text() + "\n# Unstaged candidate code\n")
+        self.assertEqual(self.command("scripts", "lab_meta.py", str(lab), "--status", "in-progress", "--yes").returncode, 0)
+        self.git("add", str(lab / "lab.json"))
+        before = self.git("diff", "--cached").stdout
+        rejected = self.command("scripts", "commit_sync.py")
+        self.assertNotEqual(rejected.returncode, 0)
+        self.assertIn(".meta/scripts/workflow.py", rejected.stderr)
+        self.assertEqual(self.git("diff", "--cached").stdout, before)
+        self.git("add", str(workflow))
+        accepted = self.command("scripts", "commit_sync.py")
+        self.assertEqual(accepted.returncode, 0, accepted.stderr)
+        self.assertEqual(self.command("scripts", "catalog.py", "--check").returncode, 0)
+
+        # Known stale generator output can be refreshed; a manual edit is kept.
+        generated = self.root / "CATALOG.md"
+        generated.write_text(generated.read_text() + "\nMy manual addition.\n")
+        manual = generated.read_bytes()
+        rejected = self.command("scripts", "commit_sync.py")
+        self.assertNotEqual(rejected.returncode, 0)
+        self.assertIn("Generated view has edits outside the generator", rejected.stderr)
+        self.assertEqual(generated.read_bytes(), manual)
+
     def test_explicit_tools_and_goals_share_collection_defaults(self) -> None:
         parent = self.root / "niches/code/devops/tasks"
         parent.mkdir(parents=True)

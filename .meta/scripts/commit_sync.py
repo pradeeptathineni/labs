@@ -16,8 +16,8 @@ def _names(*arguments: str) -> set[str]:
 
 
 def _relevant(path: str) -> bool:
-    return path.startswith("niches/") or path.startswith(".meta/catalog/") or path in {
-        "CATALOG.md", "PRACTICE-ATLAS.md", ".meta/scripts/catalog.py", ".meta/scripts/lab_sync.py", ".meta/scripts/atlas.py", ".meta/scripts/lab_init.py",
+    return path.startswith(("niches/", ".meta/catalog/", ".meta/scripts/", ".githooks/")) or path in {
+        "CATALOG.md", "PRACTICE-ATLAS.md",
     }
 
 
@@ -35,7 +35,7 @@ def sync_for_commit() -> None:
     if not any(_relevant(path) for path in staged):
         return
 
-    inputs = ("niches/", ".meta/catalog/sources.json", ".meta/catalog/atlas.json", ".meta/catalog/schema/", ".meta/scripts/catalog.py", ".meta/scripts/atlas.py", ".meta/scripts/lab_init.py", ".meta/scripts/lab_sync.py", ".meta/scripts/commit_sync.py")
+    inputs = ("niches/", ".meta/catalog/sources.json", ".meta/catalog/atlas.json", ".meta/catalog/schema/", ".meta/scripts/", ".githooks/")
     unstaged = _names("diff", "--name-only", "-z", "--", *inputs)
     untracked = _names("ls-files", "--others", "--exclude-standard", "-z", "--", *inputs)
     if unstaged or untracked:
@@ -47,7 +47,7 @@ def sync_for_commit() -> None:
     unstaged_views = _names("diff", "--name-only", "-z", "--", "CATALOG.md", ".meta/catalog/labs.json", "PRACTICE-ATLAS.md")
     for path, content in expected.items():
         name = path.relative_to(catalog.ROOT).as_posix()
-        if name in staged | unstaged_views and path.is_file() and path.read_text(encoding="utf-8") != content:
+        if name in staged | unstaged_views and path.is_file() and path.read_text(encoding="utf-8") != content and not catalog.is_recorded_generated_view(path):
             raise catalog.CatalogError(f"Generated view has edits outside the generator: {name}. Update its inputs or regenerate it before committing.")
 
     touched = _touched_labs(staged)

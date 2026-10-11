@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import html
 import json
 import os
@@ -33,6 +34,7 @@ COLLECTION_SCHEMA_PATH = SCHEMA_DIR / "collection.schema.json"
 SOURCES_PATH = ROOT / ".meta/catalog/sources.json"
 LABS_PATH = ROOT / ".meta/catalog/labs.json"
 CATALOG_PATH = ROOT / "CATALOG.md"
+GENERATION_RECEIPT = ROOT / ".meta/build/catalog-generation.json"
 SLUG_PATTERN = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
 ORDER_PATTERN = re.compile(r"([0-9]+)-([a-z0-9]+(?:-[a-z0-9]+)*)")
 LAB_DIR_PATTERN = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
@@ -245,6 +247,9 @@ def lab_record(path: Path, metadata: Any, sources: dict[str, Any], schema: dict[
     if source_record["type"] == "external" and not source.get("url"):
         raise CatalogError(f"External lab needs a source URL: {display_path(path)}")
     dates = metadata["tracking"]["dates"]
+    for name in ("started", "completed"):
+        if dates[name] and dates[name] < dates["created"]:
+            raise CatalogError(f"{name.capitalize()} date precedes created date: {display_path(path)}")
     if dates["started"] and dates["completed"] and dates["started"] > dates["completed"]:
         raise CatalogError(f"Started date follows completed date: {display_path(path)}")
     for target in metadata.get("links", {}).values():
@@ -455,12 +460,29 @@ def _catalog_entry(item: dict[str, Any], *, show_order: bool = True, anchor: boo
 
 
 def _readme_has_solution(readme: Path) -> bool:
-    content = readme.read_text(encoding="utf-8")
-    heading = re.search(r"(?m)^## Solution[ \t]*$", content)
-    if heading is None:
-        return False
-    section = re.split(r"(?m)^## ", content[heading.end():], maxsplit=1)[0]
-    return bool(section.strip())
+    # Comments and example headings inside fenced code are not worked solutions.
+    content = re.sub(r"<!--.*?(?:-->|\Z)", "", readme.read_text(encoding="utf-8"), flags=re.S)
+    inside = False
+    fence = None
+    for line in content.splitlines():
+        marker = re.match(r"^ {0,3}(`{3,}|~{3,})", line)
+        if fence:
+            if marker and marker[1][0] == fence[0] and len(marker[1]) >= len(fence) and not line[marker.end():].strip():
+                fence = None
+            elif inside and line.strip():
+                return True
+            continue
+        if marker:
+            fence = marker[1]
+            continue
+        heading = re.match(r"^ {0,3}(#{1,6})\s+(.*?)(?:\s+#+)?\s*$", line)
+        if heading:
+            if len(heading[1]) <= 2:
+                inside = heading[1] == "##" and heading[2] == "Solution"
+            continue
+        if inside and line.strip():
+            return True
+    return False
 
 
 def _anchor(item: dict[str, Any]) -> str:
@@ -532,9 +554,21 @@ def expected_catalogs(records: list[dict[str, Any]], sources: dict[str, Any]) ->
 
 
 def write_catalog(records: list[dict[str, Any]], sources: dict[str, Any]) -> None:
-    for path, content in expected_catalogs(records, sources).items():
+    outputs = expected_catalogs(records, sources)
+    for path, content in outputs.items():
         if not path.exists() or path.read_text(encoding="utf-8") != content:
             write_text_atomic(path, content)
+    # Local-only receipt distinguishes stale generated output from hand edits.
+    hashes = {display_path(path): hashlib.sha256(content.encode("utf-8")).hexdigest() for path, content in outputs.items()}
+    write_text_atomic(GENERATION_RECEIPT, json_text(hashes))
+
+
+def is_recorded_generated_view(path: Path) -> bool:
+    try:
+        receipt = read_json(GENERATION_RECEIPT)
+        return isinstance(receipt, dict) and receipt.get(display_path(path)) == hashlib.sha256(path.read_bytes()).hexdigest()
+    except (CatalogError, OSError):
+        return False
 
 
 def update_catalog(check: bool = False) -> None:

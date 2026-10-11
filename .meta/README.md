@@ -8,6 +8,42 @@ For a normal lab session, choose an existing lab and explicitly mark it `in-prog
 
 Keep upstream snapshots under `source/` separate from your work. Edit lab and collection metadata through the commands below; generated catalogs are outputs. The atlas lists options to adopt, while the catalog lists actual labs. [Site preview and publishing](site/README.md) are separate from doing a lab.
 
+## A lab from creation to publication
+
+| Junction | Local files and catalog | Public site |
+| --- | --- | --- |
+| Research an atlas opportunity | A possible future unit; no lab is created | Appears in the linked practice atlas after publication |
+| Create a lab | README and metadata are created; `not-started` displays as Planned | Unchanged until a successful main deployment |
+| Mark `in-progress` | Status and first start date change; In progress lists the lab | Unchanged until a successful main deployment |
+| Edit your work | Status stays as selected; the catalog discovers nonempty Solution notes when regenerated | Unchanged until a successful main deployment |
+| Stage and commit | The hook records staged content, updates its recording date when content changes, and includes refreshed catalogs | Unchanged; a local commit is not a deployment |
+| Mark `complete` and commit | Status and first completion date change; Completed lists the lab | Unchanged until a successful main deployment |
+| Push `main` | GitHub receives the committed snapshot | Pages tests, validates, builds, and deploys; the previous successful snapshot remains available meanwhile |
+
+Here is a normal session, with a new title you can change:
+
+```bash
+git config core.hooksPath .githooks  # once per checkout
+python3 .meta/scripts/lab_init.py code devops my-projects "Inspect a deployment" --summary "Check a deployment and explain its behavior." --type exercise --skill deployment --yes
+lab_dir=niches/code/devops/my-projects/inspect-a-deployment
+python3 .meta/scripts/lab_meta.py "$lab_dir" --status in-progress --yes
+# Do the work. Record your approach, results, failures, and checks under ## Solution.
+git add "$lab_dir"
+git commit -m "feat(labs): record deployment investigation"
+python3 .meta/scripts/lab_meta.py "$lab_dir" --status complete --yes
+git add "$lab_dir/lab.json"
+git commit -m "feat(labs): complete deployment investigation"
+git push origin main
+```
+
+Push after any intermediate commit if you want that stage public. Push only at the end if you want the public catalog to move straight to the finished snapshot. You do not need to build the site locally for ordinary lab work. A branch push does not publish; a pull request checks its snapshot, and merging relevant changes into main triggers publication. Rapid pushes may skip an older queued snapshot when main has newer site inputs.
+
+Completion means I consider this attempt finished. It does not prove mastery or that checks passed. The commands warn when completing a lab without a Solution link, but allow that decision. A Solution link appears as soon as meaningful notes exist under `## Solution`, even while the lab is in progress, or when you set `--link solution=PATH`. A local link is relative to the repository root; remote links use an HTTP(S) URL. An empty heading, HTML comment, or example heading inside a code fence does not count as a solution.
+
+Dates record the first known creation, start, completion, and latest committed content recording; they are calendar dates, not hours worked. A status-only edit does not change the content recording date. Reopening with `--status in-progress` keeps the first completion date; the current status decides where the lab appears. `paused` and `abandoned` also preserve dates. Correct dates explicitly when needed; a start or completion cannot precede creation, and a start cannot follow completion. Automatic dates use the command runner's local day; explicit date flags are available for backfilled work.
+
+The [lifecycle smoke experiment](../niches/code/devops/workflow-checks/lab-lifecycle-smoke-test/README.md) records the actual publication checks for this workflow.
+
 ## Create and edit
 
 A write with flags needs `--yes`. `--dry-run` previews without writing or prompting. `--interactive` asks for every field and still ends with `Write these changes? [y/N]`; blank keeps the shown value and `-` clears an optional value.
@@ -50,7 +86,7 @@ git add niches/code/devops/roadmap-sh/01-server-performance-stats
 git commit -m "feat(labs): record server performance work"
 ```
 
-The hook runs at commit time, not on each edit. It refuses unstaged lab/catalog inputs or hand-edited generated views when they could leak into a commit. A structure-only commit does not change lab content dates. To sync manually or verify without writing:
+The hook runs at commit time, not on each edit. It refuses unstaged lab/catalog inputs, shared metadata scripts, hooks, or hand-edited generated views when they could leak into a relevant commit. Stage the intended inputs and retry; the guard preserves unstaged work. The hook may add generated files after your initial staging, so review the resulting commit with `git show HEAD`. A structure-only commit does not change lab content dates. To sync manually or verify without writing:
 
 ```bash
 python3 .meta/scripts/lab_sync.py --yes
@@ -58,7 +94,11 @@ python3 .meta/scripts/lab_sync.py --check
 python3 .meta/scripts/catalog.py --check
 ```
 
+The generator keeps an ignored `.meta/build/catalog-generation.json` receipt of its last output. This lets the hook safely refresh catalogs that became stale after you added Solution notes, without treating them as hand edits. The receipt is local convenience state; canonical checks and release builds do not need it or change it. If it is missing and an edited view cannot be recognized, regenerate with `catalog.py` after preserving any manual text you meant to keep in a maintained document.
+
 `lab_sync.py` also accepts one or more lab paths. Its check mode is read-only. Untracked files enter the snapshot only after `git add`. A changed content snapshot updates `tracking.dates.updated`, which is a recording date, not time spent working; status and progress dates remain separate. The root `lab.json` is excluded from its own hash; nested fixtures, links, executable bits, and staged deletions count.
+
+If you bypass or have not installed the hook, stage your lab content, run `lab_sync.py --yes`, stage the changed metadata and generated views, then commit. CI rejects stale fingerprints or catalogs; it does not repair them. Stage only material you intend to publish: this repository is public, including lab notes and source files.
 
 Run the small suite with `python3 -m unittest discover -s .meta/tests`. Import commands and source-specific limits are in [the importer guide](importers/README.md).
 

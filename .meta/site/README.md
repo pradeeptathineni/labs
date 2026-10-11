@@ -22,7 +22,7 @@ python3 -m playwright install chromium
 python3 .meta/site/browser_smoke.py
 ```
 
-This checks desktop/mobile layout, filtering, saved links, reload/back, and HTML without JavaScript. Screenshots stay in ignored build output. Browser installation is not part of each deploy.
+This checks the built snapshot, lifecycle section counts, Solution links, desktop/mobile layout, filtering, saved links, reload/back, and HTML without JavaScript. Screenshots stay in ignored build output. Browser installation is not part of each deploy.
 
 ## Publish
 
@@ -34,6 +34,19 @@ This checks desktop/mobile layout, filtering, saved links, reload/back, and HTML
 
 Relevant pushes to `main` publish automatically. Relevant pull requests build without deployment permissions. Paths cover labs, metadata/tooling, hooks, workflows and root documentation; unrelated changes do not rebuild. The existing unfiltered metadata check remains independent.
 
-The workflow checks canonical files read-only and builds a six-file artifact. Only the trusted main deploy job gets Pages/OIDC write permissions. Production runs serialize without cancelling an active deployment. A check before upload and deployment skips snapshots whose relevant inputs no longer match main; an unrelated newer commit is allowed. The last successful site remains available if a new build fails.
+The workflow runs the regression suite before publication, checks canonical files read-only, and builds a six-file artifact. Only the trusted main deploy job gets Pages/OIDC write permissions. Production runs serialize without cancelling an active deployment. A check before upload and deployment skips snapshots whose relevant inputs no longer match main; an unrelated newer commit is allowed. The last successful site remains available if a new build fails. Repository links on the site point to the published commit, so an older catalog continues to open its matching lab notes while a newer deployment is pending.
+
+After pushing, verify the intended commit, rather than assuming the newest run or a green metadata check means the site is current:
+
+```bash
+git rev-parse HEAD
+gh run list --workflow pages.yml --limit 5
+curl --fail --silent --show-error https://pradeeptathineni.github.io/labs/build-info.json
+# Once source_commit matches HEAD, build the same clean snapshot and check it live:
+python3 .meta/scripts/build_site.py --release --base-path /labs/
+python3 .meta/site/browser_smoke.py --url https://pradeeptathineni.github.io/labs/
+```
+
+The live browser check compares the commit, complete catalog payload, status sections, and Solution links with your local release build. It fails for a stale or different snapshot. A local preview can include uncommitted edits; it does not publish them. Allow time for Actions and cached content to catch up; there is no fixed publication delay. If publication fails, inspect `gh run view RUN_ID --log-failed`, fix the reported input or test failure, and push the correction. If inputs are already valid and the failure was transient, retry the Pages workflow on main. A freshness skip is deliberate; check the newer main run before retrying an obsolete one.
 
 Local commit hooks synchronize lab fingerprints and generated Markdown; they never build the website. CI never repairs metadata or creates bot commits. See GitHub's [custom Pages workflow](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages) and [concurrency documentation](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/control-workflow-concurrency).

@@ -23,15 +23,34 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         pass
 
 
-def check(browser, url, labs, screenshots):
+def check(browser, url, labs, screenshots, expected_commit, published=False):
     context = browser.new_context(viewport={'width': 1440, 'height': 900})
     page = context.new_page()
     errors = []
     page.on('pageerror', lambda error: errors.append(str(error)))
     page.goto(url, wait_until='networkidle')
+    # A deployment can succeed while a browser still receives an older snapshot.
+    info_response = context.request.get(url + 'build-info.json')
+    assert info_response.ok, 'Published build metadata unavailable'
+    info = info_response.json()
+    assert info['source_commit'] == expected_commit and (not published or not info['dirty']), 'Published commit differs from the expected clean snapshot'
+    payload_response = context.request.get(url + info['payload'])
+    assert payload_response.ok, 'Published catalog unavailable'
+    payload = payload_response.json()
+    assert payload['source_commit'] == expected_commit and payload['labs'] == labs, 'Published catalog differs from the expected snapshot'
     expect(page.locator('#result-count')).to_have_text(f'{len(labs)} of {len(labs)} labs')
     expect(page.locator('main > details')).to_have_count(4)
     expect(page.locator("#work-results .collection[open]")).to_have_count(0)
+    expect(page.locator('body')).to_have_attribute('data-catalog', info['payload'])
+    for section, status in enumerate(['complete', 'in-progress']):
+        expect(page.locator('main > details').nth(section).locator('.lab')).to_have_count(sum(lab['status'] == status for lab in labs))
+    for lab in labs:
+        row = page.locator('#work-results .lab').filter(has=page.locator(f'a[href="{lab["exercise_url"]}"]'))
+        expect(row.locator('.meta')).to_contain_text(payload['status_labels'][lab['status']])
+        solutions = row.get_by_role('link', name='Solution', exact=True)
+        expect(solutions).to_have_count(int(bool(lab['solution_url'])))
+        if lab['solution_url']:
+            expect(solutions).to_have_attribute('href', lab['solution_url'])
     page.keyboard.press('Tab')
     assert page.evaluate('document.activeElement.tagName') == 'A'
     page.locator('h1').click()
@@ -97,11 +116,11 @@ def main():
         with sync_playwright() as playwright:
             browser = playwright.chromium.launch()
             for url in [args.url] if args.url else [f'http://127.0.0.1:{server.server_port}/', f'http://127.0.0.1:{server.server_port}/labs/']:
-                check(browser, url, labs, screenshots)
+                check(browser, url, labs, screenshots, info['source_commit'], published=bool(args.url))
             browser.close()
     finally:
         server.shutdown()
-    print('Browser check passed: catalog, filter/search, link/reload/back, narrow screen, and no-JS links.')
+    print('Browser check passed: published snapshot, lifecycle sections, Solution links, filter/search, link/reload/back, narrow screen, and no-JS links.')
 
 
 if __name__ == '__main__':

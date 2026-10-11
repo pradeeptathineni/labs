@@ -2079,14 +2079,14 @@
       "provider": "created"
     },
     "tracking": {
-      "status": "in-progress",
+      "status": "complete",
       "dates": {
         "created": "2026-10-11",
         "started": "2026-10-11",
         "updated": "2026-10-11",
-        "completed": null
+        "completed": "2026-10-11"
       },
-      "content_sha256": "16846f117a8fdda5fd6070aa2ada2b1a0ac408a3e8da5d29df3ea7e488777be7"
+      "content_sha256": "9a145209c3dcfc61694bd1eb35dbceb0bacbfce7c7611c1a32280f908b403340"
     },
     "niche": "code",
     "domain": "devops",
@@ -2113,7 +2113,7 @@
       "Workflow Checks"
     ],
     "exercise_link": "niches/code/devops/workflow-checks/lab-lifecycle-smoke-test/README.md#exercise-definition",
-    "solution_link": null,
+    "solution_link": "niches/code/devops/workflow-checks/lab-lifecycle-smoke-test/README.md#solution",
     "collection_notes": null
   },
   {

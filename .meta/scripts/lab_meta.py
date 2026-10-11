@@ -179,6 +179,7 @@ def main() -> int:
             print("No metadata changes requested.")
             return 0
         records, checked_sources = catalog.collect_labs(overrides={path: candidate})
+        workflow.completion_notice(next(record for record in records if record["path"] == catalog.display_path(path.parent)))
         workflow.preview(catalog.display_path(path), candidate, ["lab.json", "CATALOG.md", ".meta/catalog/labs.json"])
         if args.dry_run:
             return 0
@@ -188,6 +189,7 @@ def main() -> int:
         catalog.write_text_atomic(path, catalog.json_text(candidate))
         catalog.write_catalog(records, checked_sources)
         print(f"Updated {catalog.display_path(path)}")
+        workflow.next_steps()
     except (catalog.CatalogError, OSError, EOFError, KeyboardInterrupt) as error:
         if isinstance(error, (EOFError, KeyboardInterrupt)):
             print("\nNo changes made.")

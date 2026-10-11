@@ -53,6 +53,15 @@ def confirm() -> bool:
     return input("Write these changes? [y/N]: ").strip().casefold() in ("y", "yes")
 
 
+def next_steps() -> None:
+    print("Local catalogs are updated. Stage intended files and commit; push main to publish after Pages checks pass.")
+
+
+def completion_notice(record: dict[str, Any]) -> None:
+    if record["tracking"]["status"] == "complete" and not record["solution_link"]:
+        print("Note: completion is self-declared; no Solution link is recorded. Add worked notes under ## Solution or set --link solution=PATH.")
+
+
 def preview(path: str, record: dict[str, Any], files: list[str], removals: list[str] | None = None) -> None:
     print(f"Path: {path}\nRecord:\n{catalog.json_text(record)}Files: " + (", ".join(files) or "none"))
     if removals:

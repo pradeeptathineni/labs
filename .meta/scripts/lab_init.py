@@ -280,6 +280,9 @@ def main() -> int:
             return 0
         write_plans([plan], sources)
         print(f"Created {catalog.display_path(plan['path'])}")
+        record = catalog.lab_record(plan["path"] / "lab.json", plan["metadata"], sources)
+        workflow.completion_notice(record)
+        workflow.next_steps()
     except (catalog.CatalogError, OSError, EOFError, KeyboardInterrupt) as error:
         if isinstance(error, (EOFError, KeyboardInterrupt)):
             print("\nNo changes made.")
