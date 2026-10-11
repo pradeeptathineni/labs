@@ -19,13 +19,13 @@
     "url": "https://roadmap.sh/projects/server-stats"
   },
   "tracking": {
-    "status": "not-started",
+    "status": "in-progress",
     "dates": {
       "created": "2026-10-03",
-      "started": null,
-      "updated": "2026-10-04",
+      "started": "2026-10-11",
+      "updated": "2026-10-11",
       "completed": null
     },
-    "content_sha256": "62bee43b0bfe07c69ddb601925ba99e028b10afa0bfaa071b3094b8529935bf7"
+    "content_sha256": "ea5e1a8b07a4a51d0b84033d23220a61c28782ac30382f1ff8f868687656ccfa"
   }
 }
