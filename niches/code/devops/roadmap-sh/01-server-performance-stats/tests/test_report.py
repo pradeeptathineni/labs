@@ -103,10 +103,16 @@ class ReportTests(unittest.TestCase):
 
     def test_missing_or_invalid_memory(self):
         for output in ("", "Mem: 0 0 0 0 0 0\n", "Mem: 100 0 10 0 0 101\n",
-                       "Mem: 100 0 90 0 0 80\n", "Mem: 100 0 10 0 0\n", "Mem: 100 0 10 0 0 ?\n"):
+                       "Mem: 100 0 101 0 0 80\n", "Mem: 100 0 10 0 0\n", "Mem: 100 0 10 0 0 ?\n"):
             with self.subTest(output=output):
                 self.fixture["free"]["stdout"] = output
                 self.assert_failed(self.run_report(), "memory statistics")
+
+    def test_available_can_be_less_than_free_due_to_kernel_reserves(self):
+        self.fixture["free"]["stdout"] = "Mem: 104857600 20971520 94371840 0 0 83886080\n"
+        result = self.run_report()
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("Used: 20.0 MiB (20.0%) | Available: 80.0 MiB | Free: 90.0 MiB", result.stdout)
 
     def test_top_five_drains_large_process_output(self):
         self.fixture["ps"]["rows"] = 20000

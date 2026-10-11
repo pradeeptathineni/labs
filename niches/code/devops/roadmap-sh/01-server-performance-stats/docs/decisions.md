@@ -75,3 +75,23 @@ mount-level view without pretending to measure unique physical storage.
 Revise the option assertion and add a real-Linux test that starts a bounded
 CPU and memory workload, finds its PID in both rankings, and cleans it up even
 when an assertion fails. Fixtures alone did not reveal the mount topology.
+
+## 5. Revise an overly strict memory assumption during review — 2026-10-11
+
+Reviewing the validation exposed an assumption that available memory must be
+at least free memory. The kernel's estimate accounts for reserves and zone
+watermarks. On a system with little reclaimable cache, available can be less
+than free. The [kernel documentation](https://www.kernel.org/doc/html/v6.1/filesystems/proc.html)
+explains the estimate, and an [Oracle Linux engineering example](https://blogs.oracle.com/linux/memavailable-less-than-memfree)
+demonstrates this case.
+
+Validate both quantities against total memory instead of comparing them to
+each other. Replace the incorrect failure fixture and add a regression test
+for free greater than available. This is a source-backed edge case, not a
+claim that the live Debian run reproduced that memory state.
+
+The Linux test attempt also failed because its disposable `/tmp` mount was
+not executable. The fixtures create command shims there. Allow execution only
+on that temporary container mount, retain `nosuid` and `nodev`, and keep the
+source mount read-only. With that correction, all 12 tests then passed on
+Linux. No product fix was needed for this test-environment failure.

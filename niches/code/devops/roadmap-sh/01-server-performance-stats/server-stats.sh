@@ -66,7 +66,7 @@ memory_report() {
             if (NF < 7) exit 1
             for (i = 2; i <= 7; i++) if ($i !~ /^[0-9]+$/) exit 1
             total = $2; unallocated = $4; available = $7
-            if (total <= 0 || available > total || unallocated > available) exit 1
+            if (total <= 0 || available > total || unallocated > total) exit 1
             valid = 1
         }
         END {
