@@ -23,3 +23,7 @@ python3 -m unittest discover -s tests -v
 - The native comparison test needs `grep` on PATH. No extra Python packages.
 
 [Decisions and checks](docs/decisions.md)
+
+## Takeaways
+
+## Applications
