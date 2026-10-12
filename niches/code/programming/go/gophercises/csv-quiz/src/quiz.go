@@ -1,5 +1,5 @@
-// csv-quiz/quiz.go - Run the untimed half of a CSV quiz
-// Usage: go run . [-csv path]
+// src/quiz.go - Run the untimed half of a CSV quiz
+// Usage: go run ./src [-csv path]
 
 package main
 

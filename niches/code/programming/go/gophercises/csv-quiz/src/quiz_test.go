@@ -1,4 +1,4 @@
-// csv-quiz/quiz_test.go - Check the quiz's input and scoring
+// src/quiz_test.go - Check the quiz's input and scoring
 
 package main
 
