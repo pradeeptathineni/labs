@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-# grep/test_grep.py - Check file-search behavior
-# Usage: python3 -m unittest discover -p 'test_*.py' -v
+# tests/test_grep.py - Check file-search behavior
+# Usage: python3 -m unittest discover -s tests -p 'test_*.py' -v
 
 # Use temporary files to check the real file-reading path
 import io
@@ -13,11 +13,13 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-# Import the personal solution from this directory
+# Locate the source independently of the current folder
+SOURCE = Path(__file__).resolve().parents[1] / "src"
+sys.path.insert(0, str(SOURCE))
 from grep import grep, iter_matches
 
-# Locate the command beside this test file
-SCRIPT = Path(__file__).with_name("grep.py")
+# Use the same module for command-line checks
+SCRIPT = SOURCE / "grep.py"
 
 
 # Fail if the search starts loading whole files

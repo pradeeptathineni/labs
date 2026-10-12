@@ -32,7 +32,7 @@ jobs:
         run: |
           bash -n niches/code/programming/bash/exercism/error-handling/src/error_handling.sh
           python3 -m unittest discover -s niches/code/programming/bash/exercism/error-handling/tests -p 'test_*.py' -v
-          python3 -m unittest discover -s niches/code/programming/python/exercism/grep -p 'test_*.py' -v
+          python3 -m unittest discover -s niches/code/programming/python/exercism/grep/tests -p 'test_*.py' -v
       - uses: actions/setup-go@v7
         with:
           go-version: '1.27.1'

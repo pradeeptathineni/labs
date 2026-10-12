@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-# grep/grep.py - Search files for fixed text
-# Usage: python3 grep.py [-n] [-l] [-i] [-v] [-x] -- pattern file...
+# src/grep.py - Search files for fixed text
+# Usage: python3 src/grep.py [-n] [-l] [-i] [-v] [-x] -- pattern file...
 
 # Use standard command-line parsing and close stopped searches
 import argparse
