@@ -5276,14 +5276,14 @@
       "url": "https://exercism.org/tracks/python/exercises/grep"
     },
     "tracking": {
-      "status": "not-started",
+      "status": "in-progress",
       "dates": {
         "created": "2026-10-12",
-        "started": null,
+        "started": "2026-10-12",
         "updated": "2026-10-12",
         "completed": null
       },
-      "content_sha256": "13c99205414503f91f0cd4c4683071b8acb6bbb48e1d5dd3c460668c3c441e6e"
+      "content_sha256": "9e9b3ba277409243f6d83272a3756511dae031c56e0bd7e226aef53db55394e7"
     },
     "niche": "code",
     "domain": "programming",
@@ -5312,7 +5312,7 @@
       "Exercism"
     ],
     "exercise_link": "niches/code/programming/python/exercism/grep/README.md#exercise-definition",
-    "solution_link": null,
+    "solution_link": "niches/code/programming/python/exercism/grep/README.md#solution",
     "collection_notes": null
   },
   {

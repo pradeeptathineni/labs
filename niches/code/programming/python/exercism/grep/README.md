@@ -10,10 +10,22 @@ Follow the linked exercise for its requirements. The checks below define what I 
 
 ## Before starting
 
-Python and the track’s documented pytest runner, or an Exercism account. Obtain the exact exercise tests and sample files through the source; this folder holds the personal attempt when started.
+Python 3 and its built-in `unittest` runner are enough. The upstream tests also use `unittest`.
 
 ## Checks
 
 - Run the source tests for multiple files, line numbers, filename-only output, case folding, inversion, and whole-line matching.
 - Check combinations of flags and preserve source file order and line order.
 - Explain how fixed-string matching differs from regex matching; record tests and Python version.
+
+## Solution
+
+- Whole-file reads, regex, or line-by-line literal search? I chose literal search and line iteration. The exercise asks for fixed text, and large unmatched files need not stay in memory.
+- [Python's iterator guidance](https://docs.python.org/3/howto/functional.html#iterators) supports processing file lines as they arrive. The required string result still takes space for all returned matches.
+- First step: preserve spaces, file order, and filename prefixes. One real-file test passes. Flags are still unfinished and raise an explicit error.
+- Next: combine the five flags, check their interactions, and compare with the upstream tests. A useful later extension would be a command that streams matches to stdout.
+
+```bash
+cd niches/code/programming/python/exercism/grep
+python3 -m unittest discover -p 'test_*.py' -v
+```

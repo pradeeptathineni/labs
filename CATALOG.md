@@ -4,7 +4,7 @@
 
 **89 labs:** 41 Exercises · 33 Projects · 11 Problem Sets · 3 Challenges · 1 Question Bank
 
-9 complete · 0 in progress · 80 planned · 0 paused · 0 abandoned
+9 complete · 1 in progress · 79 planned · 0 paused · 0 abandoned
 
 > [!IMPORTANT]
 > Imported work is planned practice. Target skills are not demonstrated proficiency; certification goals are preparation, not credentials.
@@ -32,7 +32,8 @@
 
 ## In progress
 
-No labs in progress yet.
+- [Grep in Python](niches/code/programming/python/exercism/grep/README.md#exercise-definition) — Implement a fixed-string file search with composable flags and deterministic output.<br>Exercise · In progress · Updated 2026-10-12 · `automated-testing` · `command-line` · `filesystems` · `text-processing` · `pytest` · `python` · [Solution](niches/code/programming/python/exercism/grep/README.md#solution) · [ref](https://exercism.org/tracks/python/exercises/grep)
+
 
 ## [Browse labs](#browse-labs)
 
@@ -566,7 +567,7 @@ No labs in progress yet.
 
 `niches/code/programming/python/exercism` · [ref](https://exercism.org/tracks/python/exercises)
 
-- [Grep in Python](niches/code/programming/python/exercism/grep/README.md#exercise-definition)<a id="lab-niches-code-programming-python-exercism-grep"></a> — Implement a fixed-string file search with composable flags and deterministic output.<br>Exercise · Planned · Updated 2026-10-12 · `automated-testing` · `command-line` · `filesystems` · `text-processing` · `pytest` · `python` · [ref](https://exercism.org/tracks/python/exercises/grep)
+- [Grep in Python](niches/code/programming/python/exercism/grep/README.md#exercise-definition)<a id="lab-niches-code-programming-python-exercism-grep"></a> — Implement a fixed-string file search with composable flags and deterministic output.<br>Exercise · In progress · Updated 2026-10-12 · `automated-testing` · `command-line` · `filesystems` · `text-processing` · `pytest` · `python` · [Solution](niches/code/programming/python/exercism/grep/README.md#solution) · [ref](https://exercism.org/tracks/python/exercises/grep)
 
 </details>
 
