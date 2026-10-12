@@ -4,7 +4,7 @@
 
 **79 labs:** 33 Projects · 32 Exercises · 11 Problem Sets · 2 Challenges · 1 Question Bank
 
-7 complete · 0 in progress · 72 planned · 0 paused · 0 abandoned
+7 complete · 1 in progress · 71 planned · 0 paused · 0 abandoned
 
 > [!IMPORTANT]
 > Imported work is planned practice. Target skills are not demonstrated proficiency; certification goals are preparation, not credentials.
@@ -28,7 +28,8 @@
 
 ## In progress
 
-No labs in progress yet.
+- [Service Discovery](niches/code/devops/roadmap-sh/26-service-discovery/README.md#exercise-definition) — Set up service discovery for dummy services with Consul.<br>Project · In progress · Updated 2026-10-12 · `dns` · `networking` · `service-discovery` · `consul` · [Solution](niches/code/devops/roadmap-sh/26-service-discovery/README.md#solution) · [ref](https://roadmap.sh/projects/service-discovery)
+
 
 ## [Browse labs](#browse-labs)
 
@@ -283,7 +284,7 @@ No labs in progress yet.
 
 25. [Multi-Service Application](niches/code/devops/roadmap-sh/25-multi-service-application/README.md#exercise-definition)<a id="lab-niches-code-devops-roadmap-sh-25-multi-service-application"></a> — Set up an optimized multi-service Docker application.<br>Project · Complete · Updated 2026-10-12 · `multi-service-architecture` · `optimization` · `service-networking` · `docker` · `docker-compose` · [Solution](niches/code/devops/roadmap-sh/25-multi-service-application/README.md#solution) · Completed 2026-10-12 · [ref](https://roadmap.sh/projects/multiservice-docker)
 
-26. [Service Discovery](niches/code/devops/roadmap-sh/26-service-discovery/README.md#exercise-definition)<a id="lab-niches-code-devops-roadmap-sh-26-service-discovery"></a> — Set up service discovery for dummy services with Consul.<br>Project · Planned · Updated 2026-10-04 · `dns` · `networking` · `service-discovery` · `consul` · [ref](https://roadmap.sh/projects/service-discovery)
+26. [Service Discovery](niches/code/devops/roadmap-sh/26-service-discovery/README.md#exercise-definition)<a id="lab-niches-code-devops-roadmap-sh-26-service-discovery"></a> — Set up service discovery for dummy services with Consul.<br>Project · In progress · Updated 2026-10-12 · `dns` · `networking` · `service-discovery` · `consul` · [Solution](niches/code/devops/roadmap-sh/26-service-discovery/README.md#solution) · [ref](https://roadmap.sh/projects/service-discovery)
 
 </details>
 
