@@ -14,3 +14,7 @@ Rearc interview assessment from April 2023: deploy a containerized app in a publ
 - Rearc asks for private interview solutions. The code, screenshots, and lessons learned stay in that repository.
 
 Work started April 9, 2023. Completion is estimated at April 30 from the [last commit](https://github.com/pradeeptathineni/quest/commit/86e7b17b944f9aa8ac7984a967b3568e2a7a7730). The submission date is unconfirmed.
+
+## Takeaways
+
+## Applications
