@@ -22,7 +22,8 @@ Bash and the track’s documented Bats runner for a local attempt, or an Exercis
 
 - I compared `echo`, `printf`, and an external greeting command. I chose Bash's built-in `printf` with a fixed format. Names should stay data, even when they contain `%` or backslashes.
 - The first step handles a normal name and checks output, errors, and exit status with one test.
-- This is an unfinished deliberate error drill. Its argument check also rejects an empty name. The broader argument tests have not run yet. I will check and correct that boundary next.
+- The first local draft included a deliberate error drill: its argument check rejected an empty name. Only the normal-name test had run.
+- The broader check caught the planted empty-name error. One empty argument is still one argument. I removed the value check and kept the count check.
 
 ```bash
 python3 -m unittest discover -s niches/code/programming/bash/exercism/error-handling -p 'test_*.py' -v
