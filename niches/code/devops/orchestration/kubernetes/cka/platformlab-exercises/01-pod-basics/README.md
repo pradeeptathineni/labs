@@ -15,3 +15,7 @@ Create an nginx Pod, inspect its settings and IP, then add and remove labels.
 - Requests: `64Mi` memory and `100m` CPU. Limits: `128Mi` and `250m`.
 
 [Run with kind](docs/run.md) · [Decisions and results](docs/decisions.md)
+
+## Takeaways
+
+## Applications
