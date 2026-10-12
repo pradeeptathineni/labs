@@ -1,0 +1,60 @@
+#!/usr/bin/env python3
+"""Save a compressed copy of a log folder without removing its files."""
+
+import argparse
+from datetime import datetime, timezone
+import os
+from pathlib import Path
+import sys
+import tarfile
+import tempfile
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("log_directory", type=Path)
+    parser.add_argument("archive_directory", type=Path, nargs="?", default=Path("archives"))
+    args = parser.parse_args(argv)
+
+    source = args.log_directory.resolve(strict=True)
+    output = args.archive_directory.resolve()
+    if not source.is_dir():
+        raise ValueError(f"Log folder is not a directory: {source}")
+    # Resolve links first so a different path cannot hide the same folder
+    if source == output or source in output.parents:
+        raise ValueError("Choose an archive folder outside the log folder")
+    output.mkdir(mode=0o700, parents=True, exist_ok=True)
+    history = output / "archive.log"
+    if history.is_symlink():
+        raise ValueError("archive.log is a link; choose another archive folder")
+
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+    descriptor, name = tempfile.mkstemp(prefix=f".logs_archive_{stamp}_", suffix=".tmp", dir=output)
+    os.close(descriptor)
+    temporary = Path(name)
+    saved = output / (temporary.name[1:-4] + ".tar.gz")
+    try:
+        # Keep links as links rather than copying files outside the log folder
+        with tarfile.open(temporary, "w:gz", dereference=False) as archive:
+            archive.add(source, arcname="logs")
+        # Make the finished file visible without replacing an existing archive
+        os.link(temporary, saved)
+    finally:
+        temporary.unlink(missing_ok=True)
+
+    try:
+        with history.open("a", encoding="utf-8") as log:
+            log.write(f"{stamp} UTC {saved.name}\n")
+    except OSError as error:
+        # Keep the finished archive even if its log entry cannot be written
+        raise OSError(f"Archive saved at {saved}, but archive.log could not be updated: {error}") from error
+    print(saved)
+    return saved
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except (OSError, ValueError, RuntimeError, tarfile.TarError) as error:
+        print(f"log-archive: {error}", file=sys.stderr)
+        sys.exit(1)

@@ -18,7 +18,7 @@
 
 ## In progress
 
-- [Log Archive Tool](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition) — Build a command-line tool that archives logs with a dated filename.<br>Project · In progress · Updated 2026-10-11 · `archiving` · `command-line` · `compression` · `log-management` · `timestamps` · [Solution](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#solution) · [ref](https://roadmap.sh/projects/log-archive-tool)
+- [Log Archive Tool](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition) — Build a command-line tool that archives logs with a dated filename.<br>Project · In progress · Updated 2026-10-11 · `archiving` · `command-line` · `compression` · `log-management` · `timestamps` · `python` · [Solution](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#solution) · [ref](https://roadmap.sh/projects/log-archive-tool)
 
 
 ## [Browse labs](#browse-labs)
@@ -148,6 +148,7 @@
 - **Nodejs** · 2 labs: [Node.js Service Deployment](niches/code/devops/roadmap-sh/15-nodejs-service-deployment/README.md#exercise-definition), [Dockerized Service](niches/code/devops/roadmap-sh/16-dockerized-service/README.md#exercise-definition)
 - **Openvpn** · 1 lab: [VPN Server Setup](niches/code/devops/roadmap-sh/22-vpn-server-setup/README.md#exercise-definition)
 - **Prometheus** · 2 labs: [Monitoring Stack](niches/code/devops/devroadmaps/monitoring-stack/README.md#exercise-definition), [Prometheus and Grafana](niches/code/devops/roadmap-sh/24-prometheus-and-grafana/README.md#exercise-definition)
+- **Python** · 1 lab: [Log Archive Tool](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition)
 - **Route53** · 1 lab: [Multi-Region Architecture](niches/code/cloud/aws/devroadmaps/multi-region-architecture/README.md#exercise-definition)
 - **Rsync** · 1 lab: [Static Site Server](niches/code/devops/roadmap-sh/06-static-site-server/README.md#exercise-definition)
 - **S3** · 1 lab: [Kananinirav CLF-C02 Review](niches/study/cloud/aws/clf-c02/kananinirav-aws-ccp/README.md#exercise-definition)
@@ -222,7 +223,7 @@
 
 1. [Server Performance Stats](niches/code/devops/roadmap-sh/01-server-performance-stats/README.md#exercise-definition)<a id="lab-niches-code-devops-roadmap-sh-01-server-performance-stats"></a> — Write a script that reports basic Linux server performance statistics.<br>Project · Complete · Updated 2026-10-11 · `filesystems` · `performance-monitoring` · `process-inspection` · `resource-metrics` · `bash` · `linux` · [Solution](niches/code/devops/roadmap-sh/01-server-performance-stats/README.md#solution) · [ref](https://roadmap.sh/projects/server-stats)
 
-2. [Log Archive Tool](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition)<a id="lab-niches-code-devops-roadmap-sh-02-log-archive-tool"></a> — Build a command-line tool that archives logs with a dated filename.<br>Project · In progress · Updated 2026-10-11 · `archiving` · `command-line` · `compression` · `log-management` · `timestamps` · [Solution](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#solution) · [ref](https://roadmap.sh/projects/log-archive-tool)
+2. [Log Archive Tool](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition)<a id="lab-niches-code-devops-roadmap-sh-02-log-archive-tool"></a> — Build a command-line tool that archives logs with a dated filename.<br>Project · In progress · Updated 2026-10-11 · `archiving` · `command-line` · `compression` · `log-management` · `timestamps` · `python` · [Solution](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#solution) · [ref](https://roadmap.sh/projects/log-archive-tool)
 
 3. [Nginx Log Analyser](niches/code/devops/roadmap-sh/03-nginx-log-analyser/README.md#exercise-definition)<a id="lab-niches-code-devops-roadmap-sh-03-nginx-log-analyser"></a> — Analyze Nginx logs from the command line.<br>Project · Planned · Updated 2026-10-04 · `command-line` · `log-analysis` · `shell-scripting` · `text-processing` · `awk` · `bash` · [ref](https://roadmap.sh/projects/nginx-log-analyser)
 

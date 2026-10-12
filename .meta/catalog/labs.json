@@ -616,6 +616,9 @@
       "log-management",
       "timestamps"
     ],
+    "tools": [
+      "python"
+    ],
     "source": {
       "provider": "roadmap-sh",
       "item_id": "log-archive-tool",
@@ -629,7 +632,7 @@
         "updated": "2026-10-11",
         "completed": null
       },
-      "content_sha256": "0839e69e9dbfe5e7fac82fc85d048a00aafe5c38afabab70000e768441881841"
+      "content_sha256": "19c05b971ce068f4ad05e23fac242189e130e18636f2d5ad2ae8c1bb082538f3"
     },
     "niche": "code",
     "domain": "devops",
@@ -646,7 +649,9 @@
     },
     "collection_title": "roadmap.sh",
     "collection_source_url": "https://roadmap.sh/devops/projects",
-    "tools_effective": [],
+    "tools_effective": [
+      "python"
+    ],
     "goals_effective": [],
     "collection_path": "niches/code/devops/roadmap-sh",
     "subject_title": "DevOps",
