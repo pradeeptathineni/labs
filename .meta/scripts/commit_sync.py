@@ -35,7 +35,7 @@ def sync_for_commit() -> None:
     if not any(_relevant(path) for path in staged):
         return
 
-    inputs = ("niches/", ".meta/catalog/sources.json", ".meta/catalog/atlas.json", ".meta/catalog/schema/", ".meta/scripts/", ".githooks/")
+    inputs = ("niches/", ".meta/catalog/sources.json", ".meta/catalog/atlas.json", ".meta/catalog/repository-visibility.json", ".meta/catalog/schema/", ".meta/scripts/", ".githooks/")
     unstaged = _names("diff", "--name-only", "-z", "--", *inputs)
     untracked = _names("ls-files", "--others", "--exclude-standard", "-z", "--", *inputs)
     if unstaged or untracked:

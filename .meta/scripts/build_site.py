@@ -52,6 +52,8 @@ def projection(records: list[dict], plan: dict, revision: str) -> dict:
                     demo_url=github_link(record.get("links", {}).get("demo"), revision))
         item.update(tags=catalog.inline_tags(record), collection_ref_url=record.get("collection_source_url"),
                     collection_notes_url=github_link(record["collection_notes"], revision))
+        if record.get("private_links"):
+            item["private_links"] = record["private_links"]
         labs.append(item)
     labels = {key: catalog.display_name(key) for key in sorted({value for item in labs for value in [item["niche"], *item["tools"], *item["skills"]]})}
     return {"version": 1, "source_commit": revision, "labs": labs, "labels": labels,
@@ -62,23 +64,26 @@ def e(value) -> str:
     return html.escape(str(value), quote=True)
 
 
-def link(url: str | None, label: str) -> str:
-    return f'<a href="{e(url)}">{e(label)}</a>' if url else e(label)
+def link(url: str | None, label: str, private: bool = False) -> str:
+    label = catalog.link_label(label, private)
+    hint = ' title="Private repository; access required"' if private else ''
+    return f'<a href="{e(url)}"{hint}>{e(label)}</a>' if url else e(label)
 
 
 def lab_html(item: dict) -> str:
+    private = item.get('private_links', [])
     details = [e(STATUS_LABELS[item['status']]), e(catalog.display_name(item['type'])), 'Updated ' + e(item['dates']['updated'])]
     details += [f'<code>{e(tag)}</code>' for tag in item['tags']]
     if item['solution_url']:
-        details.append(link(item['solution_url'], 'Solution'))
+        details.append(link(item['solution_url'], 'Solution', 'solution' in private))
     if completed := catalog.completion_label(item['status'], item['dates']):
         details.append(e(completed))
     if item['demo_url']:
-        details.append(link(item['demo_url'], 'Demo'))
+        details.append(link(item['demo_url'], 'Demo', 'demo' in private))
     if item['source_url']:
-        details.append(f'<a href="{e(item["source_url"])}" title="{e(item["source_name"])}" aria-label="{e("Source for " + item["title"])}">ref</a>')
+        details.append(f'<a href="{e(item["source_url"])}" title="{e(item["source_name"])}" aria-label="{e("Source for " + item["title"])}">{e(catalog.link_label("ref", "source" in private))}</a>')
     order = f' value="{item["order"]}"' if item['order'] is not None else ''
-    return f'<li class="lab" data-path="{e(item["path"])}"{order}><p class="lab-heading">{link(item["exercise_url"], item["title"])} — {e(item["summary"])}</p><p class="meta">{" · ".join(details)}</p></li>'
+    return f'<li class="lab" data-path="{e(item["path"])}"{order}><p class="lab-heading">{link(item["exercise_url"], item["title"], "exercise" in private)} — {e(item["summary"])}</p><p class="meta">{" · ".join(details)}</p></li>'
 
 
 def grouped_html(items: list[dict]) -> str:
@@ -92,9 +97,9 @@ def grouped_html(items: list[dict]) -> str:
         title = e(' · '.join(first['collection_breadcrumb']))
         metadata = [f'<code class="path">{e(first["collection_path"])}</code>']
         if first['collection_notes_url']:
-            metadata.append(link(first['collection_notes_url'], 'notes'))
+            metadata.append(link(first['collection_notes_url'], 'notes', 'collection_notes' in first.get('private_links', [])))
         if first['collection_ref_url']:
-            metadata.append(link(first['collection_ref_url'], 'ref'))
+            metadata.append(link(first['collection_ref_url'], 'ref', 'collection_source' in first.get('private_links', [])))
         list_tag = 'ol' if first['order'] is not None else 'ul'
         lines.append(f'<details class="collection" data-collection="{e(first["collection_path"])}"><summary>{title}<span class="count"> · {catalog.lab_count(len(group))}</span></summary><div class="collection-content"><p class="meta">{" · ".join(metadata)}</p><{list_tag} class="labs">' + ''.join(lab_html(item) for item in group) + f'</{list_tag}></div></details>')
     return '\n'.join(lines)

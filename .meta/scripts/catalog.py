@@ -32,6 +32,7 @@ LAB_SCHEMA_PATH = SCHEMA_DIR / "lab.schema.json"
 SOURCE_SCHEMA_PATH = SCHEMA_DIR / "source.schema.json"
 COLLECTION_SCHEMA_PATH = SCHEMA_DIR / "collection.schema.json"
 SOURCES_PATH = ROOT / ".meta/catalog/sources.json"
+REPOSITORY_VISIBILITY_PATH = ROOT / ".meta/catalog/repository-visibility.json"
 LABS_PATH = ROOT / ".meta/catalog/labs.json"
 CATALOG_PATH = ROOT / "CATALOG.md"
 GENERATION_RECEIPT = ROOT / ".meta/build/catalog-generation.json"
@@ -86,6 +87,37 @@ def load_sources() -> dict[str, Any]:
     sources = read_json(SOURCES_PATH)
     validate_document(sources, load_schema(SOURCE_SCHEMA_PATH), display_path(SOURCES_PATH))
     return sources
+
+
+def load_repository_visibility() -> dict[str, str]:
+    visibility = read_json(REPOSITORY_VISIBILITY_PATH)
+    validate_document(visibility, load_schema(SCHEMA_DIR / "repository-visibility.schema.json"), display_path(REPOSITORY_VISIBILITY_PATH))
+    normalized = {url.casefold(): value for url, value in visibility.items()}
+    if len(normalized) != len(visibility):
+        raise CatalogError("Duplicate repository visibility entries differing only in case")
+    return normalized
+
+
+def is_private_repository_link(target: str | None, visibility: Mapping[str, str]) -> bool:
+    if not target:
+        return False
+    url = urlsplit(target)
+    if url.hostname not in ("github.com", "www.github.com", "raw.githubusercontent.com"):
+        return False
+    parts = unquote(url.path).strip("/").split("/")
+    if len(parts) < 2:
+        return False
+    repository = f"https://github.com/{parts[0]}/{parts[1].removesuffix('.git')}".casefold()
+    return visibility.get(repository) == "private"
+
+
+def link_label(label: str, private: bool = False) -> str:
+    return "🔒 " + label if private else label
+
+
+def markdown_link(item: Mapping[str, Any], role: str, label: str, target: str) -> str:
+    label = link_label(label, role in item.get("private_links", []))
+    return f"[{_escape(label)}]({target})"
 
 
 def slugify(value: str) -> str:
@@ -237,7 +269,7 @@ def json_text(value: Any) -> str:
     return json.dumps(value, indent=2, ensure_ascii=False) + "\n"
 
 
-def lab_record(path: Path, metadata: Any, sources: dict[str, Any], schema: dict[str, Any] | None = None, *, collection_overrides: Mapping[Path, Any] | None = None) -> dict[str, Any]:
+def lab_record(path: Path, metadata: Any, sources: dict[str, Any], schema: dict[str, Any] | None = None, *, collection_overrides: Mapping[Path, Any] | None = None, repository_visibility: Mapping[str, str] | None = None) -> dict[str, Any]:
     validate_document(metadata, schema or load_schema(LAB_SCHEMA_PATH), display_path(path))
     hierarchy, slug, order = _lab_path_parts(path, collection_overrides)
     source = metadata["source"]
@@ -283,6 +315,13 @@ def lab_record(path: Path, metadata: Any, sources: dict[str, Any], schema: dict[
     if not record["solution_link"] and readme.is_file() and _readme_has_solution(readme):
         record["solution_link"] = record["path"] + "/README.md#solution"
     record["collection_notes"] = record["collection_path"] + "/README.md" if (path.parent.parent / "README.md").is_file() else None
+    visibility = repository_visibility if repository_visibility is not None else load_repository_visibility()
+    targets = {"exercise": record["exercise_link"], "solution": record["solution_link"],
+               "demo": record.get("links", {}).get("demo"), "source": source.get("url"),
+               "collection_source": record.get("collection_source_url"), "collection_notes": record["collection_notes"]}
+    private_links = [role for role, target in targets.items() if is_private_repository_link(target, visibility)]
+    if private_links:
+        record["private_links"] = private_links
     return record
 
 
@@ -299,10 +338,11 @@ def collect_labs(overrides: Mapping[Path, Any] | None = None, sources_override: 
     sources = sources_override if sources_override is not None else load_sources()
     validate_document(sources, load_schema(SOURCE_SCHEMA_PATH), display_path(SOURCES_PATH))
     schema = load_schema(LAB_SCHEMA_PATH)
+    visibility = load_repository_visibility()
     by_path = {path.absolute(): read_json(path) for path in lab_paths()}
     for path, value in (overrides or {}).items():
         by_path[path.absolute()] = value
-    records = [lab_record(path, value, sources, schema, collection_overrides=collection_overrides) for path, value in sorted(by_path.items())]
+    records = [lab_record(path, value, sources, schema, collection_overrides=collection_overrides, repository_visibility=visibility) for path, value in sorted(by_path.items())]
     validate_collection_layout({ROOT / record["collection_path"]: collection_info(ROOT / record["collection_path"], collection_overrides) for record in records})
     source_ids: dict[tuple[str, str], str] = {}
     collection_paths: set[Path] = set()
@@ -417,7 +457,7 @@ def render_catalog(records: list[dict[str, Any]], sources: dict[str, Any]) -> st
         for value in sorted({value for item in records for value in item[field]}):
             matches = [item for item in records if value in item[field]]
             label = goals.get(value, {}).get("title", value) if field == "goals_effective" else display_name(value)
-            links = ", ".join(f"[{_escape(item['title'])}]({item['exercise_link']})" for item in matches if item["exercise_link"])
+            links = ", ".join(markdown_link(item, "exercise", item['title'], item['exercise_link']) for item in matches if item["exercise_link"])
             lines.append(f"- **{_escape(label)}** · {lab_count(len(matches))}: {links}")
         lines += ["", "</details>", ""]
     lines += ["<details>", "<summary>by subject</summary>", ""]
@@ -432,9 +472,9 @@ def render_catalog(records: list[dict[str, Any]], sources: dict[str, Any]) -> st
         lines += ["<details>", f"<summary>{html.escape(title)} · {lab_count(len(items))}</summary>", ""]
         metadata = [f"`{first['collection_path']}`"]
         if first["collection_notes"]:
-            metadata.append(f"[notes]({first['collection_notes']})")
+            metadata.append(markdown_link(first, "collection_notes", "notes", first['collection_notes']))
         if first.get("collection_source_url"):
-            metadata.append(f"[ref]({first['collection_source_url']})")
+            metadata.append(markdown_link(first, "collection_source", "ref", first['collection_source_url']))
         lines += [" · ".join(metadata), ""]
         for item in items:
             lines += _catalog_entry(item)
@@ -452,17 +492,17 @@ def completion_label(status: str, dates: Mapping[str, Any]) -> str | None:
 
 def _catalog_entry(item: dict[str, Any], *, show_order: bool = True, anchor: bool = True) -> list[str]:
     marker = f"{item['order']}." if show_order and item["order"] is not None else "-"
-    exercise = f"[{_escape(item['title'])}]({item['exercise_link']})" if item["exercise_link"] else _escape(item["title"])
+    exercise = markdown_link(item, "exercise", item['title'], item['exercise_link']) if item["exercise_link"] else _escape(item["title"])
     details = [_label(item["type"]), 'Planned' if item['tracking']['status'] == 'not-started' else _label(item["tracking"]["status"]), f"Updated {item['tracking']['dates']['updated']}"]
     details += [f"`{value}`" for value in inline_tags(item)]
     if item["solution_link"]:
-        details.append(f"[Solution]({item['solution_link']})")
+        details.append(markdown_link(item, "solution", "Solution", item['solution_link']))
     if completed := completion_label(item["tracking"]["status"], item["tracking"]["dates"]):
         details.append(completed)
     if item.get("links", {}).get("demo"):
-        details.append(f"[Demo]({item['links']['demo']})")
+        details.append(markdown_link(item, "demo", "Demo", item['links']['demo']))
     if item["source"].get("url"):
-        details.append(f"[ref]({item['source']['url']})")
+        details.append(markdown_link(item, "source", "ref", item['source']['url']))
     anchor_tag = f'<a id="{_anchor(item)}"></a>' if anchor else ""
     # A single paragraph keeps GitHub's list marker beside the title on mobile.
     return [f"{marker} {exercise}{anchor_tag} — {_escape(item['summary'])}<br>{' · '.join(details)}", ""]

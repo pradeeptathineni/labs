@@ -2199,7 +2199,10 @@
     ],
     "exercise_link": "niches/code/devops/technical-assessments/rearc-quest/README.md#exercise-definition",
     "solution_link": "https://github.com/pradeeptathineni/quest",
-    "collection_notes": null
+    "collection_notes": null,
+    "private_links": [
+      "solution"
+    ]
   },
   {
     "title": "CKA objectives review",

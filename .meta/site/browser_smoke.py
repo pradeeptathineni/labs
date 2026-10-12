@@ -53,7 +53,8 @@ def check(browser, url, labs, screenshots, expected_commit, published=False):
     for lab in labs:
         row = page.locator('#work-results .lab').filter(has=page.locator(f'a[href="{lab["exercise_url"]}"]'))
         expect(row.locator('.meta')).to_contain_text(payload['status_labels'][lab['status']])
-        solutions = row.get_by_role('link', name='Solution', exact=True, include_hidden=True)
+        solution_label = '🔒 Solution' if 'solution' in lab.get('private_links', []) else 'Solution'
+        solutions = row.get_by_role('link', name=solution_label, exact=True, include_hidden=True)
         expect(solutions).to_have_count(int(bool(lab['solution_url'])))
         if lab['solution_url']:
             expect(solutions).to_have_attribute('href', lab['solution_url'])
@@ -61,7 +62,7 @@ def check(browser, url, labs, screenshots, expected_commit, published=False):
             completion = 'Completed ' + lab['dates']['completed']
             expect(row.locator('.meta')).to_contain_text(completion)
             if lab['solution_url']:
-                expect(row.locator('.meta')).to_contain_text('Solution · ' + completion)
+                expect(row.locator('.meta')).to_contain_text(solution_label + ' · ' + completion)
         else:
             expect(row.locator('.meta')).not_to_contain_text('Completed ')
     page.keyboard.press('Tab')

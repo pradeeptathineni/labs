@@ -8,6 +8,50 @@ from test_labs import HERE, RepositoryCase
 
 
 class SiteTests(RepositoryCase):
+    def test_private_repository_links_are_marked_in_both_views(self):
+        shutil.copytree(HERE / '.meta/site', self.root / '.meta/site', ignore=shutil.ignore_patterns('__pycache__'))
+        (self.root / 'README.md').write_text('# Labs\n')
+        (self.root / '.meta/catalog/atlas.json').write_text(json.dumps({'goals': {}, 'niche_guidance': [], 'opportunities': [], 'unresolved_sources': []}))
+        repository = 'https://github.com/example/private'
+        registry = self.root / '.meta/catalog/repository-visibility.json'
+        registry.write_text(json.dumps({repository: 'private'}))
+        collection = self.root / 'niches/code/devops/tasks'
+        collection.mkdir(parents=True)
+        (collection / 'collection.json').write_text(json.dumps({'source_url': repository + '/tree/main'}))
+        lab = self.init('code', 'devops', 'tasks', 'Private links', '--source', 'organization',
+                        '--source-url', repository + '/blob/main/brief.md',
+                        '--link', 'solution=https://github.com/EXAMPLE/PRIVATE/tree/main/solution',
+                        '--link', 'demo=https://raw.githubusercontent.com/example/private/main/demo.md')
+        for name, target in [('Public', repository + '-public'), ('Unknown', 'https://github.com/example/unknown'),
+                             ('Other host', 'https://github.com.example.invalid/example/private')]:
+            self.init('code', 'devops', 'other', name, '--link', 'solution=' + target)
+        self.git('add', '.')
+        self.git('commit', '-qm', 'private link fixture')
+        before = (lab / 'lab.json').read_bytes()
+        for visibility in ('private', 'public'):
+            registry.write_text(json.dumps({repository: visibility}))
+            generated = self.command('scripts', 'catalog.py')
+            self.assertEqual(generated.returncode, 0, generated.stderr)
+            built = self.command('scripts', 'build_site.py')
+            self.assertEqual(built.returncode, 0, built.stderr)
+            markdown = (self.root / 'CATALOG.md').read_text()
+            output = self.root / '.meta/build/pages'
+            html = (output / 'index.html').read_text()
+            info = json.loads((output / 'build-info.json').read_text())
+            labs = json.loads((output / info['payload']).read_text())['labs']
+            item = next(item for item in labs if item['title'] == 'Private links')
+            expected = ['solution', 'demo', 'source', 'collection_source'] if visibility == 'private' else []
+            self.assertEqual(item.get('private_links', []), expected)
+            for label in ('Solution', 'Demo', 'ref'):
+                self.assertEqual('[🔒 ' + label + ']' in markdown, visibility == 'private')
+                self.assertEqual('>🔒 ' + label + '</a>' in html, visibility == 'private')
+            for item in labs:
+                if item['title'] != 'Private links':
+                    self.assertEqual(item.get('private_links', []), [])
+            self.assertIn('[Private links]', markdown)
+            self.assertNotIn('[🔒 Private links]', markdown)
+            self.assertEqual((lab / 'lab.json').read_bytes(), before)
+
     def test_historical_completion_dates_reconcile_with_markdown_and_site(self):
         shutil.copytree(HERE / '.meta/site', self.root / '.meta/site', ignore=shutil.ignore_patterns('__pycache__'))
         (self.root / 'README.md').write_text('# Labs\n')

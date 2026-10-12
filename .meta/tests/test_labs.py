@@ -28,6 +28,7 @@ class RepositoryCase(unittest.TestCase):
             for path in source.glob("*.py" if section != "catalog/schema" else "*.json"):
                 shutil.copy2(path, target / path.name)
         (self.root / ".meta/catalog/sources.json").write_bytes((HERE / ".meta/catalog/sources.json").read_bytes())
+        (self.root / ".meta/catalog/repository-visibility.json").write_bytes((HERE / ".meta/catalog/repository-visibility.json").read_bytes())
         (self.root / "niches").mkdir()
         (self.root / ".gitignore").write_text("__pycache__/\n.meta/build/\n")
         self.git("init", "-q")
@@ -138,6 +139,22 @@ class CoreTests(RepositoryCase):
         self.assertNotEqual(rejected.returncode, 0)
         self.assertIn("Generated view has edits outside the generator", rejected.stderr)
         self.assertEqual(generated.read_bytes(), manual)
+
+    def test_commit_guard_preserves_unstaged_repository_visibility(self) -> None:
+        self.init('code', 'devops', 'tasks', 'Visibility guard')
+        self.git('add', '.')
+        self.git('commit', '-qm', 'baseline')
+        registry = self.root / '.meta/catalog/repository-visibility.json'
+        registry.write_text('{}\n')
+        workflow = self.root / '.meta/scripts/workflow.py'
+        workflow.write_text(workflow.read_text() + '\n# Staged change\n')
+        self.git('add', str(workflow))
+        before = self.git('diff', '--cached').stdout
+        rejected = self.command('scripts', 'commit_sync.py')
+        self.assertNotEqual(rejected.returncode, 0)
+        self.assertIn('.meta/catalog/repository-visibility.json', rejected.stderr)
+        self.assertEqual(self.git('diff', '--cached').stdout, before)
+        self.assertEqual(registry.read_text(), '{}\n')
 
     def test_explicit_tools_and_goals_share_collection_defaults(self) -> None:
         parent = self.root / "niches/code/devops/tasks"

@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Known GitHub repository visibility",
+  "type": "object",
+  "propertyNames": {"pattern": "^https://github\\.com/[A-Za-z0-9-]+/[A-Za-z0-9_.-]+$"},
+  "additionalProperties": {"enum": ["private", "public"]}
+}

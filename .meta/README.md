@@ -44,6 +44,8 @@ Dates record the first known creation, start, completion, and latest committed c
 
 Completed labs show `Solution · Completed YYYY-MM-DD` in both catalogs, using the recorded completion date. The date also appears when no solution link is available. `Updated` remains the latest content recording date. Completed labs require a completion date; for historical work, set `--completed YYYY-MM-DD` explicitly. The generators never infer completion from the latest commit or update date.
 
+Named links into known private GitHub repositories show `🔒 ` before their labels in Markdown and on the site. `.meta/catalog/repository-visibility.json` records visibility once per repository using its root URL, such as `https://github.com/owner/repo`, and `private` or `public`. Verify it with `gh repo view OWNER/REPO --json isPrivate` before adding or updating an entry. The generators match that repository and its nested URLs without network calls; unrecorded repositories have no lock marker. Update the record if visibility changes, then regenerate. A lock marks required access and does not grant access or publish private content.
+
 The [archived workflow check](archive/lab-lifecycle-smoke-test.md) includes the actual publication results. Finished repository checks stay under `.meta/archive/`, outside the learning catalog. Their saved records keep the original completion dates and content hashes.
 
 ## Create and edit

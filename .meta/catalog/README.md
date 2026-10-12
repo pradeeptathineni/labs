@@ -14,6 +14,8 @@ The shared catalog model resolves collection identity, subject names, breadcrumb
 
 The Markdown catalog uses native headings, ordinary links and collection disclosures. It contains no stylesheets or CSS-dependent structure. The visual treatment belongs to the Pages assets. A nonempty personal Solution or an explicit solution link makes that link available; upstream reference answers do not.
 
+`repository-visibility.json` records known GitHub repository visibility independently of the source provider. The shared model derives private link roles from exact repository identities, so both renderers prefix those link labels with `🔒 `. Builds remain offline; an unknown repository is left unmarked. Check visibility with GitHub before recording or changing it.
+
 `atlas.json` holds reviewed opportunities and human goal definitions. Provider identity and reuse policy remain in `sources.json`. Proposed destinations use the same collection parser as initialization and do not create directories. Adoption matches an exact provider and collection path, with optional `item_ids`; it never matches titles or equates adoption with completion. Availability dates record a real review, while reuse verification is separate. The initial atlas preserves the supplied 2026-10-04 research handoff and its access limits.
 
 As a die-hard automater, I wanted the aggregate catalog generated from the get-go. Keeping metadata beside the work makes each lab portable and prevents the central index from becoming another hand-maintained database. Sure, I maintain a metadata file for each lab. That's the particular absurdity I've chosen.
