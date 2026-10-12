@@ -1,0 +1,39 @@
+# 01-pod-basics/pod.yaml - Create the exercise namespace and web Pod
+# Usage: kubectl apply -f pod.yaml
+
+# Keep the exercise apart from other workloads
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: exercise-01
+
+---
+
+# Create the Pod in the requested namespace
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web
+  namespace: exercise-01
+
+  # Set the starting labels before changing them in the exercise
+  labels:
+    app: web
+    tier: frontend
+
+spec:
+  # Keep the requested nginx version and pin its contents
+  containers:
+    - name: web
+      image: nginx:1.27@sha256:6784fb0834aa7dbbe12e3d7471e69c290df3e6ba810dc38b34ae33d3c1c05f7d
+
+      # Reserve the requested memory and CPU for scheduling
+      resources:
+        requests:
+          memory: "64Mi"
+          cpu: "100m"
+
+        # Set separate limits for how much the container can use
+        limits:
+          memory: "128Mi"
+          cpu: "250m"
