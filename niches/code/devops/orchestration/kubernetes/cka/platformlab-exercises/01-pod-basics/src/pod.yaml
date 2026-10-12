@@ -1,5 +1,5 @@
-# 01-pod-basics/pod.yaml - Create the exercise namespace and web Pod
-# Usage: kubectl apply -f pod.yaml
+# src/pod.yaml - Create the exercise namespace and web Pod
+# Usage: kubectl apply -f src/pod.yaml
 
 # Keep the exercise apart from other workloads
 apiVersion: v1
