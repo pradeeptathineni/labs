@@ -4,14 +4,28 @@
 # Usage: python3 -m unittest discover -p 'test_*.py' -v
 
 # Use temporary files to check the real file-reading path
+import io
 import itertools
 import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 # Import the personal solution from this directory
-from grep import grep
+from grep import grep, iter_matches
+
+# Locate the command beside this test file
+SCRIPT = Path(__file__).with_name("grep.py")
+
+
+# Fail if the search starts loading whole files
+class LineInput(io.StringIO):
+
+    # Allow iteration, but make full-input reads visible
+    def read(self, *args, **kwargs):
+        raise AssertionError("Read lines instead of the whole input.")
 
 
 # Start with literal text and file ordering
@@ -93,3 +107,66 @@ class GrepTests(unittest.TestCase):
             # Let the caller decide how to report an unreadable path
             with self.assertRaises(FileNotFoundError):
                 grep("alpha", "", [missing])
+
+    # Stop after one match without reading later lines or leaving the file open
+    def test_lazy_rows(self):
+        source = LineInput("alpha\nbeta\nalpha\n")
+        with patch("grep.open", return_value=source, create=True):
+            rows = iter_matches("alpha", "", ["sample.txt"])
+
+            # One requested result should consume just its first input line
+            self.assertEqual(next(rows), "alpha\n")
+            self.assertEqual(source.tell(), len("alpha\n"))
+            rows.close()
+            self.assertTrue(source.closed)
+
+    # Check the real command's output, errors, and statuses
+    def test_command(self):
+        with tempfile.TemporaryDirectory() as directory:
+
+            # Use ordinary text and invalid UTF-8 to distinguish failure paths
+            source = Path(directory) / "sample.txt"
+            source.write_text("Alpha\nbeta\nStraße", encoding="utf-8")
+            bad = Path(directory) / "bad.txt"
+            bad.write_bytes(b"\xff")
+            cases = [
+                (["-i", "-n", "alpha", str(source)], 0, "1:Alpha\n", ""),
+                (["-i", "-x", "STRASSE", str(source)], 0, "Straße\n", ""),
+                (["absent", str(source)], 1, "", ""),
+                (["alpha", str(source) + ".missing"], 2, "", "grep:"),
+                (["alpha", str(bad)], 2, "", "grep:"),
+                (["-z", "alpha", str(source)], 2, "", "unrecognized arguments"),
+            ]
+
+            # Exercise each path in a fresh process
+            for args, code, output, error in cases:
+                with self.subTest(args=args):
+                    result = subprocess.run(
+                        [sys.executable, str(SCRIPT), *args],
+                        capture_output=True,
+                        text=True,
+                    )
+                    self.assertEqual(result.returncode, code)
+                    self.assertEqual(result.stdout, output)
+                    if error:
+                        self.assertIn(error, result.stderr)
+                    else:
+                        self.assertEqual(result.stderr, "")
+
+    # A stopped pipe consumer should not cause a shutdown traceback
+    def test_closed_pipe(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "many.txt"
+            source.write_text("alpha\n" * 10000, encoding="utf-8")
+
+            # Close the pipe before the command can finish its output
+            process = subprocess.Popen(
+                [sys.executable, str(SCRIPT), "alpha", str(source)],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+            )
+            process.stdout.close()
+            errors = process.stderr.read()
+            process.stderr.close()
+            self.assertEqual(process.wait(timeout=5), 1)
+            self.assertEqual(errors, b"")
