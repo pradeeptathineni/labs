@@ -29,6 +29,10 @@ def check(browser, url, labs, screenshots, expected_commit, published=False):
     errors = []
     page.on('pageerror', lambda error: errors.append(str(error)))
     page.goto(url, wait_until='networkidle')
+    expect(page).to_have_title('NogginUsin Labs')
+    favicon = page.locator('link[rel="icon"]').get_attribute('href')
+    icon_response = context.request.get(url + favicon)
+    assert icon_response.ok and '<svg' in icon_response.text(), 'Brain favicon unavailable'
     # A deployment can succeed while a browser still receives an older snapshot.
     info_response = context.request.get(url + 'build-info.json')
     assert info_response.ok, 'Published build metadata unavailable'

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>NogginUsin Labs brain icon</title>
+  <rect width="64" height="64" rx="15" fill="#172036"/>
+  <g stroke="#172036" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path fill="#c4b5fd" d="M31 15C25 8 17 12 17 19C10 18 7 26 11 31C5 37 10 45 16 45C15 53 24 57 31 51Z"/>
+    <path fill="#f5a3ba" d="M33 15C39 8 47 12 47 19C54 18 57 26 53 31C59 37 54 45 48 45C49 53 40 57 33 51Z"/>
+    <g fill="none" stroke="#513b67">
+      <path d="M18 20C16 25 19 28 23 28M12 32C17 30 22 33 21 38M17 45C23 46 25 41 24 37M30 19C25 20 25 24 27 27M30 45C26 44 26 48 27 50"/>
+      <path d="M46 20C48 25 45 28 41 28M52 32C47 30 42 33 43 38M47 45C41 46 39 41 40 37M34 19C39 20 39 24 37 27M34 45C38 44 38 48 37 50"/>
+    </g>
+  </g>
+</svg>

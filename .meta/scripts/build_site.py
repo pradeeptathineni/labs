@@ -119,7 +119,7 @@ def build(output: Path, base_path: str = "/", release: bool = False) -> dict:
         lab_sync.sync_all(check=True)
     payload = projection(records, plan, revision)
     files = {}
-    for name in ("catalog.css", "catalog.js"):
+    for name in ("catalog.css", "catalog.js", "favicon.svg"):
         content = (SITE / "assets" / name).read_bytes()
         stem, suffix = name.rsplit(".", 1)
         hashed = f"assets/{stem}.{hashlib.sha256(content).hexdigest()[:16]}.{suffix}"
@@ -127,13 +127,13 @@ def build(output: Path, base_path: str = "/", release: bool = False) -> dict:
     data = catalog.json_text(payload).encode()
     data_name = f"catalog.{hashlib.sha256(data).hexdigest()[:16]}.json"
     files[data_name] = data
-    css_name, js_name = list(files)[:2]
+    css_name, js_name, favicon_name = list(files)[:3]
     counts = Counter(item['status'] for item in payload['labs'])
     completed = [item for item in payload['labs'] if item['status'] == 'complete']
     progress = [item for item in payload['labs'] if item['status'] == 'in-progress']
     summary = f"{counts['complete']} complete · {counts['in-progress']} in progress · {counts['not-started']} planned"
     summary += ''.join(f" · {counts[status]} {status}" for status in ('paused', 'abandoned') if counts[status])
-    substitutions = {"CSS": css_name, "JS": js_name, "DATA": data_name,
+    substitutions = {"CSS": css_name, "JS": js_name, "FAVICON": favicon_name, "DATA": data_name,
                      "SUMMARY": summary, "TYPES": e(catalog.type_counts(records)),
                      "COMPLETE": grouped_html(completed) or '<p>No completed labs yet.</p>',
                      "PROGRESS": grouped_html(progress) or '<p>No labs in progress yet.</p>',
@@ -190,8 +190,9 @@ def check_output(output: Path) -> None:
             raise catalog.CatalogError("Publish artifact cannot contain symbolic or hard links")
         if path.is_file():
             actual.add(path.relative_to(output).as_posix())
-    allowed = re.compile(r"(?:index\.html|build-info\.json|\.nojekyll|catalog\.[a-f0-9]{16}\.json|assets/catalog\.[a-f0-9]{16}\.(?:css|js))")
-    if actual != set(info.get("files", [])) or len(actual) != 6 or not all(allowed.fullmatch(name) for name in actual):
+    allowed = re.compile(r"(?:index\.html|build-info\.json|\.nojekyll|catalog\.[a-f0-9]{16}\.json|assets/(?:catalog\.[a-f0-9]{16}\.(?:css|js)|favicon\.[a-f0-9]{16}\.svg))")
+    expected_count = 7 if any(name.startswith("assets/favicon.") for name in actual) else 6
+    if actual != set(info.get("files", [])) or len(actual) != expected_count or not all(allowed.fullmatch(name) for name in actual):
         raise catalog.CatalogError("Unexpected files in publish artifact")
     document = (output / "index.html").read_text(encoding="utf-8")
     for target in re.findall(r'(?:src|href|data-catalog)="([^"?#]+)"', document):
