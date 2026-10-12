@@ -8,6 +8,8 @@
     "shell-scripting"
   ],
   "tools": [
+    "bash",
+    "bats",
     "python",
     "unittest"
   ],

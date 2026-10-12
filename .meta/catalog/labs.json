@@ -5203,6 +5203,8 @@
       "shell-scripting"
     ],
     "tools": [
+      "bash",
+      "bats",
       "python",
       "unittest"
     ],
@@ -5238,6 +5240,8 @@
     "collection_title": "Exercism",
     "collection_source_url": "https://exercism.org/tracks/bash/exercises",
     "tools_effective": [
+      "bash",
+      "bats",
       "python",
       "unittest"
     ],

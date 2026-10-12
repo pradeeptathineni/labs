@@ -27,7 +27,7 @@
 
 - [Multiples of 3 or 5](niches/code/mathematics/project-euler/01-multiples-of-3-or-5/README.md#exercise-definition) — Find the sum of positive multiples of 3 or 5 below 1000.<br>Exercise · Complete · Updated 2026-10-12 · `arithmetic` · `divisibility` · `python` · [Solution](niches/code/mathematics/project-euler/01-multiples-of-3-or-5/README.md#solution) · Completed 2026-10-12 · [ref](https://projecteuler.net/problem=1)
 
-- [Bash Error Handling](niches/code/programming/bash/exercism/error-handling/README.md#exercise-definition) — Handle command-line argument counts, quoting, and failure exit codes in a Bash script.<br>Exercise · Complete · Updated 2026-10-12 · `command-line` · `error-handling` · `shell-scripting` · `python` · `unittest` · [Solution](niches/code/programming/bash/exercism/error-handling/README.md#solution) · Completed 2026-10-12 · [ref](https://exercism.org/tracks/bash/exercises/error-handling)
+- [Bash Error Handling](niches/code/programming/bash/exercism/error-handling/README.md#exercise-definition) — Handle command-line argument counts, quoting, and failure exit codes in a Bash script.<br>Exercise · Complete · Updated 2026-10-12 · `command-line` · `error-handling` · `shell-scripting` · `bash` · `bats` · `python` · `unittest` · [Solution](niches/code/programming/bash/exercism/error-handling/README.md#solution) · Completed 2026-10-12 · [ref](https://exercism.org/tracks/bash/exercises/error-handling)
 
 
 ## In progress
@@ -139,7 +139,8 @@ No labs in progress yet.
 - **Azure** · 2 labs: [Implement Azure Virtual Networking](niches/code/cloud/azure/az-104/04-virtual-networking/README.md#exercise-definition), [Connect Azure Networks with Global Peering](niches/code/cloud/azure/az-700/m01-08-global-peering/README.md#exercise-definition)
 - **Azure Dns** · 1 lab: [Implement Azure Virtual Networking](niches/code/cloud/azure/az-104/04-virtual-networking/README.md#exercise-definition)
 - **Azure Powershell** · 1 lab: [Connect Azure Networks with Global Peering](niches/code/cloud/azure/az-700/m01-08-global-peering/README.md#exercise-definition)
-- **Bash** · 3 labs: [Server Performance Stats](niches/code/devops/roadmap-sh/01-server-performance-stats/README.md#exercise-definition), [Nginx Log Analyser](niches/code/devops/roadmap-sh/03-nginx-log-analyser/README.md#exercise-definition), [AWS Terraform Engineering Challenge](niches/code/devops/technical-assessments/eng-challenge-aws-terraform/README.md#exercise-definition)
+- **Bash** · 4 labs: [Server Performance Stats](niches/code/devops/roadmap-sh/01-server-performance-stats/README.md#exercise-definition), [Nginx Log Analyser](niches/code/devops/roadmap-sh/03-nginx-log-analyser/README.md#exercise-definition), [AWS Terraform Engineering Challenge](niches/code/devops/technical-assessments/eng-challenge-aws-terraform/README.md#exercise-definition), [Bash Error Handling](niches/code/programming/bash/exercism/error-handling/README.md#exercise-definition)
+- **Bats** · 1 lab: [Bash Error Handling](niches/code/programming/bash/exercism/error-handling/README.md#exercise-definition)
 - **Burp Suite** · 1 lab: [User Role Controlled by Request Parameter](niches/code/security/web/portswigger/client-controlled-role/README.md#exercise-definition)
 - **Calico** · 1 lab: [Exercise 27 — CNI Installation (Calico/Tigera Operator)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/27-cni-tigera-install/README.md#exercise-definition)
 - **Cert Manager** · 1 lab: [Kubernetes Cluster](niches/code/devops/devroadmaps/kubernetes-cluster/README.md#exercise-definition)
@@ -554,7 +555,7 @@ No labs in progress yet.
 
 `niches/code/programming/bash/exercism` · [ref](https://exercism.org/tracks/bash/exercises)
 
-- [Bash Error Handling](niches/code/programming/bash/exercism/error-handling/README.md#exercise-definition)<a id="lab-niches-code-programming-bash-exercism-error-handling"></a> — Handle command-line argument counts, quoting, and failure exit codes in a Bash script.<br>Exercise · Complete · Updated 2026-10-12 · `command-line` · `error-handling` · `shell-scripting` · `python` · `unittest` · [Solution](niches/code/programming/bash/exercism/error-handling/README.md#solution) · Completed 2026-10-12 · [ref](https://exercism.org/tracks/bash/exercises/error-handling)
+- [Bash Error Handling](niches/code/programming/bash/exercism/error-handling/README.md#exercise-definition)<a id="lab-niches-code-programming-bash-exercism-error-handling"></a> — Handle command-line argument counts, quoting, and failure exit codes in a Bash script.<br>Exercise · Complete · Updated 2026-10-12 · `command-line` · `error-handling` · `shell-scripting` · `bash` · `bats` · `python` · `unittest` · [Solution](niches/code/programming/bash/exercism/error-handling/README.md#solution) · Completed 2026-10-12 · [ref](https://exercism.org/tracks/bash/exercises/error-handling)
 
 </details>
 
