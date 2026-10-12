@@ -5257,6 +5257,63 @@
     "collection_notes": null
   },
   {
+    "title": "CSV Quiz",
+    "summary": "Build a CSV quiz command, then add a timer that can interrupt waiting for input.",
+    "type": "project",
+    "skills": [
+      "automated-testing",
+      "command-line",
+      "data-parsing"
+    ],
+    "tools": [
+      "go"
+    ],
+    "source": {
+      "provider": "gophercises",
+      "item_id": "quiz",
+      "url": "https://github.com/gophercises/quiz/blob/82fe91a9fa4711f2c3f751fd66b2b94fd8894d0e/README.md",
+      "revision": "82fe91a9fa4711f2c3f751fd66b2b94fd8894d0e"
+    },
+    "tracking": {
+      "status": "in-progress",
+      "dates": {
+        "created": "2026-10-12",
+        "started": "2026-10-12",
+        "updated": "2026-10-12",
+        "completed": null
+      },
+      "content_sha256": "9f03843af373e32f31cc294e96da4562ba35e009ef433a9fc63bfc08aa4d7252"
+    },
+    "niche": "code",
+    "domain": "programming",
+    "subdomain": "go",
+    "groups": [],
+    "collection": "gophercises",
+    "path": "niches/code/programming/go/gophercises/csv-quiz",
+    "slug": "csv-quiz",
+    "order": null,
+    "source_display": {
+      "name": "Gophercises",
+      "type": "external",
+      "url": "https://gophercises.com/"
+    },
+    "collection_title": "Gophercises",
+    "collection_source_url": "https://gophercises.com/",
+    "tools_effective": [
+      "go"
+    ],
+    "goals_effective": [],
+    "collection_path": "niches/code/programming/go/gophercises",
+    "subject_title": "Programming · Go",
+    "collection_breadcrumb": [
+      "Code",
+      "Gophercises"
+    ],
+    "exercise_link": "niches/code/programming/go/gophercises/csv-quiz/README.md#exercise-definition",
+    "solution_link": "niches/code/programming/go/gophercises/csv-quiz/README.md#solution",
+    "collection_notes": null
+  },
+  {
     "title": "Grep in Python",
     "summary": "Implement a fixed-string file search with composable flags and deterministic output.",
     "type": "exercise",

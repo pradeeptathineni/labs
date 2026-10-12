@@ -2,9 +2,9 @@
 
 [Web catalog](https://pradeeptathineni.github.io/labs/) · [Practice atlas](PRACTICE-ATLAS.md) · [About this repo](README.md)
 
-**89 labs:** 41 Exercises · 33 Projects · 11 Problem Sets · 3 Challenges · 1 Question Bank
+**90 labs:** 41 Exercises · 34 Projects · 11 Problem Sets · 3 Challenges · 1 Question Bank
 
-10 complete · 0 in progress · 79 planned · 0 paused · 0 abandoned
+10 complete · 1 in progress · 79 planned · 0 paused · 0 abandoned
 
 > [!IMPORTANT]
 > Imported work is planned practice. Target skills are not demonstrated proficiency; certification goals are preparation, not credentials.
@@ -34,7 +34,8 @@
 
 ## In progress
 
-No labs in progress yet.
+- [CSV Quiz](niches/code/programming/go/gophercises/csv-quiz/README.md#exercise-definition) — Build a CSV quiz command, then add a timer that can interrupt waiting for input.<br>Project · In progress · Updated 2026-10-12 · `automated-testing` · `command-line` · `data-parsing` · `go` · [Solution](niches/code/programming/go/gophercises/csv-quiz/README.md#solution) · [ref](https://github.com/gophercises/quiz/blob/82fe91a9fa4711f2c3f751fd66b2b94fd8894d0e/README.md)
+
 
 ## [Browse labs](#browse-labs)
 
@@ -47,7 +48,7 @@ No labs in progress yet.
 - **Api Development** · 2 labs: [Serverless API](niches/code/cloud/aws/devroadmaps/serverless-api/README.md#exercise-definition), [Hello Cloud Run with Python](niches/code/cloud/gcp/google-codelabs/cloud-run-python/README.md#exercise-definition)
 - **Archiving** · 1 lab: [Log Archive Tool](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition)
 - **Arithmetic** · 1 lab: [Multiples of 3 or 5](niches/code/mathematics/project-euler/01-multiples-of-3-or-5/README.md#exercise-definition)
-- **Automated Testing** · 1 lab: [Grep in Python](niches/code/programming/python/exercism/grep/README.md#exercise-definition)
+- **Automated Testing** · 2 labs: [CSV Quiz](niches/code/programming/go/gophercises/csv-quiz/README.md#exercise-definition), [Grep in Python](niches/code/programming/python/exercism/grep/README.md#exercise-definition)
 - **Automation** · 2 labs: [Configuration Management](niches/code/devops/roadmap-sh/13-configuration-management/README.md#exercise-definition), [Automated DB Backups](niches/code/devops/roadmap-sh/18-automated-db-backups/README.md#exercise-definition)
 - **Backup And Recovery** · 1 lab: [Automated DB Backups](niches/code/devops/roadmap-sh/18-automated-db-backups/README.md#exercise-definition)
 - **Bastion Hosts** · 1 lab: [Bastion Host](niches/code/devops/roadmap-sh/19-bastion-host/README.md#exercise-definition)
@@ -58,7 +59,7 @@ No labs in progress yet.
 - **Cloud Hosting** · 1 lab: [Basic DNS Setup](niches/code/devops/roadmap-sh/07-basic-dns-setup/README.md#exercise-definition)
 - **Cluster Administration** · 1 lab: [Kubernetes Cluster](niches/code/devops/devroadmaps/kubernetes-cluster/README.md#exercise-definition)
 - **Cluster Maintenance** · 2 labs: [Exercise 08 — Node Drain and Cordon](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/08-node-drain-cordon/README.md#exercise-definition), [Exercise 09 — kubeadm Cluster Upgrade](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/09-kubeadm-upgrade/README.md#exercise-definition)
-- **Command Line** · 4 labs: [Log Archive Tool](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition), [Nginx Log Analyser](niches/code/devops/roadmap-sh/03-nginx-log-analyser/README.md#exercise-definition), [Bash Error Handling](niches/code/programming/bash/exercism/error-handling/README.md#exercise-definition), [Grep in Python](niches/code/programming/python/exercism/grep/README.md#exercise-definition)
+- **Command Line** · 5 labs: [Log Archive Tool](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition), [Nginx Log Analyser](niches/code/devops/roadmap-sh/03-nginx-log-analyser/README.md#exercise-definition), [Bash Error Handling](niches/code/programming/bash/exercism/error-handling/README.md#exercise-definition), [CSV Quiz](niches/code/programming/go/gophercises/csv-quiz/README.md#exercise-definition), [Grep in Python](niches/code/programming/python/exercism/grep/README.md#exercise-definition)
 - **Compression** · 1 lab: [Log Archive Tool](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition)
 - **Conceptual Reasoning** · 3 labs: [CKA objectives review](niches/study/devops/orchestration/kubernetes/cka/objectives-review/README.md#exercise-definition), [CKAD objectives review](niches/study/devops/orchestration/kubernetes/ckad/objectives-review/README.md#exercise-definition), [CKS objectives review](niches/study/devops/orchestration/kubernetes/cks/objectives-review/README.md#exercise-definition)
 - **Configuration Management** · 8 labs: [Infrastructure as Code](niches/code/devops/devroadmaps/infrastructure-as-code/README.md#exercise-definition), [Configuration Management](niches/code/devops/roadmap-sh/13-configuration-management/README.md#exercise-definition), [Multi-container Application with Docker Compose](niches/code/devops/containers/docker-guides/multi-container-compose/README.md#exercise-definition), [Exercise 03 — ConfigMap and Secret](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/03-configmap-secret/README.md#exercise-definition), [Exercise 14 — Kustomize: Base and Overlay](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/14-kustomize-overlays/README.md#exercise-definition), [Exercise 24 — PriorityClass and Patch Operations](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/24-priorityclass-patch/README.md#exercise-definition), [Exercise 29 — Troubleshoot Broken Cluster (Incorrect etcd Endpoint)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/29-troubleshoot-etcd-endpoint/README.md#exercise-definition), [Exercise 30 — TLS Configuration Update (Cipher Support)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/30-tls-configuration-update/README.md#exercise-definition)
@@ -66,6 +67,7 @@ No labs in progress yet.
 - **Cryptographic Hashing** · 1 lab: [File Integrity Checker](niches/code/devops/roadmap-sh/20-file-integrity-checker/README.md#exercise-definition)
 - **Cryptography** · 1 lab: [VPN Server Setup](niches/code/devops/roadmap-sh/22-vpn-server-setup/README.md#exercise-definition)
 - **Dashboarding** · 1 lab: [Simple Monitoring](niches/code/devops/roadmap-sh/08-simple-monitoring/README.md#exercise-definition)
+- **Data Parsing** · 1 lab: [CSV Quiz](niches/code/programming/go/gophercises/csv-quiz/README.md#exercise-definition)
 - **Data Replication** · 1 lab: [Multi-Region Architecture](niches/code/cloud/aws/devroadmaps/multi-region-architecture/README.md#exercise-definition)
 - **Data Validation** · 1 lab: [Join Members, Bookings, and Facilities](niches/code/data/sql/pgexercises/three-table-join/README.md#exercise-definition)
 - **Database Backups** · 1 lab: [Automated DB Backups](niches/code/devops/roadmap-sh/18-automated-db-backups/README.md#exercise-definition)
@@ -164,6 +166,7 @@ No labs in progress yet.
 - **Git** · 3 labs: [Infrastructure as Code](niches/code/devops/devroadmaps/infrastructure-as-code/README.md#exercise-definition), [GitHub Pages Deployment](niches/code/devops/roadmap-sh/04-github-pages-deployment/README.md#exercise-definition), [Exercise 31 — Argo CD Setup (GitOps Deployment)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/31-argocd-gitops-setup/README.md#exercise-definition)
 - **Github Actions** · 5 labs: [CI/CD Pipeline](niches/code/devops/devroadmaps/ci-cd-pipeline/README.md#exercise-definition), [GitHub Pages Deployment](niches/code/devops/roadmap-sh/04-github-pages-deployment/README.md#exercise-definition), [Node.js Service Deployment](niches/code/devops/roadmap-sh/15-nodejs-service-deployment/README.md#exercise-definition), [Dockerized Service](niches/code/devops/roadmap-sh/16-dockerized-service/README.md#exercise-definition), [AWS Terraform Engineering Challenge](niches/code/devops/technical-assessments/eng-challenge-aws-terraform/README.md#exercise-definition)
 - **Github Pages** · 1 lab: [GitHub Pages Deployment](niches/code/devops/roadmap-sh/04-github-pages-deployment/README.md#exercise-definition)
+- **Go** · 1 lab: [CSV Quiz](niches/code/programming/go/gophercises/csv-quiz/README.md#exercise-definition)
 - **Grafana** · 2 labs: [Monitoring Stack](niches/code/devops/devroadmaps/monitoring-stack/README.md#exercise-definition), [Prometheus and Grafana](niches/code/devops/roadmap-sh/24-prometheus-and-grafana/README.md#exercise-definition)
 - **Grep** · 1 lab: [Grep in Python](niches/code/programming/python/exercism/grep/README.md#exercise-definition)
 - **Helm** · 3 labs: [GitOps Deployment](niches/code/devops/devroadmaps/gitops-deployment/README.md#exercise-definition), [Kubernetes Cluster](niches/code/devops/devroadmaps/kubernetes-cluster/README.md#exercise-definition), [Exercise 13 — Helm Install, Upgrade, and Rollback](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/13-helm-install-upgrade/README.md#exercise-definition)
@@ -558,6 +561,17 @@ No labs in progress yet.
 `niches/code/programming/bash/exercism` · [ref](https://exercism.org/tracks/bash/exercises)
 
 - [Bash Error Handling](niches/code/programming/bash/exercism/error-handling/README.md#exercise-definition)<a id="lab-niches-code-programming-bash-exercism-error-handling"></a> — Handle command-line argument counts, quoting, and failure exit codes in a Bash script.<br>Exercise · Complete · Updated 2026-10-12 · `command-line` · `error-handling` · `shell-scripting` · `bash` · `bats` · `python` · `unittest` · [Solution](niches/code/programming/bash/exercism/error-handling/README.md#solution) · Completed 2026-10-12 · [ref](https://exercism.org/tracks/bash/exercises/error-handling)
+
+</details>
+
+### Programming · Go
+
+<details>
+<summary>Code · Gophercises · 1 lab</summary>
+
+`niches/code/programming/go/gophercises` · [ref](https://gophercises.com/)
+
+- [CSV Quiz](niches/code/programming/go/gophercises/csv-quiz/README.md#exercise-definition)<a id="lab-niches-code-programming-go-gophercises-csv-quiz"></a> — Build a CSV quiz command, then add a timer that can interrupt waiting for input.<br>Project · In progress · Updated 2026-10-12 · `automated-testing` · `command-line` · `data-parsing` · `go` · [Solution](niches/code/programming/go/gophercises/csv-quiz/README.md#solution) · [ref](https://github.com/gophercises/quiz/blob/82fe91a9fa4711f2c3f751fd66b2b94fd8894d0e/README.md)
 
 </details>
 

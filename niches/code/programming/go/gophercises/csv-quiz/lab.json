@@ -1,0 +1,29 @@
+{
+  "title": "CSV Quiz",
+  "summary": "Build a CSV quiz command, then add a timer that can interrupt waiting for input.",
+  "type": "project",
+  "skills": [
+    "automated-testing",
+    "command-line",
+    "data-parsing"
+  ],
+  "tools": [
+    "go"
+  ],
+  "source": {
+    "provider": "gophercises",
+    "item_id": "quiz",
+    "url": "https://github.com/gophercises/quiz/blob/82fe91a9fa4711f2c3f751fd66b2b94fd8894d0e/README.md",
+    "revision": "82fe91a9fa4711f2c3f751fd66b2b94fd8894d0e"
+  },
+  "tracking": {
+    "status": "in-progress",
+    "dates": {
+      "created": "2026-10-12",
+      "started": "2026-10-12",
+      "updated": "2026-10-12",
+      "completed": null
+    },
+    "content_sha256": "9f03843af373e32f31cc294e96da4562ba35e009ef433a9fc63bfc08aa4d7252"
+  }
+}

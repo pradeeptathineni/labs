@@ -2,7 +2,7 @@
 
 [Lab catalog](CATALOG.md) · [Web catalog](https://pradeeptathineni.github.io/labs/) · [How I use this repo](README.md)
 
-**65 reviewed opportunities** · 87 matching adopted labs · 89 labs in the whole repository
+**65 reviewed opportunities** · 88 matching adopted labs · 90 labs in the whole repository
 
 I use this shortlist to choose practical problems worth doing next. Planned means the lab exists; it does not mean I have attempted it.
 
@@ -17,7 +17,7 @@ I use this shortlist to choose practical problems worth doing next. Planned mean
 | DevOps · Infrastructure as Code · Code | <a id="terraform-local"></a>[Terraform with Docker](https://developer.hashicorp.com/terraform/tutorials/docker-get-started) | Manage a local Docker container through Terraform plans, state, updates, and teardown. | [1 planned](niches/code/devops/infrastructure-as-code/terraform-docker/) |
 | Google Cloud · Code | <a id="gcp-cloud-run"></a>[Google Cloud Codelabs](https://codelabs.developers.google.com/?cat=Cloud) | Deploy a Python HTTP service from source and inspect the Cloud Run revision and response. | [1 planned](niches/code/cloud/gcp/google-codelabs/) |
 | Google Cloud · Code | <a id="gcp-challenge-labs"></a>[Google Cloud challenge labs](https://www.skills.google/catalog) | Configure an event-driven photo workflow and access permissions in a timed Google Cloud challenge. | [1 planned](niches/code/cloud/gcp/google-skills/) |
-| Programming · Go · Code | <a id="go-gophercises"></a>[Gophercises projects](https://gophercises.com/) | Build useful Go commands or services and test their input, output, and failure paths. | Not added |
+| Programming · Go · Code | <a id="go-gophercises"></a>[Gophercises projects](https://gophercises.com/) | Build useful Go commands or services and test their input, output, and failure paths. | [1 in progress](niches/code/programming/go/gophercises/) |
 | Security · Web · Code | <a id="web-security"></a>[PortSwigger Web Security Academy](https://portswigger.net/web-security/all-labs) | Investigate client-controlled authorization and explain a server-side fix in a hosted lab. | [1 planned](niches/code/security/web/portswigger/) |
 
 ## Later contenders
@@ -643,9 +643,11 @@ Good for a narrow language skill. Prefer text processing or concurrency over ano
 
 Checked 2026-10-12: Official project list and quiz brief inspected at 82fe91a9fa4711f2c3f751fd66b2b94fd8894d0e. The quiz has an untimed part and a timer part. Go toolchain and local project inputs. Course videos need email signup. The quiz brief is public and needs no hosted service.
 
-Destination: `niches/code/programming/go/gophercises` (proposed)
+Destination: [`niches/code/programming/go/gophercises`](niches/code/programming/go/gophercises/)
 
 Choose the CSV quiz first. Its two source parts give a clear stop after the untimed CLI, with the timer still unfinished.
+
+Labs: [CSV Quiz](niches/code/programming/go/gophercises/csv-quiz/README.md)
 
 **[Learn Go with Tests](#go-test-driven)** — One chapter problem with a personal implementation. direct; reuse: link-only.
 
