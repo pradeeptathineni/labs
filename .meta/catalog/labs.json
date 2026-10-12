@@ -1974,14 +1974,14 @@
       "url": "https://roadmap.sh/projects/multiservice-docker"
     },
     "tracking": {
-      "status": "not-started",
+      "status": "in-progress",
       "dates": {
         "created": "2026-10-03",
-        "started": null,
-        "updated": "2026-10-04",
+        "started": "2026-10-12",
+        "updated": "2026-10-12",
         "completed": null
       },
-      "content_sha256": "d6088f09fd0d8495054a5c99271b41efce5fc11e84747947f93d853e408ed523"
+      "content_sha256": "e753cf395f543648ba9408c749b5d2474acc5832dc22e724f3a6bb541db66eab"
     },
     "niche": "code",
     "domain": "devops",
@@ -2010,7 +2010,7 @@
       "roadmap.sh"
     ],
     "exercise_link": "niches/code/devops/roadmap-sh/25-multi-service-application/README.md#exercise-definition",
-    "solution_link": null,
+    "solution_link": "niches/code/devops/roadmap-sh/25-multi-service-application/README.md#solution",
     "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {

@@ -4,7 +4,7 @@
 
 **79 labs:** 33 Projects · 32 Exercises · 11 Problem Sets · 2 Challenges · 1 Question Bank
 
-5 complete · 1 in progress · 73 planned · 0 paused · 0 abandoned
+5 complete · 2 in progress · 72 planned · 0 paused · 0 abandoned
 
 > [!IMPORTANT]
 > Imported work is planned practice. Target skills are not demonstrated proficiency; certification goals are preparation, not credentials.
@@ -23,6 +23,8 @@
 
 
 ## In progress
+
+- [Multi-Service Application](niches/code/devops/roadmap-sh/25-multi-service-application/README.md#exercise-definition) — Set up an optimized multi-service Docker application.<br>Project · In progress · Updated 2026-10-12 · `multi-service-architecture` · `optimization` · `service-networking` · `docker` · `docker-compose` · [Solution](niches/code/devops/roadmap-sh/25-multi-service-application/README.md#solution) · [ref](https://roadmap.sh/projects/multiservice-docker)
 
 - [Exercise 01 — Pod Basics](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/01-pod-basics/README.md#exercise-definition) — Create a Pod with labels and resource limits, then inspect its state and network address.<br>Exercise · In progress · Updated 2026-10-12 · `orchestration` · `resource-management` · `kubernetes` · `cka` · [Solution](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/01-pod-basics/README.md#solution) · [ref](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/01-pod-basics/README.md#tasks)
 
@@ -278,7 +280,7 @@
 
 24. [Prometheus and Grafana](niches/code/devops/roadmap-sh/24-prometheus-and-grafana/README.md#exercise-definition)<a id="lab-niches-code-devops-roadmap-sh-24-prometheus-and-grafana"></a> — Collect metrics with Prometheus and visualize them in Grafana.<br>Project · Planned · Updated 2026-10-04 · `metrics` · `monitoring` · `observability` · `grafana` · `prometheus` · [ref](https://roadmap.sh/projects/monitoring)
 
-25. [Multi-Service Application](niches/code/devops/roadmap-sh/25-multi-service-application/README.md#exercise-definition)<a id="lab-niches-code-devops-roadmap-sh-25-multi-service-application"></a> — Set up an optimized multi-service Docker application.<br>Project · Planned · Updated 2026-10-04 · `multi-service-architecture` · `optimization` · `service-networking` · `docker` · `docker-compose` · [ref](https://roadmap.sh/projects/multiservice-docker)
+25. [Multi-Service Application](niches/code/devops/roadmap-sh/25-multi-service-application/README.md#exercise-definition)<a id="lab-niches-code-devops-roadmap-sh-25-multi-service-application"></a> — Set up an optimized multi-service Docker application.<br>Project · In progress · Updated 2026-10-12 · `multi-service-architecture` · `optimization` · `service-networking` · `docker` · `docker-compose` · [Solution](niches/code/devops/roadmap-sh/25-multi-service-application/README.md#solution) · [ref](https://roadmap.sh/projects/multiservice-docker)
 
 26. [Service Discovery](niches/code/devops/roadmap-sh/26-service-discovery/README.md#exercise-definition)<a id="lab-niches-code-devops-roadmap-sh-26-service-discovery"></a> — Set up service discovery for dummy services with Consul.<br>Project · Planned · Updated 2026-10-04 · `dns` · `networking` · `service-discovery` · `consul` · [ref](https://roadmap.sh/projects/service-discovery)
 
