@@ -29,7 +29,8 @@ def check(browser, url, labs, screenshots, expected_commit, published=False):
     errors = []
     page.on('pageerror', lambda error: errors.append(str(error)))
     page.goto(url, wait_until='networkidle')
-    expect(page).to_have_title('NogginUsin Labs')
+    expect(page).to_have_title('Practical Labs')
+    expect(page.locator('h1')).to_have_text('Practical Labs')
     favicon = page.locator('link[rel="icon"]').get_attribute('href')
     icon_response = context.request.get(url + favicon)
     assert icon_response.ok and '<svg' in icon_response.text(), 'Brain favicon unavailable'
@@ -42,6 +43,8 @@ def check(browser, url, labs, screenshots, expected_commit, published=False):
     assert payload_response.ok, 'Published catalog unavailable'
     payload = payload_response.json()
     assert payload['source_commit'] == expected_commit and payload['labs'] == labs, 'Published catalog differs from the expected snapshot'
+    atlas_link = page.get_by_role('link', name='Practice atlas', exact=True)
+    assert atlas_link.get_attribute('href').endswith(f'/blob/{expected_commit}/PRACTICE-ATLAS.md'), 'Practice atlas link differs from the published snapshot'
     expect(page.locator('#result-count')).to_have_text(f'{len(labs)} of {len(labs)} labs')
     expect(page.locator('main > details')).to_have_count(4)
 

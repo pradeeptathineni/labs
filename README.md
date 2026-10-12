@@ -1,4 +1,4 @@
-# Labs
+# Practical Labs
 
 `labs` is my working collection of problems I take apart, decisions I make, and things I build. The point is to practice critical thinking and show the work and reasoning when I have actually done it. An imported exercise is a plan, not an accomplishment.
 
