@@ -2,7 +2,14 @@
   "name": "labs-notes-web",
   "private": true,
   "type": "module",
-  "scripts": {"build": "vite build"},
-  "dependencies": {"react": "19.1.1", "react-dom": "19.1.1"},
-  "devDependencies": {"vite": "7.1.7"}
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  },
+  "devDependencies": {
+    "vite": "7.3.7"
+  }
 }

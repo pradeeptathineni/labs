@@ -22,3 +22,4 @@ Read the [original exercise definition](https://roadmap.sh/projects/multiservice
 - The host npm command used Node 16 even though a newer Node was installed. Use the pinned Node 24 container for builds.
 - The first package audit found advisories for Vite 7.1.7. This draft needs a patched build package before completion.
 - The five-service files are a draft. Live checks and the package correction still remain.
+- Changed Vite to 7.3.7 after reading the audit's affected versions. The updated package lock audit reported zero advisories. Live stack checks still remain.
