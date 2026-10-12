@@ -23,3 +23,7 @@ go vet ./...
 - No timer yet.
 
 [Decisions](docs/decisions.md)
+
+## Takeaways
+
+## Applications
