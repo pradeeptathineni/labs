@@ -40,3 +40,7 @@ At 1 AM in the machine's local time, using installed paths:
 - No schedule is installed by the script. Archive filenames still use UTC.
 
 [Decisions and checks](docs/decisions.md)
+
+## Takeaways
+
+## Applications
