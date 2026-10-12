@@ -1,3 +1,5 @@
 __pycache__/
 *.py[cod]
 .meta/build/
+/archives/
+/niches/code/devops/roadmap-sh/02-log-archive-tool/archives/

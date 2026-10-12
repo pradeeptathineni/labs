@@ -15,6 +15,7 @@
 ```
 
 - The default output folder is `archives` in the current folder. It must be outside the log folder.
+- Git ignores that output when running from this lab folder or the repository root. Keep other archive folders outside the repository.
 - Each archive is named `logs_archive_DATE_TIME_ID.tar.gz`, with UTC time and a short unique ending.
 - The command prints the saved file's full path and appends its date, time, and filename to `archive.log` in the output folder.
 - Original logs stay in place. Hidden files and subfolders are included, and links are saved as links.
@@ -27,6 +28,14 @@
 ```sh
 python3 -m unittest test_log_archive -v
 ```
+
+- An existing cron setup can run it each night at 1 AM in the machine's local time. Replace these paths with the installed Python, script, logs, and archive folder.
+
+```cron
+0 1 * * * /path/to/python3 /path/to/log-archive /path/to/logs /path/to/saved-archives
+```
+
+- No schedule is installed by the script. Archive filenames still use UTC.
 
 ## Decisions
 
@@ -49,6 +58,11 @@ python3 -m unittest test_log_archive -v
 1. **Checked Mac paths as they actually resolve (2026-10-11)**
    - The first test run had five passes and one failure. On macOS, `/var` resolves to `/private/var`, so one path comparison was wrong.
    - Fixed the test to resolve its temporary folder too. The script already handled that path correctly.
+
+1. **Kept saved logs out of Git (2026-10-11)**
+   - Review showed that the default output folder could be added to the repository.
+   - Added two ignore paths for runs from the lab folder or repository root. Other labs and their files keep their existing rules.
+   - Used cron for the scheduling example. A new scheduler or automatic setup wasn't needed.
 
 ## Checks
 
