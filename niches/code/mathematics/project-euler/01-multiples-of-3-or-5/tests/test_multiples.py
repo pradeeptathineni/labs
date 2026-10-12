@@ -1,8 +1,13 @@
-# 01-multiples-of-3-or-5/test_multiples.py - Check small sums and the answer
-# Usage: python3 -m unittest test_multiples -v
+# tests/test_multiples.py - Check small sums and the answer
+# Usage: python3 -m unittest discover -s tests -v
 
 # Use Python's built-in test tools and the solution function
+import sys
 import unittest
+from pathlib import Path
+
+# Find the solution from this test folder
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from multiples import sum_multiples
 
 

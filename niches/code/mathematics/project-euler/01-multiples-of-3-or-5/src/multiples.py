@@ -1,5 +1,5 @@
-# 01-multiples-of-3-or-5/multiples.py - Sum multiples of 3 or 5
-# Usage: python3 multiples.py
+# src/multiples.py - Sum multiples of 3 or 5
+# Usage: python3 src/multiples.py
 #
 # Print the answer for numbers below 1000 when run directly
 

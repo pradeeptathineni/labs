@@ -27,7 +27,7 @@ jobs:
       - name: Check the log archive tool
         run: python3 -m unittest discover -s niches/code/devops/roadmap-sh/02-log-archive-tool/tests -p 'test_*.py' -v
       - name: Check the first Project Euler solution
-        run: python3 -m unittest discover -s niches/code/mathematics/project-euler/01-multiples-of-3-or-5 -p 'test_*.py' -v
+        run: python3 -m unittest discover -s niches/code/mathematics/project-euler/01-multiples-of-3-or-5/tests -p 'test_*.py' -v
       - name: Check programming lab solutions
         run: |
           bash -n niches/code/programming/bash/exercism/error-handling/src/error_handling.sh
