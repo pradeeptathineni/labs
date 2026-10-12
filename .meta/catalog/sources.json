@@ -535,5 +535,41 @@
       "notes": "Link the inventory. Inspect an exact exercise, its prerequisites and licensing before copying assets.",
       "policy": "link-only"
     }
+  },
+  "gophercises": {
+    "type": "external",
+    "name": "Gophercises",
+    "url": "https://gophercises.com/",
+    "reuse": {
+      "notes": "Link project briefs. The selected quiz repository has no standalone LICENSE verified; retain no upstream code or data.",
+      "policy": "link-only"
+    }
+  },
+  "learn-go-with-tests": {
+    "type": "external",
+    "name": "Learn Go with Tests",
+    "url": "https://quii.gitbook.io/learn-go-with-tests",
+    "reuse": {
+      "notes": "Link lessons and exercises. Review the exact content/code license before copying; this batch uses links only.",
+      "policy": "link-only"
+    }
+  },
+  "automate-boring-stuff": {
+    "type": "external",
+    "name": "Automate the Boring Stuff with Python",
+    "url": "https://automatetheboringstuff.com/3e/",
+    "reuse": {
+      "notes": "Link the third-edition practice projects. Review book text and sample-data rights separately before copying.",
+      "policy": "link-only"
+    }
+  },
+  "missing-semester": {
+    "type": "external",
+    "name": "MIT Missing Semester",
+    "url": "https://missing.csail.mit.edu/",
+    "reuse": {
+      "notes": "Link course exercises. Keep the selected edition explicit; review content and third-party examples before copying.",
+      "policy": "link-only"
+    }
   }
 }

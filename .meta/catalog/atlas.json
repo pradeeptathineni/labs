@@ -20,7 +20,7 @@
     },
     "aws-dop-c02": {
       "type": "certification",
-      "title": "AWS Certified DevOps Engineer – Professional (DOP-C02)",
+      "title": "AWS Certified DevOps Engineer \u2013 Professional (DOP-C02)",
       "issuer": "AWS",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/devops-engineer-professional-02/devops-engineer-professional-02.html"
     },
@@ -33,14 +33,14 @@
     },
     "aws-saa-c03": {
       "type": "certification",
-      "title": "AWS Certified Solutions Architect – Associate (SAA-C03)",
+      "title": "AWS Certified Solutions Architect \u2013 Associate (SAA-C03)",
       "issuer": "AWS",
       "url": "https://aws.amazon.com/certification/certified-solutions-architect-associate/",
       "note": "Recheck current official page before claiming version alignment."
     },
     "aws-dva-c02": {
       "type": "certification",
-      "title": "AWS Certified Developer – Associate (DVA-C02)",
+      "title": "AWS Certified Developer \u2013 Associate (DVA-C02)",
       "issuer": "AWS",
       "url": "https://aws.amazon.com/certification/certified-developer-associate/",
       "note": "Recheck current official page before claiming version alignment."
@@ -571,10 +571,10 @@
       },
       "unit": "One exercise attempt",
       "lab_type": "exercise",
-      "priority": "next",
+      "priority": "later",
       "adoption": "direct",
       "deliverable": "Implement a fixed-string file search with composable flags and deterministic output.",
-      "access": "Python and the track’s documented pytest runner, or an Exercism account. Obtain the exact exercise tests and sample files through the source; this folder holds the personal attempt when started.",
+      "access": "Python and the track\u2019s documented pytest runner, or an Exercism account. Obtain the exact exercise tests and sample files through the source; this folder holds the personal attempt when started.",
       "evidence_scope": "Live Python Grep instructions and supported flags inspected; suitable for file-processing automation.",
       "checked_on": "2026-10-12"
     },
@@ -658,7 +658,7 @@
       "lab_type": "challenge",
       "priority": "later",
       "adoption": "direct",
-      "access": "Hosted VM attempts; the inventory distinguishes public, email-gated and paid scenarios. Check the selected scenario’s tier.",
+      "access": "Hosted VM attempts; the inventory distinguishes public, email-gated and paid scenarios. Check the selected scenario\u2019s tier.",
       "evidence_scope": "Live scenario inventory inspected, including Linux/Bash, Docker, databases, observability and IaC categories.",
       "checked_on": "2026-10-12",
       "notes": "Strong next troubleshooting collection after the starter batch. Begin with a public scenario such as Saint John; keep restricted scenarios linked.",
@@ -682,7 +682,7 @@
       "priority": "next",
       "adoption": "direct",
       "deliverable": "Investigate client-controlled authorization and explain a server-side fix in a hosted lab.",
-      "access": "A free Academy account and the hosted lab instance; a browser and optionally Burp Suite Community Edition. Use the lab’s own test accounts and target. Keep temporary credentials and session cookies out of saved notes.",
+      "access": "A free Academy account and the hosted lab instance; a browser and optionally Burp Suite Community Edition. Use the lab\u2019s own test accounts and target. Keep temporary credentials and session cookies out of saved notes.",
       "evidence_scope": "Current official access-control lab inspected; hosted objective and client-controlled role mechanism verified from instructions.",
       "checked_on": "2026-10-12"
     },
@@ -1158,7 +1158,7 @@
       "priority": "next",
       "adoption": "direct",
       "deliverable": "Build two Azure networks, inspect security rules, and verify public and private DNS.",
-      "access": "Azure subscription with resource-creation permissions; portal and Cloud Shell. DNS and other deployed resources can incur charges. Use a dedicated resource group and remove only this attempt’s resources afterward.",
+      "access": "Azure subscription with resource-creation permissions; portal and Cloud Shell. DNS and other deployed resources can incur charges. Use a dedicated resource group and remove only this attempt\u2019s resources afterward.",
       "evidence_scope": "Official Lab 04 instructions inspected: networking, template deployment, security groups, DNS, and cleanup.",
       "checked_on": "2026-10-12"
     },
@@ -1273,10 +1273,10 @@
       },
       "unit": "One exercise attempt",
       "lab_type": "exercise",
-      "priority": "next",
+      "priority": "later",
       "adoption": "direct",
       "deliverable": "Handle command-line argument counts, quoting, and failure exit codes in a Bash script.",
-      "access": "Bash and the track’s documented Bats runner for a local attempt, or an Exercism account. Use the linked track files for exact expected output and tests; no test or starter files are copied here.",
+      "access": "Bash and the track\u2019s documented Bats runner for a local attempt, or an Exercism account. Use the linked track files for exact expected output and tests; no test or starter files are copied here.",
       "evidence_scope": "Live Bash exercise inspected; the task is argument validation rather than generic exception handling.",
       "checked_on": "2026-10-12"
     },
@@ -1299,7 +1299,7 @@
       "priority": "next",
       "adoption": "direct",
       "deliverable": "Manage a local Docker container through Terraform plans, state, updates, and teardown.",
-      "access": "Terraform CLI and a Docker engine. Follow the collection’s Build, Change, and Destroy tutorials as one lifecycle; inspect the provider endpoint for the local engine. Keep .terraform/, state, saved plans, and credentials out of public notes.",
+      "access": "Terraform CLI and a Docker engine. Follow the collection\u2019s Build, Change, and Destroy tutorials as one lifecycle; inspect the provider endpoint for the local engine. Keep .terraform/, state, saved plans, and credentials out of public notes.",
       "evidence_scope": "Official Docker tutorial sequence and Build/Destroy pages inspected; local practice avoids a cloud account.",
       "checked_on": "2026-10-12"
     },
@@ -1321,7 +1321,7 @@
       "priority": "next",
       "adoption": "direct",
       "deliverable": "Join three relational tables and verify duplicate handling, projection, and result ordering.",
-      "access": "The free browser query runner is enough. A local PostgreSQL setup is optional; inspect dataset terms before retaining the sample database. Keep the source’s published answer hidden until after the attempt.",
+      "access": "The free browser query runner is enough. A local PostgreSQL setup is optional; inspect dataset terms before retaining the sample database. Keep the source\u2019s published answer hidden until after the attempt.",
       "evidence_scope": "Live three-table join problem, schema reminder, expected results and query runner inspected.",
       "checked_on": "2026-10-12"
     },
@@ -1368,7 +1368,7 @@
       "access": "Python notebook environment and a supported model endpoint; credentials and inference costs depend on the selected lesson.",
       "evidence_scope": "Official curriculum and lesson 04 assignment inspected: executable notebook exercises exist.",
       "checked_on": "2026-10-12",
-      "notes": "Fits the profile’s AI evaluation and EdTech interests. Add fixed examples and a baseline before claiming improvements; verify current SDK and endpoint setup."
+      "notes": "Fits the profile\u2019s AI evaluation and EdTech interests. Add fixed examples and a baseline before claiming improvements; verify current SDK and endpoint setup."
     },
     {
       "id": "gcp-data-training",
@@ -1392,6 +1392,116 @@
       "evidence_scope": "Official repository inventory inspected: courses, self-paced labs, quests, and sensor simulation; repository is not archived.",
       "checked_on": "2026-10-12",
       "notes": "Useful bridge to data, ML, and IoT interests. Inventory evidence alone is insufficient to pick a runnable assignment; select and pin an exact brief first."
+    },
+    {
+      "id": "go-exercism",
+      "title": "Exercism Go",
+      "provider": "exercism",
+      "materials_url": "https://exercism.org/tracks/go/exercises",
+      "target": {
+        "collection_path": "niches/code/programming/go/exercism",
+        "has_subdomain": true,
+        "tools": [
+          "go"
+        ]
+      },
+      "unit": "One substantial exercise",
+      "lab_type": "exercise",
+      "priority": "later",
+      "adoption": "direct",
+      "deliverable": "Practice Go data handling and error paths with a test-backed result.",
+      "evidence_scope": "Public exercise inventory and official Go track repository checked. Exact exercises still need selection.",
+      "checked_on": "2026-10-12",
+      "access": "Go toolchain. Use local tests or an Exercism account. Review the selected exercise before adopting files.",
+      "notes": "Good for a narrow language skill. Prefer text processing or concurrency over another hello-world task."
+    },
+    {
+      "id": "go-gophercises",
+      "title": "Gophercises projects",
+      "provider": "gophercises",
+      "materials_url": "https://gophercises.com/",
+      "target": {
+        "collection_path": "niches/code/programming/go/gophercises",
+        "has_subdomain": true,
+        "tools": [
+          "go"
+        ]
+      },
+      "unit": "One project, including its stated parts",
+      "lab_type": "project",
+      "priority": "next",
+      "adoption": "direct",
+      "deliverable": "Build useful Go commands or services and test their input, output, and failure paths.",
+      "evidence_scope": "Official project list and quiz brief inspected at 82fe91a9fa4711f2c3f751fd66b2b94fd8894d0e. The quiz has an untimed part and a timer part.",
+      "checked_on": "2026-10-12",
+      "access": "Go toolchain and local project inputs. Course videos need email signup. The quiz brief is public and needs no hosted service.",
+      "notes": "Choose the CSV quiz first. Its two source parts give a clear stop after the untimed CLI, with the timer still unfinished."
+    },
+    {
+      "id": "go-test-driven",
+      "title": "Learn Go with Tests",
+      "provider": "learn-go-with-tests",
+      "materials_url": "https://quii.gitbook.io/learn-go-with-tests",
+      "target": {
+        "collection_path": "niches/code/programming/go/learn-go-with-tests",
+        "has_subdomain": true,
+        "tools": [
+          "go"
+        ]
+      },
+      "unit": "One chapter problem with a personal implementation",
+      "lab_type": "exercise",
+      "priority": "later",
+      "adoption": "direct",
+      "deliverable": "Use small tests to explore interfaces, dependency injection, or concurrency in Go.",
+      "evidence_scope": "Official course introduction, repository chapter list, and concurrency problem inspected.",
+      "checked_on": "2026-10-12",
+      "access": "Go toolchain. Local tests can replace live network calls in the concurrency chapter.",
+      "notes": "Useful after the first CLI project. Keep guided code and personal implementation separate, and run the race detector for concurrency work."
+    },
+    {
+      "id": "python-automation-book",
+      "title": "Automate the Boring Stuff projects",
+      "provider": "automate-boring-stuff",
+      "materials_url": "https://automatetheboringstuff.com/3e/",
+      "target": {
+        "collection_path": "niches/code/programming/python/automate-boring-stuff",
+        "has_subdomain": true,
+        "tools": [
+          "python"
+        ]
+      },
+      "unit": "One selected third-edition practice project",
+      "lab_type": "project",
+      "priority": "later",
+      "adoption": "direct",
+      "deliverable": "Automate a file, command-line, or structured-data task and check its failure behavior.",
+      "evidence_scope": "Third-edition table of contents checked. Organizing Files chapter body fetch failed, so exact project names are unverified.",
+      "checked_on": "2026-10-12",
+      "access": "Public book index. Recheck the chosen chapter and any third-party packages before creating a lab.",
+      "notes": "Relevant to file organization, CLI tools, CSV/JSON/XML, and document automation. Choose a local file task with temporary sample data first."
+    },
+    {
+      "id": "bash-missing-semester",
+      "title": "Missing Semester shell exercises",
+      "provider": "missing-semester",
+      "materials_url": "https://missing.csail.mit.edu/2020/shell-tools/",
+      "target": {
+        "collection_path": "niches/code/programming/bash/missing-semester-2020",
+        "has_subdomain": true,
+        "tools": [
+          "bash"
+        ]
+      },
+      "unit": "One chosen exercise or small connected set",
+      "lab_type": "problem-set",
+      "priority": "later",
+      "adoption": "direct",
+      "deliverable": "Practice shell functions, failure capture, and reliable file-processing commands.",
+      "evidence_scope": "Official 2020 lesson and five exercises inspected, including shell state, rare failures, and filenames with spaces.",
+      "checked_on": "2026-10-12",
+      "access": "Bash and Unix tools. The lesson calls out GNU/BSD differences, which matter on this Mac.",
+      "notes": "The failure-capture exercise is a strong next step after argument handling. Keep the 2020 edition explicit and use only disposable local inputs."
     }
   ],
   "unresolved_sources": [

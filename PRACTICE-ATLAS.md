@@ -2,7 +2,7 @@
 
 [Lab catalog](CATALOG.md) · [Web catalog](https://pradeeptathineni.github.io/labs/) · [How I use this repo](README.md)
 
-**60 reviewed opportunities** · 87 matching adopted labs · 89 labs in the whole repository
+**65 reviewed opportunities** · 87 matching adopted labs · 89 labs in the whole repository
 
 I use this shortlist to choose practical problems worth doing next. Planned means the lab exists; it does not mean I have attempted it.
 
@@ -17,8 +17,7 @@ I use this shortlist to choose practical problems worth doing next. Planned mean
 | DevOps · Infrastructure as Code · Code | <a id="terraform-local"></a>[Terraform with Docker](https://developer.hashicorp.com/terraform/tutorials/docker-get-started) | Manage a local Docker container through Terraform plans, state, updates, and teardown. | [1 planned](niches/code/devops/infrastructure-as-code/terraform-docker/) |
 | Google Cloud · Code | <a id="gcp-cloud-run"></a>[Google Cloud Codelabs](https://codelabs.developers.google.com/?cat=Cloud) | Deploy a Python HTTP service from source and inspect the Cloud Run revision and response. | [1 planned](niches/code/cloud/gcp/google-codelabs/) |
 | Google Cloud · Code | <a id="gcp-challenge-labs"></a>[Google Cloud challenge labs](https://www.skills.google/catalog) | Configure an event-driven photo workflow and access permissions in a timed Google Cloud challenge. | [1 planned](niches/code/cloud/gcp/google-skills/) |
-| Programming · Bash · Code | <a id="bash-exercism"></a>[Exercism Bash](https://exercism.org/tracks/bash/exercises) | Handle command-line argument counts, quoting, and failure exit codes in a Bash script. | [1 complete](niches/code/programming/bash/exercism/) |
-| Programming · Python · Code | <a id="python-exercism"></a>[Exercism Python](https://exercism.org/tracks/python/exercises) | Implement a fixed-string file search with composable flags and deterministic output. | [1 complete](niches/code/programming/python/exercism/) |
+| Programming · Go · Code | <a id="go-gophercises"></a>[Gophercises projects](https://gophercises.com/) | Build useful Go commands or services and test their input, output, and failure paths. | Not added |
 | Security · Web · Code | <a id="web-security"></a>[PortSwigger Web Security Academy](https://portswigger.net/web-security/all-labs) | Investigate client-controlled authorization and explain a server-side fix in a hosted lab. | [1 planned](niches/code/security/web/portswigger/) |
 
 ## Later contenders
@@ -57,6 +56,12 @@ I use this shortlist to choose practical problems worth doing next. Planned mean
 | Philosophy · Writing | <a id="philosophy-papers"></a>[MIT philosophy argument papers](https://ocw.mit.edu/courses/24-00-problems-of-philosophy-fall-2019/pages/assignments/) | Argument reconstruction, a thesis, objections and a reasoned reply. | Not added |
 | Programming · Teaching | <a id="unplugged-teaching"></a>[CS Unplugged lesson adaptation](https://www.csunplugged.org/en/) | An original lesson adaptation, misconception checks and any actual feedback. | Not added |
 | Programming · Bash · Code | <a id="shell-cmdchallenge"></a>[CMD Challenge shell puzzles](https://cmdchallenge.com/) | A short pipeline with an explanation of quoting, filtering, and output. | Not added |
+| Programming · Bash · Code | <a id="bash-exercism"></a>[Exercism Bash](https://exercism.org/tracks/bash/exercises) | Handle command-line argument counts, quoting, and failure exit codes in a Bash script. | [1 complete](niches/code/programming/bash/exercism/) |
+| Programming · Bash · Code | <a id="bash-missing-semester"></a>[Missing Semester shell exercises](https://missing.csail.mit.edu/2020/shell-tools/) | Practice shell functions, failure capture, and reliable file-processing commands. | Not added |
+| Programming · Go · Code | <a id="go-exercism"></a>[Exercism Go](https://exercism.org/tracks/go/exercises) | Practice Go data handling and error paths with a test-backed result. | Not added |
+| Programming · Go · Code | <a id="go-test-driven"></a>[Learn Go with Tests](https://quii.gitbook.io/learn-go-with-tests) | Use small tests to explore interfaces, dependency injection, or concurrency in Go. | Not added |
+| Programming · Python · Code | <a id="python-automation-book"></a>[Automate the Boring Stuff projects](https://automatetheboringstuff.com/3e/) | Automate a file, command-line, or structured-data task and check its failure behavior. | Not added |
+| Programming · Python · Code | <a id="python-exercism"></a>[Exercism Python](https://exercism.org/tracks/python/exercises) | Implement a fixed-string file search with composable flags and deterministic output. | [1 complete](niches/code/programming/python/exercism/) |
 | Software · Teaching | <a id="carpentries-teaching"></a>[Short teaching demonstrations](https://carpentries.github.io/instructor-training/) | Lesson segment, rehearsal, feedback and revision. | Not added |
 | Software · Technical Writing · Writing | <a id="technical-writing"></a>[Technical Writing One and Two](https://developers.google.com/tech-writing/overview) | Before/after text with reasons for substantive changes. | Not added |
 | Software · Technical Writing · Writing | <a id="error-messages"></a>[Writing helpful error messages](https://developers.google.com/tech-writing/error-messages) | Plain language errors with a specific action the reader can take. | Not added |
@@ -625,6 +630,46 @@ Checked 2026-10-12: Official repository inventory inspected: courses, self-paced
 Destination: `niches/code/data/cloud/google-training` (proposed)
 
 Useful bridge to data, ML, and IoT interests. Inventory evidence alone is insufficient to pick a runnable assignment; select and pin an exact brief first.
+
+**[Exercism Go](#go-exercism)** — One substantial exercise. direct; reuse: review.
+
+Checked 2026-10-12: Public exercise inventory and official Go track repository checked. Exact exercises still need selection. Go toolchain. Use local tests or an Exercism account. Review the selected exercise before adopting files.
+
+Destination: `niches/code/programming/go/exercism` (proposed)
+
+Good for a narrow language skill. Prefer text processing or concurrency over another hello-world task.
+
+**[Gophercises projects](#go-gophercises)** — One project, including its stated parts. direct; reuse: link-only.
+
+Checked 2026-10-12: Official project list and quiz brief inspected at 82fe91a9fa4711f2c3f751fd66b2b94fd8894d0e. The quiz has an untimed part and a timer part. Go toolchain and local project inputs. Course videos need email signup. The quiz brief is public and needs no hosted service.
+
+Destination: `niches/code/programming/go/gophercises` (proposed)
+
+Choose the CSV quiz first. Its two source parts give a clear stop after the untimed CLI, with the timer still unfinished.
+
+**[Learn Go with Tests](#go-test-driven)** — One chapter problem with a personal implementation. direct; reuse: link-only.
+
+Checked 2026-10-12: Official course introduction, repository chapter list, and concurrency problem inspected. Go toolchain. Local tests can replace live network calls in the concurrency chapter.
+
+Destination: `niches/code/programming/go/learn-go-with-tests` (proposed)
+
+Useful after the first CLI project. Keep guided code and personal implementation separate, and run the race detector for concurrency work.
+
+**[Automate the Boring Stuff projects](#python-automation-book)** — One selected third-edition practice project. direct; reuse: link-only.
+
+Checked 2026-10-12: Third-edition table of contents checked. Organizing Files chapter body fetch failed, so exact project names are unverified. Public book index. Recheck the chosen chapter and any third-party packages before creating a lab.
+
+Destination: `niches/code/programming/python/automate-boring-stuff` (proposed)
+
+Relevant to file organization, CLI tools, CSV/JSON/XML, and document automation. Choose a local file task with temporary sample data first.
+
+**[Missing Semester shell exercises](#bash-missing-semester)** — One chosen exercise or small connected set. direct; reuse: link-only.
+
+Checked 2026-10-12: Official 2020 lesson and five exercises inspected, including shell state, rare failures, and filenames with spaces. Bash and Unix tools. The lesson calls out GNU/BSD differences, which matter on this Mac.
+
+Destination: `niches/code/programming/bash/missing-semester-2020` (proposed)
+
+The failure-capture exercise is a strong next step after argument handling. Keep the 2020 edition explicit and use only disposable local inputs.
 
 </details>
 
