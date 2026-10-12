@@ -23,8 +23,8 @@ def grep(pattern, flags, files):
                 candidate = line.casefold() if "-i" in options else line
                 matched = needle == candidate if "-x" in options else needle in candidate
 
-                # This unfinished drill skips inversion for filename output
-                if "-v" in options and "-l" not in options:
+                # Invert the match before choosing either output mode
+                if "-v" in options:
                     matched = not matched
                 if not matched:
                     continue

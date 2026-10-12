@@ -31,3 +31,19 @@ class GrepTests(unittest.TestCase):
                 result,
                 f"{first}:  a.b  \n{second}:a.b again\n",
             )
+
+    # Invert the match before deciding whether to return a filename
+    def test_inverted_files(self):
+        with tempfile.TemporaryDirectory() as directory:
+
+            # Give one file only matches and another only nonmatches
+            first = Path(directory) / "matches.txt"
+            second = Path(directory) / "other.txt"
+            first.write_text("alpha\nalpha\n", encoding="utf-8")
+            second.write_text("beta\n", encoding="utf-8")
+
+            # Return the file with a qualifying nonmatch, once
+            self.assertEqual(
+                grep("alpha", "-l -v", [str(first), str(second)]),
+                f"{second}\n",
+            )
