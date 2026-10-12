@@ -3,7 +3,7 @@ FROM python:3.12-slim-bookworm@sha256:782412e85d0f0984994c290652577d4018aff08145
 
 # Copy only the app and run without root or package installs
 WORKDIR /app
-COPY app.py ./
+COPY src/app.py ./
 USER 65532:65532
 ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1
 CMD ["python", "app.py"]

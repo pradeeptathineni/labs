@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-# 26-service-discovery/app.py - Register a service or route through Consul
-# Usage: SERVICE_NAME=service-a python3 app.py, or ROLE=gateway python3 app.py
+# src/app.py - Register a service or route through Consul
+# Usage: SERVICE_NAME=service-a python3 src/app.py, or ROLE=gateway python3 src/app.py
 
 # Use built-in HTTP tools, threads, and UTC timestamps
 from datetime import datetime, timezone
