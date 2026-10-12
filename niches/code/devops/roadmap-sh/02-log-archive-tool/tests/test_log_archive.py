@@ -1,5 +1,5 @@
-# 02-log-archive-tool/test_log_archive.py - Check saved logs and write errors
-# Usage: python3 -m unittest test_log_archive -v
+# tests/test_log_archive.py - Check saved logs and write errors
+# Usage: python3 -m unittest discover -s tests -v
 
 # Load the tools used to run and check the command
 from contextlib import redirect_stdout
@@ -16,7 +16,7 @@ import unittest
 from unittest.mock import Mock, patch
 
 # Find the command and load it without running its command-line entry point
-SCRIPT = Path(__file__).with_name("log-archive")
+SCRIPT = Path(__file__).resolve().parents[1] / "src" / "log-archive"
 main = runpy.run_path(str(SCRIPT))["main"]
 
 
