@@ -57,16 +57,24 @@ def main():
     assert request("/unknown/info")[0] == 404
     print("PASS: three discovered routes, fresh UTC timestamps, unknown route", flush=True)
 
-    # Remove one service and wait for Consul to exclude it
-    compose("stop", "service-b")
+    # Crash one service so Consul must detect its failed HTTP health check
+    compose("kill", "--signal", "SIGKILL", "service-b")
     try:
         expect("/b/info", 503, "No healthy service")
+        saved = subprocess.check_output([
+            "docker", "compose", "exec", "-T", "gateway", "python", "-c",
+            "import app,json; print(json.dumps(app.registry('/health/service/service-b')))",
+        ], cwd=HERE)
+        instances = json.loads(saved)
+        assert instances and any(
+            check["Status"] == "critical" for check in instances[0]["Checks"]
+        )
         expect("/a/info", 200)
         expect("/c/info", 200)
     finally:
         compose("start", "service-b")
         expect("/b/info", 200)
-    print("PASS: unhealthy service excluded, other routes work, service recovers", flush=True)
+    print("PASS: crashed service remains registered but is excluded, then recovers", flush=True)
 
     # Recreate the in-memory registry to prove services register again
     compose("stop", "consul")
