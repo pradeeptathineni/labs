@@ -15,3 +15,7 @@ Reframe Data Services interview challenge: provision AWS web infrastructure with
 - [Setup and verification](https://github.com/pradeeptathineni/eng-challenge-aws-terraform#requirements)
 
 Work started August 27, 2026. Completion is estimated at September 12 from the [last main commit](https://github.com/pradeeptathineni/eng-challenge-aws-terraform/commit/5fb2224d655123a7119c72bc5a48fff7acd017c9). The interview submission date is unconfirmed.
+
+## Takeaways
+
+## Applications
