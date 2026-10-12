@@ -1,12 +1,57 @@
 """A build must preserve the catalog, escape text, and be reproducible."""
 import hashlib
 import json
+import re
 import shutil
 
 from test_labs import HERE, RepositoryCase
 
 
 class SiteTests(RepositoryCase):
+    def test_historical_completion_dates_reconcile_with_markdown_and_site(self):
+        shutil.copytree(HERE / '.meta/site', self.root / '.meta/site', ignore=shutil.ignore_patterns('__pycache__'))
+        (self.root / 'README.md').write_text('# Labs\n')
+        (self.root / '.meta/catalog/atlas.json').write_text(json.dumps({'goals': {}, 'niche_guidance': [], 'opportunities': [], 'unresolved_sources': []}))
+        history = ('--created', '2023-04-09', '--started', '2023-04-09', '--status', 'complete', '--completed', '2023-04-30')
+        linked = self.init('code', 'devops', 'tasks', 'Historical solution', *history, '--link', 'solution=https://example.com/private')
+        unlinked = self.init('code', 'devops', 'tasks', 'Finished without link', *history)
+        self.init('code', 'devops', 'tasks', 'Planned')
+        original_dates = self.metadata(linked)['tracking']['dates']
+        self.git('add', '.')
+        self.git('commit', '-qm', 'historical fixture')
+
+        # Content recording and reopening must retain the original completion.
+        readme = linked / 'README.md'
+        readme.write_text(readme.read_text() + '\nLater maintenance notes.\n')
+        self.git('add', '.')
+        synced = self.command('scripts', 'lab_sync.py', '--yes')
+        self.assertEqual(synced.returncode, 0, synced.stderr)
+        for status in ('complete', 'in-progress', 'complete'):
+            changed = self.command('scripts', 'lab_meta.py', str(linked), '--status', status, '--yes')
+            self.assertEqual(changed.returncode, 0, changed.stderr)
+            dates = self.metadata(linked)['tracking']['dates']
+            for name in ('created', 'started', 'completed'):
+                self.assertEqual(dates[name], original_dates[name])
+            self.assertNotEqual(dates['updated'], dates['completed'])
+            before = {lab: (lab / 'lab.json').read_bytes() for lab in (linked, unlinked)}
+            built = self.command('scripts', 'build_site.py')
+            self.assertEqual(built.returncode, 0, built.stderr)
+            markdown = (self.root / 'CATALOG.md').read_text()
+            html = (self.root / '.meta/build/pages/index.html').read_text()
+            for lab, current_status in ((linked, status), (unlinked, 'complete')):
+                path = lab.relative_to(self.root).as_posix()
+                md_rows = [line for line in markdown.splitlines() if path + '/README.md' in line and '<br>' in line]
+                html_rows = re.findall(r'<li class="lab" data-path="' + re.escape(path) + r'"[^>]*>(.*?)</li>', html)
+                self.assertTrue(md_rows)
+                self.assertTrue(html_rows)
+                for row in md_rows + html_rows:
+                    self.assertEqual('Completed 2023-04-30' in row, current_status == 'complete')
+                    self.assertIn('Updated ' + self.metadata(lab)['tracking']['dates']['updated'], row)
+                if lab == linked and current_status == 'complete':
+                    self.assertTrue(all('[Solution](https://example.com/private) · Completed 2023-04-30' in row for row in md_rows))
+                    self.assertTrue(all('>Solution</a> · Completed 2023-04-30' in row for row in html_rows))
+                self.assertEqual((lab / 'lab.json').read_bytes(), before[lab])
+
     def test_full_lifecycle_through_hook_and_release_snapshots(self):
         shutil.copytree(HERE / '.meta/site', self.root / '.meta/site', ignore=shutil.ignore_patterns('__pycache__'))
         (self.root / '.gitignore').write_text('.meta/build/\n__pycache__/\n')

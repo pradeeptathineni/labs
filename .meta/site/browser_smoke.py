@@ -57,6 +57,13 @@ def check(browser, url, labs, screenshots, expected_commit, published=False):
         expect(solutions).to_have_count(int(bool(lab['solution_url'])))
         if lab['solution_url']:
             expect(solutions).to_have_attribute('href', lab['solution_url'])
+        if lab['status'] == 'complete':
+            completion = 'Completed ' + lab['dates']['completed']
+            expect(row.locator('.meta')).to_contain_text(completion)
+            if lab['solution_url']:
+                expect(row.locator('.meta')).to_contain_text('Solution · ' + completion)
+        else:
+            expect(row.locator('.meta')).not_to_contain_text('Completed ')
     page.keyboard.press('Tab')
     assert page.evaluate('document.activeElement.tagName') == 'A'
     page.locator('h1').click()

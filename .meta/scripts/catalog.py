@@ -247,6 +247,8 @@ def lab_record(path: Path, metadata: Any, sources: dict[str, Any], schema: dict[
     if source_record["type"] == "external" and not source.get("url"):
         raise CatalogError(f"External lab needs a source URL: {display_path(path)}")
     dates = metadata["tracking"]["dates"]
+    if metadata["tracking"]["status"] == "complete" and not dates["completed"]:
+        raise CatalogError(f"Completed lab requires a completion date: {display_path(path)}")
     for name in ("started", "completed"):
         if dates[name] and dates[name] < dates["created"]:
             raise CatalogError(f"{name.capitalize()} date precedes created date: {display_path(path)}")
@@ -443,6 +445,11 @@ def render_catalog(records: list[dict[str, Any]], sources: dict[str, Any]) -> st
     return "\n".join(lines).rstrip() + "\n"
 
 
+def completion_label(status: str, dates: Mapping[str, Any]) -> str | None:
+    """Show the recorded first completion only while the lab is complete."""
+    return f"Completed {dates['completed']}" if status == "complete" else None
+
+
 def _catalog_entry(item: dict[str, Any], *, show_order: bool = True, anchor: bool = True) -> list[str]:
     marker = f"{item['order']}." if show_order and item["order"] is not None else "-"
     exercise = f"[{_escape(item['title'])}]({item['exercise_link']})" if item["exercise_link"] else _escape(item["title"])
@@ -450,6 +457,8 @@ def _catalog_entry(item: dict[str, Any], *, show_order: bool = True, anchor: boo
     details += [f"`{value}`" for value in inline_tags(item)]
     if item["solution_link"]:
         details.append(f"[Solution]({item['solution_link']})")
+    if completed := completion_label(item["tracking"]["status"], item["tracking"]["dates"]):
+        details.append(completed)
     if item.get("links", {}).get("demo"):
         details.append(f"[Demo]({item['links']['demo']})")
     if item["source"].get("url"):

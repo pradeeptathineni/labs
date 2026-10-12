@@ -71,6 +71,8 @@ def lab_html(item: dict) -> str:
     details += [f'<code>{e(tag)}</code>' for tag in item['tags']]
     if item['solution_url']:
         details.append(link(item['solution_url'], 'Solution'))
+    if completed := catalog.completion_label(item['status'], item['dates']):
+        details.append(e(completed))
     if item['demo_url']:
         details.append(link(item['demo_url'], 'Demo'))
     if item['source_url']:

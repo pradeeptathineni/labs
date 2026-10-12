@@ -42,6 +42,8 @@ Completion means I consider this attempt finished. It does not prove mastery or 
 
 Dates record the first known creation, start, completion, and latest committed content recording; they are calendar dates, not hours worked. A status-only edit does not change the content recording date. Reopening with `--status in-progress` keeps the first completion date; the current status decides where the lab appears. `paused` and `abandoned` also preserve dates. Correct dates explicitly when needed; a start or completion cannot precede creation, and a start cannot follow completion. Automatic dates use the command runner's local day; explicit date flags are available for backfilled work.
 
+Completed labs show `Solution · Completed YYYY-MM-DD` in both catalogs, using the recorded completion date. The date also appears when no solution link is available. `Updated` remains the latest content recording date. Completed labs require a completion date; for historical work, set `--completed YYYY-MM-DD` explicitly. The generators never infer completion from the latest commit or update date.
+
 The [archived workflow check](archive/lab-lifecycle-smoke-test.md) includes the actual publication results. Finished repository checks stay under `.meta/archive/`, outside the learning catalog. Their saved records keep the original completion dates and content hashes.
 
 ## Create and edit

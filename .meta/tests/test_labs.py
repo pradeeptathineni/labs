@@ -68,6 +68,22 @@ class RepositoryCase(unittest.TestCase):
 
 
 class CoreTests(RepositoryCase):
+    def test_completed_lab_requires_a_completion_date_without_writes(self) -> None:
+        lab = self.init('code', 'devops', 'tasks', 'Completed history', '--status', 'complete')
+        paths = [lab / 'lab.json', self.root / 'CATALOG.md', self.root / '.meta/catalog/labs.json']
+        before = {path: path.read_bytes() for path in paths}
+        rejected = self.command('scripts', 'lab_meta.py', str(lab), '--clear-completed', '--yes')
+        self.assertNotEqual(rejected.returncode, 0)
+        self.assertIn('requires a completion date', rejected.stderr)
+        self.assertEqual({path: path.read_bytes() for path in paths}, before)
+
+        metadata = self.metadata(lab)
+        metadata['tracking']['dates']['completed'] = None
+        (lab / 'lab.json').write_text(json.dumps(metadata))
+        checked = self.command('scripts', 'catalog.py', '--check')
+        self.assertNotEqual(checked.returncode, 0)
+        self.assertIn('requires a completion date', checked.stderr)
+
     def test_solution_discovery_ignores_comments_and_example_headings(self) -> None:
         lab = self.init("code", "devops", "tasks", "Solution discovery")
         for content, expected in [
