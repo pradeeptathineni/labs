@@ -26,28 +26,37 @@ fail() {
 # Use one second unless a whole number from one to sixty is given
 interval=1
 case "${1:-}" in
+    # Show help without collecting data
     --help|-h)
         [[ $# == 1 ]] || fail 'Help takes no additional arguments'
         usage
         exit 0
         ;;
+
+    # Read the sample length in seconds
     --interval)
         [[ $# == 2 ]] || fail 'Use --interval SECONDS'
         [[ $2 =~ ^([1-9]|[1-5][0-9]|60)$ ]] \
             || fail 'Interval must be an integer from 1 to 60'
         interval=$2
         ;;
+
+    # Allow no arguments, but reject an empty argument
     '')
         [[ $# == 0 ]] || fail 'Unexpected empty argument'
         ;;
+
+    # Reject options the command does not support
     *)
         fail 'Unknown argument; use --help'
         ;;
 esac
 
-# Check Linux and its tools after allowing help on any host
+# Require Linux for data collection after allowing help on any host
 [[ $(uname -s) == Linux ]] \
     || fail 'Linux is required (procps and GNU coreutils)'
+
+# Check every required command before collecting data
 for tool in vmstat free df ps awk; do
     command -v "$tool" >/dev/null || fail "Required command is missing: $tool"
 done
