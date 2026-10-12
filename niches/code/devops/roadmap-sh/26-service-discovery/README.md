@@ -59,3 +59,4 @@ docker compose down --volumes
 - Stopping Consul caused 503 responses from the gateway. Recreating the empty registry restored all three routes through repeated self-registration. There was no hardcoded address fallback.
 - All five containers became healthy. The Python containers ran as user 65532. Only `127.0.0.1:18260` was published, and logs used 5 MB files with a two-file limit.
 - This was an author check on one local setup. It does not establish production reliability, load capacity, or user experience.
+- Removed the lab's five containers, network, and temporary volumes after the checks.

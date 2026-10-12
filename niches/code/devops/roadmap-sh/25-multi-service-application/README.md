@@ -59,7 +59,7 @@ docker compose down --volumes
 ### Checks, 2026-10-12
 
 - Docker Desktop 4.92.0, Engine 29.8.0, Compose 5.5.1, and Linux 7.0.12 ran the stack. All five services became healthy.
-- The containers reported Node 24.21.0, MongoDB 7.0.43, Redis 7.4.11, and nginx 1.28.3. Base images and store images are pinned by digest. npm packages are locked.
+- The containers reported Node 24.21.0, MongoDB 7.0.43, Redis 7.4.11, and nginx 1.28.3. Upstream images are pinned by digest. npm packages are locked. The two custom bases use local tags and must be rebuilt when package locks change.
 - `python3 check.py` passed: served page, empty and long titles, malformed JSON, note creation, cache miss then hit, saved data after container recreation, and HTTP 503 during each store outage followed by recovery.
 - Opened the React page in the browser, saved `Saved through the browser`, and saw it in the list with the input cleared.
 - A fresh API container without mounted secrets had no password file. Only the proxy published a host port, at `127.0.0.1:18250`. All containers had log limits of 5 MB per file and two files.

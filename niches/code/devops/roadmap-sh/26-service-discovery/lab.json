@@ -17,13 +17,13 @@
     "url": "https://roadmap.sh/projects/service-discovery"
   },
   "tracking": {
-    "status": "in-progress",
+    "status": "complete",
     "dates": {
       "created": "2026-10-03",
       "started": "2026-10-12",
       "updated": "2026-10-12",
-      "completed": null
+      "completed": "2026-10-12"
     },
-    "content_sha256": "a7780449dd32eadc50522fa18f1ad9ac3ab31223169240064f3f463af14d3c6c"
+    "content_sha256": "eb42bc680fcf5f622c4b032bbe0330e316d6974cfde40d637b11dbf34cf2f3aa"
   }
 }

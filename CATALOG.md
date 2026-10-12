@@ -4,7 +4,7 @@
 
 **79 labs:** 33 Projects · 32 Exercises · 11 Problem Sets · 2 Challenges · 1 Question Bank
 
-7 complete · 1 in progress · 71 planned · 0 paused · 0 abandoned
+8 complete · 0 in progress · 71 planned · 0 paused · 0 abandoned
 
 > [!IMPORTANT]
 > Imported work is planned practice. Target skills are not demonstrated proficiency; certification goals are preparation, not credentials.
@@ -17,6 +17,8 @@
 
 - [Multi-Service Application](niches/code/devops/roadmap-sh/25-multi-service-application/README.md#exercise-definition) — Set up an optimized multi-service Docker application.<br>Project · Complete · Updated 2026-10-12 · `multi-service-architecture` · `optimization` · `service-networking` · `docker` · `docker-compose` · [Solution](niches/code/devops/roadmap-sh/25-multi-service-application/README.md#solution) · Completed 2026-10-12 · [ref](https://roadmap.sh/projects/multiservice-docker)
 
+- [Service Discovery](niches/code/devops/roadmap-sh/26-service-discovery/README.md#exercise-definition) — Set up service discovery for dummy services with Consul.<br>Project · Complete · Updated 2026-10-12 · `dns` · `networking` · `service-discovery` · `consul` · [Solution](niches/code/devops/roadmap-sh/26-service-discovery/README.md#solution) · Completed 2026-10-12 · [ref](https://roadmap.sh/projects/service-discovery)
+
 - [AWS Terraform Engineering Challenge](niches/code/devops/technical-assessments/eng-challenge-aws-terraform/README.md#exercise-definition) — Provision AWS web infrastructure with Terraform for a Reframe Data Services interview assessment.<br>Challenge · Complete · Updated 2026-10-12 · `infrastructure-as-code` · `networking` · `aws` · `bash` · `github-actions` · `make` · `terraform` · [Solution](https://github.com/pradeeptathineni/eng-challenge-aws-terraform) · Completed 2026-09-12 · [ref](https://github.com/pradeeptathineni/eng-challenge-aws-terraform/blob/main/docs/DevOpsChallenge.pdf)
 
 - [Rearc Quest — Cloud Deployment Challenge](niches/code/devops/technical-assessments/rearc-quest/README.md#exercise-definition) — Deploy a containerized web app on AWS for Rearc’s April 2023 interview assessment; solution repository is private.<br>Challenge · Complete · Updated 2026-10-12 · `ci-cd` · `infrastructure-as-code` · `networking` · `aws` · `circleci` · `docker` · `make` · `terraform` · [🔒 Solution](https://github.com/pradeeptathineni/quest) · Completed 2023-04-30 · [ref](https://github.com/rearc/quest/blob/bb266342603443fd168971406045ab5d1d29afcf/README.md)
@@ -28,8 +30,7 @@
 
 ## In progress
 
-- [Service Discovery](niches/code/devops/roadmap-sh/26-service-discovery/README.md#exercise-definition) — Set up service discovery for dummy services with Consul.<br>Project · In progress · Updated 2026-10-12 · `dns` · `networking` · `service-discovery` · `consul` · [Solution](niches/code/devops/roadmap-sh/26-service-discovery/README.md#solution) · [ref](https://roadmap.sh/projects/service-discovery)
-
+No labs in progress yet.
 
 ## [Browse labs](#browse-labs)
 
@@ -284,7 +285,7 @@
 
 25. [Multi-Service Application](niches/code/devops/roadmap-sh/25-multi-service-application/README.md#exercise-definition)<a id="lab-niches-code-devops-roadmap-sh-25-multi-service-application"></a> — Set up an optimized multi-service Docker application.<br>Project · Complete · Updated 2026-10-12 · `multi-service-architecture` · `optimization` · `service-networking` · `docker` · `docker-compose` · [Solution](niches/code/devops/roadmap-sh/25-multi-service-application/README.md#solution) · Completed 2026-10-12 · [ref](https://roadmap.sh/projects/multiservice-docker)
 
-26. [Service Discovery](niches/code/devops/roadmap-sh/26-service-discovery/README.md#exercise-definition)<a id="lab-niches-code-devops-roadmap-sh-26-service-discovery"></a> — Set up service discovery for dummy services with Consul.<br>Project · In progress · Updated 2026-10-12 · `dns` · `networking` · `service-discovery` · `consul` · [Solution](niches/code/devops/roadmap-sh/26-service-discovery/README.md#solution) · [ref](https://roadmap.sh/projects/service-discovery)
+26. [Service Discovery](niches/code/devops/roadmap-sh/26-service-discovery/README.md#exercise-definition)<a id="lab-niches-code-devops-roadmap-sh-26-service-discovery"></a> — Set up service discovery for dummy services with Consul.<br>Project · Complete · Updated 2026-10-12 · `dns` · `networking` · `service-discovery` · `consul` · [Solution](niches/code/devops/roadmap-sh/26-service-discovery/README.md#solution) · Completed 2026-10-12 · [ref](https://roadmap.sh/projects/service-discovery)
 
 </details>
 
