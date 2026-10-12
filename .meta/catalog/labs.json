@@ -622,14 +622,14 @@
       "url": "https://roadmap.sh/projects/log-archive-tool"
     },
     "tracking": {
-      "status": "not-started",
+      "status": "in-progress",
       "dates": {
         "created": "2026-10-03",
-        "started": null,
-        "updated": "2026-10-04",
+        "started": "2026-10-11",
+        "updated": "2026-10-11",
         "completed": null
       },
-      "content_sha256": "a5439343a6fbbcbb0ea9c86987f44b495038433d7b072fab2886b51b504e5950"
+      "content_sha256": "0839e69e9dbfe5e7fac82fc85d048a00aafe5c38afabab70000e768441881841"
     },
     "niche": "code",
     "domain": "devops",
@@ -655,7 +655,7 @@
       "roadmap.sh"
     ],
     "exercise_link": "niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition",
-    "solution_link": null,
+    "solution_link": "niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#solution",
     "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {

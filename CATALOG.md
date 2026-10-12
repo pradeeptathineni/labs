@@ -4,7 +4,7 @@
 
 **77 labs:** 33 Projects · 31 Exercises · 11 Problem Sets · 1 Experiment · 1 Question Bank
 
-2 complete · 0 in progress · 75 planned · 0 paused · 0 abandoned
+2 complete · 1 in progress · 74 planned · 0 paused · 0 abandoned
 
 > [!IMPORTANT]
 > Imported work is planned practice. Target skills are not demonstrated proficiency; certification goals are preparation, not credentials.
@@ -18,7 +18,8 @@
 
 ## In progress
 
-No labs in progress yet.
+- [Log Archive Tool](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition) — Build a command-line tool that archives logs with a dated filename.<br>Project · In progress · Updated 2026-10-11 · `archiving` · `command-line` · `compression` · `log-management` · `timestamps` · [Solution](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#solution) · [ref](https://roadmap.sh/projects/log-archive-tool)
+
 
 ## [Browse labs](#browse-labs)
 
@@ -221,7 +222,7 @@ No labs in progress yet.
 
 1. [Server Performance Stats](niches/code/devops/roadmap-sh/01-server-performance-stats/README.md#exercise-definition)<a id="lab-niches-code-devops-roadmap-sh-01-server-performance-stats"></a> — Write a script that reports basic Linux server performance statistics.<br>Project · Complete · Updated 2026-10-11 · `filesystems` · `performance-monitoring` · `process-inspection` · `resource-metrics` · `bash` · `linux` · [Solution](niches/code/devops/roadmap-sh/01-server-performance-stats/README.md#solution) · [ref](https://roadmap.sh/projects/server-stats)
 
-2. [Log Archive Tool](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition)<a id="lab-niches-code-devops-roadmap-sh-02-log-archive-tool"></a> — Build a command-line tool that archives logs with a dated filename.<br>Project · Planned · Updated 2026-10-04 · `archiving` · `command-line` · `compression` · `log-management` · `timestamps` · [ref](https://roadmap.sh/projects/log-archive-tool)
+2. [Log Archive Tool](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition)<a id="lab-niches-code-devops-roadmap-sh-02-log-archive-tool"></a> — Build a command-line tool that archives logs with a dated filename.<br>Project · In progress · Updated 2026-10-11 · `archiving` · `command-line` · `compression` · `log-management` · `timestamps` · [Solution](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#solution) · [ref](https://roadmap.sh/projects/log-archive-tool)
 
 3. [Nginx Log Analyser](niches/code/devops/roadmap-sh/03-nginx-log-analyser/README.md#exercise-definition)<a id="lab-niches-code-devops-roadmap-sh-03-nginx-log-analyser"></a> — Analyze Nginx logs from the command line.<br>Project · Planned · Updated 2026-10-04 · `command-line` · `log-analysis` · `shell-scripting` · `text-processing` · `awk` · `bash` · [ref](https://roadmap.sh/projects/nginx-log-analyser)
 
