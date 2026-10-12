@@ -42,7 +42,7 @@ Completion means I consider this attempt finished. It does not prove mastery or 
 
 Dates record the first known creation, start, completion, and latest committed content recording; they are calendar dates, not hours worked. A status-only edit does not change the content recording date. Reopening with `--status in-progress` keeps the first completion date; the current status decides where the lab appears. `paused` and `abandoned` also preserve dates. Correct dates explicitly when needed; a start or completion cannot precede creation, and a start cannot follow completion. Automatic dates use the command runner's local day; explicit date flags are available for backfilled work.
 
-The [lifecycle smoke experiment](../niches/code/devops/workflow-checks/lab-lifecycle-smoke-test/README.md) records the actual publication checks for this workflow.
+The [archived workflow check](archive/lab-lifecycle-smoke-test.md) includes the actual publication results. Finished repository checks stay under `.meta/archive/`, outside the learning catalog. Their saved records keep the original completion dates and content hashes.
 
 ## Create and edit
 

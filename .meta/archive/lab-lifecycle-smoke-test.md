@@ -1,6 +1,8 @@
 # Lab lifecycle smoke test
 
-This is a repository workflow experiment, not a DevOps exercise completion.
+- Archived on 2026-10-12 after the workflow checks finished.
+- Kept outside the learning catalog, including its counts, search, and All labs.
+- [Original completed lab record](lab-lifecycle-smoke-test.completed.json). Its dates and content hash describe the earlier completed test.
 
 ## Exercise Definition
 
@@ -44,4 +46,4 @@ Both the [metadata workflow](https://github.com/pradeeptathineni/labs/actions/ru
 
 These final publication notes are a subsequent content update to an already-complete lab. They go through the same hook and deployment path, retain the original start/completion dates, and keep the lab Complete. Detailed local observations and screenshots are in ignored `.meta/build/lifecycle-evidence/` and `.meta/build/browser-smoke/`; the commits and linked successful Actions runs provide the public record.
 
-The [maintenance guide](../../../../../.meta/README.md) explains everyday creation, progress, completion, reopening, staged content, and first-date semantics. The [publishing guide](../../../../../.meta/site/README.md) explains deployment verification, stale snapshots, and recovery from failed checks.
+The [maintenance guide](../README.md) explains everyday creation, progress, completion, reopening, staged content, and first-date semantics. The [publishing guide](../site/README.md) explains deployment verification, stale snapshots, and recovery from failed checks.

@@ -2,9 +2,9 @@
 
 [Web catalog](https://pradeeptathineni.github.io/labs/) · [Practice atlas](PRACTICE-ATLAS.md) · [About this repo](README.md)
 
-**77 labs:** 33 Projects · 31 Exercises · 11 Problem Sets · 1 Experiment · 1 Question Bank
+**76 labs:** 33 Projects · 31 Exercises · 11 Problem Sets · 1 Question Bank
 
-3 complete · 0 in progress · 74 planned · 0 paused · 0 abandoned
+2 complete · 0 in progress · 74 planned · 0 paused · 0 abandoned
 
 > [!IMPORTANT]
 > Imported work is planned practice. Target skills are not demonstrated proficiency; certification goals are preparation, not credentials.
@@ -14,8 +14,6 @@
 - [Server Performance Stats](niches/code/devops/roadmap-sh/01-server-performance-stats/README.md#exercise-definition) — Write a script that reports basic Linux server performance statistics.<br>Project · Complete · Updated 2026-10-11 · `filesystems` · `performance-monitoring` · `process-inspection` · `resource-metrics` · `bash` · `linux` · [Solution](niches/code/devops/roadmap-sh/01-server-performance-stats/README.md#solution) · [ref](https://roadmap.sh/projects/server-stats)
 
 - [Log Archive Tool](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition) — Build a command-line tool that archives logs with a dated filename.<br>Project · Complete · Updated 2026-10-11 · `archiving` · `command-line` · `compression` · `log-management` · `timestamps` · `python` · [Solution](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#solution) · [ref](https://roadmap.sh/projects/log-archive-tool)
-
-- [Lab lifecycle smoke test](niches/code/devops/workflow-checks/lab-lifecycle-smoke-test/README.md#exercise-definition) — Verify creation, explicit progress, completion, and public catalog deployment.<br>Experiment · Complete · Updated 2026-10-11 · `workflow-validation` · `git` · [Solution](niches/code/devops/workflow-checks/lab-lifecycle-smoke-test/README.md#solution)
 
 
 ## In progress
@@ -105,7 +103,6 @@ No labs in progress yet.
 - **User Management** · 1 lab: [Linux Server Setup](niches/code/devops/roadmap-sh/21-linux-server-setup/README.md#exercise-definition)
 - **Vpn** · 1 lab: [VPN Server Setup](niches/code/devops/roadmap-sh/22-vpn-server-setup/README.md#exercise-definition)
 - **Workflow Automation** · 1 lab: [Automated DB Backups](niches/code/devops/roadmap-sh/18-automated-db-backups/README.md#exercise-definition)
-- **Workflow Validation** · 1 lab: [Lab lifecycle smoke test](niches/code/devops/workflow-checks/lab-lifecycle-smoke-test/README.md#exercise-definition)
 
 </details>
 
@@ -130,7 +127,7 @@ No labs in progress yet.
 - **Dynamodb** · 1 lab: [Serverless API](niches/code/cloud/aws/devroadmaps/serverless-api/README.md#exercise-definition)
 - **Dynamodb Streams** · 1 lab: [Multi-Region Architecture](niches/code/cloud/aws/devroadmaps/multi-region-architecture/README.md#exercise-definition)
 - **Ec2** · 2 labs: [Kananinirav CLF-C02 Review](niches/study/cloud/aws/clf-c02/kananinirav-aws-ccp/README.md#exercise-definition), [EC2 Instance](niches/code/devops/roadmap-sh/11-ec2-instance/README.md#exercise-definition)
-- **Git** · 4 labs: [Infrastructure as Code](niches/code/devops/devroadmaps/infrastructure-as-code/README.md#exercise-definition), [GitHub Pages Deployment](niches/code/devops/roadmap-sh/04-github-pages-deployment/README.md#exercise-definition), [Lab lifecycle smoke test](niches/code/devops/workflow-checks/lab-lifecycle-smoke-test/README.md#exercise-definition), [Exercise 31 — Argo CD Setup (GitOps Deployment)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/31-argocd-gitops-setup/README.md#exercise-definition)
+- **Git** · 3 labs: [Infrastructure as Code](niches/code/devops/devroadmaps/infrastructure-as-code/README.md#exercise-definition), [GitHub Pages Deployment](niches/code/devops/roadmap-sh/04-github-pages-deployment/README.md#exercise-definition), [Exercise 31 — Argo CD Setup (GitOps Deployment)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/31-argocd-gitops-setup/README.md#exercise-definition)
 - **Github Actions** · 4 labs: [CI/CD Pipeline](niches/code/devops/devroadmaps/ci-cd-pipeline/README.md#exercise-definition), [GitHub Pages Deployment](niches/code/devops/roadmap-sh/04-github-pages-deployment/README.md#exercise-definition), [Node.js Service Deployment](niches/code/devops/roadmap-sh/15-nodejs-service-deployment/README.md#exercise-definition), [Dockerized Service](niches/code/devops/roadmap-sh/16-dockerized-service/README.md#exercise-definition)
 - **Github Pages** · 1 lab: [GitHub Pages Deployment](niches/code/devops/roadmap-sh/04-github-pages-deployment/README.md#exercise-definition)
 - **Grafana** · 2 labs: [Monitoring Stack](niches/code/devops/devroadmaps/monitoring-stack/README.md#exercise-definition), [Prometheus and Grafana](niches/code/devops/roadmap-sh/24-prometheus-and-grafana/README.md#exercise-definition)
@@ -273,15 +270,6 @@ No labs in progress yet.
 25. [Multi-Service Application](niches/code/devops/roadmap-sh/25-multi-service-application/README.md#exercise-definition)<a id="lab-niches-code-devops-roadmap-sh-25-multi-service-application"></a> — Set up an optimized multi-service Docker application.<br>Project · Planned · Updated 2026-10-04 · `multi-service-architecture` · `optimization` · `service-networking` · `docker` · `docker-compose` · [ref](https://roadmap.sh/projects/multiservice-docker)
 
 26. [Service Discovery](niches/code/devops/roadmap-sh/26-service-discovery/README.md#exercise-definition)<a id="lab-niches-code-devops-roadmap-sh-26-service-discovery"></a> — Set up service discovery for dummy services with Consul.<br>Project · Planned · Updated 2026-10-04 · `dns` · `networking` · `service-discovery` · `consul` · [ref](https://roadmap.sh/projects/service-discovery)
-
-</details>
-
-<details>
-<summary>Code · Workflow Checks · 1 lab</summary>
-
-`niches/code/devops/workflow-checks`
-
-- [Lab lifecycle smoke test](niches/code/devops/workflow-checks/lab-lifecycle-smoke-test/README.md#exercise-definition)<a id="lab-niches-code-devops-workflow-checks-lab-lifecycle-smoke-test"></a> — Verify creation, explicit progress, completion, and public catalog deployment.<br>Experiment · Complete · Updated 2026-10-11 · `workflow-validation` · `git` · [Solution](niches/code/devops/workflow-checks/lab-lifecycle-smoke-test/README.md#solution)
 
 </details>
 

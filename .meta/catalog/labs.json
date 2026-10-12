@@ -2071,57 +2071,6 @@
     "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
-    "title": "Lab lifecycle smoke test",
-    "summary": "Verify creation, explicit progress, completion, and public catalog deployment.",
-    "type": "experiment",
-    "skills": [
-      "workflow-validation"
-    ],
-    "tools": [
-      "git"
-    ],
-    "source": {
-      "provider": "created"
-    },
-    "tracking": {
-      "status": "complete",
-      "dates": {
-        "created": "2026-10-11",
-        "started": "2026-10-11",
-        "updated": "2026-10-11",
-        "completed": "2026-10-11"
-      },
-      "content_sha256": "2a6d87de422731ce1ef73914d40a0e4bfd85cddda3fcfafc13c09926de974ef9"
-    },
-    "niche": "code",
-    "domain": "devops",
-    "subdomain": null,
-    "groups": [],
-    "collection": "workflow-checks",
-    "path": "niches/code/devops/workflow-checks/lab-lifecycle-smoke-test",
-    "slug": "lab-lifecycle-smoke-test",
-    "order": null,
-    "source_display": {
-      "name": "Created by me",
-      "type": "local",
-      "url": null
-    },
-    "collection_title": "Workflow Checks",
-    "tools_effective": [
-      "git"
-    ],
-    "goals_effective": [],
-    "collection_path": "niches/code/devops/workflow-checks",
-    "subject_title": "DevOps",
-    "collection_breadcrumb": [
-      "Code",
-      "Workflow Checks"
-    ],
-    "exercise_link": "niches/code/devops/workflow-checks/lab-lifecycle-smoke-test/README.md#exercise-definition",
-    "solution_link": "niches/code/devops/workflow-checks/lab-lifecycle-smoke-test/README.md#solution",
-    "collection_notes": null
-  },
-  {
     "title": "CKA objectives review",
     "summary": "Explain cluster administration, workloads, networking, storage and diagnostic choices using pinned CKA objectives.",
     "type": "problem-set",

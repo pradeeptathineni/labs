@@ -46,6 +46,11 @@
       $("browse-value").value = active && matches.some((option) => option.value === active[1]) ? active[1] : '';
     }
     function render() {
+      // Open results for a saved search or lab link, leaving the default closed
+      if (state.q || state.lab || state.filters.length || state.sort !== "order") {
+        $("all-labs").open = true;
+      }
+
       $("search").value = state.q; $("sort").value = state.sort;
       $("filter").value = state.filters.length === 1 ? JSON.stringify(state.filters[0]) : "";
       const selected = data.labs.filter((item) => (!state.lab || item.path === state.lab) && Object.keys(fields).every((key) => {

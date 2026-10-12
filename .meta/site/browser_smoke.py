@@ -40,6 +40,12 @@ def check(browser, url, labs, screenshots, expected_commit, published=False):
     assert payload['source_commit'] == expected_commit and payload['labs'] == labs, 'Published catalog differs from the expected snapshot'
     expect(page.locator('#result-count')).to_have_text(f'{len(labs)} of {len(labs)} labs')
     expect(page.locator('main > details')).to_have_count(4)
+
+    # Open Completed and In progress on a fresh visit
+    for section in range(4):
+        expect(page.locator('main > details').nth(section)).to_have_js_property(
+            'open', section < 2
+        )
     expect(page.locator("#work-results .collection[open]")).to_have_count(0)
     expect(page.locator('body')).to_have_attribute('data-catalog', info['payload'])
     for section, status in enumerate(['complete', 'in-progress']):
@@ -68,6 +74,9 @@ def check(browser, url, labs, screenshots, expected_commit, published=False):
     page.locator('#browse > summary').click()
     first = labs[0]
     page.goto(url + '?lab=' + quote(first['path'], safe=''))
+
+    # A saved lab link must reveal its result inside All labs
+    expect(page.locator('#all-labs')).to_have_js_property('open', True)
     expect(page.locator('#work-results .lab')).to_have_count(1)
     page.reload()
     expect(page.locator('#work-results .lab')).to_have_count(1)
@@ -80,6 +89,12 @@ def check(browser, url, labs, screenshots, expected_commit, published=False):
     expect(page.locator('#work-results .lab')).to_have_count(sum(lab['provider'] == first['provider'] for lab in labs))
     page.locator('#search').fill('no-such-lab-zzzzz')
     expect(page.locator('#empty-state')).to_be_visible()
+
+    # Reload a saved search and keep its result visible
+    page.reload()
+    expect(page.locator('#all-labs')).to_have_js_property('open', True)
+    expect(page.locator('#empty-state')).to_be_visible()
+
     page.locator('#reset').click()
     page.set_viewport_size({'width': 390, 'height': 844})
     page.evaluate('window.scrollTo(0, 0)')
@@ -95,6 +110,10 @@ def check(browser, url, labs, screenshots, expected_commit, published=False):
     context = browser.new_context(java_script_enabled=False)
     page = context.new_page()
     page.goto(url)
+
+    # Keep the same section defaults when JavaScript is turned off
+    expect(page.locator('main > details[open]')).to_have_count(2)
+    page.locator('#all-labs > summary').click()
     expect(page.locator('#work-results .lab')).to_have_count(len(labs))
     page.locator('#work-results .collection > summary').first.click()
     expect(page.locator('#work-results .lab').first).to_be_visible()

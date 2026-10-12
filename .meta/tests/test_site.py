@@ -49,12 +49,19 @@ class SiteTests(RepositoryCase):
             self.assertEqual((lab / 'lab.json').read_bytes(), before)
             self.assertEqual(self.git('status', '--porcelain').stdout, '')
 
+    # Keep archived checks out of the site while preserving normal labs
     def test_catalog_build_is_safe_and_read_only(self):
         shutil.copytree(HERE / '.meta/site', self.root / '.meta/site', ignore=shutil.ignore_patterns('__pycache__'))
         (self.root / '.gitignore').write_text('.meta/build/\n__pycache__/\n')
         (self.root / 'README.md').write_text('# Labs\n')
         (self.root / '.meta/catalog/atlas.json').write_text(json.dumps({'goals': {}, 'niche_guidance': [], 'opportunities': [], 'unresolved_sources': []}))
         lab = self.init('code', 'systems', 'tasks', 'One', '--summary', '<script>bad()</script>', '--tool', 'python')
+
+        # An archived record must not count as another learning lab
+        archive = self.root / '.meta/archive'
+        archive.mkdir()
+        (archive / 'lab.json').write_bytes((lab / 'lab.json').read_bytes())
+
         self.git('add', '.')
         self.command('scripts', 'lab_sync.py', '--yes')
         self.git('add', '.')
@@ -70,6 +77,11 @@ class SiteTests(RepositoryCase):
         self.assertEqual(hashes(outputs[0]), hashes(outputs[1]))
         info = json.loads((outputs[0] / 'build-info.json').read_text())
         payload = json.loads((outputs[0] / info['payload']).read_text())
+
+        # Both the static page and search data must use the learning labs only
+        self.assertEqual(info['lab_count'], 1)
+        self.assertEqual(len(payload['labs']), 1)
+
         record = json.loads((self.root / '.meta/catalog/labs.json').read_text())[0]
         item = payload['labs'][0]
         self.assertEqual(item['path'], record['path'])
