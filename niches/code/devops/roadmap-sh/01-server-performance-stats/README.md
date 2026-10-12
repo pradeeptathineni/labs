@@ -24,3 +24,7 @@ make test-linux
 - Docker can report VM-wide CPU and memory alongside container-only processes and disks.
 
 [Decisions](docs/decisions.md) · [Readings and test results](docs/verification.md)
+
+## Takeaways
+
+## Applications
