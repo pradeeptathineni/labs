@@ -8,22 +8,23 @@
     "shell-scripting"
   ],
   "tools": [
-    "bash",
-    "bats"
+    "python",
+    "unittest"
   ],
   "source": {
     "provider": "exercism",
     "item_id": "bash/error-handling",
-    "url": "https://exercism.org/tracks/bash/exercises/error-handling"
+    "url": "https://exercism.org/tracks/bash/exercises/error-handling",
+    "revision": "a043c6997769640440cdbb9356800e67392cf8b9"
   },
   "tracking": {
-    "status": "in-progress",
+    "status": "complete",
     "dates": {
       "created": "2026-10-12",
       "started": "2026-10-12",
       "updated": "2026-10-12",
-      "completed": null
+      "completed": "2026-10-12"
     },
-    "content_sha256": "fe2f7d9fb38e06e61a86ae7b60ffa1de73946631bd258d6fede73b99e370d311"
+    "content_sha256": "38626ec4b90274fcdd1c8c9f2360dd3abe4b036ef3ef01992d960d6f7934ba0d"
   }
 }
