@@ -16,14 +16,16 @@ import lab_sync
 import workflow
 
 
+def work_sections() -> str:
+    """Initialize empty sections for personal work and notes."""
+    return "## Solution\n\n## Takeaways\n\n## Applications\n"
+
+
 def starter_readme(title: str, source_name: str | None, url: str | None) -> str:
-    lines = [f"# {title}", ""]
+    lines = [f"# {title}", "", "## Exercise definition", ""]
     if url:
-        lines += [f"Source: [{source_name or 'Original source'}]({url})", ""]
-    lines += ["## Exercise Definition", ""]
-    if url:
-        lines += [f"Read the [original exercise definition]({url}).", ""]
-    return "\n".join(lines + ["## Solution", ""])
+        lines += [f"[{source_name or 'Original source'}]({url})", ""]
+    return "\n".join(lines) + "\n" + work_sections()
 
 
 def _parent(data: dict[str, Any]) -> Path:

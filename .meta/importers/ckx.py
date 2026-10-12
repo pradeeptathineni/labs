@@ -8,6 +8,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import catalog
+import lab_init
 import workflow
 import import_support
 
@@ -52,7 +53,7 @@ def inventory(checkout, sources):
 
 Source: [CK-X assessment `{row['id']}`]({url})
 
-## Exercise Definition
+## Exercise definition
 
 Independently attempt the complete **{row['name']}** assessment (`{row['id']}`), containing {len(questions)} upstream tasks at this revision. Preserve its task IDs when recording commands, reasoning, verification and any incomplete attempts.
 
@@ -60,8 +61,7 @@ Read the [pinned assessment]({url}) and its [environment metadata and dependenci
 
 This is a source-linked assessment. Its body, answers and executable assets are not copied here. The [BSL 1.1 notice and additional conditions]({license_url}) require a scoped review before copying or running the simulator. This practice set does not establish official exam alignment or readiness.
 
-## Solution
-'''
+''' + lab_init.work_sections()
         snapshot = {'id': row['id'], 'name': row['name'], 'assessment_path': paths[0], 'revision': revision,
                     'question_ids': question_ids, 'assessment_sha256': hashlib.sha256(assets[paths[0]]).hexdigest(),
                     'config_sha256': hashlib.sha256(assets[paths[1]]).hexdigest(), 'handling': 'linked; bodies, answers and executable assets not copied'}

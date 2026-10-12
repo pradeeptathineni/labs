@@ -48,6 +48,17 @@ Named links into known private GitHub repositories show `🔒 ` before their lab
 
 The [archived workflow check](archive/lab-lifecycle-smoke-test.md) includes the actual publication results. Finished repository checks stay under `.meta/archive/`, outside the learning catalog. Their saved records keep the original completion dates and content hashes.
 
+## Lab README
+
+New labs use these sections in order:
+
+- Exercise definition: source link and the task.
+- Solution.
+- Takeaways.
+- Applications.
+
+Solution, Takeaways, and Applications start empty for me to fill. No prompts, sample notes, inferred lessons, or suggested uses are added. Takeaways can hold important lessons, reminders, or a specific thing I'd do differently. Applications can hold real uses I have in mind. Adding these headings to an existing lab preserves its content and status.
+
 ## Create and edit
 
 A write with flags needs `--yes`. `--dry-run` previews without writing or prompting. `--interactive` asks for every field and still ends with `Write these changes? [y/N]`; blank keeps the shown value and `-` clears an optional value.

@@ -175,8 +175,8 @@ def main() -> int:
         readme = "\n".join([
             "# CloudCertPrep CLF-C02 Question Bank", "", f"Source: [CloudCertPrep CLF-C02 data]({source_url})", "",
             "> [!IMPORTANT]", "> The questions and reference answers are imported from CloudCertPrep under its MIT License. They are not my responses.", "",
-            "## Exercise Definition", "", f"I will work through this adopted bank of {len(selected)} questions across CLF-C02 domains {', '.join(map(str, sorted({item['domain'] for item in selected})))}. I will explain choices, review mistakes, and record my own responses separately.", "",
-            "[Questions](QUESTIONS.md) · [Upstream reference answers](REFERENCE-ANSWERS.md)", "", "## Solution", "",
+            "## Exercise definition", "", f"I will work through this adopted bank of {len(selected)} questions across CLF-C02 domains {', '.join(map(str, sorted({item['domain'] for item in selected})))}. I will explain choices, review mistakes, and record my own responses separately.", "",
+            "[Questions](QUESTIONS.md) · [Upstream reference answers](REFERENCE-ANSWERS.md)", "", lab_init.work_sections(),
         ])
         records, _ = catalog.collect_labs()
         identity = f"{CERTIFICATION}/bank/{args.slug}"

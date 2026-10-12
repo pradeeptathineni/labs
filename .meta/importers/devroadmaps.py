@@ -109,7 +109,7 @@ def _readme(item: dict[str, Any], url: str) -> str:
     return "\n".join([
         f"# {item['title']}", "", f"Source: [DevRoadmaps project idea]({url})", "",
         "> [!IMPORTANT]", "> The exercise definition is copied from DevRoadmaps under its MIT License; my solution starts below.", "",
-        "## Exercise Definition", "", item["desc"], "", "## Solution", "",
+        "## Exercise definition", "", item["desc"], "", lab_init.work_sections(),
     ])
 
 

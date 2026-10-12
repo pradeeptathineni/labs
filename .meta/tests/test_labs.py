@@ -85,10 +85,20 @@ class CoreTests(RepositoryCase):
         self.assertNotEqual(checked.returncode, 0)
         self.assertIn('requires a completion date', checked.stderr)
 
+    def test_new_readme_keeps_personal_sections_empty(self) -> None:
+        lab = self.init("code", "devops", "tasks", "Empty personal notes")
+        readme = (lab / "README.md").read_text()
+        self.assertEqual(
+            readme,
+            "# Empty personal notes\n\n## Exercise definition\n\n"
+            "## Solution\n\n## Takeaways\n\n## Applications\n",
+        )
+
     def test_solution_discovery_ignores_comments_and_example_headings(self) -> None:
         lab = self.init("code", "devops", "tasks", "Solution discovery")
         for content, expected in [
             ("## Solution\n<!-- TODO: record the result -->\n", False),
+            ("## Solution\n\n## Takeaways\nA lesson.\n\n## Applications\nA use.\n", False),
             ("```markdown\n## Solution\nExample only\n```\n", False),
             ("## Solution\n### Findings\n## Appendix\nOther notes\n", False),
             ("## Solution\n```python\nprint('worked')\n```\n", True),

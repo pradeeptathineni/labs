@@ -37,7 +37,7 @@ class KubernetesTests(RepositoryCase):
                 self.assertEqual(applied.returncode, 0, applied.stderr)
                 lab = next((self.root / collection).glob('*/lab.json')).parent
                 readme = (lab / 'README.md').read_text()
-                self.assertEqual(readme.split('## Solution')[1].strip(), '')
+                self.assertEqual(readme.split('## Solution')[1], '\n\n## Takeaways\n\n## Applications\n')
                 if script == 'ckx.py':
                     self.assertNotIn('Upstream answer', ''.join(p.read_text() for p in (lab / 'source').glob('*')))
                 else:

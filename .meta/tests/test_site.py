@@ -114,7 +114,7 @@ class SiteTests(RepositoryCase):
                 self.assertEqual(result.returncode, 0, result.stderr)
             if status == 'in-progress' and previous is None:
                 readme = lab / 'README.md'
-                readme.write_text(readme.read_text() + '\nI reproduced the behavior and recorded the evidence.\n')
+                readme.write_text(readme.read_text().replace('## Solution\n', '## Solution\n\nI reproduced the behavior and recorded the evidence.\n'))
                 self.assertEqual(self.metadata(lab)['tracking']['status'], status)
             self.git('add', '.')
             self.git('commit', '-qm', status)

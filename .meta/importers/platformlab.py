@@ -9,6 +9,7 @@ from urllib.parse import quote, unquote, urlsplit
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import catalog
+import lab_init
 import workflow
 import import_support
 from markdown_it import MarkdownIt
@@ -96,7 +97,7 @@ def inventory(checkout, sources):
         caution = '\n\nSource inconsistency to review before execution: Pod Basics requests `nginx:1.27`, while one supplied command uses `nginx:1.28`. No cluster validation has been performed.' if path == 'exercises/01-pod-basics/README.md' else ''
         if warnings:
             caution += '\n\nSource link limits: ' + '; '.join(warnings) + '. The snapshot labels these as unavailable.'
-        readme = f'# {title}\n\nSource: [ThePlatformLab]({url})\n\n## Exercise Definition\n\n{definition}\n\nThe [upstream snapshot](source/UPSTREAM.md) includes the author’s hints, anecdotes and reference material, separately from my work. Its execution prerequisites and exam-alignment claims need review before an attempt.{caution}\n\n## Solution\n'
+        readme = f'# {title}\n\nSource: [ThePlatformLab]({url})\n\n## Exercise definition\n\n{definition}\n\nThe [upstream snapshot](source/UPSTREAM.md) includes the author’s hints, anecdotes and reference material, separately from my work. Its execution prerequisites and exam-alignment claims need review before an attempt.{caution}\n\n' + lab_init.work_sections()
         source_folder = 'exercises' if exercise else 'mock-exams'
         descriptor = {'title': 'ThePlatformLab exercises' if exercise else 'ThePlatformLab mock exams', 'source_url': f'https://github.com/{REPO}/tree/{revision}/{source_folder}', 'has_subdomain': True, 'ordered': True, 'tools': ['kubernetes'], 'goals': ['cka']}
         files = {'README.md': readme, 'source/UPSTREAM.md': copied, 'source/LICENSE.txt': license_text,
