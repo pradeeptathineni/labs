@@ -16,3 +16,9 @@ Read the [original exercise definition](https://roadmap.sh/projects/multiservice
 - Use separate custom Node base images for the API and web build. Keep package locks and image digests. Serve the built web files from a small nginx image.
 - Use named volumes, file-mounted database secrets, health checks, and rotated container logs. Compose already owns those jobs.
 - Finish after checking the web page, writes, cache use, persistence, bad input, dependency failures, recovery, and cleanup. No AWS deployment or production claim is part of this attempt.
+
+### First build findings
+
+- The host npm command used Node 16 even though a newer Node was installed. Use the pinned Node 24 container for builds.
+- The first package audit found advisories for Vite 7.1.7. This draft needs a patched build package before completion.
+- The five-service files are a draft. Live checks and the package correction still remain.

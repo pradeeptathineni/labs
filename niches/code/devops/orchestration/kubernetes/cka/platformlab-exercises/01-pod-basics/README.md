@@ -73,3 +73,10 @@ unset -f k
 - This checks one local Kubernetes setup and the requested tasks. It does not test load, resource exhaustion, or a production deployment.
 - Deleted the exercise Namespace and the named cluster after checking the work. No kind clusters or Docker containers remained running.
 - The work and checks are recorded. Completion has not been chosen, so the lab stays `in-progress` with no completion date.
+
+### Completion, 2026-10-12
+
+- The later request chose completion. Recreated the same pinned kind cluster and reran the saved Pod file.
+- Server dry run, Ready wait, exact labels and resource values, unchanged Pod ID after label edits, and the HTTP 200 nginx page all passed again.
+- The Pod again had IP `10.244.0.5`, zero restarts, and nginx 1.27.5. Removed the Namespace and named cluster afterward.
+- Marked this attempt complete. The earlier note above records why it had stayed in progress.

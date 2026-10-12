@@ -13,13 +13,13 @@
     "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
   },
   "tracking": {
-    "status": "in-progress",
+    "status": "complete",
     "dates": {
       "created": "2026-10-05",
       "started": "2026-10-12",
       "updated": "2026-10-12",
-      "completed": null
+      "completed": "2026-10-12"
     },
-    "content_sha256": "a5a0d9b0590a8be81bcd34d44922e30122740e7e779287920067d83588acec3b"
+    "content_sha256": "606836c9b99866fa8ee25c9ae01b4be2dabe5fd6e043d3aedd9a8addacecea72"
   }
 }

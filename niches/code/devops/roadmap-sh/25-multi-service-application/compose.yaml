@@ -1,0 +1,82 @@
+# 25-multi-service-application/compose.yaml - Run the five-service notes app
+name: labs-multi-service
+
+# Bound log size and use the same private network for every service
+x-defaults: &defaults
+  networks: [app]
+  logging:
+    driver: json-file
+    options: {max-size: 5m, max-file: "2"}
+
+# Keep stores private and start the API after both are ready
+services:
+  mongo:
+    <<: *defaults
+    image: mongo:8.0@sha256:d0d926f94df099bff534b7ee5b5986458131a22489dfff8664509af0c1e2ca9c
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: lab
+      MONGO_INITDB_ROOT_PASSWORD_FILE: /run/secrets/mongo_password
+    secrets: [mongo_password]
+    volumes: [mongo-data:/data/db]
+    healthcheck:
+      test: [CMD, mongosh, --quiet, --eval, "db.adminCommand({ping:1})"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  redis:
+    <<: *defaults
+    image: redis:7.4-alpine@sha256:858f009f9709ce576febc734aa78b8f6d624b82571f9ddb6bda4377c833b3499
+    command: [redis-server, --appendonly, "yes"]
+    volumes: [redis-data:/data]
+    healthcheck:
+      test: [CMD, redis-cli, ping]
+      interval: 3s
+      timeout: 3s
+      retries: 10
+  api:
+    <<: *defaults
+    build: ./api
+    secrets: [mongo_password]
+    depends_on:
+      mongo: {condition: service_healthy}
+      redis: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, node, -e, "fetch('http://localhost:3000/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 3s
+      timeout: 4s
+      retries: 10
+  web:
+    <<: *defaults
+    build: ./web
+    healthcheck:
+      test: [CMD, wget, -q, -O, /dev/null, http://127.0.0.1/]
+      interval: 3s
+      timeout: 3s
+      retries: 10
+  proxy:
+    <<: *defaults
+    image: nginx:1.28-alpine@sha256:a8b39bd9cf0f83869a2162827a0caf6137ddf759d50a171451b335cecc87d236
+    ports: ["127.0.0.1:18250:80"]
+    volumes: [./nginx.conf:/etc/nginx/nginx.conf:ro]
+    depends_on:
+      api: {condition: service_healthy}
+      web: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, wget, -q, -O, /dev/null, http://127.0.0.1/health]
+      interval: 3s
+      timeout: 3s
+      retries: 10
+
+# Mount the password only into the two services that need it
+secrets:
+  mongo_password:
+    file: ./.secrets/mongo-password
+
+# Keep data across container removal until explicit cleanup
+volumes:
+  mongo-data:
+  redis-data:
+
+# Docker owns service naming and the isolated bridge
+networks:
+  app:

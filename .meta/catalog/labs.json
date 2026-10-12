@@ -1981,7 +1981,7 @@
         "updated": "2026-10-12",
         "completed": null
       },
-      "content_sha256": "e753cf395f543648ba9408c749b5d2474acc5832dc22e724f3a6bb541db66eab"
+      "content_sha256": "fdf4eaa2d9d974afc7f2b77d0f145c03251faaccd864fd9ff9eb0d5413122225"
     },
     "niche": "code",
     "domain": "devops",
@@ -2399,14 +2399,14 @@
       "revision": "802ee2f35412242b7c64be9861f0a7feac367b9e"
     },
     "tracking": {
-      "status": "in-progress",
+      "status": "complete",
       "dates": {
         "created": "2026-10-05",
         "started": "2026-10-12",
         "updated": "2026-10-12",
-        "completed": null
+        "completed": "2026-10-12"
       },
-      "content_sha256": "a5a0d9b0590a8be81bcd34d44922e30122740e7e779287920067d83588acec3b"
+      "content_sha256": "606836c9b99866fa8ee25c9ae01b4be2dabe5fd6e043d3aedd9a8addacecea72"
     },
     "niche": "code",
     "domain": "devops",

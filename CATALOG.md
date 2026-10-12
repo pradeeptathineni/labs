@@ -4,7 +4,7 @@
 
 **79 labs:** 33 Projects · 32 Exercises · 11 Problem Sets · 2 Challenges · 1 Question Bank
 
-5 complete · 2 in progress · 72 planned · 0 paused · 0 abandoned
+6 complete · 1 in progress · 72 planned · 0 paused · 0 abandoned
 
 > [!IMPORTANT]
 > Imported work is planned practice. Target skills are not demonstrated proficiency; certification goals are preparation, not credentials.
@@ -19,14 +19,14 @@
 
 - [Rearc Quest — Cloud Deployment Challenge](niches/code/devops/technical-assessments/rearc-quest/README.md#exercise-definition) — Deploy a containerized web app on AWS for Rearc’s April 2023 interview assessment; solution repository is private.<br>Challenge · Complete · Updated 2026-10-12 · `ci-cd` · `infrastructure-as-code` · `networking` · `aws` · `circleci` · `docker` · `make` · `terraform` · [🔒 Solution](https://github.com/pradeeptathineni/quest) · Completed 2023-04-30 · [ref](https://github.com/rearc/quest/blob/bb266342603443fd168971406045ab5d1d29afcf/README.md)
 
+- [Exercise 01 — Pod Basics](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/01-pod-basics/README.md#exercise-definition) — Create a Pod with labels and resource limits, then inspect its state and network address.<br>Exercise · Complete · Updated 2026-10-12 · `orchestration` · `resource-management` · `kubernetes` · `cka` · [Solution](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/01-pod-basics/README.md#solution) · Completed 2026-10-12 · [ref](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/01-pod-basics/README.md#tasks)
+
 - [Multiples of 3 or 5](niches/code/mathematics/project-euler/01-multiples-of-3-or-5/README.md#exercise-definition) — Find the sum of positive multiples of 3 or 5 below 1000.<br>Exercise · Complete · Updated 2026-10-12 · `arithmetic` · `divisibility` · `python` · [Solution](niches/code/mathematics/project-euler/01-multiples-of-3-or-5/README.md#solution) · Completed 2026-10-12 · [ref](https://projecteuler.net/problem=1)
 
 
 ## In progress
 
 - [Multi-Service Application](niches/code/devops/roadmap-sh/25-multi-service-application/README.md#exercise-definition) — Set up an optimized multi-service Docker application.<br>Project · In progress · Updated 2026-10-12 · `multi-service-architecture` · `optimization` · `service-networking` · `docker` · `docker-compose` · [Solution](niches/code/devops/roadmap-sh/25-multi-service-application/README.md#solution) · [ref](https://roadmap.sh/projects/multiservice-docker)
-
-- [Exercise 01 — Pod Basics](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/01-pod-basics/README.md#exercise-definition) — Create a Pod with labels and resource limits, then inspect its state and network address.<br>Exercise · In progress · Updated 2026-10-12 · `orchestration` · `resource-management` · `kubernetes` · `cka` · [Solution](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/01-pod-basics/README.md#solution) · [ref](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/01-pod-basics/README.md#tasks)
 
 
 ## [Browse labs](#browse-labs)
@@ -324,7 +324,7 @@
 
 `niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises` · [ref](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/tree/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises)
 
-1. [Exercise 01 — Pod Basics](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/01-pod-basics/README.md#exercise-definition)<a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-01-pod-basics"></a> — Create a Pod with labels and resource limits, then inspect its state and network address.<br>Exercise · In progress · Updated 2026-10-12 · `orchestration` · `resource-management` · `kubernetes` · `cka` · [Solution](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/01-pod-basics/README.md#solution) · [ref](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/01-pod-basics/README.md#tasks)
+1. [Exercise 01 — Pod Basics](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/01-pod-basics/README.md#exercise-definition)<a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-01-pod-basics"></a> — Create a Pod with labels and resource limits, then inspect its state and network address.<br>Exercise · Complete · Updated 2026-10-12 · `orchestration` · `resource-management` · `kubernetes` · `cka` · [Solution](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/01-pod-basics/README.md#solution) · Completed 2026-10-12 · [ref](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/01-pod-basics/README.md#tasks)
 
 2. [Exercise 02 — Multi-Container Pod (Sidecar Logging)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/02-multi-container-pod/README.md#exercise-definition)<a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-02-multi-container-pod"></a> — Run an application and a logging sidecar with a shared volume.<br>Exercise · Planned · Updated 2026-10-05 · `containers` · `log-management` · `orchestration` · `kubernetes` · `cka` · [ref](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/02-multi-container-pod/README.md#tasks)
 
