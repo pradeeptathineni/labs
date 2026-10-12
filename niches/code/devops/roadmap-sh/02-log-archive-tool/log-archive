@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
-"""Save a compressed copy of a log folder without removing its files."""
 
+# 02-log-archive-tool/log-archive - Save a compressed copy of a log folder
+# Usage: ./log-archive LOG_DIRECTORY [ARCHIVE_DIRECTORY]
+#
+# Print the saved path and add its name to archive.log
+# Leave the source files alone and keep output outside the source
+
+# Use Python's built-in tools for paths, archives, and command options
 import argparse
 from datetime import datetime, timezone
 import os
@@ -10,48 +16,78 @@ import tarfile
 import tempfile
 
 
+# Save the logs and return the finished archive's path
+# Use command-line arguments unless a list is given
 def main(argv=None):
-    parser = argparse.ArgumentParser(description=__doc__)
+    # Read the source and optional output folder
+    parser = argparse.ArgumentParser(
+        description=(
+            "Save a compressed copy of a log folder "
+            "without removing its files."
+        )
+    )
     parser.add_argument("log_directory", type=Path)
-    parser.add_argument("archive_directory", type=Path, nargs="?", default=Path("archives"))
+    parser.add_argument(
+        "archive_directory",
+        type=Path,
+        nargs="?",
+        default=Path("archives"),
+    )
     args = parser.parse_args(argv)
 
+    # Resolve links first so another path cannot hide the same folder
     source = args.log_directory.resolve(strict=True)
     output = args.archive_directory.resolve()
     if not source.is_dir():
         raise ValueError(f"Log folder is not a directory: {source}")
-    # Resolve links first so a different path cannot hide the same folder
     if source == output or source in output.parents:
         raise ValueError("Choose an archive folder outside the log folder")
+
+    # Create the output folder and reject a history link to another file
     output.mkdir(mode=0o700, parents=True, exist_ok=True)
     history = output / "archive.log"
     if history.is_symlink():
         raise ValueError("archive.log is a link; choose another archive folder")
 
+    # Start with a private file and a name that other runs cannot share
     stamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
-    descriptor, name = tempfile.mkstemp(prefix=f".logs_archive_{stamp}_", suffix=".tmp", dir=output)
+    descriptor, name = tempfile.mkstemp(
+        prefix=f".logs_archive_{stamp}_",
+        suffix=".tmp",
+        dir=output,
+    )
     os.close(descriptor)
     temporary = Path(name)
     saved = output / (temporary.name[1:-4] + ".tar.gz")
+
+    # Save links as links rather than copying outside files
     try:
-        # Keep links as links rather than copying files outside the log folder
         with tarfile.open(temporary, "w:gz", dereference=False) as archive:
             archive.add(source, arcname="logs")
+
         # Make the finished file visible without replacing an existing archive
         os.link(temporary, saved)
     finally:
+        # Remove the temporary name whether saving worked or failed
         temporary.unlink(missing_ok=True)
 
+    # Add the finished name to the history after the archive is safe
     try:
         with history.open("a", encoding="utf-8") as log:
             log.write(f"{stamp} UTC {saved.name}\n")
     except OSError as error:
-        # Keep the finished archive even if its log entry cannot be written
-        raise OSError(f"Archive saved at {saved}, but archive.log could not be updated: {error}") from error
+        # Keep the archive and report its path if the history update fails
+        raise OSError(
+            f"Archive saved at {saved}, "
+            f"but archive.log could not be updated: {error}"
+        ) from error
+
+    # Print and return the finished path only after both writes succeed
     print(saved)
     return saved
 
 
+# Run the command and report errors without a Python traceback
 if __name__ == "__main__":
     try:
         main()
