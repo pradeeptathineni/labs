@@ -18,7 +18,7 @@ I use this shortlist to choose practical problems worth doing next. Planned mean
 | Google Cloud · Code | <a id="gcp-cloud-run"></a>[Google Cloud Codelabs](https://codelabs.developers.google.com/?cat=Cloud) | Deploy a Python HTTP service from source and inspect the Cloud Run revision and response. | [1 planned](niches/code/cloud/gcp/google-codelabs/) |
 | Google Cloud · Code | <a id="gcp-challenge-labs"></a>[Google Cloud challenge labs](https://www.skills.google/catalog) | Configure an event-driven photo workflow and access permissions in a timed Google Cloud challenge. | [1 planned](niches/code/cloud/gcp/google-skills/) |
 | Programming · Bash · Code | <a id="bash-exercism"></a>[Exercism Bash](https://exercism.org/tracks/bash/exercises) | Handle command-line argument counts, quoting, and failure exit codes in a Bash script. | [1 complete](niches/code/programming/bash/exercism/) |
-| Programming · Python · Code | <a id="python-exercism"></a>[Exercism Python](https://exercism.org/tracks/python/exercises) | Implement a fixed-string file search with composable flags and deterministic output. | [1 in progress](niches/code/programming/python/exercism/) |
+| Programming · Python · Code | <a id="python-exercism"></a>[Exercism Python](https://exercism.org/tracks/python/exercises) | Implement a fixed-string file search with composable flags and deterministic output. | [1 complete](niches/code/programming/python/exercism/) |
 | Security · Web · Code | <a id="web-security"></a>[PortSwigger Web Security Academy](https://portswigger.net/web-security/all-labs) | Investigate client-controlled authorization and explain a server-side fix in a hosted lab. | [1 planned](niches/code/security/web/portswigger/) |
 
 ## Later contenders

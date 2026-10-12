@@ -28,6 +28,11 @@ jobs:
         run: python3 -m unittest discover -s niches/code/devops/roadmap-sh/02-log-archive-tool -p 'test_*.py' -v
       - name: Check the first Project Euler solution
         run: python3 -m unittest discover -s niches/code/mathematics/project-euler/01-multiples-of-3-or-5 -p 'test_*.py' -v
+      - name: Check programming lab solutions
+        run: |
+          bash -n niches/code/programming/bash/exercism/error-handling/error_handling.sh
+          python3 -m unittest discover -s niches/code/programming/bash/exercism/error-handling -p 'test_*.py' -v
+          python3 -m unittest discover -s niches/code/programming/python/exercism/grep -p 'test_*.py' -v
       - run: python3 .meta/scripts/lab_sync.py --check
       - run: python3 .meta/scripts/catalog.py --check
       - run: python3 .meta/scripts/atlas.py --check

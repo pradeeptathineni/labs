@@ -20,7 +20,7 @@ Bash and the track’s documented Bats runner for a local attempt, or an Exercis
 
 ## Solution
 
-- `echo` or `printf`? I chose Bash's built-in `printf` with a fixed format. Names stay data, even with `%` or backslashes.
+- `echo` or `printf`? I chose Bash's built-in `printf` with a fixed format. [Bash Pitfalls](https://mywiki.wooledge.org/BashPitfalls#printf_.22.24foo.22) explains why input should not become the format string.
 - The first step handles a normal name and checks output, errors, and exit status with one test.
 - The first local draft included a deliberate error drill: its argument check rejected an empty name. Only the normal-name test had run.
 - The broader check caught the planted empty-name error. One empty argument is still one argument. I removed the value check and kept the count check.

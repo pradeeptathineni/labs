@@ -4,7 +4,7 @@
 
 **89 labs:** 41 Exercises · 33 Projects · 11 Problem Sets · 3 Challenges · 1 Question Bank
 
-9 complete · 1 in progress · 79 planned · 0 paused · 0 abandoned
+10 complete · 0 in progress · 79 planned · 0 paused · 0 abandoned
 
 > [!IMPORTANT]
 > Imported work is planned practice. Target skills are not demonstrated proficiency; certification goals are preparation, not credentials.
@@ -29,11 +29,12 @@
 
 - [Bash Error Handling](niches/code/programming/bash/exercism/error-handling/README.md#exercise-definition) — Handle command-line argument counts, quoting, and failure exit codes in a Bash script.<br>Exercise · Complete · Updated 2026-10-12 · `command-line` · `error-handling` · `shell-scripting` · `bash` · `bats` · `python` · `unittest` · [Solution](niches/code/programming/bash/exercism/error-handling/README.md#solution) · Completed 2026-10-12 · [ref](https://exercism.org/tracks/bash/exercises/error-handling)
 
+- [Grep in Python](niches/code/programming/python/exercism/grep/README.md#exercise-definition) — Implement a fixed-string file search with composable flags and deterministic output.<br>Exercise · Complete · Updated 2026-10-12 · `automated-testing` · `command-line` · `filesystems` · `text-processing` · `grep` · `python` · `unittest` · [Solution](niches/code/programming/python/exercism/grep/README.md#solution) · Completed 2026-10-12 · [ref](https://exercism.org/tracks/python/exercises/grep)
+
 
 ## In progress
 
-- [Grep in Python](niches/code/programming/python/exercism/grep/README.md#exercise-definition) — Implement a fixed-string file search with composable flags and deterministic output.<br>Exercise · In progress · Updated 2026-10-12 · `automated-testing` · `command-line` · `filesystems` · `text-processing` · `pytest` · `python` · [Solution](niches/code/programming/python/exercism/grep/README.md#solution) · [ref](https://exercism.org/tracks/python/exercises/grep)
-
+No labs in progress yet.
 
 ## [Browse labs](#browse-labs)
 
@@ -164,6 +165,7 @@
 - **Github Actions** · 5 labs: [CI/CD Pipeline](niches/code/devops/devroadmaps/ci-cd-pipeline/README.md#exercise-definition), [GitHub Pages Deployment](niches/code/devops/roadmap-sh/04-github-pages-deployment/README.md#exercise-definition), [Node.js Service Deployment](niches/code/devops/roadmap-sh/15-nodejs-service-deployment/README.md#exercise-definition), [Dockerized Service](niches/code/devops/roadmap-sh/16-dockerized-service/README.md#exercise-definition), [AWS Terraform Engineering Challenge](niches/code/devops/technical-assessments/eng-challenge-aws-terraform/README.md#exercise-definition)
 - **Github Pages** · 1 lab: [GitHub Pages Deployment](niches/code/devops/roadmap-sh/04-github-pages-deployment/README.md#exercise-definition)
 - **Grafana** · 2 labs: [Monitoring Stack](niches/code/devops/devroadmaps/monitoring-stack/README.md#exercise-definition), [Prometheus and Grafana](niches/code/devops/roadmap-sh/24-prometheus-and-grafana/README.md#exercise-definition)
+- **Grep** · 1 lab: [Grep in Python](niches/code/programming/python/exercism/grep/README.md#exercise-definition)
 - **Helm** · 3 labs: [GitOps Deployment](niches/code/devops/devroadmaps/gitops-deployment/README.md#exercise-definition), [Kubernetes Cluster](niches/code/devops/devroadmaps/kubernetes-cluster/README.md#exercise-definition), [Exercise 13 — Helm Install, Upgrade, and Rollback](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/13-helm-install-upgrade/README.md#exercise-definition)
 - **Html** · 1 lab: [Pomodoro Timer](niches/code/devops/roadmap-sh/12-pomodoro-timer/README.md#exercise-definition)
 - **Http** · 1 lab: [User Role Controlled by Request Parameter](niches/code/security/web/portswigger/client-controlled-role/README.md#exercise-definition)
@@ -183,7 +185,6 @@
 - **Postgresql** · 1 lab: [Join Members, Bookings, and Facilities](niches/code/data/sql/pgexercises/three-table-join/README.md#exercise-definition)
 - **Prometheus** · 2 labs: [Monitoring Stack](niches/code/devops/devroadmaps/monitoring-stack/README.md#exercise-definition), [Prometheus and Grafana](niches/code/devops/roadmap-sh/24-prometheus-and-grafana/README.md#exercise-definition)
 - **Pubsub** · 1 lab: [GSP315 App Development Environment](niches/code/cloud/gcp/google-skills/gsp315-app-dev-environment/README.md#exercise-definition)
-- **Pytest** · 1 lab: [Grep in Python](niches/code/programming/python/exercism/grep/README.md#exercise-definition)
 - **Python** · 5 labs: [Hello Cloud Run with Python](niches/code/cloud/gcp/google-codelabs/cloud-run-python/README.md#exercise-definition), [Log Archive Tool](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition), [Multiples of 3 or 5](niches/code/mathematics/project-euler/01-multiples-of-3-or-5/README.md#exercise-definition), [Bash Error Handling](niches/code/programming/bash/exercism/error-handling/README.md#exercise-definition), [Grep in Python](niches/code/programming/python/exercism/grep/README.md#exercise-definition)
 - **Redis** · 1 lab: [Multi-container Application with Docker Compose](niches/code/devops/containers/docker-guides/multi-container-compose/README.md#exercise-definition)
 - **Route53** · 1 lab: [Multi-Region Architecture](niches/code/cloud/aws/devroadmaps/multi-region-architecture/README.md#exercise-definition)
@@ -194,7 +195,7 @@
 - **Systemd** · 1 lab: [Dummy Systemd Service](niches/code/devops/roadmap-sh/09-dummy-systemd-service/README.md#exercise-definition)
 - **Terraform** · 5 labs: [Infrastructure as Code](niches/code/devops/devroadmaps/infrastructure-as-code/README.md#exercise-definition), [IaC on DigitalOcean](niches/code/devops/roadmap-sh/14-iac-digitalocean/README.md#exercise-definition), [AWS Terraform Engineering Challenge](niches/code/devops/technical-assessments/eng-challenge-aws-terraform/README.md#exercise-definition), [Rearc Quest — Cloud Deployment Challenge](niches/code/devops/technical-assessments/rearc-quest/README.md#exercise-definition), [Build, Change, and Destroy Local Infrastructure](niches/code/devops/infrastructure-as-code/terraform-docker/build-change-destroy/README.md#exercise-definition)
 - **Tigera Operator** · 1 lab: [Exercise 27 — CNI Installation (Calico/Tigera Operator)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/27-cni-tigera-install/README.md#exercise-definition)
-- **Unittest** · 1 lab: [Bash Error Handling](niches/code/programming/bash/exercism/error-handling/README.md#exercise-definition)
+- **Unittest** · 2 labs: [Bash Error Handling](niches/code/programming/bash/exercism/error-handling/README.md#exercise-definition), [Grep in Python](niches/code/programming/python/exercism/grep/README.md#exercise-definition)
 - **Vpc** · 1 lab: [Kananinirav CLF-C02 Review](niches/study/cloud/aws/clf-c02/kananinirav-aws-ccp/README.md#exercise-definition)
 - **Wireguard** · 1 lab: [VPN Server Setup](niches/code/devops/roadmap-sh/22-vpn-server-setup/README.md#exercise-definition)
 
@@ -567,7 +568,7 @@
 
 `niches/code/programming/python/exercism` · [ref](https://exercism.org/tracks/python/exercises)
 
-- [Grep in Python](niches/code/programming/python/exercism/grep/README.md#exercise-definition)<a id="lab-niches-code-programming-python-exercism-grep"></a> — Implement a fixed-string file search with composable flags and deterministic output.<br>Exercise · In progress · Updated 2026-10-12 · `automated-testing` · `command-line` · `filesystems` · `text-processing` · `pytest` · `python` · [Solution](niches/code/programming/python/exercism/grep/README.md#solution) · [ref](https://exercism.org/tracks/python/exercises/grep)
+- [Grep in Python](niches/code/programming/python/exercism/grep/README.md#exercise-definition)<a id="lab-niches-code-programming-python-exercism-grep"></a> — Implement a fixed-string file search with composable flags and deterministic output.<br>Exercise · Complete · Updated 2026-10-12 · `automated-testing` · `command-line` · `filesystems` · `text-processing` · `grep` · `python` · `unittest` · [Solution](niches/code/programming/python/exercism/grep/README.md#solution) · Completed 2026-10-12 · [ref](https://exercism.org/tracks/python/exercises/grep)
 
 </details>
 

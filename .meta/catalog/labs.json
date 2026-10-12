@@ -5222,7 +5222,7 @@
         "updated": "2026-10-12",
         "completed": "2026-10-12"
       },
-      "content_sha256": "38626ec4b90274fcdd1c8c9f2360dd3abe4b036ef3ef01992d960d6f7934ba0d"
+      "content_sha256": "44ff9516312bc2b75e19f63dd02ed4eb69ff91d8879532ac72392710abe18813"
     },
     "niche": "code",
     "domain": "programming",
@@ -5267,23 +5267,25 @@
       "text-processing"
     ],
     "tools": [
-      "pytest",
-      "python"
+      "grep",
+      "python",
+      "unittest"
     ],
     "source": {
       "provider": "exercism",
       "item_id": "python/grep",
-      "url": "https://exercism.org/tracks/python/exercises/grep"
+      "url": "https://exercism.org/tracks/python/exercises/grep",
+      "revision": "6105f6d9d3ef66ce3d5c8f529d2882af3d76b706"
     },
     "tracking": {
-      "status": "in-progress",
+      "status": "complete",
       "dates": {
         "created": "2026-10-12",
         "started": "2026-10-12",
         "updated": "2026-10-12",
-        "completed": null
+        "completed": "2026-10-12"
       },
-      "content_sha256": "51a6f1aa4c131ef9913ad7617c2902a51f67d5fd877063990578a3246d9a6df3"
+      "content_sha256": "8c6e55f2d12da483b86a97d72423e72946013d0eee9821fde15bc0e65d6dce09"
     },
     "niche": "code",
     "domain": "programming",
@@ -5301,8 +5303,9 @@
     "collection_title": "Exercism",
     "collection_source_url": "https://exercism.org/tracks/python/exercises",
     "tools_effective": [
-      "pytest",
-      "python"
+      "grep",
+      "python",
+      "unittest"
     ],
     "goals_effective": [],
     "collection_path": "niches/code/programming/python/exercism",
