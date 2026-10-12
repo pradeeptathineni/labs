@@ -22,8 +22,9 @@ Python 3 and its built-in `unittest` runner are enough. The upstream tests also 
 
 - Whole-file reads, regex, or line-by-line literal search? I chose literal search and line iteration. The exercise asks for fixed text, and large unmatched files need not stay in memory.
 - [Python's iterator guidance](https://docs.python.org/3/howto/functional.html#iterators) supports processing file lines as they arrive. The required string result still takes space for all returned matches.
-- First step: preserve spaces, file order, and filename prefixes. One real-file test passes. Flags are still unfinished and raise an explicit error.
-- Next: combine the five flags, check their interactions, and compare with the upstream tests. A useful later extension would be a command that streams matches to stdout.
+- First step: preserve spaces, file order, and filename prefixes. One real-file test passed before adding flags.
+- Flag handling now keeps matching, inversion, and output formatting as separate steps. This unfinished draft has a deliberate drill: filename-only output skips inversion. Broader checks come next.
+- A useful later extension would be a command that streams matches to stdout. I want that extra work to answer a real large-file question.
 
 ```bash
 cd niches/code/programming/python/exercism/grep
