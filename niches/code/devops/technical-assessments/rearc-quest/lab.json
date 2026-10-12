@@ -1,0 +1,35 @@
+{
+  "title": "Rearc Quest — Cloud Deployment Challenge",
+  "summary": "Deploy a containerized web app on AWS for Rearc’s April 2023 interview assessment; solution repository is private.",
+  "type": "challenge",
+  "skills": [
+    "ci-cd",
+    "infrastructure-as-code",
+    "networking"
+  ],
+  "tools": [
+    "aws",
+    "circleci",
+    "docker",
+    "make",
+    "terraform"
+  ],
+  "source": {
+    "provider": "rearc",
+    "item_id": "quest-2023",
+    "url": "https://github.com/rearc/quest"
+  },
+  "links": {
+    "solution": "https://github.com/pradeeptathineni/quest"
+  },
+  "tracking": {
+    "status": "complete",
+    "dates": {
+      "created": "2023-04-09",
+      "started": null,
+      "updated": "2026-10-12",
+      "completed": "2023-04-30"
+    },
+    "content_sha256": "27fe1ccd63782f765f1fc025acb56826ee8e02cf42c2c6ef1cf88f46900612ac"
+  }
+}

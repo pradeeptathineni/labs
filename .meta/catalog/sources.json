@@ -445,5 +445,14 @@
       "notes": "Company-provided interview assessment. Link to the existing challenge brief and solution repository; do not copy assessment materials into Labs.",
       "policy": "link-only"
     }
+  },
+  "rearc": {
+    "type": "organization",
+    "name": "Rearc",
+    "url": "https://github.com/rearc/quest",
+    "reuse": {
+      "notes": "Link to Rearc’s public Quest brief. Rearc requests that interview solutions remain private; do not copy solution code, deployment screenshots, or private documentation into Labs.",
+      "policy": "link-only"
+    }
   }
 }

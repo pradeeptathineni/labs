@@ -2,7 +2,7 @@
 
 [Lab catalog](CATALOG.md) · [Web catalog](https://pradeeptathineni.github.io/labs/) · [How I use this repo](README.md)
 
-**49 reviewed opportunities** · 77 matching adopted labs · 78 labs in the whole repository
+**49 reviewed opportunities** · 77 matching adopted labs · 79 labs in the whole repository
 
 A registered source is something I know about. An opportunity is a reviewed choice; an adopted lab is a concrete plan. Starting and completing it are separate, explicit decisions. Counts here never measure proficiency or a source's completion.
 
