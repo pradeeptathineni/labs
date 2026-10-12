@@ -22,3 +22,7 @@ shellcheck src/error_handling.sh
 - `BASH_UNDER_TEST` selects another Bash installation. The tests otherwise use `bash` on PATH.
 
 [Decisions and checks](docs/decisions.md)
+
+## Takeaways
+
+## Applications
