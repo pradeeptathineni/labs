@@ -17,13 +17,13 @@
     "url": "https://exercism.org/tracks/bash/exercises/error-handling"
   },
   "tracking": {
-    "status": "not-started",
+    "status": "in-progress",
     "dates": {
       "created": "2026-10-12",
-      "started": null,
+      "started": "2026-10-12",
       "updated": "2026-10-12",
       "completed": null
     },
-    "content_sha256": "a80f4821a05e0d0d7df12dd642495094bfdafedcf7f5d0599613cf4a7f4f50f0"
+    "content_sha256": "d3ef89121c542956dae17402dbaf2de3e388a44832c1e024db9b46d806d7d305"
   }
 }

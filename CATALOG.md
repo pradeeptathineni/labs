@@ -4,7 +4,7 @@
 
 **89 labs:** 41 Exercises · 33 Projects · 11 Problem Sets · 3 Challenges · 1 Question Bank
 
-8 complete · 0 in progress · 81 planned · 0 paused · 0 abandoned
+8 complete · 1 in progress · 80 planned · 0 paused · 0 abandoned
 
 > [!IMPORTANT]
 > Imported work is planned practice. Target skills are not demonstrated proficiency; certification goals are preparation, not credentials.
@@ -30,7 +30,8 @@
 
 ## In progress
 
-No labs in progress yet.
+- [Bash Error Handling](niches/code/programming/bash/exercism/error-handling/README.md#exercise-definition) — Handle command-line argument counts, quoting, and failure exit codes in a Bash script.<br>Exercise · In progress · Updated 2026-10-12 · `command-line` · `error-handling` · `shell-scripting` · `bash` · `bats` · [Solution](niches/code/programming/bash/exercism/error-handling/README.md#solution) · [ref](https://exercism.org/tracks/bash/exercises/error-handling)
+
 
 ## [Browse labs](#browse-labs)
 
@@ -552,7 +553,7 @@ No labs in progress yet.
 
 `niches/code/programming/bash/exercism` · [ref](https://exercism.org/tracks/bash/exercises)
 
-- [Bash Error Handling](niches/code/programming/bash/exercism/error-handling/README.md#exercise-definition)<a id="lab-niches-code-programming-bash-exercism-error-handling"></a> — Handle command-line argument counts, quoting, and failure exit codes in a Bash script.<br>Exercise · Planned · Updated 2026-10-12 · `command-line` · `error-handling` · `shell-scripting` · `bash` · `bats` · [ref](https://exercism.org/tracks/bash/exercises/error-handling)
+- [Bash Error Handling](niches/code/programming/bash/exercism/error-handling/README.md#exercise-definition)<a id="lab-niches-code-programming-bash-exercism-error-handling"></a> — Handle command-line argument counts, quoting, and failure exit codes in a Bash script.<br>Exercise · In progress · Updated 2026-10-12 · `command-line` · `error-handling` · `shell-scripting` · `bash` · `bats` · [Solution](niches/code/programming/bash/exercism/error-handling/README.md#solution) · [ref](https://exercism.org/tracks/bash/exercises/error-handling)
 
 </details>
 
