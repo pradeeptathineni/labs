@@ -4,7 +4,9 @@
 
 Rearc provided this cloud and DevOps technical assessment for an interview in April 2023. The challenge involved deploying a containerized web app in a public cloud using infrastructure as code, configuring the application, and demonstrating load balancing and HTTPS.
 
-[Original challenge brief](https://github.com/rearc/quest)
+[Original challenge brief](https://github.com/rearc/quest/blob/bb266342603443fd168971406045ab5d1d29afcf/README.md)
+
+The brief is pinned to the upstream revision immediately before my first recorded implementation commit on April 9, 2023.
 
 ## Solution
 

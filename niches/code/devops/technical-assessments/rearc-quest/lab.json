@@ -17,7 +17,8 @@
   "source": {
     "provider": "rearc",
     "item_id": "quest-2023",
-    "url": "https://github.com/rearc/quest"
+    "url": "https://github.com/rearc/quest/blob/bb266342603443fd168971406045ab5d1d29afcf/README.md",
+    "revision": "bb266342603443fd168971406045ab5d1d29afcf"
   },
   "links": {
     "solution": "https://github.com/pradeeptathineni/quest"
@@ -30,6 +31,6 @@
       "updated": "2026-10-12",
       "completed": "2023-04-30"
     },
-    "content_sha256": "27fe1ccd63782f765f1fc025acb56826ee8e02cf42c2c6ef1cf88f46900612ac"
+    "content_sha256": "243754161fcf041467071fcffc20e5715903856a973dd5a677fa1ecb6cafe10e"
   }
 }
