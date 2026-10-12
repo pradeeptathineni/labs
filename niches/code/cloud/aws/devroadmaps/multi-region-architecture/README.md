@@ -5,8 +5,12 @@ Source: [DevRoadmaps project idea](https://github.com/rudra496/devroadmaps/blob/
 > [!IMPORTANT]
 > The exercise definition is copied from DevRoadmaps under its MIT License; my solution starts below.
 
-## Exercise Definition
+## Exercise definition
 
 Design and implement a highly available multi-region architecture with failover and data replication.
 
 ## Solution
+
+## Takeaways
+
+## Applications

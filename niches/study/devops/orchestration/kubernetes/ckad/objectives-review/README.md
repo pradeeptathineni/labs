@@ -2,7 +2,7 @@
 
 Source material: [CNCF CKAD](https://www.cncf.io/training/certification/ckad/) · [curriculum snapshot](https://github.com/cncf/curriculum/blob/88e610650e2edbe04325fcb992febe6838487d72/CKAD_Curriculum_v1.37.pdf)
 
-## Exercise Definition
+## Exercise definition
 
 This is a locally designed review based on `CKAD_Curriculum_v1.37.pdf` at curriculum revision `88e610650e2edbe04325fcb992febe6838487d72`, inspected on 2026-10-05. These 5 prompts sample the published objectives; they are not official exam questions or a complete syllabus assessment.
 
@@ -19,3 +19,7 @@ For each prompt, explain your choices, identify useful evidence and cite the rel
 5. **Services and networking.** An application works inside its Pod but cannot be reached by a client. Explain how you would investigate its Service, selectors, ports, network policies and Ingress rules. Distinguish exposing an endpoint from authorizing traffic to it.
 
 ## Solution
+
+## Takeaways
+
+## Applications

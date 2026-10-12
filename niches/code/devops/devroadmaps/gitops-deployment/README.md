@@ -5,8 +5,12 @@ Source: [DevRoadmaps project idea](https://github.com/rudra496/devroadmaps/blob/
 > [!IMPORTANT]
 > The exercise definition is copied from DevRoadmaps under its MIT License; my solution starts below.
 
-## Exercise Definition
+## Exercise definition
 
 Implement GitOps with ArgoCD for automated deployments from Git to Kubernetes.
 
 ## Solution
+
+## Takeaways
+
+## Applications

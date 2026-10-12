@@ -2,7 +2,7 @@
 
 Source material: [CNCF CKA](https://www.cncf.io/training/certification/cka/) · [curriculum snapshot](https://github.com/cncf/curriculum/blob/88e610650e2edbe04325fcb992febe6838487d72/CKA_Curriculum_v1.35.pdf)
 
-## Exercise Definition
+## Exercise definition
 
 This is a locally designed review based on `CKA_Curriculum_v1.35.pdf` at curriculum revision `88e610650e2edbe04325fcb992febe6838487d72`, inspected on 2026-10-05. These 5 prompts sample the published objectives; they are not official exam questions or a complete syllabus assessment.
 
@@ -19,3 +19,7 @@ For each prompt, explain your choices, identify useful evidence and cite the rel
 5. **Troubleshooting.** A node becomes NotReady while several applications are slow. Describe how you would separate a node or cluster-component problem from workload pressure. Identify the logs, events and resource measurements you would collect before proposing a change.
 
 ## Solution
+
+## Takeaways
+
+## Applications

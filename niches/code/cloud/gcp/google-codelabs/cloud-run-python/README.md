@@ -2,7 +2,7 @@
 
 Source: [Google Codelabs](https://codelabs.developers.google.com/codelabs/cloud-run-hello-python3)
 
-## Problem
+## Exercise definition
 
 Deploy a Python HTTP service from source and inspect the Cloud Run revision and response.
 
@@ -18,3 +18,9 @@ A Google Cloud project with billing enabled, deployment permissions, and Cloud S
 - Explain the access policy chosen by the source deployment and test the resulting HTTP access.
 - Extension: change the greeting, deploy a second revision, and compare responses and traffic assignment.
 - Remove the service and its practice image/build storage, or delete the dedicated project; verify cleanup.
+
+## Solution
+
+## Takeaways
+
+## Applications

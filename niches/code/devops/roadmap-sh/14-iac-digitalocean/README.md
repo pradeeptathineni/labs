@@ -2,8 +2,12 @@
 
 Source: [roadmap.sh](https://roadmap.sh/projects/iac-digitalocean)
 
-## Exercise Definition
+## Exercise definition
 
 Read the [original exercise definition](https://roadmap.sh/projects/iac-digitalocean).
 
 ## Solution
+
+## Takeaways
+
+## Applications

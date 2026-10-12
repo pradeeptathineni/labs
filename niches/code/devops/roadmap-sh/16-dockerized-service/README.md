@@ -2,8 +2,12 @@
 
 Source: [roadmap.sh](https://roadmap.sh/projects/dockerized-service-deployment)
 
-## Exercise Definition
+## Exercise definition
 
 Read the [original exercise definition](https://roadmap.sh/projects/dockerized-service-deployment).
 
 ## Solution
+
+## Takeaways
+
+## Applications

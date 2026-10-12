@@ -2,7 +2,7 @@
 
 Source: [Google Skills: Google Cloud Labs](https://www.skills.google/focuses/10379?parent=catalog)
 
-## Problem
+## Exercise definition
 
 Configure an event-driven photo workflow and access permissions in a timed Google Cloud challenge.
 
@@ -18,3 +18,9 @@ Google Skills account and lab entitlement; check current credits or subscription
 - Observe the image event and resulting thumbnail; inspect logs if the trigger or permissions fail.
 - Explain which identity lost access and why, without retaining credentials or account identifiers.
 - Record the score and any unfinished tasks before ending the session.
+
+## Solution
+
+## Takeaways
+
+## Applications

@@ -2,7 +2,7 @@
 
 Source: [Microsoft Learning](https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_04-Implement_Virtual_Networking.html)
 
-## Problem
+## Exercise definition
 
 Build two Azure networks, inspect security rules, and verify public and private DNS.
 
@@ -18,3 +18,9 @@ Azure subscription with resource-creation permissions; portal and Cloud Shell. D
 - Compare the portal-created network with the template deployment; explain the intended inbound and outbound rule precedence.
 - Save public DNS lookup output and the private-zone record/link configuration. Configuration alone does not prove private resolution from a VM.
 - Record the resource inventory before cleanup and verify the dedicated group is gone.
+
+## Solution
+
+## Takeaways
+
+## Applications

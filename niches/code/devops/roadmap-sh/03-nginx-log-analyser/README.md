@@ -2,8 +2,12 @@
 
 Source: [roadmap.sh](https://roadmap.sh/projects/nginx-log-analyser)
 
-## Exercise Definition
+## Exercise definition
 
 Read the [original exercise definition](https://roadmap.sh/projects/nginx-log-analyser).
 
 ## Solution
+
+## Takeaways
+
+## Applications

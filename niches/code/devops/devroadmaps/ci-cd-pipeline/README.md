@@ -5,8 +5,12 @@ Source: [DevRoadmaps project idea](https://github.com/rudra496/devroadmaps/blob/
 > [!IMPORTANT]
 > The exercise definition is copied from DevRoadmaps under its MIT License; my solution starts below.
 
-## Exercise Definition
+## Exercise definition
 
 Set up a GitHub Actions pipeline that tests, builds, and deploys a Node.js app to a cloud server.
 
 ## Solution
+
+## Takeaways
+
+## Applications

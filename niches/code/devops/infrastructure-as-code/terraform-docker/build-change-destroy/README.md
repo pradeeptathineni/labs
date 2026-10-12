@@ -2,7 +2,7 @@
 
 Source: [HashiCorp Developer Tutorials](https://developer.hashicorp.com/terraform/tutorials/docker-get-started)
 
-## Problem
+## Exercise definition
 
 Manage a local Docker container through Terraform plans, state, updates, and teardown.
 
@@ -18,3 +18,9 @@ Terraform CLI and a Docker engine. Follow the collection’s Build, Change, and 
 - Change the external port and explain the update or replacement shown by the plan.
 - Compare the resource addresses in state before and after the change.
 - Review and apply the destroy plan; verify the managed container is absent.
+
+## Solution
+
+## Takeaways
+
+## Applications

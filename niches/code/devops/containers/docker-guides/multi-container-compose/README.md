@@ -2,7 +2,7 @@
 
 Source: [Docker Hands-on Guides](https://docs.docker.com/get-started/docker-concepts/running-containers/multi-container-applications/)
 
-## Problem
+## Exercise definition
 
 Run the same proxy, web, and Redis stack manually and with Compose; compare behavior.
 
@@ -18,3 +18,9 @@ A Docker engine and Compose v2, Git, and a free local HTTP port. Fetch the sampl
 - Compare the manual network/aliases with Compose’s service networking and rendered configuration.
 - Extension: stop Redis, capture the failure, then restore it and verify requests work again.
 - Remove only this stack’s containers and network; record what happened to its data.
+
+## Solution
+
+## Takeaways
+
+## Applications

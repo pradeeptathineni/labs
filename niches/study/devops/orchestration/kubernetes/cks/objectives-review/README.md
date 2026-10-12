@@ -2,7 +2,7 @@
 
 Source material: [CNCF CKS](https://www.cncf.io/training/certification/cks/) · [curriculum snapshot](https://github.com/cncf/curriculum/blob/88e610650e2edbe04325fcb992febe6838487d72/CKS_Curriculum%20v1.34.pdf)
 
-## Exercise Definition
+## Exercise definition
 
 This is a locally designed review based on `CKS_Curriculum v1.34.pdf` at curriculum revision `88e610650e2edbe04325fcb992febe6838487d72`, inspected on 2026-10-05. These 6 prompts sample the published objectives; they are not official exam questions or a complete syllabus assessment.
 
@@ -23,3 +23,7 @@ The pinned CKS PDF and its repository README give different domain weights. This
 6. **Monitoring, logging and runtime security.** A running container performs an unexpected action. Outline the evidence you would preserve from runtime behavior, audit logs, workloads and network activity. Explain how you would distinguish an application fault from suspicious activity and test a containment proposal without losing the evidence.
 
 ## Solution
+
+## Takeaways
+
+## Applications

@@ -2,7 +2,7 @@
 
 Source: [PostgreSQL Exercises](https://pgexercises.com/questions/joins/threejoin.html)
 
-## Problem
+## Exercise definition
 
 Join three relational tables and verify duplicate handling, projection, and result ordering.
 
@@ -17,3 +17,9 @@ The free browser query runner is enough. A local PostgreSQL setup is optional; i
 - Save the personal query and compare its rows and ordering with the source’s expected results.
 - Explain the intermediate join relationships and why repeated bookings can produce duplicate output.
 - Extension: compare results before and after deduplication and explain the difference.
+
+## Solution
+
+## Takeaways
+
+## Applications

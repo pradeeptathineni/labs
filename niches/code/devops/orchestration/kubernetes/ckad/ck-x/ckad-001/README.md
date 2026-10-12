@@ -2,7 +2,7 @@
 
 Source: [CK-X assessment `ckad-001`](https://github.com/sailor-sh/CK-X/blob/76a78943556af64a774a1c22b283efc22906ff1c/facilitator/assets/exams/ckad/001/assessment.json)
 
-## Exercise Definition
+## Exercise definition
 
 Independently attempt the complete **CKAD Comprehensive Lab - 1** assessment (`ckad-001`), containing 21 upstream tasks at this revision. Preserve its task IDs when recording commands, reasoning, verification and any incomplete attempts.
 
@@ -11,3 +11,7 @@ Read the [pinned assessment](https://github.com/sailor-sh/CK-X/blob/76a78943556a
 This is a source-linked assessment. Its body, answers and executable assets are not copied here. The [BSL 1.1 notice and additional conditions](https://github.com/sailor-sh/CK-X/blob/76a78943556af64a774a1c22b283efc22906ff1c/LICENSE) require a scoped review before copying or running the simulator. This practice set does not establish official exam alignment or readiness.
 
 ## Solution
+
+## Takeaways
+
+## Applications

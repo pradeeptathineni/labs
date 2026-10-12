@@ -5,8 +5,12 @@ Source: [DevRoadmaps project idea](https://github.com/rudra496/devroadmaps/blob/
 > [!IMPORTANT]
 > The exercise definition is copied from DevRoadmaps under its MIT License; my solution starts below.
 
-## Exercise Definition
+## Exercise definition
 
 Set up a production-ready K8s cluster with ingress, autoscaling, secrets management, and backup.
 
 ## Solution
+
+## Takeaways
+
+## Applications

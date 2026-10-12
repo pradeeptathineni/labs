@@ -5,7 +5,7 @@ Source: [Kananinirav AWS Cloud Practitioner Notes](https://github.com/kananinira
 > [!IMPORTANT]
 > The study notes are Kananinirav's. This bounded explanation-and-comparison pass is my own review structure.
 
-## Exercise Definition
+## Exercise definition
 
 I will study five note sections, then explain the concepts in my own words and compare choices I could confuse on CLF-C02. I will record my explanations and corrections below.
 
@@ -19,3 +19,7 @@ I will study five note sections, then explain the concepts in my own words and c
 > I am leaving the linked practice-exam pool out of this lab until its question provenance and permission are reviewed. The repository MIT file alone does not settle rights for linked exam content.
 
 ## Solution
+
+## Takeaways
+
+## Applications

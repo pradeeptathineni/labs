@@ -2,8 +2,12 @@
 
 Source: [roadmap.sh](https://roadmap.sh/projects/basic-dockerfile)
 
-## Exercise Definition
+## Exercise definition
 
 Read the [original exercise definition](https://roadmap.sh/projects/basic-dockerfile).
 
 ## Solution
+
+## Takeaways
+
+## Applications
