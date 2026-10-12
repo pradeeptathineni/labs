@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-# error-handling/test_error_handling.py - Check the greeting command
-# Usage: python3 -m unittest discover -p 'test_*.py' -v
+# tests/test_error_handling.py - Check the greeting command
+# Usage: python3 -m unittest discover -s tests -p 'test_*.py' -v
 
 # Use the real script and the local Bash for each check
 import os
@@ -9,8 +9,8 @@ import subprocess
 import unittest
 from pathlib import Path
 
-# Locate the script beside this test
-SCRIPT = Path(__file__).with_name("error_handling.sh")
+# Locate the script from the test folder
+SCRIPT = Path(__file__).resolve().parents[1] / "src" / "error_handling.sh"
 BASH = os.environ.get("BASH_UNDER_TEST", "bash")
 
 

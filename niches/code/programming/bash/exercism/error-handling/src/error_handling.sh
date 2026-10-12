@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# error-handling/error_handling.sh - Greet one command-line argument
+# src/error_handling.sh - Greet one command-line argument
 # Usage: ./error_handling.sh <person>
 
 # Count arguments instead of treating an empty name as missing

@@ -30,8 +30,8 @@ jobs:
         run: python3 -m unittest discover -s niches/code/mathematics/project-euler/01-multiples-of-3-or-5 -p 'test_*.py' -v
       - name: Check programming lab solutions
         run: |
-          bash -n niches/code/programming/bash/exercism/error-handling/error_handling.sh
-          python3 -m unittest discover -s niches/code/programming/bash/exercism/error-handling -p 'test_*.py' -v
+          bash -n niches/code/programming/bash/exercism/error-handling/src/error_handling.sh
+          python3 -m unittest discover -s niches/code/programming/bash/exercism/error-handling/tests -p 'test_*.py' -v
           python3 -m unittest discover -s niches/code/programming/python/exercism/grep -p 'test_*.py' -v
       - uses: actions/setup-go@v7
         with:
