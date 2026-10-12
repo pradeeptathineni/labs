@@ -4,7 +4,7 @@
 
 **79 labs:** 33 Projects · 32 Exercises · 11 Problem Sets · 2 Challenges · 1 Question Bank
 
-6 complete · 1 in progress · 72 planned · 0 paused · 0 abandoned
+7 complete · 0 in progress · 72 planned · 0 paused · 0 abandoned
 
 > [!IMPORTANT]
 > Imported work is planned practice. Target skills are not demonstrated proficiency; certification goals are preparation, not credentials.
@@ -14,6 +14,8 @@
 - [Server Performance Stats](niches/code/devops/roadmap-sh/01-server-performance-stats/README.md#exercise-definition) — Write a script that reports basic Linux server performance statistics.<br>Project · Complete · Updated 2026-10-11 · `filesystems` · `performance-monitoring` · `process-inspection` · `resource-metrics` · `bash` · `linux` · [Solution](niches/code/devops/roadmap-sh/01-server-performance-stats/README.md#solution) · Completed 2026-10-11 · [ref](https://roadmap.sh/projects/server-stats)
 
 - [Log Archive Tool](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition) — Build a command-line tool that archives logs with a dated filename.<br>Project · Complete · Updated 2026-10-11 · `archiving` · `command-line` · `compression` · `log-management` · `timestamps` · `python` · [Solution](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#solution) · Completed 2026-10-11 · [ref](https://roadmap.sh/projects/log-archive-tool)
+
+- [Multi-Service Application](niches/code/devops/roadmap-sh/25-multi-service-application/README.md#exercise-definition) — Set up an optimized multi-service Docker application.<br>Project · Complete · Updated 2026-10-12 · `multi-service-architecture` · `optimization` · `service-networking` · `docker` · `docker-compose` · [Solution](niches/code/devops/roadmap-sh/25-multi-service-application/README.md#solution) · Completed 2026-10-12 · [ref](https://roadmap.sh/projects/multiservice-docker)
 
 - [AWS Terraform Engineering Challenge](niches/code/devops/technical-assessments/eng-challenge-aws-terraform/README.md#exercise-definition) — Provision AWS web infrastructure with Terraform for a Reframe Data Services interview assessment.<br>Challenge · Complete · Updated 2026-10-12 · `infrastructure-as-code` · `networking` · `aws` · `bash` · `github-actions` · `make` · `terraform` · [Solution](https://github.com/pradeeptathineni/eng-challenge-aws-terraform) · Completed 2026-09-12 · [ref](https://github.com/pradeeptathineni/eng-challenge-aws-terraform/blob/main/docs/DevOpsChallenge.pdf)
 
@@ -26,8 +28,7 @@
 
 ## In progress
 
-- [Multi-Service Application](niches/code/devops/roadmap-sh/25-multi-service-application/README.md#exercise-definition) — Set up an optimized multi-service Docker application.<br>Project · In progress · Updated 2026-10-12 · `multi-service-architecture` · `optimization` · `service-networking` · `docker` · `docker-compose` · [Solution](niches/code/devops/roadmap-sh/25-multi-service-application/README.md#solution) · [ref](https://roadmap.sh/projects/multiservice-docker)
-
+No labs in progress yet.
 
 ## [Browse labs](#browse-labs)
 
@@ -280,7 +281,7 @@
 
 24. [Prometheus and Grafana](niches/code/devops/roadmap-sh/24-prometheus-and-grafana/README.md#exercise-definition)<a id="lab-niches-code-devops-roadmap-sh-24-prometheus-and-grafana"></a> — Collect metrics with Prometheus and visualize them in Grafana.<br>Project · Planned · Updated 2026-10-04 · `metrics` · `monitoring` · `observability` · `grafana` · `prometheus` · [ref](https://roadmap.sh/projects/monitoring)
 
-25. [Multi-Service Application](niches/code/devops/roadmap-sh/25-multi-service-application/README.md#exercise-definition)<a id="lab-niches-code-devops-roadmap-sh-25-multi-service-application"></a> — Set up an optimized multi-service Docker application.<br>Project · In progress · Updated 2026-10-12 · `multi-service-architecture` · `optimization` · `service-networking` · `docker` · `docker-compose` · [Solution](niches/code/devops/roadmap-sh/25-multi-service-application/README.md#solution) · [ref](https://roadmap.sh/projects/multiservice-docker)
+25. [Multi-Service Application](niches/code/devops/roadmap-sh/25-multi-service-application/README.md#exercise-definition)<a id="lab-niches-code-devops-roadmap-sh-25-multi-service-application"></a> — Set up an optimized multi-service Docker application.<br>Project · Complete · Updated 2026-10-12 · `multi-service-architecture` · `optimization` · `service-networking` · `docker` · `docker-compose` · [Solution](niches/code/devops/roadmap-sh/25-multi-service-application/README.md#solution) · Completed 2026-10-12 · [ref](https://roadmap.sh/projects/multiservice-docker)
 
 26. [Service Discovery](niches/code/devops/roadmap-sh/26-service-discovery/README.md#exercise-definition)<a id="lab-niches-code-devops-roadmap-sh-26-service-discovery"></a> — Set up service discovery for dummy services with Consul.<br>Project · Planned · Updated 2026-10-04 · `dns` · `networking` · `service-discovery` · `consul` · [ref](https://roadmap.sh/projects/service-discovery)
 
