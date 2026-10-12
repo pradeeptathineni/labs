@@ -34,3 +34,7 @@ docker compose down --volumes
 - One instance per service, without load balancing or retries. Health checks run every two seconds, so a crash can fail a request before Consul marks it unhealthy.
 
 [Registration choices and checks](docs/decisions.md)
+
+## Takeaways
+
+## Applications
