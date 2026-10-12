@@ -9,11 +9,8 @@
 - The existing 20 repository tests passed. They cover lab records, catalogs, imports, commit checks, and site updates.
 - GitHub Actions and site deployment passed at `d16cf1a` and `3b14e10`.
 - Browser checks confirmed both site versions, lab status, solution links, small screens, and use with JavaScript turned off.
-- Code and comments were reviewed while developing. There was no separate reviewer or usability study.
 
-## What the tests cover
-
-- `tests/test_report.py` contains all the tests.
+## Test coverage
 - Sample command output checks the recent CPU reading, changed CPU column order, memory calculations, and invalid numbers.
 - Other checks cover 20,000 process rows, fewer than five processes, missing tools, bad arguments, failed commands, and macOS refusing to run the Linux report.
 - The Linux test starts a process that briefly uses CPU and 32 MiB of memory. It checks the process ID in both rankings and always stops the process afterward.
@@ -43,7 +40,7 @@ make test-linux
 - `make test-linux` needs Docker and runs all tests in the image listed above. Docker downloads it if it's missing.
 - The Docker test has no network access. It limits CPU, memory, and processes, runs without root, and can't change the source files.
 - Its temporary folder allows the sample test commands to run, with `nosuid` and `nodev` still set.
-- Both GitHub Actions workflows run Bash syntax checks and `make test-linux` before the site can update. Other solved labs need their own workflow checks.
+- Both GitHub workflows run Bash syntax checks and `make test-linux`.
 
 ## Problems found
 
@@ -51,6 +48,18 @@ make test-linux
 - Available memory can be lower than free memory. Fixed that check and added a test.
 - Temporary test commands couldn't run from `/tmp`. Changed that folder's Docker settings.
 - The [first GitHub Actions check](https://github.com/pradeeptathineni/labs/actions/runs/38171060367) failed because five runner services used more memory than the test process. Moved the test into Docker with its own process list.
+
+## Readings
+
+- CPU percentage includes I/O wait, which is time spent waiting for disk or other devices.
+- It also includes stolen time, when the virtual machine waits for CPU time from the machine running it.
+- Each process's CPU percentage is an average since it started. It covers a different period from the system CPU reading.
+- Memory used is total minus available. Available includes cached memory that Linux can free for programs.
+- Process memory shows what it currently holds in RAM, including shared pages.
+- Each disk row shows a storage location, such as `/`, with its size, used space, available space, and percentage used.
+- `tmpfs` and `devtmpfs` use memory, so they are left out. Docker can show the same disk space in more than one row, so there is no combined total.
+- Linux can keep some disk space aside. Used plus available may be less than the full size. `df` calculates the percentage from used plus available, and rounds the displayed sizes.
+- In Docker, CPU and memory readings can describe its Linux virtual machine. The process list and disk rows can describe only the container. The report isn't a measure of the container's own resource limits.
 
 ## Limits
 
@@ -69,4 +78,3 @@ make test-linux
 - [This Pages run](https://github.com/pradeeptathineni/labs/actions/runs/38171368719) put `d16cf1a` on the site with the lab in progress.
 - [This Pages run](https://github.com/pradeeptathineni/labs/actions/runs/38171776776) put `3b14e10` on the site with the lab complete.
 - Browser checks confirmed the exact code versions, status, and solution links.
-- Completion is set explicitly. Adding code or passing tests doesn't set it. The site changes after a main push passes its checks and deploys.

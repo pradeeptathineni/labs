@@ -6,7 +6,7 @@
 
 # Run the report with its default sample time
 run:
-	./server-stats.sh
+	./src/server-stats.sh
 
 # Run the existing tests on the current host
 test:
@@ -25,6 +25,6 @@ test-linux:
 
 # Check shell syntax and style, then run the host tests
 check:
-	bash -n server-stats.sh
-	shellcheck server-stats.sh
+	bash -n src/server-stats.sh
+	shellcheck src/server-stats.sh
 	$(MAKE) test

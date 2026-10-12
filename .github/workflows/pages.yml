@@ -48,7 +48,7 @@ jobs:
         run: python3 -m unittest discover -s .meta/tests
       - name: Check the server performance solution on Linux
         run: |
-          bash -n niches/code/devops/roadmap-sh/01-server-performance-stats/server-stats.sh
+          bash -n niches/code/devops/roadmap-sh/01-server-performance-stats/src/server-stats.sh
           make -C niches/code/devops/roadmap-sh/01-server-performance-stats test-linux
       - name: Check the log archive tool
         run: python3 -m unittest discover -s niches/code/devops/roadmap-sh/02-log-archive-tool -p 'test_*.py' -v

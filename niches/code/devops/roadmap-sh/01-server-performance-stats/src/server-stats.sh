@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# 01-server-performance-stats/server-stats.sh - Show Linux system use
+# src/server-stats.sh - Show Linux system use
 # Usage: ./server-stats.sh [--interval SECONDS] [--help]
 #
 # Use existing Linux tools without adding a service

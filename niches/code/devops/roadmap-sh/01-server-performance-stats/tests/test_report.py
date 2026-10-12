@@ -111,7 +111,7 @@ class ReportTests(unittest.TestCase):
 
         # Capture the report and any error without waiting indefinitely
         return subprocess.run(
-            [shutil.which("bash"), str(LAB / "server-stats.sh"), *args],
+            [shutil.which("bash"), str(LAB / "src" / "server-stats.sh"), *args],
             env=env,
             text=True,
             capture_output=True,
@@ -329,7 +329,7 @@ class LinuxSmokeTests(unittest.TestCase):
             # Wait for the worker before collecting the real report
             self.assertEqual(worker.stdout.readline().strip(), "ready")
             result = subprocess.run(
-                ["bash", str(LAB / "server-stats.sh")],
+                ["bash", str(LAB / "src" / "server-stats.sh")],
                 text=True,
                 capture_output=True,
                 timeout=8,
