@@ -1,0 +1,33 @@
+{
+  "title": "Multi-container Application with Docker Compose",
+  "summary": "Run the same proxy, web, and Redis stack manually and with Compose; compare behavior.",
+  "type": "exercise",
+  "skills": [
+    "configuration-management",
+    "containers",
+    "service-networking",
+    "troubleshooting"
+  ],
+  "tools": [
+    "docker",
+    "docker-compose",
+    "nginx",
+    "nodejs",
+    "redis"
+  ],
+  "source": {
+    "provider": "docker-docs",
+    "item_id": "multi-container-applications",
+    "url": "https://docs.docker.com/get-started/docker-concepts/running-containers/multi-container-applications/"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-12",
+      "started": null,
+      "updated": "2026-10-12",
+      "completed": null
+    },
+    "content_sha256": "049c284776de664187f6bf70351e9b9550786204c05aa03a208d6f4779c78200"
+  }
+}

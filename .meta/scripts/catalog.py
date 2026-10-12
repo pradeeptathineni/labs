@@ -39,9 +39,13 @@ GENERATION_RECEIPT = ROOT / ".meta/build/catalog-generation.json"
 SLUG_PATTERN = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
 ORDER_PATTERN = re.compile(r"([0-9]+)-([a-z0-9]+(?:-[a-z0-9]+)*)")
 LAB_DIR_PATTERN = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
-DISPLAY_NAMES = {"aws": "AWS", "devops": "DevOps", "mit": "MIT", "cka": "CKA", "ckad": "CKAD", "cks": "CKS", "ai": "AI", "mlops": "MLOps", "qgis": "QGIS", "p5js": "p5.js"}
+DISPLAY_NAMES = {"aws": "AWS", "azure": "Azure", "gcp": "GCP", "sql": "SQL", "devops": "DevOps", "mit": "MIT", "cka": "CKA", "ckad": "CKAD", "cks": "CKS", "ai": "AI", "mlops": "MLOps", "qgis": "QGIS", "p5js": "p5.js"}
 SUBJECT_TITLES = {
     ("cloud", "aws"): "AWS Cloud",
+    ("cloud", "azure"): "Azure Cloud",
+    ("cloud", "gcp"): "Google Cloud",
+    ("devops", "infrastructure-as-code"): "DevOps · Infrastructure as Code",
+    ("ai", "llm-applications"): "AI · LLM Applications",
     ("systems", "distributed"): "Distributed Systems",
 }
 

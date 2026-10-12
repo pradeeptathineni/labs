@@ -1,0 +1,31 @@
+{
+  "title": "Implement Azure Virtual Networking",
+  "summary": "Build two Azure networks, inspect security rules, and verify public and private DNS.",
+  "type": "exercise",
+  "skills": [
+    "dns",
+    "firewalls",
+    "infrastructure-as-code",
+    "networking"
+  ],
+  "tools": [
+    "arm-templates",
+    "azure",
+    "azure-dns"
+  ],
+  "source": {
+    "provider": "microsoft-learning",
+    "item_id": "az-104/lab-04",
+    "url": "https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_04-Implement_Virtual_Networking.html"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-12",
+      "started": null,
+      "updated": "2026-10-12",
+      "completed": null
+    },
+    "content_sha256": "f47de4ba7e194202fb1423272c118746ed0225785d56e1e0cd9818aa23c2b533"
+  }
+}

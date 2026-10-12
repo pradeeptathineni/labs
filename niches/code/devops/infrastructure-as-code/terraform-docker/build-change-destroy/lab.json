@@ -1,0 +1,30 @@
+{
+  "title": "Build, Change, and Destroy Local Infrastructure",
+  "summary": "Manage a local Docker container through Terraform plans, state, updates, and teardown.",
+  "type": "exercise",
+  "skills": [
+    "idempotency",
+    "infrastructure-as-code",
+    "state-management"
+  ],
+  "tools": [
+    "docker",
+    "nginx",
+    "terraform"
+  ],
+  "source": {
+    "provider": "hashicorp-learn",
+    "item_id": "docker-get-started/build-change-destroy",
+    "url": "https://developer.hashicorp.com/terraform/tutorials/docker-get-started"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-12",
+      "started": null,
+      "updated": "2026-10-12",
+      "completed": null
+    },
+    "content_sha256": "85e914a775fdb43bdaca64b96a0ddadad3c944b2a177440e7658b6a7b45dcd31"
+  }
+}

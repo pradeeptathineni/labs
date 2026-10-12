@@ -1,0 +1,29 @@
+{
+  "title": "Connect Azure Networks with Global Peering",
+  "summary": "Compare VM connectivity before and after configuring peering between Azure networks.",
+  "type": "exercise",
+  "skills": [
+    "networking",
+    "remote-access",
+    "troubleshooting"
+  ],
+  "tools": [
+    "azure",
+    "azure-powershell"
+  ],
+  "source": {
+    "provider": "microsoft-learning",
+    "item_id": "az-700/m01-unit-08",
+    "url": "https://microsoftlearning.github.io/AZ-700-Designing-and-Implementing-Microsoft-Azure-Networking-Solutions/Instructions/Exercises/M01-Unit%208%20Connect%20two%20Azure%20Virtual%20Networks%20using%20global%20virtual%20network%20peering.html"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-12",
+      "started": null,
+      "updated": "2026-10-12",
+      "completed": null
+    },
+    "content_sha256": "8c0893fff30d4b4a49d2661e40e9302fd27e31eb5354803b3df1857ceb946280"
+  }
+}

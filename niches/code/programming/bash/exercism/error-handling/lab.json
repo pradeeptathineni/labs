@@ -1,0 +1,29 @@
+{
+  "title": "Bash Error Handling",
+  "summary": "Handle command-line argument counts, quoting, and failure exit codes in a Bash script.",
+  "type": "exercise",
+  "skills": [
+    "command-line",
+    "error-handling",
+    "shell-scripting"
+  ],
+  "tools": [
+    "bash",
+    "bats"
+  ],
+  "source": {
+    "provider": "exercism",
+    "item_id": "bash/error-handling",
+    "url": "https://exercism.org/tracks/bash/exercises/error-handling"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-12",
+      "started": null,
+      "updated": "2026-10-12",
+      "completed": null
+    },
+    "content_sha256": "a80f4821a05e0d0d7df12dd642495094bfdafedcf7f5d0599613cf4a7f4f50f0"
+  }
+}

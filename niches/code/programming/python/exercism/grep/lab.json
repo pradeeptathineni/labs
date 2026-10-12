@@ -1,0 +1,30 @@
+{
+  "title": "Grep in Python",
+  "summary": "Implement a fixed-string file search with composable flags and deterministic output.",
+  "type": "exercise",
+  "skills": [
+    "automated-testing",
+    "command-line",
+    "filesystems",
+    "text-processing"
+  ],
+  "tools": [
+    "pytest",
+    "python"
+  ],
+  "source": {
+    "provider": "exercism",
+    "item_id": "python/grep",
+    "url": "https://exercism.org/tracks/python/exercises/grep"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-12",
+      "started": null,
+      "updated": "2026-10-12",
+      "completed": null
+    },
+    "content_sha256": "13c99205414503f91f0cd4c4683071b8acb6bbb48e1d5dd3c460668c3c441e6e"
+  }
+}

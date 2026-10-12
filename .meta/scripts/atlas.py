@@ -4,9 +4,8 @@
 from __future__ import annotations
 
 import argparse
-import html
 import sys
-from collections import defaultdict
+from collections import Counter
 from pathlib import Path
 
 import catalog
@@ -63,49 +62,46 @@ def render_atlas(plan: dict, records: list[dict]) -> str:
     escape = catalog._escape
     opportunities = plan["opportunities"]
     adopted = {path for item in opportunities for path in item["adopted_paths"]}
+    by_path = {record["path"]: record for record in records}
     lines = ["# Practice Atlas", "", "[Lab catalog](CATALOG.md) · [Web catalog](https://pradeeptathineni.github.io/labs/) · [How I use this repo](README.md)", "",
              f"**{len(opportunities)} reviewed opportunities** · {len(adopted)} matching adopted labs · {len(records)} labs in the whole repository", "",
-             "A registered source is something I know about. An opportunity is a reviewed choice; an adopted lab is a concrete plan. Starting and completing it are separate, explicit decisions. Counts here never measure proficiency or a source's completion.", "",
-             "Subjects bring related niches together. A path supplies one home: `niches/<niche>/<domain>/[<subdomain>/][<group>/...]<collection>/<lab>/`. Tools name technologies; goals name intentions, including certification preparation.", "",
-             "## Next up: Kubernetes", "", "Practical work lives in Code; explanation and objective review live in Study. Both share DevOps / Orchestration. Adopted sets remain planned until I start them.", ""]
-    for item in opportunities:
-        if item["priority"] == "next":
-            lines.append(f"- [{escape(item['title'])}](#{item['id']}) — {item['adopted_count']} matching labs adopted" if item["adopted_count"] else f"- [{escape(item['title'])}](#{item['id']}) — not adopted")
-    lines += ["", "## Other forms of practice", ""]
-    for entry in plan["niche_guidance"]:
-        lines.append(f"- **{catalog.display_name(entry['niche'])}:** {escape(entry['reason'])}")
-    lines += ["", "## Browse by subject", ""]
-    subjects = defaultdict(list)
-    for item in opportunities:
-        subjects[item["subject_title"]].append(item)
-    for subject, items in sorted(subjects.items()):
-        lines += [f"### {escape(subject)}", ""]
+             "I use this shortlist to choose practical problems worth doing next. Planned means the lab exists; it does not mean I have attempted it.", ""]
+    for priority, heading in [("next", "Next to practice"), ("later", "Later contenders"), ("explore", "Explore")]:
+        items = sorted((item for item in opportunities if item["priority"] == priority),
+                       key=lambda item: (item["subject_title"], item["title"]))
+        if not items:
+            continue
+        lines += [f"## {heading}", "", "| Subject | Collection / source | Practice | Local labs |", "| --- | --- | --- | --- |"]
         for item in items:
-            lines.append(f"- {catalog.display_name(item['niche'])}: [{escape(item['title'])}](#{item['id']}) · {item['priority']}")
+            counts = Counter(by_path[path]["tracking"]["status"] for path in item["adopted_paths"])
+            state = "; ".join(f"{counts[status]} {label}" for status, label in [
+                ("complete", "complete"), ("in-progress", "in progress"), ("not-started", "planned"),
+                ("paused", "paused"), ("abandoned", "abandoned")] if counts[status])
+            local = f"[{state}]({item['target']['collection_path']}/)" if counts else "Not added"
+            lines.append(f"| {escape(item['subject_title'])} · {catalog.display_name(item['niche'])} | "
+                         f'<a id="{item["id"]}"></a>[{escape(item["title"])}]({item["materials_url"]}) | '
+                         f"{escape(item['deliverable'])} | {local} |")
         lines.append("")
-    lines += ["## Opportunities", ""]
+    lines += ["<details>", "<summary>Source checks, access, and destinations</summary>", ""]
     for item in opportunities:
         target = item["target"]
         path = target["collection_path"]
         destination = f"[`{path}`]({path}/)" if item["collection_exists"] else f"`{path}` (proposed)"
-        lines += [f'<a id="{item["id"]}"></a>', f"### {escape(item['title'])}", "",
-                  f"**{item['priority'].capitalize()}** · {catalog.display_name(item['niche'])} · {escape(item['subject_title'])} · {item['adoption']} · {item['lab_type']}", "",
-                  f"[Source: {escape(item['source_name'])}]({item['materials_url']}) · reuse policy: {item['reuse_policy']}", "",
-                  f"**Destination:** {destination}", "", f"**Unit:** {escape(item['unit'])}", "", f"**Intended output:** {escape(item['deliverable'])}", ""]
-        if target.get("tools"):
-            lines += ["**Tools:** " + ", ".join(target["tools"]), ""]
+        lines += [f"**[{escape(item['title'])}](#{item['id']})** — {escape(item['unit'])}. {item['adoption']}; reuse: {item['reuse_policy']}.", "",
+                  f"Checked {item['checked_on']}: {escape(item['evidence_scope'])} {escape(item.get('access', 'Review access before starting.'))}", "",
+                  f"Destination: {destination}", ""]
         if target.get("goals"):
-            lines += ["**Preparation goals:** " + "; ".join(escape(goal_label(goal, plan)) for goal in target["goals"]), ""]
-        lines += [f"**Evidence ({item['checked_on']}):** {escape(item['evidence_scope'])}", "", f"**Access:** {escape(item.get('access', 'Review before adoption.'))}", ""]
+            lines += ["Goals: " + "; ".join(escape(goal_label(goal, plan)) for goal in target["goals"]), ""]
         if item.get("notes"):
-            lines += [f"**Adoption limits:** {escape(item['notes'])}", ""]
+            lines += [escape(item['notes']), ""]
         if item["adopted_paths"]:
-            lines += [f"**{item['adopted_count']} matching labs adopted**; this does not exhaust the source.", ""]
-            titles = {record["path"]: record["title"] for record in records}
-            lines += [f"- [{escape(titles[path])}]({path}/README.md)" for path in item["adopted_paths"]]
-        else:
-            lines += ["**Not adopted.** Review the selected material and reuse policy, then initialize one meaningful unit."]
-        lines.append("")
+            lines += ["Labs: " + " · ".join(f"[{escape(by_path[path]['title'])}]({path}/README.md)" for path in item["adopted_paths"]), ""]
+    lines += ["</details>", ""]
+    if plan["niche_guidance"]:
+        lines += ["<details>", "<summary>Other forms of practice</summary>", ""]
+        for entry in plan["niche_guidance"]:
+            lines.append(f"- **{catalog.display_name(entry['niche'])}:** {escape(entry['reason'])}")
+        lines += ["", "</details>", ""]
     lines += ["## Deferred or unverified leads", ""]
     for lead in plan["unresolved_sources"]:
         lines += [f"- [{escape(lead['provider'])}]({lead['url']}): {escape(lead['reason'])}"]

@@ -240,6 +240,307 @@
     "collection_notes": null
   },
   {
+    "title": "Implement Azure Virtual Networking",
+    "summary": "Build two Azure networks, inspect security rules, and verify public and private DNS.",
+    "type": "exercise",
+    "skills": [
+      "dns",
+      "firewalls",
+      "infrastructure-as-code",
+      "networking"
+    ],
+    "tools": [
+      "arm-templates",
+      "azure",
+      "azure-dns"
+    ],
+    "source": {
+      "provider": "microsoft-learning",
+      "item_id": "az-104/lab-04",
+      "url": "https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_04-Implement_Virtual_Networking.html"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-12",
+        "started": null,
+        "updated": "2026-10-12",
+        "completed": null
+      },
+      "content_sha256": "f47de4ba7e194202fb1423272c118746ed0225785d56e1e0cd9818aa23c2b533"
+    },
+    "niche": "code",
+    "domain": "cloud",
+    "subdomain": "azure",
+    "groups": [],
+    "collection": "az-104",
+    "path": "niches/code/cloud/azure/az-104/04-virtual-networking",
+    "slug": "04-virtual-networking",
+    "order": null,
+    "source_display": {
+      "name": "Microsoft Learning",
+      "type": "external",
+      "url": "https://github.com/MicrosoftLearning"
+    },
+    "collection_title": "Microsoft Learning AZ-104",
+    "collection_source_url": "https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/",
+    "tools_effective": [
+      "arm-templates",
+      "azure",
+      "azure-dns"
+    ],
+    "goals_effective": [],
+    "collection_path": "niches/code/cloud/azure/az-104",
+    "subject_title": "Azure Cloud",
+    "collection_breadcrumb": [
+      "Code",
+      "Microsoft Learning AZ-104"
+    ],
+    "exercise_link": "niches/code/cloud/azure/az-104/04-virtual-networking/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Connect Azure Networks with Global Peering",
+    "summary": "Compare VM connectivity before and after configuring peering between Azure networks.",
+    "type": "exercise",
+    "skills": [
+      "networking",
+      "remote-access",
+      "troubleshooting"
+    ],
+    "tools": [
+      "azure",
+      "azure-powershell"
+    ],
+    "source": {
+      "provider": "microsoft-learning",
+      "item_id": "az-700/m01-unit-08",
+      "url": "https://microsoftlearning.github.io/AZ-700-Designing-and-Implementing-Microsoft-Azure-Networking-Solutions/Instructions/Exercises/M01-Unit%208%20Connect%20two%20Azure%20Virtual%20Networks%20using%20global%20virtual%20network%20peering.html"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-12",
+        "started": null,
+        "updated": "2026-10-12",
+        "completed": null
+      },
+      "content_sha256": "8c0893fff30d4b4a49d2661e40e9302fd27e31eb5354803b3df1857ceb946280"
+    },
+    "niche": "code",
+    "domain": "cloud",
+    "subdomain": "azure",
+    "groups": [],
+    "collection": "az-700",
+    "path": "niches/code/cloud/azure/az-700/m01-08-global-peering",
+    "slug": "m01-08-global-peering",
+    "order": null,
+    "source_display": {
+      "name": "Microsoft Learning",
+      "type": "external",
+      "url": "https://github.com/MicrosoftLearning"
+    },
+    "collection_title": "Microsoft Learning AZ-700",
+    "collection_source_url": "https://microsoftlearning.github.io/AZ-700-Designing-and-Implementing-Microsoft-Azure-Networking-Solutions/",
+    "tools_effective": [
+      "azure",
+      "azure-powershell"
+    ],
+    "goals_effective": [],
+    "collection_path": "niches/code/cloud/azure/az-700",
+    "subject_title": "Azure Cloud",
+    "collection_breadcrumb": [
+      "Code",
+      "Microsoft Learning AZ-700"
+    ],
+    "exercise_link": "niches/code/cloud/azure/az-700/m01-08-global-peering/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Hello Cloud Run with Python",
+    "summary": "Deploy a Python HTTP service from source and inspect the Cloud Run revision and response.",
+    "type": "exercise",
+    "skills": [
+      "api-development",
+      "deployment",
+      "serverless-computing"
+    ],
+    "tools": [
+      "cloud-run",
+      "gcloud",
+      "gcp",
+      "python"
+    ],
+    "source": {
+      "provider": "google-codelabs",
+      "item_id": "cloud-run-hello-python3",
+      "url": "https://codelabs.developers.google.com/codelabs/cloud-run-hello-python3"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-12",
+        "started": null,
+        "updated": "2026-10-12",
+        "completed": null
+      },
+      "content_sha256": "b11b7e9a0a785b04662bc3cf7e54a9551ff1524d422de02c4dc9c39833479ea7"
+    },
+    "niche": "code",
+    "domain": "cloud",
+    "subdomain": "gcp",
+    "groups": [],
+    "collection": "google-codelabs",
+    "path": "niches/code/cloud/gcp/google-codelabs/cloud-run-python",
+    "slug": "cloud-run-python",
+    "order": null,
+    "source_display": {
+      "name": "Google Codelabs",
+      "type": "external",
+      "url": "https://codelabs.developers.google.com/"
+    },
+    "collection_title": "Google Cloud Codelabs",
+    "collection_source_url": "https://codelabs.developers.google.com/?cat=Cloud",
+    "tools_effective": [
+      "cloud-run",
+      "gcloud",
+      "gcp",
+      "python"
+    ],
+    "goals_effective": [],
+    "collection_path": "niches/code/cloud/gcp/google-codelabs",
+    "subject_title": "Google Cloud",
+    "collection_breadcrumb": [
+      "Code",
+      "Google Cloud Codelabs"
+    ],
+    "exercise_link": "niches/code/cloud/gcp/google-codelabs/cloud-run-python/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "GSP315 App Development Environment",
+    "summary": "Configure an event-driven photo workflow and access permissions in a timed Google Cloud challenge.",
+    "type": "challenge",
+    "skills": [
+      "access-control",
+      "object-storage",
+      "serverless-computing",
+      "troubleshooting"
+    ],
+    "tools": [
+      "cloud-run-functions",
+      "cloud-storage",
+      "gcp",
+      "pubsub"
+    ],
+    "source": {
+      "provider": "google-skills",
+      "item_id": "GSP315",
+      "url": "https://www.skills.google/focuses/10379?parent=catalog"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-12",
+        "started": null,
+        "updated": "2026-10-12",
+        "completed": null
+      },
+      "content_sha256": "34c628326288abf8fcc4608486c4fdac1996a028b7b8cd62e672103e35711913"
+    },
+    "niche": "code",
+    "domain": "cloud",
+    "subdomain": "gcp",
+    "groups": [],
+    "collection": "google-skills",
+    "path": "niches/code/cloud/gcp/google-skills/gsp315-app-dev-environment",
+    "slug": "gsp315-app-dev-environment",
+    "order": null,
+    "source_display": {
+      "name": "Google Skills: Google Cloud Labs",
+      "type": "external",
+      "url": "https://www.skills.google/catalog"
+    },
+    "collection_title": "Google Cloud Challenge Labs",
+    "collection_source_url": "https://www.skills.google/catalog",
+    "tools_effective": [
+      "cloud-run-functions",
+      "cloud-storage",
+      "gcp",
+      "pubsub"
+    ],
+    "goals_effective": [],
+    "collection_path": "niches/code/cloud/gcp/google-skills",
+    "subject_title": "Google Cloud",
+    "collection_breadcrumb": [
+      "Code",
+      "Google Cloud Challenge Labs"
+    ],
+    "exercise_link": "niches/code/cloud/gcp/google-skills/gsp315-app-dev-environment/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Join Members, Bookings, and Facilities",
+    "summary": "Join three relational tables and verify duplicate handling, projection, and result ordering.",
+    "type": "exercise",
+    "skills": [
+      "data-validation",
+      "relational-querying"
+    ],
+    "tools": [
+      "postgresql",
+      "sql"
+    ],
+    "source": {
+      "provider": "pgexercises",
+      "item_id": "joins/threejoin",
+      "url": "https://pgexercises.com/questions/joins/threejoin.html"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-12",
+        "started": null,
+        "updated": "2026-10-12",
+        "completed": null
+      },
+      "content_sha256": "9565df45fbd1c43bf65f7a2b08ebbd26adc0e56dfecd52825e1222e1cffe2d3c"
+    },
+    "niche": "code",
+    "domain": "data",
+    "subdomain": "sql",
+    "groups": [],
+    "collection": "pgexercises",
+    "path": "niches/code/data/sql/pgexercises/three-table-join",
+    "slug": "three-table-join",
+    "order": null,
+    "source_display": {
+      "name": "PostgreSQL Exercises",
+      "type": "external",
+      "url": "https://pgexercises.com/"
+    },
+    "collection_title": "PostgreSQL Exercises",
+    "collection_source_url": "https://pgexercises.com/questions/",
+    "tools_effective": [
+      "postgresql",
+      "sql"
+    ],
+    "goals_effective": [],
+    "collection_path": "niches/code/data/sql/pgexercises",
+    "subject_title": "Data · SQL",
+    "collection_breadcrumb": [
+      "Code",
+      "PostgreSQL Exercises"
+    ],
+    "exercise_link": "niches/code/data/sql/pgexercises/three-table-join/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
     "title": "CI/CD Pipeline",
     "summary": "Set up a GitHub Actions pipeline that tests, builds, and deploys a Node.js app to a cloud server.",
     "type": "project",
@@ -2204,6 +2505,131 @@
     "private_links": [
       "solution"
     ]
+  },
+  {
+    "title": "Multi-container Application with Docker Compose",
+    "summary": "Run the same proxy, web, and Redis stack manually and with Compose; compare behavior.",
+    "type": "exercise",
+    "skills": [
+      "configuration-management",
+      "containers",
+      "service-networking",
+      "troubleshooting"
+    ],
+    "tools": [
+      "docker",
+      "docker-compose",
+      "nginx",
+      "nodejs",
+      "redis"
+    ],
+    "source": {
+      "provider": "docker-docs",
+      "item_id": "multi-container-applications",
+      "url": "https://docs.docker.com/get-started/docker-concepts/running-containers/multi-container-applications/"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-12",
+        "started": null,
+        "updated": "2026-10-12",
+        "completed": null
+      },
+      "content_sha256": "049c284776de664187f6bf70351e9b9550786204c05aa03a208d6f4779c78200"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "containers",
+    "groups": [],
+    "collection": "docker-guides",
+    "path": "niches/code/devops/containers/docker-guides/multi-container-compose",
+    "slug": "multi-container-compose",
+    "order": null,
+    "source_display": {
+      "name": "Docker Hands-on Guides",
+      "type": "external",
+      "url": "https://docs.docker.com/get-started/"
+    },
+    "collection_title": "Docker Hands-on Guides",
+    "collection_source_url": "https://docs.docker.com/get-started/docker-concepts/",
+    "tools_effective": [
+      "docker",
+      "docker-compose",
+      "nginx",
+      "nodejs",
+      "redis"
+    ],
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/containers/docker-guides",
+    "subject_title": "DevOps · Containers",
+    "collection_breadcrumb": [
+      "Code",
+      "Docker Hands-on Guides"
+    ],
+    "exercise_link": "niches/code/devops/containers/docker-guides/multi-container-compose/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Build, Change, and Destroy Local Infrastructure",
+    "summary": "Manage a local Docker container through Terraform plans, state, updates, and teardown.",
+    "type": "exercise",
+    "skills": [
+      "idempotency",
+      "infrastructure-as-code",
+      "state-management"
+    ],
+    "tools": [
+      "docker",
+      "nginx",
+      "terraform"
+    ],
+    "source": {
+      "provider": "hashicorp-learn",
+      "item_id": "docker-get-started/build-change-destroy",
+      "url": "https://developer.hashicorp.com/terraform/tutorials/docker-get-started"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-12",
+        "started": null,
+        "updated": "2026-10-12",
+        "completed": null
+      },
+      "content_sha256": "85e914a775fdb43bdaca64b96a0ddadad3c944b2a177440e7658b6a7b45dcd31"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": "infrastructure-as-code",
+    "groups": [],
+    "collection": "terraform-docker",
+    "path": "niches/code/devops/infrastructure-as-code/terraform-docker/build-change-destroy",
+    "slug": "build-change-destroy",
+    "order": null,
+    "source_display": {
+      "name": "HashiCorp Developer Tutorials",
+      "type": "external",
+      "url": "https://developer.hashicorp.com/terraform/tutorials"
+    },
+    "collection_title": "Terraform with Docker",
+    "collection_source_url": "https://developer.hashicorp.com/terraform/tutorials/docker-get-started",
+    "tools_effective": [
+      "docker",
+      "nginx",
+      "terraform"
+    ],
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/infrastructure-as-code/terraform-docker",
+    "subject_title": "DevOps · Infrastructure as Code",
+    "collection_breadcrumb": [
+      "Code",
+      "Terraform with Docker"
+    ],
+    "exercise_link": "niches/code/devops/infrastructure-as-code/terraform-docker/build-change-destroy/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
   },
   {
     "title": "CKA objectives review",
@@ -4765,6 +5191,181 @@
     ],
     "exercise_link": "niches/code/mathematics/project-euler/01-multiples-of-3-or-5/README.md#exercise-definition",
     "solution_link": "niches/code/mathematics/project-euler/01-multiples-of-3-or-5/README.md#solution",
+    "collection_notes": null
+  },
+  {
+    "title": "Bash Error Handling",
+    "summary": "Handle command-line argument counts, quoting, and failure exit codes in a Bash script.",
+    "type": "exercise",
+    "skills": [
+      "command-line",
+      "error-handling",
+      "shell-scripting"
+    ],
+    "tools": [
+      "bash",
+      "bats"
+    ],
+    "source": {
+      "provider": "exercism",
+      "item_id": "bash/error-handling",
+      "url": "https://exercism.org/tracks/bash/exercises/error-handling"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-12",
+        "started": null,
+        "updated": "2026-10-12",
+        "completed": null
+      },
+      "content_sha256": "a80f4821a05e0d0d7df12dd642495094bfdafedcf7f5d0599613cf4a7f4f50f0"
+    },
+    "niche": "code",
+    "domain": "programming",
+    "subdomain": "bash",
+    "groups": [],
+    "collection": "exercism",
+    "path": "niches/code/programming/bash/exercism/error-handling",
+    "slug": "error-handling",
+    "order": null,
+    "source_display": {
+      "name": "Exercism",
+      "type": "external",
+      "url": "https://exercism.org/"
+    },
+    "collection_title": "Exercism",
+    "collection_source_url": "https://exercism.org/tracks/bash/exercises",
+    "tools_effective": [
+      "bash",
+      "bats"
+    ],
+    "goals_effective": [],
+    "collection_path": "niches/code/programming/bash/exercism",
+    "subject_title": "Programming · Bash",
+    "collection_breadcrumb": [
+      "Code",
+      "Exercism"
+    ],
+    "exercise_link": "niches/code/programming/bash/exercism/error-handling/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "Grep in Python",
+    "summary": "Implement a fixed-string file search with composable flags and deterministic output.",
+    "type": "exercise",
+    "skills": [
+      "automated-testing",
+      "command-line",
+      "filesystems",
+      "text-processing"
+    ],
+    "tools": [
+      "pytest",
+      "python"
+    ],
+    "source": {
+      "provider": "exercism",
+      "item_id": "python/grep",
+      "url": "https://exercism.org/tracks/python/exercises/grep"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-12",
+        "started": null,
+        "updated": "2026-10-12",
+        "completed": null
+      },
+      "content_sha256": "13c99205414503f91f0cd4c4683071b8acb6bbb48e1d5dd3c460668c3c441e6e"
+    },
+    "niche": "code",
+    "domain": "programming",
+    "subdomain": "python",
+    "groups": [],
+    "collection": "exercism",
+    "path": "niches/code/programming/python/exercism/grep",
+    "slug": "grep",
+    "order": null,
+    "source_display": {
+      "name": "Exercism",
+      "type": "external",
+      "url": "https://exercism.org/"
+    },
+    "collection_title": "Exercism",
+    "collection_source_url": "https://exercism.org/tracks/python/exercises",
+    "tools_effective": [
+      "pytest",
+      "python"
+    ],
+    "goals_effective": [],
+    "collection_path": "niches/code/programming/python/exercism",
+    "subject_title": "Programming · Python",
+    "collection_breadcrumb": [
+      "Code",
+      "Exercism"
+    ],
+    "exercise_link": "niches/code/programming/python/exercism/grep/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": null
+  },
+  {
+    "title": "User Role Controlled by Request Parameter",
+    "summary": "Investigate client-controlled authorization and explain a server-side fix in a hosted lab.",
+    "type": "exercise",
+    "skills": [
+      "access-control",
+      "security",
+      "troubleshooting"
+    ],
+    "tools": [
+      "burp-suite",
+      "http"
+    ],
+    "source": {
+      "provider": "portswigger-web-security-academy",
+      "item_id": "access-control/user-role-controlled-by-request-parameter",
+      "url": "https://portswigger.net/web-security/access-control/lab-user-role-controlled-by-request-parameter"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-12",
+        "started": null,
+        "updated": "2026-10-12",
+        "completed": null
+      },
+      "content_sha256": "8c01ec8c4cb20382cc3cd1e4414a1db251d21f52a355ff436c7e63f6923addde"
+    },
+    "niche": "code",
+    "domain": "security",
+    "subdomain": "web",
+    "groups": [],
+    "collection": "portswigger",
+    "path": "niches/code/security/web/portswigger/client-controlled-role",
+    "slug": "client-controlled-role",
+    "order": null,
+    "source_display": {
+      "name": "PortSwigger Web Security Academy",
+      "type": "external",
+      "url": "https://portswigger.net/web-security"
+    },
+    "collection_title": "PortSwigger Web Security Academy",
+    "collection_source_url": "https://portswigger.net/web-security/all-labs",
+    "tools_effective": [
+      "burp-suite",
+      "http"
+    ],
+    "goals_effective": [],
+    "collection_path": "niches/code/security/web/portswigger",
+    "subject_title": "Security · Web",
+    "collection_breadcrumb": [
+      "Code",
+      "PortSwigger Web Security Academy"
+    ],
+    "exercise_link": "niches/code/security/web/portswigger/client-controlled-role/README.md#exercise-definition",
+    "solution_link": null,
     "collection_notes": null
   }
 ]

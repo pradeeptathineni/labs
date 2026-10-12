@@ -1,0 +1,32 @@
+{
+  "title": "GSP315 App Development Environment",
+  "summary": "Configure an event-driven photo workflow and access permissions in a timed Google Cloud challenge.",
+  "type": "challenge",
+  "skills": [
+    "access-control",
+    "object-storage",
+    "serverless-computing",
+    "troubleshooting"
+  ],
+  "tools": [
+    "cloud-run-functions",
+    "cloud-storage",
+    "gcp",
+    "pubsub"
+  ],
+  "source": {
+    "provider": "google-skills",
+    "item_id": "GSP315",
+    "url": "https://www.skills.google/focuses/10379?parent=catalog"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-12",
+      "started": null,
+      "updated": "2026-10-12",
+      "completed": null
+    },
+    "content_sha256": "34c628326288abf8fcc4608486c4fdac1996a028b7b8cd62e672103e35711913"
+  }
+}

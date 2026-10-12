@@ -1,0 +1,31 @@
+{
+  "title": "Hello Cloud Run with Python",
+  "summary": "Deploy a Python HTTP service from source and inspect the Cloud Run revision and response.",
+  "type": "exercise",
+  "skills": [
+    "api-development",
+    "deployment",
+    "serverless-computing"
+  ],
+  "tools": [
+    "cloud-run",
+    "gcloud",
+    "gcp",
+    "python"
+  ],
+  "source": {
+    "provider": "google-codelabs",
+    "item_id": "cloud-run-hello-python3",
+    "url": "https://codelabs.developers.google.com/codelabs/cloud-run-hello-python3"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-12",
+      "started": null,
+      "updated": "2026-10-12",
+      "completed": null
+    },
+    "content_sha256": "b11b7e9a0a785b04662bc3cf7e54a9551ff1524d422de02c4dc9c39833479ea7"
+  }
+}

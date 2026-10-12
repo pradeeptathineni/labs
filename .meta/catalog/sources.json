@@ -454,5 +454,86 @@
       "notes": "Link to Rearc’s public Quest brief. Rearc requests that interview solutions remain private; do not copy solution code, deployment screenshots, or private documentation into Labs.",
       "policy": "link-only"
     }
+  },
+  "microsoft-learning": {
+    "type": "external",
+    "name": "Microsoft Learning",
+    "url": "https://github.com/MicrosoftLearning",
+    "reuse": {
+      "notes": "Azure course exercises stay upstream; local labs contain links and personal practice plans.",
+      "policy": "link-only"
+    }
+  },
+  "google-skills": {
+    "type": "external",
+    "name": "Google Skills: Google Cloud Labs",
+    "url": "https://www.skills.google/catalog",
+    "reuse": {
+      "notes": "Link timed challenge instructions; do not mirror prompts, supplied code, credentials, or grader assets.",
+      "policy": "link-only"
+    }
+  },
+  "google-codelabs": {
+    "type": "external",
+    "name": "Google Codelabs",
+    "url": "https://codelabs.developers.google.com/",
+    "reuse": {
+      "notes": "Use source links for this batch. Review page content and sample-repository licenses separately before copying.",
+      "policy": "link-only"
+    }
+  },
+  "docker-docs": {
+    "type": "external",
+    "name": "Docker Hands-on Guides",
+    "url": "https://docs.docker.com/get-started/",
+    "reuse": {
+      "notes": "Link official Try it out exercises. Review sample-repository licenses before retaining upstream files.",
+      "policy": "link-only"
+    }
+  },
+  "hashicorp-learn": {
+    "type": "external",
+    "name": "HashiCorp Developer Tutorials",
+    "url": "https://developer.hashicorp.com/terraform/tutorials",
+    "reuse": {
+      "notes": "Link tutorials; local notes and later personal configurations are separate from upstream examples.",
+      "policy": "link-only"
+    }
+  },
+  "pgexercises": {
+    "type": "external",
+    "name": "PostgreSQL Exercises",
+    "url": "https://pgexercises.com/",
+    "reuse": {
+      "notes": "Link the exercise and expected results; do not mirror the question bank, database, or published answers.",
+      "policy": "link-only"
+    }
+  },
+  "cmdchallenge": {
+    "type": "external",
+    "name": "CMD Challenge",
+    "url": "https://cmdchallenge.com/",
+    "reuse": {
+      "notes": "Link the browser runner; exact challenge content and reuse permissions need review before adoption.",
+      "policy": "link-only"
+    }
+  },
+  "microsoft-genai": {
+    "type": "external",
+    "name": "Microsoft Generative AI for Beginners",
+    "url": "https://github.com/microsoft/generative-ai-for-beginners",
+    "reuse": {
+      "notes": "Link assignments. Check the exact notebook, dependency versions, and content license before copying.",
+      "policy": "link-only"
+    }
+  },
+  "google-cloud-training": {
+    "type": "external",
+    "name": "Google Cloud Training Data Analyst",
+    "url": "https://github.com/GoogleCloudPlatform/training-data-analyst",
+    "reuse": {
+      "notes": "Link the inventory. Inspect an exact exercise, its prerequisites and licensing before copying assets.",
+      "policy": "link-only"
+    }
   }
 }

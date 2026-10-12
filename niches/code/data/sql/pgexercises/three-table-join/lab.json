@@ -1,0 +1,28 @@
+{
+  "title": "Join Members, Bookings, and Facilities",
+  "summary": "Join three relational tables and verify duplicate handling, projection, and result ordering.",
+  "type": "exercise",
+  "skills": [
+    "data-validation",
+    "relational-querying"
+  ],
+  "tools": [
+    "postgresql",
+    "sql"
+  ],
+  "source": {
+    "provider": "pgexercises",
+    "item_id": "joins/threejoin",
+    "url": "https://pgexercises.com/questions/joins/threejoin.html"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-12",
+      "started": null,
+      "updated": "2026-10-12",
+      "completed": null
+    },
+    "content_sha256": "9565df45fbd1c43bf65f7a2b08ebbd26adc0e56dfecd52825e1222e1cffe2d3c"
+  }
+}

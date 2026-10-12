@@ -1,0 +1,29 @@
+{
+  "title": "User Role Controlled by Request Parameter",
+  "summary": "Investigate client-controlled authorization and explain a server-side fix in a hosted lab.",
+  "type": "exercise",
+  "skills": [
+    "access-control",
+    "security",
+    "troubleshooting"
+  ],
+  "tools": [
+    "burp-suite",
+    "http"
+  ],
+  "source": {
+    "provider": "portswigger-web-security-academy",
+    "item_id": "access-control/user-role-controlled-by-request-parameter",
+    "url": "https://portswigger.net/web-security/access-control/lab-user-role-controlled-by-request-parameter"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-12",
+      "started": null,
+      "updated": "2026-10-12",
+      "completed": null
+    },
+    "content_sha256": "8c01ec8c4cb20382cc3cd1e4414a1db251d21f52a355ff436c7e63f6923addde"
+  }
+}
