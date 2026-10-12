@@ -71,3 +71,5 @@ unset -f k
 - `-o wide` showed IP `10.244.0.5`. nginx reported 1.27.5. An HTTP request from the node returned 200 and the nginx welcome page.
 - Adding `version=v1` and removing `tier` left `app=web,version=v1`. The Pod's ID stayed the same, so these were changes to the running Pod.
 - This checks one local Kubernetes setup and the requested tasks. It does not test load, resource exhaustion, or a production deployment.
+- Deleted the exercise Namespace and the named cluster after checking the work. No kind clusters or Docker containers remained running.
+- The work and checks are recorded. Completion has not been chosen, so the lab stays `in-progress` with no completion date.
