@@ -16,3 +16,8 @@ Read the [original exercise definition](https://roadmap.sh/projects/service-disc
 - Each service registers itself with Consul and supplies an HTTP health check. The gateway asks Consul for passing services on each request, then calls the returned address.
 - Repeat registration every five seconds so services recover when the development registry loses its in-memory state.
 - Finish after checking all three routes, real timestamps, unknown routes, a stopped service, registry failure, recovery, and cleanup. This does not test a production Consul cluster.
+
+### First run
+
+- The first live check passed all three routes, current UTC timestamps, unknown-route handling, service stop and restart, and registration after Consul was recreated.
+- Reviewing that check showed a gap: graceful service shutdown removes its registration. It checks deregistration, not Consul marking a crashed service unhealthy. Add a forced crash check before completion.

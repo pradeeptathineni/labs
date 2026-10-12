@@ -1,0 +1,51 @@
+# 26-service-discovery/compose.yaml - Keep discovery behind a local gateway
+name: labs-discovery
+
+# Rotate logs and keep every container on the lab network
+x-defaults: &defaults
+  networks: [discovery]
+  logging:
+    driver: json-file
+    options: {max-size: 5m, max-file: "2"}
+
+# Reuse one small image for services and the gateway
+x-app: &app
+  <<: *defaults
+  build: .
+  image: labs-discovery-app:local
+  depends_on:
+    consul: {condition: service_healthy}
+  healthcheck:
+    test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=2)"]
+    interval: 3s
+    timeout: 3s
+    retries: 15
+
+# Services register themselves after Consul has a leader
+services:
+  consul:
+    <<: *defaults
+    image: hashicorp/consul:1.22@sha256:a230dcea0bb107bd7958a912d1429fb7f9d399637de7ffb814b34412b9e8c543
+    command: [agent, -dev, -client=0.0.0.0, -log-level=warn]
+    healthcheck:
+      test: [CMD-SHELL, "wget -q -O - http://127.0.0.1:8500/v1/status/leader | grep -q ':8300'"]
+      interval: 3s
+      timeout: 3s
+      retries: 15
+  service-a:
+    <<: *app
+    environment: {SERVICE_NAME: service-a}
+  service-b:
+    <<: *app
+    environment: {SERVICE_NAME: service-b}
+  service-c:
+    <<: *app
+    environment: {SERVICE_NAME: service-c}
+  gateway:
+    <<: *app
+    environment: {ROLE: gateway}
+    ports: ["127.0.0.1:18260:8000"]
+
+# No registry API or dummy service is published on the host
+networks:
+  discovery:
