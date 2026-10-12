@@ -76,7 +76,7 @@ unset -f k
 
 ### Completion, 2026-10-12
 
-- The later request chose completion. Recreated the same pinned kind cluster and reran the saved Pod file.
+- Recreated the same pinned kind cluster and reran the saved Pod file before choosing completion.
 - Server dry run, Ready wait, exact labels and resource values, unchanged Pod ID after label edits, and the HTTP 200 nginx page all passed again.
 - The Pod again had IP `10.244.0.5`, zero restarts, and nginx 1.27.5. Removed the Namespace and named cluster afterward.
 - Marked this attempt complete. The earlier note above records why it had stayed in progress.
