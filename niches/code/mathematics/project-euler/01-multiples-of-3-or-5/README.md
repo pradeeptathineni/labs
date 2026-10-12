@@ -18,3 +18,7 @@ python3 -m unittest discover -s tests -v
 Prints `233168`. `sum_multiples(limit)` accepts an integer limit and excludes that upper limit.
 
 [Choices and arithmetic check](docs/decisions.md)
+
+## Takeaways
+
+## Applications
