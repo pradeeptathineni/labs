@@ -4,7 +4,7 @@
 
 **77 labs:** 33 Projects · 32 Exercises · 11 Problem Sets · 1 Question Bank
 
-2 complete · 2 in progress · 73 planned · 0 paused · 0 abandoned
+3 complete · 1 in progress · 73 planned · 0 paused · 0 abandoned
 
 > [!IMPORTANT]
 > Imported work is planned practice. Target skills are not demonstrated proficiency; certification goals are preparation, not credentials.
@@ -15,12 +15,12 @@
 
 - [Log Archive Tool](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition) — Build a command-line tool that archives logs with a dated filename.<br>Project · Complete · Updated 2026-10-11 · `archiving` · `command-line` · `compression` · `log-management` · `timestamps` · `python` · [Solution](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#solution) · [ref](https://roadmap.sh/projects/log-archive-tool)
 
+- [Multiples of 3 or 5](niches/code/mathematics/project-euler/01-multiples-of-3-or-5/README.md#exercise-definition) — Find the sum of positive multiples of 3 or 5 below 1000.<br>Exercise · Complete · Updated 2026-10-12 · `arithmetic` · `divisibility` · `python` · [Solution](niches/code/mathematics/project-euler/01-multiples-of-3-or-5/README.md#solution) · [ref](https://projecteuler.net/problem=1)
+
 
 ## In progress
 
 - [Exercise 01 — Pod Basics](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/01-pod-basics/README.md#exercise-definition) — Create a Pod with labels and resource limits, then inspect its state and network address.<br>Exercise · In progress · Updated 2026-10-12 · `orchestration` · `resource-management` · `kubernetes` · `cka` · [Solution](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/01-pod-basics/README.md#solution) · [ref](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/01-pod-basics/README.md#tasks)
-
-- [Multiples of 3 or 5](niches/code/mathematics/project-euler/01-multiples-of-3-or-5/README.md#exercise-definition) — Find the sum of positive multiples of 3 or 5 below 1000.<br>Exercise · In progress · Updated 2026-10-12 · `arithmetic` · `divisibility` · `python` · [Solution](niches/code/mathematics/project-euler/01-multiples-of-3-or-5/README.md#solution) · [ref](https://projecteuler.net/problem=1)
 
 
 ## [Browse labs](#browse-labs)
@@ -425,7 +425,7 @@
 
 `niches/code/mathematics/project-euler` · [ref](https://projecteuler.net/archives)
 
-1. [Multiples of 3 or 5](niches/code/mathematics/project-euler/01-multiples-of-3-or-5/README.md#exercise-definition)<a id="lab-niches-code-mathematics-project-euler-01-multiples-of-3-or-5"></a> — Find the sum of positive multiples of 3 or 5 below 1000.<br>Exercise · In progress · Updated 2026-10-12 · `arithmetic` · `divisibility` · `python` · [Solution](niches/code/mathematics/project-euler/01-multiples-of-3-or-5/README.md#solution) · [ref](https://projecteuler.net/problem=1)
+1. [Multiples of 3 or 5](niches/code/mathematics/project-euler/01-multiples-of-3-or-5/README.md#exercise-definition)<a id="lab-niches-code-mathematics-project-euler-01-multiples-of-3-or-5"></a> — Find the sum of positive multiples of 3 or 5 below 1000.<br>Exercise · Complete · Updated 2026-10-12 · `arithmetic` · `divisibility` · `python` · [Solution](niches/code/mathematics/project-euler/01-multiples-of-3-or-5/README.md#solution) · [ref](https://projecteuler.net/problem=1)
 
 </details>
 

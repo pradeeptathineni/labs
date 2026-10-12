@@ -4594,12 +4594,12 @@
       "url": "https://projecteuler.net/problem=1"
     },
     "tracking": {
-      "status": "in-progress",
+      "status": "complete",
       "dates": {
         "created": "2026-10-12",
         "started": "2026-10-12",
         "updated": "2026-10-12",
-        "completed": null
+        "completed": "2026-10-12"
       },
       "content_sha256": "2c3074d2bdb636e8ed5c3b1b5e7e618630c15de492c80c2201025734329f8fbe"
     },
