@@ -2,7 +2,7 @@
 
 [Lab catalog](CATALOG.md) · [Web catalog](https://pradeeptathineni.github.io/labs/) · [How I use this repo](README.md)
 
-**49 reviewed opportunities** · 76 matching adopted labs · 76 labs in the whole repository
+**49 reviewed opportunities** · 77 matching adopted labs · 77 labs in the whole repository
 
 A registered source is something I know about. An opportunity is a reviewed choice; an adopted lab is a concrete plan. Starting and completing it are separate, explicit decisions. Counts here never measure proficiency or a source's completion.
 
@@ -950,7 +950,7 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 
 [Source: Project Euler](https://projecteuler.net/archives) · reuse policy: review
 
-**Destination:** `niches/code/mathematics/project-euler` (proposed)
+**Destination:** [`niches/code/mathematics/project-euler`](niches/code/mathematics/project-euler/)
 
 **Unit:** One substantial problem
 
@@ -962,7 +962,9 @@ Practical work lives in Code; explanation and objective review live in Study. Bo
 
 **Adoption limits:** Review problem/solution-sharing policy; do not copy all puzzles or answers by default.
 
-**Not adopted.** Review the selected material and reuse policy, then initialize one meaningful unit.
+**1 matching labs adopted**; this does not exhaust the source.
+
+- [Multiples of 3 or 5](niches/code/mathematics/project-euler/01-multiples-of-3-or-5/README.md)
 
 <a id="architecture-katas"></a>
 ### Architectural Katas

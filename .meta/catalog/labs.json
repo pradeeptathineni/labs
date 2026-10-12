@@ -4578,5 +4578,58 @@
     "exercise_link": "niches/code/devops/orchestration/kubernetes/cks/ck-x/cks-001/README.md#exercise-definition",
     "solution_link": null,
     "collection_notes": null
+  },
+  {
+    "title": "Multiples of 3 or 5",
+    "summary": "Find the sum of positive multiples of 3 or 5 below 1000.",
+    "type": "exercise",
+    "difficulty": "beginner",
+    "skills": [
+      "arithmetic",
+      "divisibility"
+    ],
+    "source": {
+      "provider": "project-euler",
+      "item_id": "problem-1",
+      "url": "https://projecteuler.net/problem=1"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-10-12",
+        "started": null,
+        "updated": "2026-10-12",
+        "completed": null
+      },
+      "content_sha256": "c65725aa27038ac0b9fdb71bc1c8c058c6acf346324d8f88a350a7e490fd1b47"
+    },
+    "niche": "code",
+    "domain": "mathematics",
+    "subdomain": null,
+    "groups": [],
+    "collection": "project-euler",
+    "path": "niches/code/mathematics/project-euler/01-multiples-of-3-or-5",
+    "slug": "multiples-of-3-or-5",
+    "order": 1,
+    "source_display": {
+      "name": "Project Euler",
+      "type": "external",
+      "url": "https://projecteuler.net/"
+    },
+    "collection_title": "Project Euler",
+    "collection_source_url": "https://projecteuler.net/archives",
+    "tools_effective": [
+      "python"
+    ],
+    "goals_effective": [],
+    "collection_path": "niches/code/mathematics/project-euler",
+    "subject_title": "Mathematics",
+    "collection_breadcrumb": [
+      "Code",
+      "Project Euler"
+    ],
+    "exercise_link": "niches/code/mathematics/project-euler/01-multiples-of-3-or-5/README.md#exercise-definition",
+    "solution_link": "niches/code/mathematics/project-euler/01-multiples-of-3-or-5/README.md#solution",
+    "collection_notes": null
   }
 ]

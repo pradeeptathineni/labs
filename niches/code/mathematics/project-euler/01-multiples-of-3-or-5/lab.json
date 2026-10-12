@@ -1,0 +1,25 @@
+{
+  "title": "Multiples of 3 or 5",
+  "summary": "Find the sum of positive multiples of 3 or 5 below 1000.",
+  "type": "exercise",
+  "difficulty": "beginner",
+  "skills": [
+    "arithmetic",
+    "divisibility"
+  ],
+  "source": {
+    "provider": "project-euler",
+    "item_id": "problem-1",
+    "url": "https://projecteuler.net/problem=1"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-10-12",
+      "started": null,
+      "updated": "2026-10-12",
+      "completed": null
+    },
+    "content_sha256": "c65725aa27038ac0b9fdb71bc1c8c058c6acf346324d8f88a350a7e490fd1b47"
+  }
+}

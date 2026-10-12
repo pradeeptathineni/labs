@@ -2,9 +2,9 @@
 
 [Web catalog](https://pradeeptathineni.github.io/labs/) · [Practice atlas](PRACTICE-ATLAS.md) · [About this repo](README.md)
 
-**76 labs:** 33 Projects · 31 Exercises · 11 Problem Sets · 1 Question Bank
+**77 labs:** 33 Projects · 32 Exercises · 11 Problem Sets · 1 Question Bank
 
-2 complete · 1 in progress · 73 planned · 0 paused · 0 abandoned
+2 complete · 1 in progress · 74 planned · 0 paused · 0 abandoned
 
 > [!IMPORTANT]
 > Imported work is planned practice. Target skills are not demonstrated proficiency; certification goals are preparation, not credentials.
@@ -31,6 +31,7 @@
 - **Alerting** · 1 lab: [Simple Monitoring](niches/code/devops/roadmap-sh/08-simple-monitoring/README.md#exercise-definition)
 - **Api Development** · 1 lab: [Serverless API](niches/code/cloud/aws/devroadmaps/serverless-api/README.md#exercise-definition)
 - **Archiving** · 1 lab: [Log Archive Tool](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition)
+- **Arithmetic** · 1 lab: [Multiples of 3 or 5](niches/code/mathematics/project-euler/01-multiples-of-3-or-5/README.md#exercise-definition)
 - **Automation** · 2 labs: [Configuration Management](niches/code/devops/roadmap-sh/13-configuration-management/README.md#exercise-definition), [Automated DB Backups](niches/code/devops/roadmap-sh/18-automated-db-backups/README.md#exercise-definition)
 - **Backup And Recovery** · 1 lab: [Automated DB Backups](niches/code/devops/roadmap-sh/18-automated-db-backups/README.md#exercise-definition)
 - **Bastion Hosts** · 1 lab: [Bastion Host](niches/code/devops/roadmap-sh/19-bastion-host/README.md#exercise-definition)
@@ -54,6 +55,7 @@
 - **Deployment** · 11 labs: [CI/CD Pipeline](niches/code/devops/devroadmaps/ci-cd-pipeline/README.md#exercise-definition), [GitOps Deployment](niches/code/devops/devroadmaps/gitops-deployment/README.md#exercise-definition), [GitHub Pages Deployment](niches/code/devops/roadmap-sh/04-github-pages-deployment/README.md#exercise-definition), [Static Site Server](niches/code/devops/roadmap-sh/06-static-site-server/README.md#exercise-definition), [Node.js Service Deployment](niches/code/devops/roadmap-sh/15-nodejs-service-deployment/README.md#exercise-definition), [Dockerized Service](niches/code/devops/roadmap-sh/16-dockerized-service/README.md#exercise-definition), [Exercise 06 — Deployment Rolling Update and Rollback](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/06-deployment-rollout/README.md#exercise-definition), [Exercise 07 — StatefulSet Deployment](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/07-statefulset/README.md#exercise-definition), [Exercise 13 — Helm Install, Upgrade, and Rollback](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/13-helm-install-upgrade/README.md#exercise-definition), [Exercise 14 — Kustomize: Base and Overlay](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/14-kustomize-overlays/README.md#exercise-definition), [Exercise 31 — Argo CD Setup (GitOps Deployment)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/31-argocd-gitops-setup/README.md#exercise-definition)
 - **Deployment Strategies** · 1 lab: [Blue-Green Deployment](niches/code/devops/roadmap-sh/23-blue-green-deployment/README.md#exercise-definition)
 - **Disaster Recovery** · 1 lab: [Multi-Region Architecture](niches/code/cloud/aws/devroadmaps/multi-region-architecture/README.md#exercise-definition)
+- **Divisibility** · 1 lab: [Multiples of 3 or 5](niches/code/mathematics/project-euler/01-multiples-of-3-or-5/README.md#exercise-definition)
 - **Dns** · 2 labs: [Basic DNS Setup](niches/code/devops/roadmap-sh/07-basic-dns-setup/README.md#exercise-definition), [Service Discovery](niches/code/devops/roadmap-sh/26-service-discovery/README.md#exercise-definition)
 - **Domain Names** · 1 lab: [Basic DNS Setup](niches/code/devops/roadmap-sh/07-basic-dns-setup/README.md#exercise-definition)
 - **File Integrity** · 1 lab: [File Integrity Checker](niches/code/devops/roadmap-sh/20-file-integrity-checker/README.md#exercise-definition)
@@ -147,7 +149,7 @@
 - **Nodejs** · 2 labs: [Node.js Service Deployment](niches/code/devops/roadmap-sh/15-nodejs-service-deployment/README.md#exercise-definition), [Dockerized Service](niches/code/devops/roadmap-sh/16-dockerized-service/README.md#exercise-definition)
 - **Openvpn** · 1 lab: [VPN Server Setup](niches/code/devops/roadmap-sh/22-vpn-server-setup/README.md#exercise-definition)
 - **Prometheus** · 2 labs: [Monitoring Stack](niches/code/devops/devroadmaps/monitoring-stack/README.md#exercise-definition), [Prometheus and Grafana](niches/code/devops/roadmap-sh/24-prometheus-and-grafana/README.md#exercise-definition)
-- **Python** · 1 lab: [Log Archive Tool](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition)
+- **Python** · 2 labs: [Log Archive Tool](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition), [Multiples of 3 or 5](niches/code/mathematics/project-euler/01-multiples-of-3-or-5/README.md#exercise-definition)
 - **Route53** · 1 lab: [Multi-Region Architecture](niches/code/cloud/aws/devroadmaps/multi-region-architecture/README.md#exercise-definition)
 - **Rsync** · 1 lab: [Static Site Server](niches/code/devops/roadmap-sh/06-static-site-server/README.md#exercise-definition)
 - **S3** · 1 lab: [Kananinirav CLF-C02 Review](niches/study/cloud/aws/clf-c02/kananinirav-aws-ccp/README.md#exercise-definition)
@@ -411,6 +413,17 @@
 `niches/code/devops/orchestration/kubernetes/cks/ck-x` · [ref](https://github.com/sailor-sh/CK-X/tree/76a78943556af64a774a1c22b283efc22906ff1c/facilitator/assets/exams/cks)
 
 - [CKS Practice Lab - Kubernetes Security Essentials](niches/code/devops/orchestration/kubernetes/cks/ck-x/cks-001/README.md#exercise-definition)<a id="lab-niches-code-devops-orchestration-kubernetes-cks-ck-x-cks-001"></a> — Practice Kubernetes hardening, access control and workload security across a linked assessment.<br>Problem set · Planned · Updated 2026-10-05 · `orchestration` · `troubleshooting` · `kubernetes` · `cks` · [ref](https://github.com/sailor-sh/CK-X/blob/76a78943556af64a774a1c22b283efc22906ff1c/facilitator/assets/exams/cks/001/assessment.json)
+
+</details>
+
+### Mathematics
+
+<details>
+<summary>Code · Project Euler · 1 lab</summary>
+
+`niches/code/mathematics/project-euler` · [ref](https://projecteuler.net/archives)
+
+1. [Multiples of 3 or 5](niches/code/mathematics/project-euler/01-multiples-of-3-or-5/README.md#exercise-definition)<a id="lab-niches-code-mathematics-project-euler-01-multiples-of-3-or-5"></a> — Find the sum of positive multiples of 3 or 5 below 1000.<br>Exercise · Planned · Updated 2026-10-12 · `arithmetic` · `divisibility` · `python` · [Solution](niches/code/mathematics/project-euler/01-multiples-of-3-or-5/README.md#solution) · [ref](https://projecteuler.net/problem=1)
 
 </details>
 

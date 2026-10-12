@@ -1,0 +1,7 @@
+{
+  "title": "Project Euler",
+  "source_url": "https://projecteuler.net/archives",
+  "has_subdomain": false,
+  "ordered": true,
+  "tools": ["python"]
+}
