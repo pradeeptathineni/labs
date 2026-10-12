@@ -437,5 +437,13 @@
       "notes": "Public creative prompts; record the actual prompt year and named prompt author. Inspect reuse terms before copying; do not infer the year from today.",
       "policy": "review"
     }
+  },
+  "reframe-data-services": {
+    "type": "organization",
+    "name": "Reframe Data Services",
+    "reuse": {
+      "notes": "Company-provided interview assessment. Link to the existing challenge brief and solution repository; do not copy assessment materials into Labs.",
+      "policy": "link-only"
+    }
   }
 }

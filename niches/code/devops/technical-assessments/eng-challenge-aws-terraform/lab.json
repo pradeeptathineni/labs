@@ -1,0 +1,34 @@
+{
+  "title": "AWS Terraform Engineering Challenge",
+  "summary": "Provision AWS web infrastructure with Terraform for a Reframe Data Services interview assessment.",
+  "type": "challenge",
+  "skills": [
+    "infrastructure-as-code",
+    "networking"
+  ],
+  "tools": [
+    "aws",
+    "bash",
+    "github-actions",
+    "make",
+    "terraform"
+  ],
+  "source": {
+    "provider": "reframe-data-services",
+    "item_id": "eng-challenge-aws-terraform",
+    "url": "https://github.com/pradeeptathineni/eng-challenge-aws-terraform/blob/main/docs/DevOpsChallenge.pdf"
+  },
+  "links": {
+    "solution": "https://github.com/pradeeptathineni/eng-challenge-aws-terraform"
+  },
+  "tracking": {
+    "status": "complete",
+    "dates": {
+      "created": "2026-08-27",
+      "started": null,
+      "updated": "2026-10-12",
+      "completed": "2026-09-12"
+    },
+    "content_sha256": "5223ddd2e7bf27ba6d52fd11127422893ed384c9d811be5fdc086263389adb1e"
+  }
+}

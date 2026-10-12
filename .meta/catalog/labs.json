@@ -2071,6 +2071,71 @@
     "collection_notes": "niches/code/devops/roadmap-sh/README.md"
   },
   {
+    "title": "AWS Terraform Engineering Challenge",
+    "summary": "Provision AWS web infrastructure with Terraform for a Reframe Data Services interview assessment.",
+    "type": "challenge",
+    "skills": [
+      "infrastructure-as-code",
+      "networking"
+    ],
+    "tools": [
+      "aws",
+      "bash",
+      "github-actions",
+      "make",
+      "terraform"
+    ],
+    "source": {
+      "provider": "reframe-data-services",
+      "item_id": "eng-challenge-aws-terraform",
+      "url": "https://github.com/pradeeptathineni/eng-challenge-aws-terraform/blob/main/docs/DevOpsChallenge.pdf"
+    },
+    "links": {
+      "solution": "https://github.com/pradeeptathineni/eng-challenge-aws-terraform"
+    },
+    "tracking": {
+      "status": "complete",
+      "dates": {
+        "created": "2026-08-27",
+        "started": null,
+        "updated": "2026-10-12",
+        "completed": "2026-09-12"
+      },
+      "content_sha256": "5223ddd2e7bf27ba6d52fd11127422893ed384c9d811be5fdc086263389adb1e"
+    },
+    "niche": "code",
+    "domain": "devops",
+    "subdomain": null,
+    "groups": [],
+    "collection": "technical-assessments",
+    "path": "niches/code/devops/technical-assessments/eng-challenge-aws-terraform",
+    "slug": "eng-challenge-aws-terraform",
+    "order": null,
+    "source_display": {
+      "name": "Reframe Data Services",
+      "type": "organization",
+      "url": null
+    },
+    "collection_title": "Technical Assessments",
+    "tools_effective": [
+      "aws",
+      "bash",
+      "github-actions",
+      "make",
+      "terraform"
+    ],
+    "goals_effective": [],
+    "collection_path": "niches/code/devops/technical-assessments",
+    "subject_title": "DevOps",
+    "collection_breadcrumb": [
+      "Code",
+      "Technical Assessments"
+    ],
+    "exercise_link": "niches/code/devops/technical-assessments/eng-challenge-aws-terraform/README.md#exercise-definition",
+    "solution_link": "https://github.com/pradeeptathineni/eng-challenge-aws-terraform",
+    "collection_notes": null
+  },
+  {
     "title": "CKA objectives review",
     "summary": "Explain cluster administration, workloads, networking, storage and diagnostic choices using pinned CKA objectives.",
     "type": "problem-set",
