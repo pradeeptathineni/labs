@@ -13,13 +13,13 @@
     "url": "https://projecteuler.net/problem=1"
   },
   "tracking": {
-    "status": "not-started",
+    "status": "in-progress",
     "dates": {
       "created": "2026-10-12",
-      "started": null,
+      "started": "2026-10-12",
       "updated": "2026-10-12",
       "completed": null
     },
-    "content_sha256": "c65725aa27038ac0b9fdb71bc1c8c058c6acf346324d8f88a350a7e490fd1b47"
+    "content_sha256": "2c3074d2bdb636e8ed5c3b1b5e7e618630c15de492c80c2201025734329f8fbe"
   }
 }

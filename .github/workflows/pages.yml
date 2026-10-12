@@ -52,6 +52,8 @@ jobs:
           make -C niches/code/devops/roadmap-sh/01-server-performance-stats test-linux
       - name: Check the log archive tool
         run: python3 -m unittest discover -s niches/code/devops/roadmap-sh/02-log-archive-tool -p 'test_*.py' -v
+      - name: Check the first Project Euler solution
+        run: python3 -m unittest discover -s niches/code/mathematics/project-euler/01-multiples-of-3-or-5 -p 'test_*.py' -v
       - name: Validate canonical inputs without changing them
         run: |
           python3 .meta/scripts/lab_sync.py --check
