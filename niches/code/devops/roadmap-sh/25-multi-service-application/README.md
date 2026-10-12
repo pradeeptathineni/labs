@@ -39,3 +39,7 @@ docker compose down --volumes
   - A write can be saved in MongoDB before a cache failure returns an error. Concurrent cache updates and writes are not a transaction.
 
 [Build choices and results](docs/decisions.md)
+
+## Takeaways
+
+## Applications
