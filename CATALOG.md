@@ -4,7 +4,7 @@
 
 **76 labs:** 33 Projects · 31 Exercises · 11 Problem Sets · 1 Question Bank
 
-2 complete · 0 in progress · 74 planned · 0 paused · 0 abandoned
+2 complete · 1 in progress · 73 planned · 0 paused · 0 abandoned
 
 > [!IMPORTANT]
 > Imported work is planned practice. Target skills are not demonstrated proficiency; certification goals are preparation, not credentials.
@@ -18,7 +18,8 @@
 
 ## In progress
 
-No labs in progress yet.
+- [Exercise 01 — Pod Basics](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/01-pod-basics/README.md#exercise-definition) — Create a Pod with labels and resource limits, then inspect its state and network address.<br>Exercise · In progress · Updated 2026-10-12 · `orchestration` · `resource-management` · `kubernetes` · `cka` · [Solution](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/01-pod-basics/README.md#solution) · [ref](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/01-pod-basics/README.md#tasks)
+
 
 ## [Browse labs](#browse-labs)
 
@@ -300,7 +301,7 @@ No labs in progress yet.
 
 `niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises` · [ref](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/tree/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises)
 
-1. [Exercise 01 — Pod Basics](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/01-pod-basics/README.md#exercise-definition)<a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-01-pod-basics"></a> — Create a Pod with labels and resource limits, then inspect its state and network address.<br>Exercise · Planned · Updated 2026-10-05 · `orchestration` · `resource-management` · `kubernetes` · `cka` · [ref](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/01-pod-basics/README.md#tasks)
+1. [Exercise 01 — Pod Basics](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/01-pod-basics/README.md#exercise-definition)<a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-01-pod-basics"></a> — Create a Pod with labels and resource limits, then inspect its state and network address.<br>Exercise · In progress · Updated 2026-10-12 · `orchestration` · `resource-management` · `kubernetes` · `cka` · [Solution](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/01-pod-basics/README.md#solution) · [ref](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/01-pod-basics/README.md#tasks)
 
 2. [Exercise 02 — Multi-Container Pod (Sidecar Logging)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/02-multi-container-pod/README.md#exercise-definition)<a id="lab-niches-code-devops-orchestration-kubernetes-cka-platformlab-exercises-02-multi-container-pod"></a> — Run an application and a logging sidecar with a shared volume.<br>Exercise · Planned · Updated 2026-10-05 · `containers` · `log-management` · `orchestration` · `kubernetes` · `cka` · [ref](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/blob/802ee2f35412242b7c64be9861f0a7feac367b9e/exercises/02-multi-container-pod/README.md#tasks)
 
