@@ -1,6 +1,6 @@
 {
-  "title": "Last-Mile Delivery — Agents for Automation",
-  "summary": "Resolve delivery exceptions with operational tools, policy retrieval, customer messages, and review.",
+  "title": "Last-Mile Delivery - Agents for Automation",
+  "summary": "Handle delivery problems using tools, the playbook, customer messages, and review.",
   "type": "project",
   "skills": [
     "model-evaluation",
@@ -33,6 +33,6 @@
       "updated": "2026-10-12",
       "completed": "2026-10-04"
     },
-    "content_sha256": "17838c6366a1358a82f74ff74320da7d7bd83fba397b378dfa73e935a78b3207"
+    "content_sha256": "0ad959dde02c5a67446ce5a1bd5d51c74ea0a3d238a6426713a9b160126e3c6b"
   }
 }
