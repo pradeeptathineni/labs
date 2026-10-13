@@ -23,7 +23,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         pass
 
 
-def check(browser, url, labs, screenshots, expected_commit, published=False):
+def check(browser, url, labs, screenshots, expected_commit, published=False, empty_collections=None):
     context = browser.new_context(viewport={'width': 1440, 'height': 900})
     page = context.new_page()
     errors = []
@@ -43,6 +43,7 @@ def check(browser, url, labs, screenshots, expected_commit, published=False):
     assert payload_response.ok, 'Published catalog unavailable'
     payload = payload_response.json()
     assert payload['source_commit'] == expected_commit and payload['labs'] == labs, 'Published catalog differs from the expected snapshot'
+    assert payload.get('empty_collections', []) == (empty_collections or []), 'Published empty collections differ from the expected snapshot'
     atlas_link = page.get_by_role('link', name='Practice atlas', exact=True)
     assert atlas_link.get_attribute('href').endswith(f'/blob/{expected_commit}/PRACTICE-ATLAS.md'), 'Practice atlas link differs from the published snapshot'
     expect(page.locator('#result-count')).to_have_text(f'{len(labs)} of {len(labs)} labs')
@@ -77,6 +78,22 @@ def check(browser, url, labs, screenshots, expected_commit, published=False):
     page.locator('h1').click()
     page.screenshot(path=str(screenshots / 'desktop.png'))
     page.locator('#browse > summary').click()
+    for collection in payload.get('empty_collections', []):
+        row = page.locator(f'#work-results .collection[data-collection="{collection["collection_path"]}"]')
+        expect(row.locator('summary')).to_contain_text('0 labs · Planned')
+        if collection['goals']:
+            goal = collection['goals'][0]
+            page.locator('[data-facet="goal"]').click()
+            page.locator('#browse-value').select_option(goal)
+            expect(page.locator('#work-results .collection')).to_have_count(1)
+            expect(page.locator('#work-results .lab')).to_have_count(0)
+            expect(page.locator('#empty-state')).to_be_hidden()
+            expect(row.locator('.meta')).to_contain_text(payload['goals'][goal])
+            page.reload()
+            expect(page.locator('#work-results .collection')).to_have_count(1)
+            page.locator('#reset').click()
+            if page.locator('#browse').get_attribute('open') is None:
+                page.locator('#browse > summary').click()
     for facet in ['skill', 'tool', 'goal', 'subject']:
         key = {'skill': 'skills', 'tool': 'tools', 'goal': 'goals'}.get(facet)
         values = lambda lab: lab[key] if key else [lab['domain'] + ('/' + lab['subdomain'] if lab['subdomain'] else '')]
@@ -115,7 +132,7 @@ def check(browser, url, labs, screenshots, expected_commit, published=False):
     page.evaluate('window.scrollTo(0, 0)')
     assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), 'Horizontal overflow'
     page.screenshot(path=str(screenshots / 'mobile.png'))
-    page.locator('#work-results .collection > summary').first.click()
+    page.locator('#work-results .collection').filter(has=page.locator('.lab')).first.locator('summary').click()
     expect(page.locator('#work-results .lab').first).to_be_visible()
     page.screenshot(path=str(screenshots / 'mobile-expanded.png'))
     page.emulate_media(color_scheme='dark')
@@ -130,8 +147,10 @@ def check(browser, url, labs, screenshots, expected_commit, published=False):
     expect(page.locator('main > details[open]')).to_have_count(2)
     page.locator('#all-labs > summary').click()
     expect(page.locator('#work-results .lab')).to_have_count(len(labs))
-    page.locator('#work-results .collection > summary').first.click()
+    page.locator('#work-results .collection').filter(has=page.locator('.lab')).first.locator('summary').click()
     expect(page.locator('#work-results .lab').first).to_be_visible()
+    for collection in payload.get('empty_collections', []):
+        expect(page.locator(f'#work-results .collection[data-collection="{collection["collection_path"]}"] summary')).to_contain_text('0 labs · Planned')
     context.close()
 
 
@@ -141,7 +160,8 @@ def main():
     args = parser.parse_args()
     directory = ROOT / '.meta/build/pages'
     info = json.loads((directory / 'build-info.json').read_text())
-    labs = json.loads((directory / info['payload']).read_text())['labs']
+    expected = json.loads((directory / info['payload']).read_text())
+    labs = expected['labs']
     screenshots = ROOT / '.meta/build/browser-smoke'
     screenshots.mkdir(parents=True, exist_ok=True)
     server = http.server.ThreadingHTTPServer(('127.0.0.1', 0), functools.partial(Handler, directory=str(directory)))
@@ -150,7 +170,7 @@ def main():
         with sync_playwright() as playwright:
             browser = playwright.chromium.launch()
             for url in [args.url] if args.url else [f'http://127.0.0.1:{server.server_port}/', f'http://127.0.0.1:{server.server_port}/labs/']:
-                check(browser, url, labs, screenshots, info['source_commit'], published=bool(args.url))
+                check(browser, url, labs, screenshots, info['source_commit'], published=bool(args.url), empty_collections=expected.get('empty_collections', []))
             browser.close()
     finally:
         server.shutdown()
