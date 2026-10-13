@@ -1,6 +1,6 @@
 {
-  "title": "Employee Promotion — Advanced ML",
-  "summary": "Compare ensemble models and sampling choices for an imbalanced employee promotion dataset.",
+  "title": "Employee Promotion - Advanced ML",
+  "summary": "Compare promotion models and ways to balance data with few promotions.",
   "type": "project",
   "skills": [
     "classification",
@@ -31,6 +31,6 @@
       "updated": "2026-10-12",
       "completed": "2026-08-09"
     },
-    "content_sha256": "1cfac114360e2f8d536909ed48c45827daa685221ee528be4e65060cb790b691"
+    "content_sha256": "3d3b5787b614bf3b46ac92f4b61706d8e84c8851a6c6a4285ba33f7068b96570"
   }
 }
