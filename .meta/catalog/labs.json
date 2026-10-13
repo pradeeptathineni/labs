@@ -283,8 +283,8 @@
     "collection_notes": "niches/code/ai/ml/uta/mccombs/ai-ml/README.md"
   },
   {
-    "title": "ReneWind — Neural Networks",
-    "summary": "Compare neural network designs for wind turbine failure prediction from sensor readings.",
+    "title": "ReneWind - Neural Networks",
+    "summary": "Compare neural networks that use sensor readings to predict wind turbine failures.",
     "type": "project",
     "skills": [
       "classification",
@@ -315,7 +315,7 @@
         "updated": "2026-10-12",
         "completed": "2026-07-26"
       },
-      "content_sha256": "ac1be556ac98b9ff9ccfbc0b734cde984ff9e6d96d55de45bb147bae1f3cdc5f"
+      "content_sha256": "4b0a66ffde0f60856fb03cbf20959dc37d5bcf7483ad6c72621a502f09abf343"
     },
     "niche": "code",
     "domain": "ai",
