@@ -74,6 +74,73 @@
     "collection_notes": "niches/code/ai/ml/uta/mccombs/ai-ml/README.md"
   },
   {
+    "title": "Personal Loan Campaign — ML",
+    "summary": "Study customer information and build a classifier for personal loan campaign response.",
+    "type": "project",
+    "skills": [
+      "classification",
+      "exploratory-data-analysis",
+      "model-evaluation"
+    ],
+    "tools": [
+      "pandas",
+      "scikit-learn"
+    ],
+    "source": {
+      "provider": "mccombs",
+      "item_id": "personal-loan-campaign",
+      "url": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/2%20-%20Machine%20Learning%20-%20Personal%20Loan%20Campaign/AIML_ML_Project_Full_Code_Notebook_master.ipynb",
+      "revision": "c4a93c06f1b7dee5d38248af36f4778aa849c870"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-04-30",
+        "started": null,
+        "updated": "2026-10-12",
+        "completed": null
+      },
+      "content_sha256": "92ad00d89fd31d47523110a0b2fab190a6b71f58398e7cd5290e0ff8525f94a6"
+    },
+    "niche": "code",
+    "domain": "ai",
+    "subdomain": "ml",
+    "groups": [
+      "uta",
+      "mccombs"
+    ],
+    "collection": "ai-ml",
+    "path": "niches/code/ai/ml/uta/mccombs/ai-ml/02-personal-loan-campaign",
+    "slug": "personal-loan-campaign",
+    "order": 2,
+    "source_display": {
+      "name": "McCombs",
+      "type": "organization",
+      "url": "https://onlineexeced.mccombs.utexas.edu/online-ai-machine-learning-course"
+    },
+    "collection_title": "AI/ML: Business Applications",
+    "collection_source_url": "https://onlineexeced.mccombs.utexas.edu/online-ai-machine-learning-course",
+    "tools_effective": [
+      "pandas",
+      "python",
+      "scikit-learn"
+    ],
+    "goals_effective": [
+      "uta-mccombs-ai-ml"
+    ],
+    "collection_path": "niches/code/ai/ml/uta/mccombs/ai-ml",
+    "subject_title": "AI · ML",
+    "collection_breadcrumb": [
+      "Code",
+      "UT Austin",
+      "McCombs",
+      "AI/ML: Business Applications"
+    ],
+    "exercise_link": "niches/code/ai/ml/uta/mccombs/ai-ml/02-personal-loan-campaign/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": "niches/code/ai/ml/uta/mccombs/ai-ml/README.md"
+  },
+  {
     "title": "CloudCertPrep CLF-C02 Question Bank",
     "summary": "Review selected AWS Cloud Practitioner questions and explain the reasoning behind each answer.",
     "type": "question-bank",

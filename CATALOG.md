@@ -2,9 +2,9 @@
 
 [Web catalog](https://pradeeptathineni.github.io/labs/) · [Practice atlas](PRACTICE-ATLAS.md) · [About this repo](README.md)
 
-**91 labs:** 41 Exercises · 35 Projects · 11 Problem Sets · 3 Challenges · 1 Question Bank
+**92 labs:** 41 Exercises · 36 Projects · 11 Problem Sets · 3 Challenges · 1 Question Bank
 
-11 complete · 1 in progress · 79 planned · 0 paused · 0 abandoned
+11 complete · 1 in progress · 80 planned · 0 paused · 0 abandoned
 
 > [!IMPORTANT]
 > Imported work is planned practice. Target skills are not demonstrated proficiency; certification goals are preparation, not credentials.
@@ -56,6 +56,7 @@
 - **Bastion Hosts** · 1 lab: [Bastion Host](niches/code/devops/roadmap-sh/19-bastion-host/README.md#exercise-definition)
 - **Billing Pricing** · 1 lab: [CloudCertPrep CLF-C02 Question Bank](niches/study/cloud/aws/clf-c02/cloudcertprep/README.md#exercise-definition)
 - **Ci Cd** · 6 labs: [CI/CD Pipeline](niches/code/devops/devroadmaps/ci-cd-pipeline/README.md#exercise-definition), [GitHub Pages Deployment](niches/code/devops/roadmap-sh/04-github-pages-deployment/README.md#exercise-definition), [Node.js Service Deployment](niches/code/devops/roadmap-sh/15-nodejs-service-deployment/README.md#exercise-definition), [Dockerized Service](niches/code/devops/roadmap-sh/16-dockerized-service/README.md#exercise-definition), [Blue-Green Deployment](niches/code/devops/roadmap-sh/23-blue-green-deployment/README.md#exercise-definition), [Rearc Quest — Cloud Deployment Challenge](niches/code/devops/technical-assessments/rearc-quest/README.md#exercise-definition)
+- **Classification** · 1 lab: [Personal Loan Campaign — ML](niches/code/ai/ml/uta/mccombs/ai-ml/02-personal-loan-campaign/README.md#exercise-definition)
 - **Cloud Computing** · 3 labs: [Kananinirav CLF-C02 Review](niches/study/cloud/aws/clf-c02/kananinirav-aws-ccp/README.md#exercise-definition), [EC2 Instance](niches/code/devops/roadmap-sh/11-ec2-instance/README.md#exercise-definition), [IaC on DigitalOcean](niches/code/devops/roadmap-sh/14-iac-digitalocean/README.md#exercise-definition)
 - **Cloud Concepts** · 1 lab: [CloudCertPrep CLF-C02 Question Bank](niches/study/cloud/aws/clf-c02/cloudcertprep/README.md#exercise-definition)
 - **Cloud Hosting** · 1 lab: [Basic DNS Setup](niches/code/devops/roadmap-sh/07-basic-dns-setup/README.md#exercise-definition)
@@ -82,7 +83,7 @@
 - **Dns** · 3 labs: [Implement Azure Virtual Networking](niches/code/cloud/azure/az-104/04-virtual-networking/README.md#exercise-definition), [Basic DNS Setup](niches/code/devops/roadmap-sh/07-basic-dns-setup/README.md#exercise-definition), [Service Discovery](niches/code/devops/roadmap-sh/26-service-discovery/README.md#exercise-definition)
 - **Domain Names** · 1 lab: [Basic DNS Setup](niches/code/devops/roadmap-sh/07-basic-dns-setup/README.md#exercise-definition)
 - **Error Handling** · 1 lab: [Bash Error Handling](niches/code/programming/bash/exercism/error-handling/README.md#exercise-definition)
-- **Exploratory Data Analysis** · 1 lab: [FoodHub — Python Foundations and Data Analysis](niches/code/ai/ml/uta/mccombs/ai-ml/01-foodhub/README.md#exercise-definition)
+- **Exploratory Data Analysis** · 2 labs: [FoodHub — Python Foundations and Data Analysis](niches/code/ai/ml/uta/mccombs/ai-ml/01-foodhub/README.md#exercise-definition), [Personal Loan Campaign — ML](niches/code/ai/ml/uta/mccombs/ai-ml/02-personal-loan-campaign/README.md#exercise-definition)
 - **File Integrity** · 1 lab: [File Integrity Checker](niches/code/devops/roadmap-sh/20-file-integrity-checker/README.md#exercise-definition)
 - **Filesystems** · 3 labs: [Server Performance Stats](niches/code/devops/roadmap-sh/01-server-performance-stats/README.md#exercise-definition), [File Integrity Checker](niches/code/devops/roadmap-sh/20-file-integrity-checker/README.md#exercise-definition), [Grep in Python](niches/code/programming/python/exercism/grep/README.md#exercise-definition)
 - **Firewalls** · 2 labs: [Implement Azure Virtual Networking](niches/code/cloud/azure/az-104/04-virtual-networking/README.md#exercise-definition), [Linux Server Setup](niches/code/devops/roadmap-sh/21-linux-server-setup/README.md#exercise-definition)
@@ -98,6 +99,7 @@
 - **Log Analysis** · 1 lab: [Nginx Log Analyser](niches/code/devops/roadmap-sh/03-nginx-log-analyser/README.md#exercise-definition)
 - **Log Management** · 2 labs: [Log Archive Tool](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition), [Exercise 02 — Multi-Container Pod (Sidecar Logging)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/02-multi-container-pod/README.md#exercise-definition)
 - **Metrics** · 2 labs: [Simple Monitoring](niches/code/devops/roadmap-sh/08-simple-monitoring/README.md#exercise-definition), [Prometheus and Grafana](niches/code/devops/roadmap-sh/24-prometheus-and-grafana/README.md#exercise-definition)
+- **Model Evaluation** · 1 lab: [Personal Loan Campaign — ML](niches/code/ai/ml/uta/mccombs/ai-ml/02-personal-loan-campaign/README.md#exercise-definition)
 - **Monitoring** · 4 labs: [Monitoring Stack](niches/code/devops/devroadmaps/monitoring-stack/README.md#exercise-definition), [Simple Monitoring](niches/code/devops/roadmap-sh/08-simple-monitoring/README.md#exercise-definition), [File Integrity Checker](niches/code/devops/roadmap-sh/20-file-integrity-checker/README.md#exercise-definition), [Prometheus and Grafana](niches/code/devops/roadmap-sh/24-prometheus-and-grafana/README.md#exercise-definition)
 - **Multi Service Architecture** · 1 lab: [Multi-Service Application](niches/code/devops/roadmap-sh/25-multi-service-application/README.md#exercise-definition)
 - **Networking** · 12 labs: [Implement Azure Virtual Networking](niches/code/cloud/azure/az-104/04-virtual-networking/README.md#exercise-definition), [Connect Azure Networks with Global Peering](niches/code/cloud/azure/az-700/m01-08-global-peering/README.md#exercise-definition), [Basic DNS Setup](niches/code/devops/roadmap-sh/07-basic-dns-setup/README.md#exercise-definition), [EC2 Instance](niches/code/devops/roadmap-sh/11-ec2-instance/README.md#exercise-definition), [Bastion Host](niches/code/devops/roadmap-sh/19-bastion-host/README.md#exercise-definition), [VPN Server Setup](niches/code/devops/roadmap-sh/22-vpn-server-setup/README.md#exercise-definition), [Service Discovery](niches/code/devops/roadmap-sh/26-service-discovery/README.md#exercise-definition), [AWS Terraform Engineering Challenge](niches/code/devops/technical-assessments/eng-challenge-aws-terraform/README.md#exercise-definition), [Rearc Quest — Cloud Deployment Challenge](niches/code/devops/technical-assessments/rearc-quest/README.md#exercise-definition), [Exercise 05 — NetworkPolicy](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/05-networkpolicy/README.md#exercise-definition), [Exercise 27 — CNI Installation (Calico/Tigera Operator)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/27-cni-tigera-install/README.md#exercise-definition), [Exercise 28 — Complex NetworkPolicy (Multi-Namespace, Traffic Control)](niches/code/devops/orchestration/kubernetes/cka/platformlab-exercises/28-network-policy-complex/README.md#exercise-definition)
@@ -192,15 +194,16 @@
 - **Nodejs** · 3 labs: [Node.js Service Deployment](niches/code/devops/roadmap-sh/15-nodejs-service-deployment/README.md#exercise-definition), [Dockerized Service](niches/code/devops/roadmap-sh/16-dockerized-service/README.md#exercise-definition), [Multi-container Application with Docker Compose](niches/code/devops/containers/docker-guides/multi-container-compose/README.md#exercise-definition)
 - **Numpy** · 1 lab: [FoodHub — Python Foundations and Data Analysis](niches/code/ai/ml/uta/mccombs/ai-ml/01-foodhub/README.md#exercise-definition)
 - **Openvpn** · 1 lab: [VPN Server Setup](niches/code/devops/roadmap-sh/22-vpn-server-setup/README.md#exercise-definition)
-- **Pandas** · 1 lab: [FoodHub — Python Foundations and Data Analysis](niches/code/ai/ml/uta/mccombs/ai-ml/01-foodhub/README.md#exercise-definition)
+- **Pandas** · 2 labs: [FoodHub — Python Foundations and Data Analysis](niches/code/ai/ml/uta/mccombs/ai-ml/01-foodhub/README.md#exercise-definition), [Personal Loan Campaign — ML](niches/code/ai/ml/uta/mccombs/ai-ml/02-personal-loan-campaign/README.md#exercise-definition)
 - **Postgresql** · 1 lab: [Join Members, Bookings, and Facilities](niches/code/data/sql/pgexercises/three-table-join/README.md#exercise-definition)
 - **Prometheus** · 2 labs: [Monitoring Stack](niches/code/devops/devroadmaps/monitoring-stack/README.md#exercise-definition), [Prometheus and Grafana](niches/code/devops/roadmap-sh/24-prometheus-and-grafana/README.md#exercise-definition)
 - **Pubsub** · 1 lab: [GSP315 App Development Environment](niches/code/cloud/gcp/google-skills/gsp315-app-dev-environment/README.md#exercise-definition)
-- **Python** · 6 labs: [FoodHub — Python Foundations and Data Analysis](niches/code/ai/ml/uta/mccombs/ai-ml/01-foodhub/README.md#exercise-definition), [Hello Cloud Run with Python](niches/code/cloud/gcp/google-codelabs/cloud-run-python/README.md#exercise-definition), [Log Archive Tool](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition), [Multiples of 3 or 5](niches/code/mathematics/project-euler/01-multiples-of-3-or-5/README.md#exercise-definition), [Bash Error Handling](niches/code/programming/bash/exercism/error-handling/README.md#exercise-definition), [Grep in Python](niches/code/programming/python/exercism/grep/README.md#exercise-definition)
+- **Python** · 7 labs: [FoodHub — Python Foundations and Data Analysis](niches/code/ai/ml/uta/mccombs/ai-ml/01-foodhub/README.md#exercise-definition), [Personal Loan Campaign — ML](niches/code/ai/ml/uta/mccombs/ai-ml/02-personal-loan-campaign/README.md#exercise-definition), [Hello Cloud Run with Python](niches/code/cloud/gcp/google-codelabs/cloud-run-python/README.md#exercise-definition), [Log Archive Tool](niches/code/devops/roadmap-sh/02-log-archive-tool/README.md#exercise-definition), [Multiples of 3 or 5](niches/code/mathematics/project-euler/01-multiples-of-3-or-5/README.md#exercise-definition), [Bash Error Handling](niches/code/programming/bash/exercism/error-handling/README.md#exercise-definition), [Grep in Python](niches/code/programming/python/exercism/grep/README.md#exercise-definition)
 - **Redis** · 1 lab: [Multi-container Application with Docker Compose](niches/code/devops/containers/docker-guides/multi-container-compose/README.md#exercise-definition)
 - **Route53** · 1 lab: [Multi-Region Architecture](niches/code/cloud/aws/devroadmaps/multi-region-architecture/README.md#exercise-definition)
 - **Rsync** · 1 lab: [Static Site Server](niches/code/devops/roadmap-sh/06-static-site-server/README.md#exercise-definition)
 - **S3** · 1 lab: [Kananinirav CLF-C02 Review](niches/study/cloud/aws/clf-c02/kananinirav-aws-ccp/README.md#exercise-definition)
+- **Scikit Learn** · 1 lab: [Personal Loan Campaign — ML](niches/code/ai/ml/uta/mccombs/ai-ml/02-personal-loan-campaign/README.md#exercise-definition)
 - **Seaborn** · 1 lab: [FoodHub — Python Foundations and Data Analysis](niches/code/ai/ml/uta/mccombs/ai-ml/01-foodhub/README.md#exercise-definition)
 - **SQL** · 1 lab: [Join Members, Bookings, and Facilities](niches/code/data/sql/pgexercises/three-table-join/README.md#exercise-definition)
 - **Ssh** · 5 labs: [SSH Remote Server Setup](niches/code/devops/roadmap-sh/05-ssh-remote-server-setup/README.md#exercise-definition), [Static Site Server](niches/code/devops/roadmap-sh/06-static-site-server/README.md#exercise-definition), [EC2 Instance](niches/code/devops/roadmap-sh/11-ec2-instance/README.md#exercise-definition), [Node.js Service Deployment](niches/code/devops/roadmap-sh/15-nodejs-service-deployment/README.md#exercise-definition), [Bastion Host](niches/code/devops/roadmap-sh/19-bastion-host/README.md#exercise-definition)
@@ -220,7 +223,7 @@
 - **Certified Kubernetes Application Developer (CKAD) · Certification** · 3 labs: [CKAD objectives review](niches/study/devops/orchestration/kubernetes/ckad/objectives-review/README.md#exercise-definition), [CKAD Comprehensive Lab - 1](niches/code/devops/orchestration/kubernetes/ckad/ck-x/ckad-001/README.md#exercise-definition), [CKAD Comprehensive Lab - 2](niches/code/devops/orchestration/kubernetes/ckad/ck-x/ckad-002/README.md#exercise-definition)
 - **Certified Kubernetes Security Specialist (CKS) · Certification** · 2 labs: [CKS objectives review](niches/study/devops/orchestration/kubernetes/cks/objectives-review/README.md#exercise-definition), [CKS Practice Lab - Kubernetes Security Essentials](niches/code/devops/orchestration/kubernetes/cks/ck-x/cks-001/README.md#exercise-definition)
 - **Johns Hopkins Whiting AI and Agentic AI Engineering · Certification** · 0 labs: [Code · Johns Hopkins · Whiting · AI and Agentic AI Engineering](niches/code/ai/agentic/jhu/whiting/agentic/README.md)
-- **UT Austin McCombs AI/ML: Business Applications · Certification** · 1 lab: [FoodHub — Python Foundations and Data Analysis](niches/code/ai/ml/uta/mccombs/ai-ml/01-foodhub/README.md#exercise-definition)
+- **UT Austin McCombs AI/ML: Business Applications · Certification** · 2 labs: [FoodHub — Python Foundations and Data Analysis](niches/code/ai/ml/uta/mccombs/ai-ml/01-foodhub/README.md#exercise-definition), [Personal Loan Campaign — ML](niches/code/ai/ml/uta/mccombs/ai-ml/02-personal-loan-campaign/README.md#exercise-definition)
 
 </details>
 
@@ -241,11 +244,13 @@ No labs initialized yet.
 ### AI · ML
 
 <details>
-<summary>Code · UT Austin · McCombs · AI/ML: Business Applications · 1 lab</summary>
+<summary>Code · UT Austin · McCombs · AI/ML: Business Applications · 2 labs</summary>
 
 `niches/code/ai/ml/uta/mccombs/ai-ml` · [notes](niches/code/ai/ml/uta/mccombs/ai-ml/README.md) · [ref](https://onlineexeced.mccombs.utexas.edu/online-ai-machine-learning-course) · UT Austin McCombs AI/ML: Business Applications · Certification
 
 1. [FoodHub — Python Foundations and Data Analysis](niches/code/ai/ml/uta/mccombs/ai-ml/01-foodhub/README.md#exercise-definition)<a id="lab-niches-code-ai-ml-uta-mccombs-ai-ml-01-foodhub"></a> — Analyze food orders, ratings, spending, and delivery times to recommend service improvements.<br>Project · Complete · Updated 2026-10-12 · `data-analysis` · `data-visualization` · `exploratory-data-analysis` · `matplotlib` · `numpy` · `pandas` · `python` · `seaborn` · `uta-mccombs-ai-ml` · [Solution](https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/1%20-%20Python%20Foundations%20-%20FoodHub%20Data%20Analysis/Template_Notebook_Full_code_Version_solution.ipynb) · Completed 2026-04-26 · [ref](https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/1%20-%20Python%20Foundations%20-%20FoodHub%20Data%20Analysis/Template_Notebook_Full_code_Version_master.ipynb)
+
+2. [Personal Loan Campaign — ML](niches/code/ai/ml/uta/mccombs/ai-ml/02-personal-loan-campaign/README.md#exercise-definition)<a id="lab-niches-code-ai-ml-uta-mccombs-ai-ml-02-personal-loan-campaign"></a> — Study customer information and build a classifier for personal loan campaign response.<br>Project · Planned · Updated 2026-10-12 · `classification` · `exploratory-data-analysis` · `model-evaluation` · `pandas` · `python` · `scikit-learn` · `uta-mccombs-ai-ml` · [ref](https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/2%20-%20Machine%20Learning%20-%20Personal%20Loan%20Campaign/AIML_ML_Project_Full_Code_Notebook_master.ipynb)
 
 </details>
 
