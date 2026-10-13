@@ -36,12 +36,9 @@
     "niche": "code",
     "domain": "ai",
     "subdomain": "ml",
-    "groups": [
-      "uta",
-      "mccombs"
-    ],
-    "collection": "ai-ml",
-    "path": "niches/code/ai/ml/uta/mccombs/ai-ml/01-foodhub",
+    "groups": [],
+    "collection": "uta-mccombs-ai-ml",
+    "path": "niches/code/ai/ml/uta-mccombs-ai-ml/01-foodhub",
     "slug": "foodhub",
     "order": 1,
     "source_display": {
@@ -61,17 +58,15 @@
     "goals_effective": [
       "uta-mccombs-ai-ml"
     ],
-    "collection_path": "niches/code/ai/ml/uta/mccombs/ai-ml",
+    "collection_path": "niches/code/ai/ml/uta-mccombs-ai-ml",
     "subject_title": "AI · ML",
     "collection_breadcrumb": [
       "Code",
-      "UT Austin",
-      "McCombs",
       "AI/ML: Business Applications"
     ],
-    "exercise_link": "niches/code/ai/ml/uta/mccombs/ai-ml/01-foodhub/README.md#exercise-definition",
+    "exercise_link": "niches/code/ai/ml/uta-mccombs-ai-ml/01-foodhub/README.md#exercise-definition",
     "solution_link": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/1%20-%20Python%20Foundations%20-%20FoodHub%20Data%20Analysis/Template_Notebook_Full_code_Version_solution.ipynb",
-    "collection_notes": "niches/code/ai/ml/uta/mccombs/ai-ml/README.md"
+    "collection_notes": "niches/code/ai/ml/uta-mccombs-ai-ml/README.md"
   },
   {
     "title": "Personal Loan Campaign - ML",
@@ -105,12 +100,9 @@
     "niche": "code",
     "domain": "ai",
     "subdomain": "ml",
-    "groups": [
-      "uta",
-      "mccombs"
-    ],
-    "collection": "ai-ml",
-    "path": "niches/code/ai/ml/uta/mccombs/ai-ml/02-personal-loan-campaign",
+    "groups": [],
+    "collection": "uta-mccombs-ai-ml",
+    "path": "niches/code/ai/ml/uta-mccombs-ai-ml/02-personal-loan-campaign",
     "slug": "personal-loan-campaign",
     "order": 2,
     "source_display": {
@@ -128,17 +120,15 @@
     "goals_effective": [
       "uta-mccombs-ai-ml"
     ],
-    "collection_path": "niches/code/ai/ml/uta/mccombs/ai-ml",
+    "collection_path": "niches/code/ai/ml/uta-mccombs-ai-ml",
     "subject_title": "AI · ML",
     "collection_breadcrumb": [
       "Code",
-      "UT Austin",
-      "McCombs",
       "AI/ML: Business Applications"
     ],
-    "exercise_link": "niches/code/ai/ml/uta/mccombs/ai-ml/02-personal-loan-campaign/README.md#exercise-definition",
+    "exercise_link": "niches/code/ai/ml/uta-mccombs-ai-ml/02-personal-loan-campaign/README.md#exercise-definition",
     "solution_link": null,
-    "collection_notes": "niches/code/ai/ml/uta/mccombs/ai-ml/README.md"
+    "collection_notes": "niches/code/ai/ml/uta-mccombs-ai-ml/README.md"
   },
   {
     "title": "EasyVisa - Advanced ML",
@@ -172,12 +162,9 @@
     "niche": "code",
     "domain": "ai",
     "subdomain": "ml",
-    "groups": [
-      "uta",
-      "mccombs"
-    ],
-    "collection": "ai-ml",
-    "path": "niches/code/ai/ml/uta/mccombs/ai-ml/03-easyvisa",
+    "groups": [],
+    "collection": "uta-mccombs-ai-ml",
+    "path": "niches/code/ai/ml/uta-mccombs-ai-ml/03-easyvisa",
     "slug": "easyvisa",
     "order": 3,
     "source_display": {
@@ -195,17 +182,15 @@
     "goals_effective": [
       "uta-mccombs-ai-ml"
     ],
-    "collection_path": "niches/code/ai/ml/uta/mccombs/ai-ml",
+    "collection_path": "niches/code/ai/ml/uta-mccombs-ai-ml",
     "subject_title": "AI · ML",
     "collection_breadcrumb": [
       "Code",
-      "UT Austin",
-      "McCombs",
       "AI/ML: Business Applications"
     ],
-    "exercise_link": "niches/code/ai/ml/uta/mccombs/ai-ml/03-easyvisa/README.md#exercise-definition",
+    "exercise_link": "niches/code/ai/ml/uta-mccombs-ai-ml/03-easyvisa/README.md#exercise-definition",
     "solution_link": null,
-    "collection_notes": "niches/code/ai/ml/uta/mccombs/ai-ml/README.md"
+    "collection_notes": "niches/code/ai/ml/uta-mccombs-ai-ml/README.md"
   },
   {
     "title": "Employee Promotion - Advanced ML",
@@ -245,12 +230,9 @@
     "niche": "code",
     "domain": "ai",
     "subdomain": "ml",
-    "groups": [
-      "uta",
-      "mccombs"
-    ],
-    "collection": "ai-ml",
-    "path": "niches/code/ai/ml/uta/mccombs/ai-ml/04-employee-promotion",
+    "groups": [],
+    "collection": "uta-mccombs-ai-ml",
+    "path": "niches/code/ai/ml/uta-mccombs-ai-ml/04-employee-promotion",
     "slug": "employee-promotion",
     "order": 4,
     "source_display": {
@@ -270,17 +252,15 @@
     "goals_effective": [
       "uta-mccombs-ai-ml"
     ],
-    "collection_path": "niches/code/ai/ml/uta/mccombs/ai-ml",
+    "collection_path": "niches/code/ai/ml/uta-mccombs-ai-ml",
     "subject_title": "AI · ML",
     "collection_breadcrumb": [
       "Code",
-      "UT Austin",
-      "McCombs",
       "AI/ML: Business Applications"
     ],
-    "exercise_link": "niches/code/ai/ml/uta/mccombs/ai-ml/04-employee-promotion/README.md#exercise-definition",
+    "exercise_link": "niches/code/ai/ml/uta-mccombs-ai-ml/04-employee-promotion/README.md#exercise-definition",
     "solution_link": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/3.5%20-%20Advanced%20Machine%20Learning%20-%20Employee%20Promotion/FullCode_Additional__Project_AML_solution.ipynb",
-    "collection_notes": "niches/code/ai/ml/uta/mccombs/ai-ml/README.md"
+    "collection_notes": "niches/code/ai/ml/uta-mccombs-ai-ml/README.md"
   },
   {
     "title": "ReneWind - Neural Networks",
@@ -320,12 +300,9 @@
     "niche": "code",
     "domain": "ai",
     "subdomain": "ml",
-    "groups": [
-      "uta",
-      "mccombs"
-    ],
-    "collection": "ai-ml",
-    "path": "niches/code/ai/ml/uta/mccombs/ai-ml/05-renewind",
+    "groups": [],
+    "collection": "uta-mccombs-ai-ml",
+    "path": "niches/code/ai/ml/uta-mccombs-ai-ml/05-renewind",
     "slug": "renewind",
     "order": 5,
     "source_display": {
@@ -345,17 +322,15 @@
     "goals_effective": [
       "uta-mccombs-ai-ml"
     ],
-    "collection_path": "niches/code/ai/ml/uta/mccombs/ai-ml",
+    "collection_path": "niches/code/ai/ml/uta-mccombs-ai-ml",
     "subject_title": "AI · ML",
     "collection_breadcrumb": [
       "Code",
-      "UT Austin",
-      "McCombs",
       "AI/ML: Business Applications"
     ],
-    "exercise_link": "niches/code/ai/ml/uta/mccombs/ai-ml/05-renewind/README.md#exercise-definition",
+    "exercise_link": "niches/code/ai/ml/uta-mccombs-ai-ml/05-renewind/README.md#exercise-definition",
     "solution_link": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/4%20-%20Intro%20to%20Neural%20Networks%20-%20ReneWind/INN_ReneWind_Main_Project_FullCode_Notebook_solution.ipynb",
-    "collection_notes": "niches/code/ai/ml/uta/mccombs/ai-ml/README.md"
+    "collection_notes": "niches/code/ai/ml/uta-mccombs-ai-ml/README.md"
   },
   {
     "title": "Medical Assistant - NLP and Generative AI",
@@ -395,12 +370,9 @@
     "niche": "code",
     "domain": "ai",
     "subdomain": "ml",
-    "groups": [
-      "uta",
-      "mccombs"
-    ],
-    "collection": "ai-ml",
-    "path": "niches/code/ai/ml/uta/mccombs/ai-ml/06-medical-assistant",
+    "groups": [],
+    "collection": "uta-mccombs-ai-ml",
+    "path": "niches/code/ai/ml/uta-mccombs-ai-ml/06-medical-assistant",
     "slug": "medical-assistant",
     "order": 6,
     "source_display": {
@@ -420,17 +392,15 @@
     "goals_effective": [
       "uta-mccombs-ai-ml"
     ],
-    "collection_path": "niches/code/ai/ml/uta/mccombs/ai-ml",
+    "collection_path": "niches/code/ai/ml/uta-mccombs-ai-ml",
     "subject_title": "AI · ML",
     "collection_breadcrumb": [
       "Code",
-      "UT Austin",
-      "McCombs",
       "AI/ML: Business Applications"
     ],
-    "exercise_link": "niches/code/ai/ml/uta/mccombs/ai-ml/06-medical-assistant/README.md#exercise-definition",
+    "exercise_link": "niches/code/ai/ml/uta-mccombs-ai-ml/06-medical-assistant/README.md#exercise-definition",
     "solution_link": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/5%20-%20NLP%20with%20Generative%20AI%20-%20Medical%20Assistant/Full_Code_NLP_RAG_Project_Notebook_solution.ipynb",
-    "collection_notes": "niches/code/ai/ml/uta/mccombs/ai-ml/README.md"
+    "collection_notes": "niches/code/ai/ml/uta-mccombs-ai-ml/README.md"
   },
   {
     "title": "Last-Mile Delivery - Agents for Automation",
@@ -472,12 +442,9 @@
     "niche": "code",
     "domain": "ai",
     "subdomain": "ml",
-    "groups": [
-      "uta",
-      "mccombs"
-    ],
-    "collection": "ai-ml",
-    "path": "niches/code/ai/ml/uta/mccombs/ai-ml/07-last-mile-delivery",
+    "groups": [],
+    "collection": "uta-mccombs-ai-ml",
+    "path": "niches/code/ai/ml/uta-mccombs-ai-ml/07-last-mile-delivery",
     "slug": "last-mile-delivery",
     "order": 7,
     "source_display": {
@@ -498,17 +465,15 @@
     "goals_effective": [
       "uta-mccombs-ai-ml"
     ],
-    "collection_path": "niches/code/ai/ml/uta/mccombs/ai-ml",
+    "collection_path": "niches/code/ai/ml/uta-mccombs-ai-ml",
     "subject_title": "AI · ML",
     "collection_breadcrumb": [
       "Code",
-      "UT Austin",
-      "McCombs",
       "AI/ML: Business Applications"
     ],
-    "exercise_link": "niches/code/ai/ml/uta/mccombs/ai-ml/07-last-mile-delivery/README.md#exercise-definition",
+    "exercise_link": "niches/code/ai/ml/uta-mccombs-ai-ml/07-last-mile-delivery/README.md#exercise-definition",
     "solution_link": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/6%20-%20AI%20Agents%20for%20Automation/Project_3_Full_Code_solution.ipynb",
-    "collection_notes": "niches/code/ai/ml/uta/mccombs/ai-ml/README.md"
+    "collection_notes": "niches/code/ai/ml/uta-mccombs-ai-ml/README.md"
   },
   {
     "title": "CloudCertPrep CLF-C02 Question Bank",
