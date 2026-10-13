@@ -1,6 +1,6 @@
 {
-  "title": "EasyVisa — Advanced ML",
-  "summary": "Compare classifiers for visa application outcomes and explain the factors behind predictions.",
+  "title": "EasyVisa - Advanced ML",
+  "summary": "Compare models that predict whether a visa application will be certified.",
   "type": "project",
   "skills": [
     "classification",
@@ -25,6 +25,6 @@
       "updated": "2026-10-12",
       "completed": null
     },
-    "content_sha256": "234a34c2cd7664c15356b67c103ff7a687a5d8be8727def8a23874e7220fdb28"
+    "content_sha256": "07dd2bc22b099b2c24e8ce08dc903bafa6cfc777a9f681922ce498d8890d014c"
   }
 }
