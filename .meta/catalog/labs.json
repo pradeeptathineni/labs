@@ -555,7 +555,9 @@
     "tools_effective": [
       "aws"
     ],
-    "goals_effective": [],
+    "goals_effective": [
+      "aws-clf-c02"
+    ],
     "collection_path": "niches/study/cloud/aws/clf-c02",
     "subject_title": "AWS Cloud",
     "collection_breadcrumb": [
@@ -616,7 +618,9 @@
       "s3",
       "vpc"
     ],
-    "goals_effective": [],
+    "goals_effective": [
+      "aws-clf-c02"
+    ],
     "collection_path": "niches/study/cloud/aws/clf-c02",
     "subject_title": "AWS Cloud",
     "collection_breadcrumb": [

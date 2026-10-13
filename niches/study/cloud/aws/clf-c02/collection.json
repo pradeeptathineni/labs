@@ -1,4 +1,7 @@
 {
   "title": "CLF-C02",
-  "has_subdomain": true
+  "has_subdomain": true,
+  "goals": [
+    "aws-clf-c02"
+  ]
 }
