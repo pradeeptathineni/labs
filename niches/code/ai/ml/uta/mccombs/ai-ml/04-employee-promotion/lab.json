@@ -1,0 +1,36 @@
+{
+  "title": "Employee Promotion — Advanced ML",
+  "summary": "Compare ensemble models and sampling choices for an imbalanced employee promotion dataset.",
+  "type": "project",
+  "skills": [
+    "classification",
+    "ensemble-learning",
+    "imbalanced-classification",
+    "model-evaluation"
+  ],
+  "tools": [
+    "imbalanced-learn",
+    "pandas",
+    "scikit-learn",
+    "xgboost"
+  ],
+  "source": {
+    "provider": "mccombs",
+    "item_id": "employee-promotion",
+    "url": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/3.5%20-%20Advanced%20Machine%20Learning%20-%20Employee%20Promotion/FullCode_Additional__Project_AML_master.ipynb",
+    "revision": "c4a93c06f1b7dee5d38248af36f4778aa849c870"
+  },
+  "links": {
+    "solution": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/3.5%20-%20Advanced%20Machine%20Learning%20-%20Employee%20Promotion/FullCode_Additional__Project_AML_solution.ipynb"
+  },
+  "tracking": {
+    "status": "complete",
+    "dates": {
+      "created": "2026-08-09",
+      "started": null,
+      "updated": "2026-10-12",
+      "completed": "2026-08-09"
+    },
+    "content_sha256": "1cfac114360e2f8d536909ed48c45827daa685221ee528be4e65060cb790b691"
+  }
+}

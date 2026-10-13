@@ -208,6 +208,81 @@
     "collection_notes": "niches/code/ai/ml/uta/mccombs/ai-ml/README.md"
   },
   {
+    "title": "Employee Promotion — Advanced ML",
+    "summary": "Compare ensemble models and sampling choices for an imbalanced employee promotion dataset.",
+    "type": "project",
+    "skills": [
+      "classification",
+      "ensemble-learning",
+      "imbalanced-classification",
+      "model-evaluation"
+    ],
+    "tools": [
+      "imbalanced-learn",
+      "pandas",
+      "scikit-learn",
+      "xgboost"
+    ],
+    "source": {
+      "provider": "mccombs",
+      "item_id": "employee-promotion",
+      "url": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/3.5%20-%20Advanced%20Machine%20Learning%20-%20Employee%20Promotion/FullCode_Additional__Project_AML_master.ipynb",
+      "revision": "c4a93c06f1b7dee5d38248af36f4778aa849c870"
+    },
+    "links": {
+      "solution": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/3.5%20-%20Advanced%20Machine%20Learning%20-%20Employee%20Promotion/FullCode_Additional__Project_AML_solution.ipynb"
+    },
+    "tracking": {
+      "status": "complete",
+      "dates": {
+        "created": "2026-08-09",
+        "started": null,
+        "updated": "2026-10-12",
+        "completed": "2026-08-09"
+      },
+      "content_sha256": "1cfac114360e2f8d536909ed48c45827daa685221ee528be4e65060cb790b691"
+    },
+    "niche": "code",
+    "domain": "ai",
+    "subdomain": "ml",
+    "groups": [
+      "uta",
+      "mccombs"
+    ],
+    "collection": "ai-ml",
+    "path": "niches/code/ai/ml/uta/mccombs/ai-ml/04-employee-promotion",
+    "slug": "employee-promotion",
+    "order": 4,
+    "source_display": {
+      "name": "McCombs",
+      "type": "organization",
+      "url": "https://onlineexeced.mccombs.utexas.edu/online-ai-machine-learning-course"
+    },
+    "collection_title": "AI/ML: Business Applications",
+    "collection_source_url": "https://onlineexeced.mccombs.utexas.edu/online-ai-machine-learning-course",
+    "tools_effective": [
+      "imbalanced-learn",
+      "pandas",
+      "python",
+      "scikit-learn",
+      "xgboost"
+    ],
+    "goals_effective": [
+      "uta-mccombs-ai-ml"
+    ],
+    "collection_path": "niches/code/ai/ml/uta/mccombs/ai-ml",
+    "subject_title": "AI · ML",
+    "collection_breadcrumb": [
+      "Code",
+      "UT Austin",
+      "McCombs",
+      "AI/ML: Business Applications"
+    ],
+    "exercise_link": "niches/code/ai/ml/uta/mccombs/ai-ml/04-employee-promotion/README.md#exercise-definition",
+    "solution_link": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/3.5%20-%20Advanced%20Machine%20Learning%20-%20Employee%20Promotion/FullCode_Additional__Project_AML_solution.ipynb",
+    "collection_notes": "niches/code/ai/ml/uta/mccombs/ai-ml/README.md"
+  },
+  {
     "title": "CloudCertPrep CLF-C02 Question Bank",
     "summary": "Review selected AWS Cloud Practitioner questions and explain the reasoning behind each answer.",
     "type": "question-bank",
