@@ -1,0 +1,12 @@
+{
+  "title": "AI/ML: Business Applications",
+  "has_subdomain": true,
+  "source_url": "https://onlineexeced.mccombs.utexas.edu/online-ai-machine-learning-course",
+  "ordered": true,
+  "tools": [
+    "python"
+  ],
+  "goals": [
+    "uta-mccombs-ai-ml"
+  ]
+}
