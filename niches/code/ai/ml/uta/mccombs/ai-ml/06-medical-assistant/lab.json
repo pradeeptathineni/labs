@@ -1,6 +1,6 @@
 {
-  "title": "Medical Assistant — NLP and Generative AI",
-  "summary": "Compare direct generation, prompting, retrieval, and answer evaluation using a medical reference PDF.",
+  "title": "Medical Assistant - NLP and Generative AI",
+  "summary": "Compare answers with and without medical manual passages, then check whether the manual supports them.",
   "type": "project",
   "skills": [
     "document-processing",
@@ -31,6 +31,6 @@
       "updated": "2026-10-12",
       "completed": "2026-08-30"
     },
-    "content_sha256": "7c5592590554e882fbde5b348277eff97304a547e381d0b9d17c0d2c757080a1"
+    "content_sha256": "330e02bc7e4e48b6e48e0b7020f45903fad1b8794e7d0e9d8b4116190c164abb"
   }
 }
