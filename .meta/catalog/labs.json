@@ -1,6 +1,6 @@
 [
   {
-    "title": "FoodHub — Python Foundations and Data Analysis",
+    "title": "FoodHub - Python Foundations and Data Analysis",
     "summary": "Analyze food orders, ratings, spending, and delivery times to recommend service improvements.",
     "type": "project",
     "skills": [
@@ -31,7 +31,7 @@
         "updated": "2026-10-12",
         "completed": "2026-04-26"
       },
-      "content_sha256": "dc759543efda9a55da820045fa5498f361539926bf690a074fd82c2ee0a4dadb"
+      "content_sha256": "0ae6f19332c4db4c2f013b01411da520d2d0ff653d3851542a0043365d279578"
     },
     "niche": "code",
     "domain": "ai",
