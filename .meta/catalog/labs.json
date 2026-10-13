@@ -141,6 +141,73 @@
     "collection_notes": "niches/code/ai/ml/uta/mccombs/ai-ml/README.md"
   },
   {
+    "title": "EasyVisa — Advanced ML",
+    "summary": "Compare classifiers for visa application outcomes and explain the factors behind predictions.",
+    "type": "project",
+    "skills": [
+      "classification",
+      "ensemble-learning",
+      "model-evaluation"
+    ],
+    "tools": [
+      "pandas",
+      "scikit-learn"
+    ],
+    "source": {
+      "provider": "mccombs",
+      "item_id": "easyvisa",
+      "url": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/3%20-%20Advanced%20Machine%20Learning%20-%20EasyVisa/Project_Full_Code_Notebook_EasyVisa_master.ipynb",
+      "revision": "c4a93c06f1b7dee5d38248af36f4778aa849c870"
+    },
+    "tracking": {
+      "status": "not-started",
+      "dates": {
+        "created": "2026-06-04",
+        "started": null,
+        "updated": "2026-10-12",
+        "completed": null
+      },
+      "content_sha256": "234a34c2cd7664c15356b67c103ff7a687a5d8be8727def8a23874e7220fdb28"
+    },
+    "niche": "code",
+    "domain": "ai",
+    "subdomain": "ml",
+    "groups": [
+      "uta",
+      "mccombs"
+    ],
+    "collection": "ai-ml",
+    "path": "niches/code/ai/ml/uta/mccombs/ai-ml/03-easyvisa",
+    "slug": "easyvisa",
+    "order": 3,
+    "source_display": {
+      "name": "McCombs",
+      "type": "organization",
+      "url": "https://onlineexeced.mccombs.utexas.edu/online-ai-machine-learning-course"
+    },
+    "collection_title": "AI/ML: Business Applications",
+    "collection_source_url": "https://onlineexeced.mccombs.utexas.edu/online-ai-machine-learning-course",
+    "tools_effective": [
+      "pandas",
+      "python",
+      "scikit-learn"
+    ],
+    "goals_effective": [
+      "uta-mccombs-ai-ml"
+    ],
+    "collection_path": "niches/code/ai/ml/uta/mccombs/ai-ml",
+    "subject_title": "AI · ML",
+    "collection_breadcrumb": [
+      "Code",
+      "UT Austin",
+      "McCombs",
+      "AI/ML: Business Applications"
+    ],
+    "exercise_link": "niches/code/ai/ml/uta/mccombs/ai-ml/03-easyvisa/README.md#exercise-definition",
+    "solution_link": null,
+    "collection_notes": "niches/code/ai/ml/uta/mccombs/ai-ml/README.md"
+  },
+  {
     "title": "CloudCertPrep CLF-C02 Question Bank",
     "summary": "Review selected AWS Cloud Practitioner questions and explain the reasoning behind each answer.",
     "type": "question-bank",

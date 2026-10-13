@@ -1,0 +1,30 @@
+{
+  "title": "EasyVisa — Advanced ML",
+  "summary": "Compare classifiers for visa application outcomes and explain the factors behind predictions.",
+  "type": "project",
+  "skills": [
+    "classification",
+    "ensemble-learning",
+    "model-evaluation"
+  ],
+  "tools": [
+    "pandas",
+    "scikit-learn"
+  ],
+  "source": {
+    "provider": "mccombs",
+    "item_id": "easyvisa",
+    "url": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/3%20-%20Advanced%20Machine%20Learning%20-%20EasyVisa/Project_Full_Code_Notebook_EasyVisa_master.ipynb",
+    "revision": "c4a93c06f1b7dee5d38248af36f4778aa849c870"
+  },
+  "tracking": {
+    "status": "not-started",
+    "dates": {
+      "created": "2026-06-04",
+      "started": null,
+      "updated": "2026-10-12",
+      "completed": null
+    },
+    "content_sha256": "234a34c2cd7664c15356b67c103ff7a687a5d8be8727def8a23874e7220fdb28"
+  }
+}
