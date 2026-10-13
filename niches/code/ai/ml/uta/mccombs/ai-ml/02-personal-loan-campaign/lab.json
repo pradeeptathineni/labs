@@ -1,6 +1,6 @@
 {
-  "title": "Personal Loan Campaign — ML",
-  "summary": "Study customer information and build a classifier for personal loan campaign response.",
+  "title": "Personal Loan Campaign - ML",
+  "summary": "Predict which bank customers will accept a personal loan offer.",
   "type": "project",
   "skills": [
     "classification",
@@ -25,6 +25,6 @@
       "updated": "2026-10-12",
       "completed": null
     },
-    "content_sha256": "92ad00d89fd31d47523110a0b2fab190a6b71f58398e7cd5290e0ff8525f94a6"
+    "content_sha256": "3b1496a2187f8b7fa9f27b84b480672e8927e3b8e0df80e9672a5b1d63dbd3c8"
   }
 }
