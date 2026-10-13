@@ -2,7 +2,7 @@
 
 [Lab catalog](CATALOG.md) · [Web catalog](https://pradeeptathineni.github.io/labs/) · [How I use this repo](README.md)
 
-**65 reviewed opportunities** · 88 matching adopted labs · 95 labs in the whole repository
+**65 reviewed opportunities** · 88 matching adopted labs · 96 labs in the whole repository
 
 I use this shortlist to choose practical problems worth doing next. Planned means the lab exists; it does not mean I have attempted it.
 

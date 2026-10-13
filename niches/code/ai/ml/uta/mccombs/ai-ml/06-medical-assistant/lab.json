@@ -1,0 +1,36 @@
+{
+  "title": "Medical Assistant — NLP and Generative AI",
+  "summary": "Compare direct generation, prompting, retrieval, and answer evaluation using a medical reference PDF.",
+  "type": "project",
+  "skills": [
+    "document-processing",
+    "model-evaluation",
+    "prompt-design",
+    "retrieval-augmented-generation"
+  ],
+  "tools": [
+    "chroma",
+    "langchain",
+    "llama-cpp-python",
+    "sentence-transformers"
+  ],
+  "source": {
+    "provider": "mccombs",
+    "item_id": "medical-assistant",
+    "url": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/5%20-%20NLP%20with%20Generative%20AI%20-%20Medical%20Assistant/Full_Code_NLP_RAG_Project_Notebook_master.ipynb",
+    "revision": "c4a93c06f1b7dee5d38248af36f4778aa849c870"
+  },
+  "links": {
+    "solution": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/5%20-%20NLP%20with%20Generative%20AI%20-%20Medical%20Assistant/Full_Code_NLP_RAG_Project_Notebook_solution.ipynb"
+  },
+  "tracking": {
+    "status": "complete",
+    "dates": {
+      "created": "2026-07-30",
+      "started": null,
+      "updated": "2026-10-12",
+      "completed": "2026-08-30"
+    },
+    "content_sha256": "7c5592590554e882fbde5b348277eff97304a547e381d0b9d17c0d2c757080a1"
+  }
+}

@@ -358,6 +358,81 @@
     "collection_notes": "niches/code/ai/ml/uta/mccombs/ai-ml/README.md"
   },
   {
+    "title": "Medical Assistant — NLP and Generative AI",
+    "summary": "Compare direct generation, prompting, retrieval, and answer evaluation using a medical reference PDF.",
+    "type": "project",
+    "skills": [
+      "document-processing",
+      "model-evaluation",
+      "prompt-design",
+      "retrieval-augmented-generation"
+    ],
+    "tools": [
+      "chroma",
+      "langchain",
+      "llama-cpp-python",
+      "sentence-transformers"
+    ],
+    "source": {
+      "provider": "mccombs",
+      "item_id": "medical-assistant",
+      "url": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/5%20-%20NLP%20with%20Generative%20AI%20-%20Medical%20Assistant/Full_Code_NLP_RAG_Project_Notebook_master.ipynb",
+      "revision": "c4a93c06f1b7dee5d38248af36f4778aa849c870"
+    },
+    "links": {
+      "solution": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/5%20-%20NLP%20with%20Generative%20AI%20-%20Medical%20Assistant/Full_Code_NLP_RAG_Project_Notebook_solution.ipynb"
+    },
+    "tracking": {
+      "status": "complete",
+      "dates": {
+        "created": "2026-07-30",
+        "started": null,
+        "updated": "2026-10-12",
+        "completed": "2026-08-30"
+      },
+      "content_sha256": "7c5592590554e882fbde5b348277eff97304a547e381d0b9d17c0d2c757080a1"
+    },
+    "niche": "code",
+    "domain": "ai",
+    "subdomain": "ml",
+    "groups": [
+      "uta",
+      "mccombs"
+    ],
+    "collection": "ai-ml",
+    "path": "niches/code/ai/ml/uta/mccombs/ai-ml/06-medical-assistant",
+    "slug": "medical-assistant",
+    "order": 6,
+    "source_display": {
+      "name": "McCombs",
+      "type": "organization",
+      "url": "https://onlineexeced.mccombs.utexas.edu/online-ai-machine-learning-course"
+    },
+    "collection_title": "AI/ML: Business Applications",
+    "collection_source_url": "https://onlineexeced.mccombs.utexas.edu/online-ai-machine-learning-course",
+    "tools_effective": [
+      "chroma",
+      "langchain",
+      "llama-cpp-python",
+      "python",
+      "sentence-transformers"
+    ],
+    "goals_effective": [
+      "uta-mccombs-ai-ml"
+    ],
+    "collection_path": "niches/code/ai/ml/uta/mccombs/ai-ml",
+    "subject_title": "AI · ML",
+    "collection_breadcrumb": [
+      "Code",
+      "UT Austin",
+      "McCombs",
+      "AI/ML: Business Applications"
+    ],
+    "exercise_link": "niches/code/ai/ml/uta/mccombs/ai-ml/06-medical-assistant/README.md#exercise-definition",
+    "solution_link": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/5%20-%20NLP%20with%20Generative%20AI%20-%20Medical%20Assistant/Full_Code_NLP_RAG_Project_Notebook_solution.ipynb",
+    "collection_notes": "niches/code/ai/ml/uta/mccombs/ai-ml/README.md"
+  },
+  {
     "title": "CloudCertPrep CLF-C02 Question Bank",
     "summary": "Review selected AWS Cloud Practitioner questions and explain the reasoning behind each answer.",
     "type": "question-bank",
