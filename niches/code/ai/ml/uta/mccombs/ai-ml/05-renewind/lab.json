@@ -1,0 +1,36 @@
+{
+  "title": "ReneWind — Neural Networks",
+  "summary": "Compare neural network designs for wind turbine failure prediction from sensor readings.",
+  "type": "project",
+  "skills": [
+    "classification",
+    "model-evaluation",
+    "neural-networks",
+    "predictive-maintenance"
+  ],
+  "tools": [
+    "keras",
+    "pandas",
+    "scikit-learn",
+    "tensorflow"
+  ],
+  "source": {
+    "provider": "mccombs",
+    "item_id": "renewind",
+    "url": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/4%20-%20Intro%20to%20Neural%20Networks%20-%20ReneWind/INN_ReneWind_Main_Project_FullCode_Notebook_master.ipynb",
+    "revision": "c4a93c06f1b7dee5d38248af36f4778aa849c870"
+  },
+  "links": {
+    "solution": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/4%20-%20Intro%20to%20Neural%20Networks%20-%20ReneWind/INN_ReneWind_Main_Project_FullCode_Notebook_solution.ipynb"
+  },
+  "tracking": {
+    "status": "complete",
+    "dates": {
+      "created": "2026-06-25",
+      "started": null,
+      "updated": "2026-10-12",
+      "completed": "2026-07-26"
+    },
+    "content_sha256": "ac1be556ac98b9ff9ccfbc0b734cde984ff9e6d96d55de45bb147bae1f3cdc5f"
+  }
+}

@@ -283,6 +283,81 @@
     "collection_notes": "niches/code/ai/ml/uta/mccombs/ai-ml/README.md"
   },
   {
+    "title": "ReneWind — Neural Networks",
+    "summary": "Compare neural network designs for wind turbine failure prediction from sensor readings.",
+    "type": "project",
+    "skills": [
+      "classification",
+      "model-evaluation",
+      "neural-networks",
+      "predictive-maintenance"
+    ],
+    "tools": [
+      "keras",
+      "pandas",
+      "scikit-learn",
+      "tensorflow"
+    ],
+    "source": {
+      "provider": "mccombs",
+      "item_id": "renewind",
+      "url": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/4%20-%20Intro%20to%20Neural%20Networks%20-%20ReneWind/INN_ReneWind_Main_Project_FullCode_Notebook_master.ipynb",
+      "revision": "c4a93c06f1b7dee5d38248af36f4778aa849c870"
+    },
+    "links": {
+      "solution": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/4%20-%20Intro%20to%20Neural%20Networks%20-%20ReneWind/INN_ReneWind_Main_Project_FullCode_Notebook_solution.ipynb"
+    },
+    "tracking": {
+      "status": "complete",
+      "dates": {
+        "created": "2026-06-25",
+        "started": null,
+        "updated": "2026-10-12",
+        "completed": "2026-07-26"
+      },
+      "content_sha256": "ac1be556ac98b9ff9ccfbc0b734cde984ff9e6d96d55de45bb147bae1f3cdc5f"
+    },
+    "niche": "code",
+    "domain": "ai",
+    "subdomain": "ml",
+    "groups": [
+      "uta",
+      "mccombs"
+    ],
+    "collection": "ai-ml",
+    "path": "niches/code/ai/ml/uta/mccombs/ai-ml/05-renewind",
+    "slug": "renewind",
+    "order": 5,
+    "source_display": {
+      "name": "McCombs",
+      "type": "organization",
+      "url": "https://onlineexeced.mccombs.utexas.edu/online-ai-machine-learning-course"
+    },
+    "collection_title": "AI/ML: Business Applications",
+    "collection_source_url": "https://onlineexeced.mccombs.utexas.edu/online-ai-machine-learning-course",
+    "tools_effective": [
+      "keras",
+      "pandas",
+      "python",
+      "scikit-learn",
+      "tensorflow"
+    ],
+    "goals_effective": [
+      "uta-mccombs-ai-ml"
+    ],
+    "collection_path": "niches/code/ai/ml/uta/mccombs/ai-ml",
+    "subject_title": "AI · ML",
+    "collection_breadcrumb": [
+      "Code",
+      "UT Austin",
+      "McCombs",
+      "AI/ML: Business Applications"
+    ],
+    "exercise_link": "niches/code/ai/ml/uta/mccombs/ai-ml/05-renewind/README.md#exercise-definition",
+    "solution_link": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/4%20-%20Intro%20to%20Neural%20Networks%20-%20ReneWind/INN_ReneWind_Main_Project_FullCode_Notebook_solution.ipynb",
+    "collection_notes": "niches/code/ai/ml/uta/mccombs/ai-ml/README.md"
+  },
+  {
     "title": "CloudCertPrep CLF-C02 Question Bank",
     "summary": "Review selected AWS Cloud Practitioner questions and explain the reasoning behind each answer.",
     "type": "question-bank",
