@@ -1,0 +1,38 @@
+{
+  "title": "Last-Mile Delivery — Agents for Automation",
+  "summary": "Resolve delivery exceptions with operational tools, policy retrieval, customer messages, and review.",
+  "type": "project",
+  "skills": [
+    "model-evaluation",
+    "orchestration",
+    "retrieval-augmented-generation",
+    "structured-output",
+    "workflow-automation"
+  ],
+  "tools": [
+    "langchain",
+    "langgraph",
+    "openai",
+    "pydantic",
+    "sqlite"
+  ],
+  "source": {
+    "provider": "mccombs",
+    "item_id": "last-mile-delivery",
+    "url": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/6%20-%20AI%20Agents%20for%20Automation/Project_3_Full_Code_master.ipynb",
+    "revision": "c4a93c06f1b7dee5d38248af36f4778aa849c870"
+  },
+  "links": {
+    "solution": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/6%20-%20AI%20Agents%20for%20Automation/Project_3_Full_Code_solution.ipynb"
+  },
+  "tracking": {
+    "status": "complete",
+    "dates": {
+      "created": "2026-09-02",
+      "started": null,
+      "updated": "2026-10-12",
+      "completed": "2026-10-04"
+    },
+    "content_sha256": "17838c6366a1358a82f74ff74320da7d7bd83fba397b378dfa73e935a78b3207"
+  }
+}

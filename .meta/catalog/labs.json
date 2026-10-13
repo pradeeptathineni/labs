@@ -433,6 +433,84 @@
     "collection_notes": "niches/code/ai/ml/uta/mccombs/ai-ml/README.md"
   },
   {
+    "title": "Last-Mile Delivery — Agents for Automation",
+    "summary": "Resolve delivery exceptions with operational tools, policy retrieval, customer messages, and review.",
+    "type": "project",
+    "skills": [
+      "model-evaluation",
+      "orchestration",
+      "retrieval-augmented-generation",
+      "structured-output",
+      "workflow-automation"
+    ],
+    "tools": [
+      "langchain",
+      "langgraph",
+      "openai",
+      "pydantic",
+      "sqlite"
+    ],
+    "source": {
+      "provider": "mccombs",
+      "item_id": "last-mile-delivery",
+      "url": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/6%20-%20AI%20Agents%20for%20Automation/Project_3_Full_Code_master.ipynb",
+      "revision": "c4a93c06f1b7dee5d38248af36f4778aa849c870"
+    },
+    "links": {
+      "solution": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/6%20-%20AI%20Agents%20for%20Automation/Project_3_Full_Code_solution.ipynb"
+    },
+    "tracking": {
+      "status": "complete",
+      "dates": {
+        "created": "2026-09-02",
+        "started": null,
+        "updated": "2026-10-12",
+        "completed": "2026-10-04"
+      },
+      "content_sha256": "17838c6366a1358a82f74ff74320da7d7bd83fba397b378dfa73e935a78b3207"
+    },
+    "niche": "code",
+    "domain": "ai",
+    "subdomain": "ml",
+    "groups": [
+      "uta",
+      "mccombs"
+    ],
+    "collection": "ai-ml",
+    "path": "niches/code/ai/ml/uta/mccombs/ai-ml/07-last-mile-delivery",
+    "slug": "last-mile-delivery",
+    "order": 7,
+    "source_display": {
+      "name": "McCombs",
+      "type": "organization",
+      "url": "https://onlineexeced.mccombs.utexas.edu/online-ai-machine-learning-course"
+    },
+    "collection_title": "AI/ML: Business Applications",
+    "collection_source_url": "https://onlineexeced.mccombs.utexas.edu/online-ai-machine-learning-course",
+    "tools_effective": [
+      "langchain",
+      "langgraph",
+      "openai",
+      "pydantic",
+      "python",
+      "sqlite"
+    ],
+    "goals_effective": [
+      "uta-mccombs-ai-ml"
+    ],
+    "collection_path": "niches/code/ai/ml/uta/mccombs/ai-ml",
+    "subject_title": "AI · ML",
+    "collection_breadcrumb": [
+      "Code",
+      "UT Austin",
+      "McCombs",
+      "AI/ML: Business Applications"
+    ],
+    "exercise_link": "niches/code/ai/ml/uta/mccombs/ai-ml/07-last-mile-delivery/README.md#exercise-definition",
+    "solution_link": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/6%20-%20AI%20Agents%20for%20Automation/Project_3_Full_Code_solution.ipynb",
+    "collection_notes": "niches/code/ai/ml/uta/mccombs/ai-ml/README.md"
+  },
+  {
     "title": "CloudCertPrep CLF-C02 Question Bank",
     "summary": "Review selected AWS Cloud Practitioner questions and explain the reasoning behind each answer.",
     "type": "question-bank",
