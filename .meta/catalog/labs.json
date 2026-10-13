@@ -1,5 +1,79 @@
 [
   {
+    "title": "FoodHub — Python Foundations and Data Analysis",
+    "summary": "Analyze food orders, ratings, spending, and delivery times to recommend service improvements.",
+    "type": "project",
+    "skills": [
+      "data-analysis",
+      "data-visualization",
+      "exploratory-data-analysis"
+    ],
+    "tools": [
+      "matplotlib",
+      "numpy",
+      "pandas",
+      "seaborn"
+    ],
+    "source": {
+      "provider": "mccombs",
+      "item_id": "foodhub",
+      "url": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/1%20-%20Python%20Foundations%20-%20FoodHub%20Data%20Analysis/Template_Notebook_Full_code_Version_master.ipynb",
+      "revision": "c4a93c06f1b7dee5d38248af36f4778aa849c870"
+    },
+    "links": {
+      "solution": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/1%20-%20Python%20Foundations%20-%20FoodHub%20Data%20Analysis/Template_Notebook_Full_code_Version_solution.ipynb"
+    },
+    "tracking": {
+      "status": "complete",
+      "dates": {
+        "created": "2026-03-26",
+        "started": null,
+        "updated": "2026-10-12",
+        "completed": "2026-04-26"
+      },
+      "content_sha256": "dc759543efda9a55da820045fa5498f361539926bf690a074fd82c2ee0a4dadb"
+    },
+    "niche": "code",
+    "domain": "ai",
+    "subdomain": "ml",
+    "groups": [
+      "uta",
+      "mccombs"
+    ],
+    "collection": "ai-ml",
+    "path": "niches/code/ai/ml/uta/mccombs/ai-ml/01-foodhub",
+    "slug": "foodhub",
+    "order": 1,
+    "source_display": {
+      "name": "McCombs",
+      "type": "organization",
+      "url": "https://onlineexeced.mccombs.utexas.edu/online-ai-machine-learning-course"
+    },
+    "collection_title": "AI/ML: Business Applications",
+    "collection_source_url": "https://onlineexeced.mccombs.utexas.edu/online-ai-machine-learning-course",
+    "tools_effective": [
+      "matplotlib",
+      "numpy",
+      "pandas",
+      "python",
+      "seaborn"
+    ],
+    "goals_effective": [
+      "uta-mccombs-ai-ml"
+    ],
+    "collection_path": "niches/code/ai/ml/uta/mccombs/ai-ml",
+    "subject_title": "AI · ML",
+    "collection_breadcrumb": [
+      "Code",
+      "UT Austin",
+      "McCombs",
+      "AI/ML: Business Applications"
+    ],
+    "exercise_link": "niches/code/ai/ml/uta/mccombs/ai-ml/01-foodhub/README.md#exercise-definition",
+    "solution_link": "https://github.com/pradeeptathineni/uta-mccombs-ai-ml/blob/c4a93c06f1b7dee5d38248af36f4778aa849c870/1%20-%20Python%20Foundations%20-%20FoodHub%20Data%20Analysis/Template_Notebook_Full_code_Version_solution.ipynb",
+    "collection_notes": "niches/code/ai/ml/uta/mccombs/ai-ml/README.md"
+  },
+  {
     "title": "CloudCertPrep CLF-C02 Question Bank",
     "summary": "Review selected AWS Cloud Practitioner questions and explain the reasoning behind each answer.",
     "type": "question-bank",
