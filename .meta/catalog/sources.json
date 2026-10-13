@@ -571,5 +571,23 @@
       "notes": "Link course exercises. Keep the selected edition explicit; review content and third-party examples before copying.",
       "policy": "link-only"
     }
+  },
+  "mccombs": {
+    "type": "organization",
+    "name": "McCombs",
+    "url": "https://onlineexeced.mccombs.utexas.edu/online-ai-machine-learning-course",
+    "reuse": {
+      "notes": "Labs links to course notebooks and attributes McCombs; it does not copy assignments.",
+      "policy": "link-only"
+    }
+  },
+  "whiting": {
+    "type": "organization",
+    "name": "Whiting",
+    "url": "https://online.lifelonglearning.jhu.edu/jhu-certificate-program-ai-agentic-engineering",
+    "reuse": {
+      "notes": "Labs links to the program and will link assignments as they become available.",
+      "policy": "link-only"
+    }
   }
 }

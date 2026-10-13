@@ -23,4 +23,4 @@ The path gives each lab one physical home. A collection descriptor marks whether
 > [!IMPORTANT]
 > I credit the people who created source material and keep required notices with copied content. Some sources are link-only, and linked third-party material can need its own review.
 
-Kubernetes practice and conceptual reviews share `devops/orchestration`, with `kubernetes` as a browsing group and tool. Python language practice belongs in `programming/python`; ML implemented in Python belongs in `ai/machine-learning`. AWS certification work uses `cloud/aws` with short collection names such as `dop-c02`. Goals connect related work across those homes.
+Kubernetes practice and conceptual reviews share `devops/orchestration`, with `kubernetes` as a browsing group and tool. Python language practice belongs in `programming/python`; ML implemented in Python belongs in `ai/ml`, and agent work in `ai/agentic`. AWS certification work uses `cloud/aws` with short collection names such as `dop-c02`. Goals connect related work across those homes.

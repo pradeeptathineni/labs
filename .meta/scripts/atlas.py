@@ -16,7 +16,8 @@ def load_atlas(records: list[dict], sources: dict) -> dict:
     path = catalog.ROOT / ".meta/catalog/atlas.json"
     plan = catalog.read_json(path)
     catalog.validate_document(plan, catalog.load_schema(catalog.SCHEMA_DIR / "atlas.schema.json"), "practice atlas")
-    collections = {catalog.ROOT / r["collection_path"]: catalog.collection_info(catalog.ROOT / r["collection_path"]) for r in records}
+    collections = catalog.collection_descriptors()
+    collections.update({catalog.ROOT / r["collection_path"]: catalog.collection_info(catalog.ROOT / r["collection_path"]) for r in records})
     opportunities = []
     ids = set()
     for opportunity in plan["opportunities"]:

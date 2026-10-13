@@ -39,7 +39,7 @@ GENERATION_RECEIPT = ROOT / ".meta/build/catalog-generation.json"
 SLUG_PATTERN = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
 ORDER_PATTERN = re.compile(r"([0-9]+)-([a-z0-9]+(?:-[a-z0-9]+)*)")
 LAB_DIR_PATTERN = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
-DISPLAY_NAMES = {"aws": "AWS", "azure": "Azure", "gcp": "GCP", "sql": "SQL", "devops": "DevOps", "mit": "MIT", "cka": "CKA", "ckad": "CKAD", "cks": "CKS", "ai": "AI", "mlops": "MLOps", "qgis": "QGIS", "p5js": "p5.js"}
+DISPLAY_NAMES = {"aws": "AWS", "azure": "Azure", "gcp": "GCP", "sql": "SQL", "devops": "DevOps", "mit": "MIT", "cka": "CKA", "ckad": "CKAD", "cks": "CKS", "ai": "AI", "ml": "ML", "uta": "UT Austin", "jhu": "Johns Hopkins", "mlops": "MLOps", "qgis": "QGIS", "p5js": "p5.js"}
 SUBJECT_TITLES = {
     ("cloud", "aws"): "AWS Cloud",
     ("cloud", "azure"): "Azure Cloud",
@@ -180,6 +180,54 @@ def collection_parts(parent: Path, descriptor: dict[str, Any] | None = None) -> 
     return {"niche": niche, "domain": domain, "subdomain": subdomain, "groups": ancestors, "collection": collection}
 
 
+def collection_descriptors(overrides: Mapping[Path, Any] | None = None) -> dict[Path, dict[str, Any]]:
+    """Discover explicit collections, including empty ones, outside lab contents."""
+    found = {}
+    for parent, dirs, files in os.walk(NICHES, topdown=True, followlinks=False):
+        dirs[:] = sorted(child for child in dirs if not child.startswith('.') and not (Path(parent) / child).is_symlink())
+        if "lab.json" in files:
+            dirs.clear()
+            continue
+        if "collection.json" in files:
+            path = Path(parent)
+            found[path] = collection_info(path, overrides)
+    found.update(overrides or {})
+    for path, descriptor in found.items():
+        validate_document(descriptor, load_schema(COLLECTION_SCHEMA_PATH), display_path(path / 'collection.json'))
+    return found
+
+
+def collection_record(parent: Path, sources: dict[str, Any], descriptor: dict[str, Any] | None = None) -> dict[str, Any]:
+    descriptor = collection_info(parent) if descriptor is None else descriptor
+    hierarchy = collection_parts(parent, descriptor)
+    title = descriptor.get('title') or _readme_title(parent) or display_name(hierarchy['collection'], sources)
+    record = {**hierarchy, 'collection_title': title, 'collection_path': parent.relative_to(ROOT).as_posix(),
+              'subject_title': subject_title(hierarchy['domain'], hierarchy['subdomain']),
+              'collection_breadcrumb': [display_name(hierarchy['niche']), *(display_name(group, sources) for group in hierarchy['groups']), title],
+              'collection_notes': (parent / 'README.md').relative_to(ROOT).as_posix() if (parent / 'README.md').is_file() else None,
+              'tools_effective': sorted(set(descriptor.get('tools', []))), 'goals_effective': sorted(set(descriptor.get('goals', [])))}
+    if descriptor.get('source_url'):
+        record['collection_source_url'] = safe_url(descriptor['source_url'])
+    visibility = load_repository_visibility()
+    private = [role for role, target in {'collection_source': record.get('collection_source_url'), 'collection_notes': record['collection_notes']}.items()
+               if is_private_repository_link(target, visibility)]
+    if private:
+        record['private_links'] = private
+    return record
+
+
+def collect_collections(records: list[dict[str, Any]], sources: dict[str, Any], overrides: Mapping[Path, Any] | None = None) -> list[dict[str, Any]]:
+    descriptors = collection_descriptors(overrides)
+    for item in records:
+        parent = ROOT / item['collection_path']
+        descriptors.setdefault(parent, collection_info(parent, overrides))
+    validate_collection_layout(descriptors)
+    counts = Counter(item['collection_path'] for item in records)
+    result = [dict(collection_record(parent, sources, descriptor), lab_count=counts[parent.relative_to(ROOT).as_posix()])
+              for parent, descriptor in descriptors.items()]
+    return sorted(result, key=collection_sort_key)
+
+
 def _lab_path_parts(path: Path, collection_overrides: Mapping[Path, Any] | None = None) -> tuple[dict[str, Any], str, int | None]:
     try:
         parts = path.resolve().relative_to(NICHES.resolve()).parts
@@ -304,21 +352,20 @@ def lab_record(path: Path, metadata: Any, sources: dict[str, Any], schema: dict[
         "source_display": {"name": source_record["name"], "type": source_record["type"], "url": source_record.get("url")},
     })
     descriptor = collection_info(path.parent.parent, collection_overrides)
-    record["collection_title"] = descriptor.get("title") or _readme_title(path.parent.parent) or display_name(hierarchy["collection"], sources)
-    if "source_url" in descriptor:
-        record["collection_source_url"] = descriptor["source_url"]
+    collection = collection_record(path.parent.parent, sources, descriptor)
+    record['collection_title'] = collection['collection_title']
+    if 'collection_source_url' in collection:
+        record['collection_source_url'] = collection['collection_source_url']
     for facet in ("tools", "goals"):
         record[facet + "_effective"] = sorted(set(metadata.get(facet, [])) | set(descriptor.get(facet, [])))
-    # Resolve presentation facts once so Markdown and Pages cannot disagree.
-    record["collection_path"] = path.parent.parent.relative_to(ROOT).as_posix()
-    record["subject_title"] = subject_title(hierarchy["domain"], hierarchy["subdomain"])
-    record["collection_breadcrumb"] = [display_name(hierarchy["niche"]), *(display_name(group, sources) for group in hierarchy["groups"]), record["collection_title"]]
+    for key in ('collection_path', 'subject_title', 'collection_breadcrumb'):
+        record[key] = collection[key]
     readme = path.parent / "README.md"
     record["exercise_link"] = record["path"] + "/README.md#exercise-definition" if readme.is_file() else None
     record["solution_link"] = metadata.get("links", {}).get("solution")
     if not record["solution_link"] and readme.is_file() and _readme_has_solution(readme):
         record["solution_link"] = record["path"] + "/README.md#solution"
-    record["collection_notes"] = record["collection_path"] + "/README.md" if (path.parent.parent / "README.md").is_file() else None
+    record['collection_notes'] = collection['collection_notes']
     visibility = repository_visibility if repository_visibility is not None else load_repository_visibility()
     targets = {"exercise": record["exercise_link"], "solution": record["solution_link"],
                "demo": record.get("links", {}).get("demo"), "source": source.get("url"),
@@ -347,7 +394,7 @@ def collect_labs(overrides: Mapping[Path, Any] | None = None, sources_override: 
     for path, value in (overrides or {}).items():
         by_path[path.absolute()] = value
     records = [lab_record(path, value, sources, schema, collection_overrides=collection_overrides, repository_visibility=visibility) for path, value in sorted(by_path.items())]
-    validate_collection_layout({ROOT / record["collection_path"]: collection_info(ROOT / record["collection_path"], collection_overrides) for record in records})
+    collections = collect_collections(records, sources, collection_overrides)
     source_ids: dict[tuple[str, str], str] = {}
     collection_paths: set[Path] = set()
     container_paths: set[Path] = set()
@@ -381,7 +428,7 @@ def collect_labs(overrides: Mapping[Path, Any] | None = None, sources_override: 
     conflict = collection_paths & container_paths
     if conflict:
         raise CatalogError(f"Directory is both collection and container: {display_path(sorted(conflict)[0])}")
-    overlap = {skill for item in records for skill in item["skills"]} & {tool for item in records for tool in item["tools_effective"]}
+    overlap = {skill for item in records for skill in item["skills"]} & {tool for item in [*records, *collections] for tool in item["tools_effective"]}
     if overlap:
         raise CatalogError("Tags cannot be both skills and tools: " + ", ".join(sorted(overlap)))
     records.sort(key=lambda item: (collection_sort_key(item), item["order"] or 0, item["slug"]))
@@ -442,6 +489,7 @@ def render_catalog(records: list[dict[str, Any]], sources: dict[str, Any]) -> st
     statuses = Counter(item["tracking"]["status"] for item in records)
     atlas_path = ROOT / ".meta/catalog/atlas.json"
     goals = read_json(atlas_path).get("goals", {}) if atlas_path.exists() else {}
+    collections = collect_collections(records, sources)
     lines = ["# Lab Catalog", "",
              "[Web catalog](https://pradeeptathineni.github.io/labs/) · [Practice atlas](PRACTICE-ATLAS.md) · [About this repo](README.md)" if atlas_path.exists() else "",
              "", f"**{lab_count(len(records))}:** {type_counts(records)}", "",
@@ -458,35 +506,52 @@ def render_catalog(records: list[dict[str, Any]], sources: dict[str, Any]) -> st
     lines += ["## [Browse labs](#browse-labs)", ""]
     for field, title in (("skills", "by skill"), ("tools_effective", "by tool"), ("goals_effective", "by goal")):
         lines += ["<details>", f"<summary>{title}</summary>", ""]
-        for value in sorted({value for item in records for value in item[field]}):
+        values = {value for item in records for value in item[field]}
+        if field in ('tools_effective', 'goals_effective'):
+            values.update(value for item in collections for value in item[field])
+        for value in sorted(values):
             matches = [item for item in records if value in item[field]]
-            label = goals.get(value, {}).get("title", value) if field == "goals_effective" else display_name(value)
+            label = goal_label(value, goals) if field == "goals_effective" else display_name(value)
             links = ", ".join(markdown_link(item, "exercise", item['title'], item['exercise_link']) for item in matches if item["exercise_link"])
+            if field in ('tools_effective', 'goals_effective'):
+                empty = [item for item in collections if not item['lab_count'] and value in item[field]]
+                links = ', '.join(filter(None, [links, *(f"[{_escape(' · '.join(item['collection_breadcrumb']))}]({item['collection_notes']})" if item['collection_notes'] else _escape(item['collection_title']) for item in empty)]))
             lines.append(f"- **{_escape(label)}** · {lab_count(len(matches))}: {links}")
         lines += ["", "</details>", ""]
     lines += ["<details>", "<summary>by subject</summary>", ""]
     prior_subject = None
-    for items in grouped_collections(records):
-        first = items[0]
+    groups = {items[0]['collection_path']: items for items in grouped_collections(records)}
+    for first in collections:
+        items = groups.get(first['collection_path'], [])
         subject = (first['domain'], first['subdomain'])
         if subject != prior_subject:
             lines += [f"### {_escape(first['subject_title'])}", ""]
             prior_subject = subject
         title = " · ".join(first["collection_breadcrumb"])
-        lines += ["<details>", f"<summary>{html.escape(title)} · {lab_count(len(items))}</summary>", ""]
+        suffix = ' · Planned' if not items else ''
+        lines += ["<details>", f"<summary>{html.escape(title)} · {lab_count(len(items))}{suffix}</summary>", ""]
         metadata = [f"`{first['collection_path']}`"]
         if first["collection_notes"]:
             metadata.append(markdown_link(first, "collection_notes", "notes", first['collection_notes']))
         if first.get("collection_source_url"):
             metadata.append(markdown_link(first, "collection_source", "ref", first['collection_source_url']))
+        metadata += [_escape(goal_label(value, goals)) for value in first['goals_effective']]
         lines += [" · ".join(metadata), ""]
         for item in items:
             lines += _catalog_entry(item)
+        if not items:
+            lines += ['No labs initialized yet.', '']
         lines += ["</details>", ""]
-    if not records:
+    if not collections:
         lines += ["No labs adopted yet.", ""]
     lines += ["</details>", ""]
     return "\n".join(lines).rstrip() + "\n"
+
+
+def goal_label(value: str, goals: Mapping[str, Any]) -> str:
+    goal = goals.get(value, {})
+    label = goal.get('title', value)
+    return label + ' · Certification' if goal.get('type') == 'certification' else label
 
 
 def completion_label(status: str, dates: Mapping[str, Any]) -> str | None:

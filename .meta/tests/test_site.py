@@ -8,6 +8,47 @@ from test_labs import HERE, RepositoryCase
 
 
 class SiteTests(RepositoryCase):
+    def test_empty_certification_collection_becomes_an_ordered_lab_collection(self):
+        shutil.copytree(HERE / '.meta/site', self.root / '.meta/site', ignore=shutil.ignore_patterns('__pycache__'))
+        (self.root / 'README.md').write_text('# Labs\n')
+        goal = {'type': 'certification', 'title': 'Example engineering certificate', 'issuer': 'Example School', 'url': 'https://example.com/program'}
+        (self.root / '.meta/catalog/atlas.json').write_text(json.dumps({'goals': {'example-cert': goal}, 'niche_guidance': [], 'opportunities': [], 'unresolved_sources': []}))
+        args = ('code', 'ai', 'program', '--subdomain', 'agentic', '--group', 'university', '--title', 'Engineering program', '--ordered', '--goal', 'example-cert', '--tool', 'python')
+        preview = self.command('scripts', 'collection_init.py', *args, '--dry-run')
+        self.assertEqual(preview.returncode, 0, preview.stderr)
+        parent = self.root / 'niches/code/ai/agentic/university/program'
+        self.assertFalse(parent.exists())
+        initialized = self.command('scripts', 'collection_init.py', *args, '--yes')
+        self.assertEqual(initialized.returncode, 0, initialized.stderr)
+        self.assertEqual(json.loads((self.root / '.meta/catalog/labs.json').read_text()), [])
+        self.assertIn('0 labs · Planned', (self.root / 'CATALOG.md').read_text())
+        self.assertIn('Example engineering certificate · Certification', (self.root / 'CATALOG.md').read_text())
+        self.assertEqual(self.command('scripts', 'collection_init.py', *args, '--yes').returncode, 1)
+        self.git('add', '.')
+        self.git('commit', '-qm', 'planned collection fixture')
+        built = self.command('scripts', 'build_site.py')
+        self.assertEqual(built.returncode, 0, built.stderr)
+        output = self.root / '.meta/build/pages'
+        info = json.loads((output / 'build-info.json').read_text())
+        payload = json.loads((output / info['payload']).read_text())
+        self.assertEqual(payload['labs'], [])
+        self.assertEqual(len(payload['empty_collections']), 1)
+        self.assertEqual(payload['empty_collections'][0]['goals'], ['example-cert'])
+        self.assertIn('0 labs · Planned', (output / 'index.html').read_text())
+        self.assertIn('Certification', payload['goals']['example-cert'])
+        conflict = self.command('scripts', 'collection_init.py', 'study', 'ai', 'other', '--group', 'agentic', '--title', 'Conflict', '--yes')
+        self.assertEqual(conflict.returncode, 1)
+        self.assertIn('Subject boundary conflicts', conflict.stderr)
+        lab = self.init('code', 'ai', 'program', 'First project', '--subdomain', 'agentic', '--group', 'university')
+        self.assertEqual(lab.name, '01-first-project')
+        self.assertEqual(self.command('scripts', 'build_site.py').returncode, 0)
+        info = json.loads((output / 'build-info.json').read_text())
+        payload = json.loads((output / info['payload']).read_text())
+        self.assertEqual(payload['empty_collections'], [])
+        self.assertEqual(len(payload['labs']), 1)
+        self.assertEqual(payload['labs'][0]['goals'], ['example-cert'])
+        self.assertEqual(payload['labs'][0]['tools'], ['python'])
+
     def test_private_repository_links_are_marked_in_both_views(self):
         shutil.copytree(HERE / '.meta/site', self.root / '.meta/site', ignore=shutil.ignore_patterns('__pycache__'))
         (self.root / 'README.md').write_text('# Labs\n')

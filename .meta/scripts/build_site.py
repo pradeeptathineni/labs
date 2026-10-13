@@ -55,9 +55,20 @@ def projection(records: list[dict], plan: dict, revision: str) -> dict:
         if record.get("private_links"):
             item["private_links"] = record["private_links"]
         labs.append(item)
-    labels = {key: catalog.display_name(key) for key in sorted({value for item in labs for value in [item["niche"], *item["tools"], *item["skills"]]})}
-    return {"version": 1, "source_commit": revision, "labs": labs, "labels": labels,
-            "goals": {key: value["title"] for key, value in plan["goals"].items()}, "status_labels": STATUS_LABELS}
+    empty = []
+    for record in catalog.collect_collections(records, catalog.load_sources()):
+        if record['lab_count']:
+            continue
+        item = {key: record[key] for key in ('niche', 'domain', 'subdomain', 'collection_path', 'collection_breadcrumb', 'subject_title')}
+        item.update(title=record['collection_title'], summary='', skills=[], tools=record['tools_effective'], goals=record['goals_effective'],
+                    status='not-started', order=None, collection_ref_url=record.get('collection_source_url'),
+                    collection_notes_url=github_link(record['collection_notes'], revision))
+        if record.get('private_links'):
+            item['private_links'] = record['private_links']
+        empty.append(item)
+    labels = {key: catalog.display_name(key) for key in sorted({value for item in [*labs, *empty] for value in [item["niche"], *item["tools"], *item["skills"]]})}
+    return {"version": 1, "source_commit": revision, "labs": labs, "empty_collections": empty, "labels": labels,
+            "goals": {key: catalog.goal_label(key, plan['goals']) for key in plan['goals']}, "status_labels": STATUS_LABELS}
 
 
 def e(value) -> str:
@@ -86,10 +97,12 @@ def lab_html(item: dict) -> str:
     return f'<li class="lab" data-path="{e(item["path"])}"{order}><p class="lab-heading">{link(item["exercise_url"], item["title"], "exercise" in private)} — {e(item["summary"])}</p><p class="meta">{" · ".join(details)}</p></li>'
 
 
-def grouped_html(items: list[dict]) -> str:
+def grouped_html(items: list[dict], empty: list[dict] | None = None, goals: dict | None = None) -> str:
     lines, previous = [], None
-    for group in catalog.grouped_collections(items):
-        first = group[0]
+    groups = [(group[0], group) for group in catalog.grouped_collections(items)]
+    groups.extend((item, []) for item in (empty or []))
+    groups.sort(key=lambda entry: catalog.collection_sort_key(entry[0]))
+    for first, group in groups:
         subject = (first['domain'], first['subdomain'])
         if subject != previous:
             lines.append(f'<h2>{e(first["subject_title"])}</h2>')
@@ -100,8 +113,11 @@ def grouped_html(items: list[dict]) -> str:
             metadata.append(link(first['collection_notes_url'], 'notes', 'collection_notes' in first.get('private_links', [])))
         if first['collection_ref_url']:
             metadata.append(link(first['collection_ref_url'], 'ref', 'collection_source' in first.get('private_links', [])))
+        metadata += [e((goals or {}).get(value, value)) for value in first['goals']]
         list_tag = 'ol' if first['order'] is not None else 'ul'
-        lines.append(f'<details class="collection" data-collection="{e(first["collection_path"])}"><summary>{title}<span class="count"> · {catalog.lab_count(len(group))}</span></summary><div class="collection-content"><p class="meta">{" · ".join(metadata)}</p><{list_tag} class="labs">' + ''.join(lab_html(item) for item in group) + f'</{list_tag}></div></details>')
+        planned = '' if group else ' · Planned'
+        message = '' if group else '<p>No labs initialized yet.</p>'
+        lines.append(f'<details class="collection" data-collection="{e(first["collection_path"])}"><summary>{title}<span class="count"> · {catalog.lab_count(len(group))}{planned}</span></summary><div class="collection-content"><p class="meta">{" · ".join(metadata)}</p>{message}<{list_tag} class="labs">' + ''.join(lab_html(item) for item in group) + f'</{list_tag}></div></details>')
     return '\n'.join(lines)
 
 
@@ -135,10 +151,10 @@ def build(output: Path, base_path: str = "/", release: bool = False) -> dict:
     summary += ''.join(f" · {counts[status]} {status}" for status in ('paused', 'abandoned') if counts[status])
     substitutions = {"CSS": css_name, "JS": js_name, "FAVICON": favicon_name, "DATA": data_name,
                      "SUMMARY": summary, "TYPES": e(catalog.type_counts(records)),
-                     "COMPLETE": grouped_html(completed) or '<p>No completed labs yet.</p>',
-                     "PROGRESS": grouped_html(progress) or '<p>No labs in progress yet.</p>',
+                     "COMPLETE": grouped_html(completed, goals=payload['goals']) or '<p>No completed labs yet.</p>',
+                     "PROGRESS": grouped_html(progress, goals=payload['goals']) or '<p>No labs in progress yet.</p>',
                      "COMPLETE_COUNT": catalog.lab_count(len(completed)), "PROGRESS_COUNT": catalog.lab_count(len(progress)),
-                     "WORK": grouped_html(payload['labs']) or '<p>No labs adopted yet.</p>',
+                     "WORK": grouped_html(payload['labs'], payload['empty_collections'], payload['goals']) or '<p>No labs adopted yet.</p>',
                      "LAB_COUNT": str(len(records)), "COMMIT": revision, "SHORT_COMMIT": revision[:7],
                      "BUILD_STATE": "Local preview with uncommitted changes" if dirty else "Published" if release else "Local preview",
                      "REPO": REPOSITORY}

@@ -20,7 +20,7 @@
     },
     "aws-dop-c02": {
       "type": "certification",
-      "title": "AWS Certified DevOps Engineer \u2013 Professional (DOP-C02)",
+      "title": "AWS Certified DevOps Engineer – Professional (DOP-C02)",
       "issuer": "AWS",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/devops-engineer-professional-02/devops-engineer-professional-02.html"
     },
@@ -33,17 +33,29 @@
     },
     "aws-saa-c03": {
       "type": "certification",
-      "title": "AWS Certified Solutions Architect \u2013 Associate (SAA-C03)",
+      "title": "AWS Certified Solutions Architect – Associate (SAA-C03)",
       "issuer": "AWS",
       "url": "https://aws.amazon.com/certification/certified-solutions-architect-associate/",
       "note": "Recheck current official page before claiming version alignment."
     },
     "aws-dva-c02": {
       "type": "certification",
-      "title": "AWS Certified Developer \u2013 Associate (DVA-C02)",
+      "title": "AWS Certified Developer – Associate (DVA-C02)",
       "issuer": "AWS",
       "url": "https://aws.amazon.com/certification/certified-developer-associate/",
       "note": "Recheck current official page before claiming version alignment."
+    },
+    "uta-mccombs-ai-ml": {
+      "type": "certification",
+      "title": "UT Austin McCombs AI/ML: Business Applications",
+      "issuer": "McCombs School of Business, The University of Texas at Austin",
+      "url": "https://onlineexeced.mccombs.utexas.edu/online-ai-machine-learning-course"
+    },
+    "jhu-whiting-agentic": {
+      "type": "certification",
+      "title": "Johns Hopkins Whiting AI and Agentic AI Engineering",
+      "issuer": "Whiting School of Engineering, Johns Hopkins University",
+      "url": "https://online.lifelonglearning.jhu.edu/jhu-certificate-program-ai-agentic-engineering"
     }
   },
   "niche_guidance": [
@@ -574,7 +586,7 @@
       "priority": "later",
       "adoption": "direct",
       "deliverable": "Implement a fixed-string file search with composable flags and deterministic output.",
-      "access": "Python and the track\u2019s documented pytest runner, or an Exercism account. Obtain the exact exercise tests and sample files through the source; this folder holds the personal attempt when started.",
+      "access": "Python and the track’s documented pytest runner, or an Exercism account. Obtain the exact exercise tests and sample files through the source; this folder holds the personal attempt when started.",
       "evidence_scope": "Live Python Grep instructions and supported flags inspected; suitable for file-processing automation.",
       "checked_on": "2026-10-12"
     },
@@ -658,7 +670,7 @@
       "lab_type": "challenge",
       "priority": "later",
       "adoption": "direct",
-      "access": "Hosted VM attempts; the inventory distinguishes public, email-gated and paid scenarios. Check the selected scenario\u2019s tier.",
+      "access": "Hosted VM attempts; the inventory distinguishes public, email-gated and paid scenarios. Check the selected scenario’s tier.",
       "evidence_scope": "Live scenario inventory inspected, including Linux/Bash, Docker, databases, observability and IaC categories.",
       "checked_on": "2026-10-12",
       "notes": "Strong next troubleshooting collection after the starter batch. Begin with a public scenario such as Saint John; keep restricted scenarios linked.",
@@ -682,7 +694,7 @@
       "priority": "next",
       "adoption": "direct",
       "deliverable": "Investigate client-controlled authorization and explain a server-side fix in a hosted lab.",
-      "access": "A free Academy account and the hosted lab instance; a browser and optionally Burp Suite Community Edition. Use the lab\u2019s own test accounts and target. Keep temporary credentials and session cookies out of saved notes.",
+      "access": "A free Academy account and the hosted lab instance; a browser and optionally Burp Suite Community Edition. Use the lab’s own test accounts and target. Keep temporary credentials and session cookies out of saved notes.",
       "evidence_scope": "Current official access-control lab inspected; hosted objective and client-controlled role mechanism verified from instructions.",
       "checked_on": "2026-10-12"
     },
@@ -1158,7 +1170,7 @@
       "priority": "next",
       "adoption": "direct",
       "deliverable": "Build two Azure networks, inspect security rules, and verify public and private DNS.",
-      "access": "Azure subscription with resource-creation permissions; portal and Cloud Shell. DNS and other deployed resources can incur charges. Use a dedicated resource group and remove only this attempt\u2019s resources afterward.",
+      "access": "Azure subscription with resource-creation permissions; portal and Cloud Shell. DNS and other deployed resources can incur charges. Use a dedicated resource group and remove only this attempt’s resources afterward.",
       "evidence_scope": "Official Lab 04 instructions inspected: networking, template deployment, security groups, DNS, and cleanup.",
       "checked_on": "2026-10-12"
     },
@@ -1276,7 +1288,7 @@
       "priority": "later",
       "adoption": "direct",
       "deliverable": "Handle command-line argument counts, quoting, and failure exit codes in a Bash script.",
-      "access": "Bash and the track\u2019s documented Bats runner for a local attempt, or an Exercism account. Use the linked track files for exact expected output and tests; no test or starter files are copied here.",
+      "access": "Bash and the track’s documented Bats runner for a local attempt, or an Exercism account. Use the linked track files for exact expected output and tests; no test or starter files are copied here.",
       "evidence_scope": "Live Bash exercise inspected; the task is argument validation rather than generic exception handling.",
       "checked_on": "2026-10-12"
     },
@@ -1299,7 +1311,7 @@
       "priority": "next",
       "adoption": "direct",
       "deliverable": "Manage a local Docker container through Terraform plans, state, updates, and teardown.",
-      "access": "Terraform CLI and a Docker engine. Follow the collection\u2019s Build, Change, and Destroy tutorials as one lifecycle; inspect the provider endpoint for the local engine. Keep .terraform/, state, saved plans, and credentials out of public notes.",
+      "access": "Terraform CLI and a Docker engine. Follow the collection’s Build, Change, and Destroy tutorials as one lifecycle; inspect the provider endpoint for the local engine. Keep .terraform/, state, saved plans, and credentials out of public notes.",
       "evidence_scope": "Official Docker tutorial sequence and Build/Destroy pages inspected; local practice avoids a cloud account.",
       "checked_on": "2026-10-12"
     },
@@ -1321,7 +1333,7 @@
       "priority": "next",
       "adoption": "direct",
       "deliverable": "Join three relational tables and verify duplicate handling, projection, and result ordering.",
-      "access": "The free browser query runner is enough. A local PostgreSQL setup is optional; inspect dataset terms before retaining the sample database. Keep the source\u2019s published answer hidden until after the attempt.",
+      "access": "The free browser query runner is enough. A local PostgreSQL setup is optional; inspect dataset terms before retaining the sample database. Keep the source’s published answer hidden until after the attempt.",
       "evidence_scope": "Live three-table join problem, schema reminder, expected results and query runner inspected.",
       "checked_on": "2026-10-12"
     },
@@ -1368,7 +1380,7 @@
       "access": "Python notebook environment and a supported model endpoint; credentials and inference costs depend on the selected lesson.",
       "evidence_scope": "Official curriculum and lesson 04 assignment inspected: executable notebook exercises exist.",
       "checked_on": "2026-10-12",
-      "notes": "Fits the profile\u2019s AI evaluation and EdTech interests. Add fixed examples and a baseline before claiming improvements; verify current SDK and endpoint setup."
+      "notes": "Fits the profile’s AI evaluation and EdTech interests. Add fixed examples and a baseline before claiming improvements; verify current SDK and endpoint setup."
     },
     {
       "id": "gcp-data-training",

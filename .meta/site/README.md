@@ -2,6 +2,8 @@
 
 One static page with four expandable sections: Completed, In progress, Browse labs, and All labs. Browse offers skill, tool, goal and subject choices with a searchable selector. Collections start collapsed. Search, filtering and sorting work in the browser. Exercises, solutions and the practice atlas link to GitHub. Aptos is used where installed, with system fallbacks; no external fonts or frontend framework.
 
+Explicit empty collections appear in All labs as `0 labs · Planned`, with their notes, source, and inherited goals. They stay searchable and filterable without increasing lab counts. Certification goals display their readable credential title and Certification label. Completed and In progress contain actual labs only.
+
 ## Preview
 
 ```bash

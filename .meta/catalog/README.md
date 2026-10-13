@@ -6,6 +6,8 @@ A source record has a name and one of `external`, `organization`, or `local`. Ex
 
 A collection may have `collection.json` with a display title, a collection-level `source_url`, `ordered: true`, or shared goals. Its title names the collection itself; the catalog supplies subject and niche context. Without `ordered: true`, numeric-looking lab names are ordinary slugs. Ordered collections require unique positive prefixes and append after the highest number.
 
+`collection_init.py` creates that descriptor independently of a lab. Explicit empty collections are validated by the same hierarchy rules and shown as Planned with zero labs. They never create synthetic lab records, completion dates, or accomplishments. Certification goals belong in the shared goal registry and are inherited from the actual collection descriptor. Their readable title and Certification label appear in both catalogs, including when the collection is empty.
+
 `has_subdomain: true` in that same descriptor declares that the directory immediately after the domain is a subject specialization. With no declaration, only the domain identifies the subject. Every remaining directory before the collection is a grouping, at any depth. This distinguishes `systems/mit/course-abc` from `systems/distributed/mit/course-abc` without guessing what a provider name means. Conflicting interpretations of a domain/subdomain across niches are rejected.
 
 The generated records expose `subdomain` as a name or null and `groups` as an ordered list, alongside the other path-derived fields. No copy of a subject name is maintained in a lab or descriptor. Only the boundary is declared.

@@ -14,7 +14,8 @@
       return [node.dataset.collection, template];
     }));
     if (data.version !== 1 || data.labs.some((item) => !entries.has(item.path))) throw new Error("Snapshot mismatch");
-    const values = (item, key) => key === "subject" ? [item.domain + (item.subdomain ? "/" + item.subdomain : "")] : key === "skill" ? item.skills : key === "tool" ? item.tools : key === "goal" ? item.goals : [item[key]];
+    const emptyCollections = data.empty_collections || [];
+    const values = (item, key) => key === "subject" ? [item.domain + (item.subdomain ? "/" + item.subdomain : "")] : key === "skill" ? item.skills : key === "tool" ? item.tools : key === "goal" ? item.goals : item[key] === undefined ? [] : [item[key]];
     const label = (key, value, item) => key === "subject" ? item.subject_title : key === "provider" ? item.source_name : key === "status" ? data.status_labels[value] : key === "goal" ? data.goals[value] || value : data.labels[value] || value;
     const choices = {};
     for (const [key, title] of Object.entries(fields)) {
@@ -22,6 +23,9 @@
       data.labs.forEach((item) => values(item, key).forEach((value) => {
         const option = options.get(value) || {value, title: label(key, value, item), count: 0};
         option.count++; options.set(value, option);
+      }));
+      emptyCollections.forEach((item) => values(item, key).forEach((value) => {
+        if (!options.has(value)) options.set(value, {value, title: label(key, value, item), count: 0});
       }));
       choices[key] = [...options.values()].sort((a, b) => a.title.localeCompare(b.title, "en"));
       const group = create("optgroup"); group.label = title;
@@ -53,25 +57,33 @@
 
       $("search").value = state.q; $("sort").value = state.sort;
       $("filter").value = state.filters.length === 1 ? JSON.stringify(state.filters[0]) : "";
-      const selected = data.labs.filter((item) => (!state.lab || item.path === state.lab) && Object.keys(fields).every((key) => {
+      const matches = (item) => (!state.lab || item.path === state.lab) && Object.keys(fields).every((key) => {
         const wanted = state.filters.filter(([facet]) => facet === key).map(([, value]) => value);
         return !wanted.length || wanted.some((value) => values(item, key).includes(value));
-      }) && state.q.toLowerCase().split(/\s+/).every((word) => [item.title, item.summary, item.path, item.subject_title, item.source_name, ...item.collection_breadcrumb, ...item.tags, ...item.goals.map((goal) => data.goals[goal] || goal)].join(" ").toLowerCase().includes(word)));
+      }) && state.q.toLowerCase().split(/\s+/).every((word) => [item.title, item.summary, item.path, item.subject_title, item.source_name, ...item.collection_breadcrumb, ...(item.tags || []), ...item.tools, ...item.goals.map((goal) => data.goals[goal] || goal)].join(" ").toLowerCase().includes(word));
+      const selected = data.labs.filter(matches);
+      const selectedEmpty = emptyCollections.filter(matches);
       const active = state.filters.map(([key, value]) => `${fields[key]}: ${choices[key].find((option) => option.value === value)?.title || value}`);
       if (state.lab) active.push(data.labs.find((item) => item.path === state.lab)?.title || "Unknown lab");
       $("result-count").textContent = `${selected.length} of ${data.labs.length} labs` + (active.length ? " · " + active.join("; ") : "");
-      $("empty-state").hidden = selected.length !== 0;
+      $("empty-state").hidden = selected.length !== 0 || selectedEmpty.length !== 0;
       const opened = new Set([...$("work-results").querySelectorAll('.collection[open]')].map((node) => node.dataset.collection));
       const groups = new Map();
       // Filtering preserves the catalog's path order across niches.
       selected.forEach((item) => { if (!groups.has(item.collection_path)) groups.set(item.collection_path, []); groups.get(item.collection_path).push(item); });
+      selectedEmpty.forEach((item) => groups.set(item.collection_path, []));
       $("work-results").replaceChildren();
       let subject;
-      for (const group of groups.values()) {
-        const first = group[0], key = first.domain + "/" + (first.subdomain || "");
+      const firstFor = ([path, group]) => group[0] || selectedEmpty.find((item) => item.collection_path === path);
+      const sortedGroups = [...groups.entries()].sort((a, b) => {
+        const key = (entry) => { const item = firstFor(entry); return [item.domain, item.subdomain || '', ...item.collection_path.split('/').slice(2), item.niche].join('\0'); };
+        return key(a) < key(b) ? -1 : key(a) > key(b) ? 1 : 0;
+      });
+      for (const entry of sortedGroups) {
+        const group = entry[1], first = firstFor(entry), key = first.domain + "/" + (first.subdomain || "");
         if (key !== subject) { $("work-results").append(create("h2", first.subject_title)); subject = key; }
         const collection = collections.get(first.collection_path).cloneNode(true);
-        collection.querySelector('.count').textContent = ` · ${count(group.length)}`;
+        collection.querySelector('.count').textContent = ` · ${count(group.length)}` + (group.length ? '' : ' · Planned');
         collection.open = Boolean(state.lab) || opened.has(first.collection_path);
         if (state.sort !== 'order') group.sort((a, b) => (state.sort === "updated" ? b.dates.updated.localeCompare(a.dates.updated) : 0) || a.title.localeCompare(b.title, "en") || a.path.localeCompare(b.path, "en"));
         group.forEach((item) => collection.querySelector('.labs').append(entries.get(item.path).cloneNode(true)));

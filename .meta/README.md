@@ -6,7 +6,7 @@ Install the generic dependency with `python3 -m pip install -r .meta/requirement
 
 For a normal lab session, choose an existing lab and explicitly mark it `in-progress`. Add your work and reasoning under its Solution or link to your implementation. Mark it `complete` when you consider the attempt finished; editing files alone never changes status. Stage the intended files, commit, then push. The hook records content changes and refreshes the catalog; relevant pushes to main update the [web catalog](https://pradeeptathineni.github.io/labs/).
 
-Keep upstream snapshots under `source/` separate from your work. Edit lab and collection metadata through the commands below; generated catalogs are outputs. The atlas lists options to adopt, while the catalog lists actual labs. [Site preview and publishing](site/README.md) are separate from doing a lab.
+Keep upstream snapshots under `source/` separate from your work. Edit lab and collection metadata through the commands below; generated catalogs are outputs. The atlas lists options to adopt. The catalog lists actual labs and explicitly initialized collections. [Site preview and publishing](site/README.md) are separate from doing a lab.
 
 ## A lab from creation to publication
 
@@ -85,6 +85,23 @@ Use repeated `--tool` flags when creating or editing a lab; `--clear-tools` remo
 An optional `collection.json` can name a collection, link its source with `source_url`, mark `has_subdomain: true`, and set `ordered: true`. The initializer records `has_subdomain` automatically when `--subdomain` is used, including it in the preview before writing. Without that declaration, the domain is the whole subject and all intermediate folders are collection groupings. The same domain/subdomain boundary must be used consistently across niches. A directory cannot both contain labs as a collection and contain other collections.
 
 Only an explicitly ordered collection interprets a numeric folder prefix as order. The initializer appends after the highest existing number and leaves gaps alone; creating a descriptor never overwrites a collection README. Names and hierarchy stay out of individual `lab.json` files.
+
+## Initialize a collection
+
+Initialize a collection when I have chosen a program or body of work, even if its first assignment is not available. A researched option still belongs in the atlas. Use the same niche, subject, and groupings as lab initialization:
+
+```bash
+python3 .meta/scripts/collection_init.py code ai agentic --subdomain agentic --group jhu --group whiting --title "AI and Agentic AI Engineering" --source-url https://online.lifelonglearning.jhu.edu/jhu-certificate-program-ai-agentic-engineering --ordered --goal jhu-whiting-agentic --dry-run
+# Replace --dry-run with --yes to create the collection.
+```
+
+The command validates the whole hierarchy and creates `collection.json` and a minimal README. It preserves an existing README and refuses to overwrite a descriptor. Add a short description, the program link, and known dates to the collection README. Then use `lab_init.py` with the same hierarchy for each actual assignment; the first ordered lab gets `01`.
+
+An initialized collection with no labs appears as `0 labs · Planned`. Emptiness supplies that label; there is no separate collection lifecycle or placeholder lab. It does not increase lab counts or appear under Completed or In progress. Once a lab is added, its actual status drives those sections. Empty collections remain findable by subject, inherited tools, and goals.
+
+For a certificate program, define its goal once in `.meta/catalog/atlas.json` with `type: certification`, a readable credential title, issuer, and original program URL. Put that goal on the collection descriptor so every project inherits it. Catalogs label it Certification; completing a project does not claim that the credential has been awarded.
+
+For linked course work, keep the full-code master notebook as the exercise reference and the full-code solution notebook as the Solution link. Link the HTML export in the Solution notes for download. Summarize the task, actual saved results, lessons, and possible applications in the four lab sections. Preserve curriculum order, including additional assignments. Use a known submission date for completion; when backfilling from a deadline or file date, explain the basis and distinguish estimates from recorded dates. Do not invent a solution, results, or personal lessons when the implementation is missing.
 
 ## Record staged content
 
